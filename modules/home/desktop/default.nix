@@ -1,0 +1,73 @@
+{ lib
+, config
+, pkgs
+, inputs
+, ...
+}:
+let
+  cfg = config.kor.preset.desktop;
+
+  app2unit = pkgs.writeShellScriptBin "app2unit" (builtins.fetchurl "https://raw.githubusercontent.com/Vladimir-csp/app2unit/refs/heads/master/app2unit");
+in
+{
+  imports = [
+    ./hyprland
+    ./apps
+    ./gtk.nix
+    ./waybar
+  ];
+
+  options.kor.preset.desktop = with lib; {
+    enable = mkEnableOption "desktop preset";
+  };
+
+  config = lib.mkIf (cfg.enable) {
+    programs.starship.enable = true;
+    services.mako = {
+      enable = true; # conflicts with hyprpanel/ags notif service
+      # font = "Iosevka Nerd Font 12";
+      width = 256;
+      height = 500;
+      margin = "10";
+      padding = "5";
+      borderSize = 3;
+      borderRadius = 3;
+      # backgroundColor = "#3A4353";
+      # borderColor = "#c0caf5";
+      # progressColor = "over #3B4252";
+      # textColor = "#FAF4FC";
+      defaultTimeout = 5000;
+      extraConfig = ''
+        text-alignment=center
+        [urgency=high]
+        border-color=#B45C65
+      '';
+    };
+
+    # hm sets up a similar service already
+    # systemd.user.services.mako = {
+    # Unit = {
+    #   Description = "Wayland notification daemon";
+    #   Documentation = ["man:mako(1)"];
+    #   PartOf = [ "graphical-session.target" ];
+    #   After = [ "graphical-session.target" ];
+    # };
+    # Service = {
+    #   Type = "dbus";
+    #   BusName = "org.freedesktop.Notifications";
+    #   ExecCondition = "/usr/bin/env sh -c '[ -n \"$WAYLAND_DISPLAY\" ]'";
+    #   ExecStart = "/usr/bin/env mako";
+    #   ExecReload = "/usr/bin/env makoctl reload";
+    #  };
+    # Install.WantedBy = [ "graphical-session.target" ];
+    # };
+
+    home.packages = with pkgs; [
+      wl-clipboard
+      wev
+      app2unit
+      # eglinfo
+      glxinfo
+    ];
+  };
+}

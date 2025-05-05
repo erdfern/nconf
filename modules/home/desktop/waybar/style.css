@@ -1,0 +1,110 @@
+* {
+  font-family: FantasqueSansMono Nerd Font;
+  font-size: 17px;
+  min-height: 0;
+}
+
+#waybar {
+  /* background: transparent; */
+  /* background: @surface0; */
+  background: @base;
+  color: @text;
+  margin: 5px 5px;
+}
+
+#workspaces {
+  background-color: @surface0;
+  margin: 5px 0;
+  border-radius: 0.5rem;
+  /* margin-left: 1rem; */
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+}
+
+/* left */
+#idle_inhibitor,
+#wireplumber,
+#backlight {
+  padding: 0 0.5rem;
+  margin: 5px 0;
+}
+
+/* center */
+#clock {
+  color: @blue;
+  /* border-radius: 0 1rem 1rem 0; */
+  /* margin-right: 1rem; */
+  margin: 5px 5px;
+}
+
+/* right */
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#tray {
+  /* background-color: @surface0; */
+  padding: 0 0.5rem;
+  margin: 5px 0;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#backlight, #battery {
+    border-radius: 0;
+}
+
+#wireplumber {
+  color: @flamingo;
+  /* border-radius: 1rem 0px 0px 1rem; */
+  /* margin-left: 1rem; */
+}
+
+#temperature {
+  color: @mauve;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#idle_inhibitor {
+  color: @rosewater;
+  -gtk-icon-effect: dim;
+}
+
+#idle_inhibitor.activated { color: @peach; }
+
+/* #tray { 
+  margin-right: 1rem;
+  border-radius: 1rem;
+} */

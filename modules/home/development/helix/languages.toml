@@ -1,0 +1,137 @@
+[[language]]
+name = "haskell"
+roots = ["Setup.hs", "stack.yaml", "*.cabal"]
+auto-format = true
+
+[language-server.haskell-language-server] # hls config docs: https://haskell-language-server.readthedocs.io/en/latest/configuration.html#example-with-settings
+config.haskell.formattingProvider = "ormolu" # default is "ormolu"
+# config.haskell.checkParents = "NeverCheck" # default is "OnSave"
+
+[[language]]
+name = "nix"
+formatter = { command = "nixpkgs-fmt" }
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+[language-server.texlab.config.texlab.build]
+onSave = true
+
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "standard" # off | basic | standard | strict
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
+
+# -- JS/TS and other web stuff
+[[language]]
+name = "javascript"
+shebangs = ["deno", "node" ]
+roots = ["deno.json", "deno.jsonc", "package.json"]
+# file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".js"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+shebangs = ["deno", "bun", "ts-node"]
+roots = ["deno.json", "deno.jsonc", "package.json", "tsconfig.json"]
+# file-types = ["ts", "mts", "cts"]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".ts"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+shebangs = ["deno"]
+roots = ["deno.json", "deno.jsonc", "package.json"]
+# file-types = ["jsx"]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".jsx"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+shebangs = ["deno"]
+roots = ["deno.json", "deno.jsonc"]
+# file-types = ["tsx"]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".tsx"] }
+auto-format = true
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+environment = { NO_COLOR = "1" }
+
+[language-server.deno-lsp.config.deno]
+enable = true
+# Uncomment to enable completion of unstable features of Deno
+# unstable = true
+# Uncomment to cache dependencies on save
+# cacheOnSave = true
+# Enable completion of importing from registries
+# suggest = { imports = { hosts = { "https://deno.land" = true, "https://crux.land" = true, "https://x.nest.land" = true } } }
+# Enable completion of function calls
+suggest = { completeFunctionCalls = false, imports = { hosts = { "https://deno.land" = true } } }
+# Uncomment to enable inlay hints
+# inlayHints.parameterNames.enabled = "all"
+# inlayHints.parameterTypes.enabled = true
+# inlayHints.variableTypes.enabled = true
+# inlayHints.propertyDeclarationTypes.enabled  = true
+# inlayHints.functionLikeReturnTypes.enabled = true
+# inlayHints.enumMemberValues.enabled = true
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "tailwindcss-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "tailwindcss-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+
+[[language]]
+name = "svelte"
+language-servers = [ {name = "tailwindcss-ls", except-features = ["hover"]}, "svelteserver"]
+roots = ["svelte.config.js", "svelte.config.ts", "package.json"]
+formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-svelte", "--parser", "svelte"] }
+auto-format = true
+# kind of a hack, since single line will only work in <script>, and block will only work in template
+# TODO remove when support for syntax context get's merged
+comment-tokens = ["//"]
+block-comment-tokens = {start = "<!--", end = "--->"}
+# /---/
+
+[[language]]
+name = "zig"
+language-servers = [ "zls" ]
+roots = [ "build.zig", "build.zig.zon" ]
+
+[language-server.zls]
+command = "zls"
+
