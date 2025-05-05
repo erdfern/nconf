@@ -27,6 +27,19 @@
       elvish
     ];
 
+    programs.atuin = {
+      enable = true;
+      settings = {
+        auto_sync = false;
+        sync_frequency = "5m";
+        sync_address = "https://api.atuin.sh";
+        search_mode = "fuzzy";
+
+        # session_path = config.age.secrets."atuin_session".path;
+        # key_path = config.age.secrets."atuin_key".path;
+      };
+    };
+
     programs = {
       git-cliff.enable = true;
       git = {
