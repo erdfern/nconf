@@ -37,13 +37,17 @@ in
       # progressColor = "over #3B4252";
       # textColor = "#FAF4FC";
       defaultTimeout = 5000;
-      settings = ''
-        {
-         text-alignment=center
-         [urgency=critical]
-         border-color=#B45C65
-        }
-      '';
+      settings = {
+        text-alignment = "center";
+        criteria."urgency=critical".border-color = "#B45C65";
+      };
+      # ''
+      #   {
+      #    text-alignment=center
+      #    [urgency=critical]
+      #    border-color=#B45C65
+      #   }
+      # '';
     };
 
     # hm sets up a similar service already
