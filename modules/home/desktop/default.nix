@@ -40,7 +40,7 @@ in
       defaultTimeout = 5000;
       settings = {
         text-alignment = "center";
-        criteria."urgency=critical".border-color = "#B45C65";
+        # criteria."urgency=critical".border-color = "#B45C65";
       };
       # ''
       #   {
