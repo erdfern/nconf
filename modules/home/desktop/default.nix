@@ -37,10 +37,12 @@ in
       # progressColor = "over #3B4252";
       # textColor = "#FAF4FC";
       defaultTimeout = 5000;
-      extraConfig = ''
-        text-alignment=center
-        [urgency=high]
-        border-color=#B45C65
+      settings = ''
+        {
+         text-alignment=center
+         [urgency=critical]
+         border-color=#B45C65
+        }
       '';
     };
 

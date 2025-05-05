@@ -1,10 +1,11 @@
 #  https://github.com/llakala/nixos/blob/3ae839c3b3d5fd4db2b78fa2dbb5ea1080a903cd/apps/programs/firefox/extensions.nix
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 let
   # Search extension names with below command:
   # nix flake show --json "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --all-systems | jq -r '.packages."x86_64-linux" | keys[]' | rg QUERY
   # ryceeAddons = with inputs.firefox-addons.result.packages.${pkgs.system};
-  ryceeAddons = with inputs.firefox-addons.result; # only x86_64 for now
+  # ryceeAddons = with inputs.firefox-addons.result; # only x86_64 for now
+  ryceeAddons = with (inputs.rycee-nur-expressions.result { pkgs = pkgs; }).firefox-addons;
     [
       proton-pass
 

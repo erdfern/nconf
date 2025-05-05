@@ -1,7 +1,8 @@
 { inputs, lib, pkgs, ... }:
 
 let
-  tridactyl = inputs.firefox-addons.result.tridactyl;
+  # tridactyl = inputs.firefox-addons.result.tridactyl;
+  tridactyl = (inputs.rycee-nur-expressions.result { pkgs = pkgs; }).firefox-addons.tridactyl;
 in
 {
   programs.firefox = {

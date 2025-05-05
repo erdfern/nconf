@@ -42,14 +42,18 @@ nilla.create ({ config }:
       lix-src.loader = "raw";
 
       # uhm... there has to be a cleaner way, but idk, this works fine for now.
-      firefox-addons.loader = "legacy";
-      firefox-addons.settings.target = "pkgs/firefox-addons/default.nix";
-      firefox-addons.settings.args =
-        let
-          pkgs = config.inputs.nixpkgs.result."x86_64-linux"; # obv only works on one system, but i realistically won't be running firefox on arm or smth
-        in
-        { fetchurl = pkgs.fetchurl; lib = pkgs.lib; stdenv = pkgs.stdenv; };
-
+      rycee-nur-expressions.loader = "legacy";
+      # only downloading the tar for the addons dir is nice, but seems to create hash mismatches:
+      # "type": "Tarball",
+      # "url": "https://gitlab.com/rycee/nur-expressions/-/archive/master/nur-expressions-master.tar?path=pkgs/firefox-addons",
+      # soo, i'll use the whole repo for now
+      # firefox-addons.loader = "legacy";
+      # firefox-addons.settings.target = "pkgs/firefox-addons/default.nix";
+      # firefox-addons.settings.args =
+      #   let
+      #     pkgs = config.inputs.nixpkgs.result."x86_64-linux"; # obv only works on one system, but i realistically won't be running firefox on arm or smth
+      #   in
+      #   { fetchurl = pkgs.fetchurl; lib = pkgs.lib; stdenv = pkgs.stdenv; };
     };
 
     ###########
