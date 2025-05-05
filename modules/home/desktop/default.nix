@@ -32,13 +32,13 @@ in
       # progressColor = "over #3B4252";
       # textColor = "#FAF4FC";
       settings = {
-        defaultTimeout = 5000;
+        default-timeout = 5000;
         width = 256;
         height = 500;
         margin = "10";
         padding = "5";
-        borderSize = 3;
-        borderRadius = 3;
+        border-size = 3;
+        border-radius = 3;
         text-alignment = "center";
         # criteria."urgency=critical".border-color = "#B45C65";
       };
