@@ -2,8 +2,10 @@
 , inputs
 , ...
 }: {
+  imports = [ ./batcheck.nix ];
   kor.preset.desktop.enable = true;
   kor.preset.desktop.hyprland.enable = true;
+  kor.preset.desktop.apps.firefox.enable = true;
 
   home.file.".config/uwsm/env-hyprland" = {
     text = ''
@@ -19,8 +21,6 @@
       export LIBVA_DRIVER_NAME=iHD
     '';
   };
-
-  kor.preset.desktop.apps.firefox.enable = true;
 
   home.packages = with pkgs; [
     npins
