@@ -8,7 +8,7 @@ let
 
     # --- Configuration ---
     BATTERY_PATH=${battery_path}
-    LOW_THRESHOLD="15" # Percentage threshold
+    LOW_THRESHOLD="15"
     # --- ############ ---
 
     # if [ ! -f "$BATTERY_PATH" ]; then
@@ -18,8 +18,6 @@ let
     # fi
 
     CAPACITY=$(cat "$BATTERY_PATH")
-
-    notify-send "hi -u critical ''${CAPACITY}"
 
     if ! [[ "$CAPACITY" =~ ^[0-9]+$ ]]; then
         echo "Error: Invalid capacity value read: $CAPACITY" >&2
