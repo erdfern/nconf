@@ -10,8 +10,8 @@
   boot.loader.grub = {
     enable = true;
     zfsSupport = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
+    efiSupport = false;
+    # efiInstallAsRemovable = true;
   };
 
   # or per openzfs
