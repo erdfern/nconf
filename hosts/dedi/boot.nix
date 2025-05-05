@@ -9,14 +9,14 @@
   boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.grub = {
     enable = true;
-    # zfsSupport = true;
+    zfsSupport = true;
     efiSupport = false;
     # efiInstallAsRemovable = true;
   };
 
   # or per openzfs
-  # boot.supportedFilesystems = [ "zfs" ];
-  # boot.zfs.forceImportRoot = false;
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
   # generated via
   # head -c4 /dev/urandom | od -A none -t x4
   networking.hostId = "5060d0a1";
