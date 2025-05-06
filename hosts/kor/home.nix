@@ -12,7 +12,8 @@
       export DUMMY=42
       export HYPRLAND_TRACE=1
       export AQ_TRACE=1
-      export AQ_DRM_DEVICES=/run/amd-igpu
+      # export AQ_DRM_DEVICES=/run/amd-igpu
+      export AQ_DRM_DEVICES=/run/nvidia-gpu
 
       export GDK_BACKEND=wayland,x11,*
       export QT_QPA_PLATFORM=wayland;xcb
