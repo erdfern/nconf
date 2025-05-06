@@ -1,18 +1,5 @@
 {
   "pins": {
-    "rycee-nur-expressions": {
-      "type": "Git",
-      "repository": {
-        "type": "GitLab",
-        "repo_path": "rycee/nur-expressions",
-        "server": "https://gitlab.com/"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "14c779b4ff24742307127970549ac9a51de3f98a",
-      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=14c779b4ff24742307127970549ac9a51de3f98a",
-      "hash": "1hkin3rl4hk7anw5rd1bhb3wpjcxa1cai1qyga1nig2xy6jj262n"
-    },
     "catppuccin-nix": {
       "type": "Git",
       "repository": {
@@ -64,9 +51,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "a4bb30a9000cf0444ecc8fdca8096d072f77f9e8",
-      "url": "https://github.com/nixos/nixos-hardware/archive/a4bb30a9000cf0444ecc8fdca8096d072f77f9e8.tar.gz",
-      "hash": "0n7vzwdlc36bq8y7fm2cfnj8sgh5gkn70ajvh8mxf18xkcdpmxia"
+      "revision": "6aabf68429c0a414221d1790945babfb6a0bd068",
+      "url": "https://github.com/nixos/nixos-hardware/archive/6aabf68429c0a414221d1790945babfb6a0bd068.tar.gz",
+      "hash": "1xydjxa5wpx707ac15028bjiy5cy4v6q3zqmyamh29ycpfb948w5"
     },
     "home-manager": {
       "type": "Git",
@@ -90,9 +77,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1c530cbc66dbff585d55e435efd5e6a6e5614f88",
-      "url": "https://github.com/hyprwm/Hyprland/archive/1c530cbc66dbff585d55e435efd5e6a6e5614f88.tar.gz",
-      "hash": "006flx7i79hdivhsf9jwdrcdmishpa5qhpnn1c4k93rh0w7mz9z4"
+      "revision": "708a7c24ef2c137c04c2473ee6b3f841ed5a1d8b",
+      "url": "https://github.com/hyprwm/Hyprland/archive/708a7c24ef2c137c04c2473ee6b3f841ed5a1d8b.tar.gz",
+      "hash": "19xh9d2mhddhafsnh9b1ff3zy152pfwcd8s4whryy9ls181aa9r4"
     },
     "hyprpanel": {
       "type": "Git",
@@ -140,9 +127,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "ca8d738df4e68a5d95efb1aa10b89d9644d5fdd9",
+      "revision": "dbdf7c76e6309efe546269d18e6cd94f8ca9fa6b",
       "url": null,
-      "hash": "11rggaaj19n1kn7g5pnkmk78r4hy0d0smahl9p0pdws02aapma29"
+      "hash": "0lqnk0h9swn04p9xkpic5b8x5837nc0qhc48q0n040v01qs5kyyf"
     },
     "nilla": {
       "type": "Git",
@@ -247,6 +234,19 @@
       "revision": "4d194d838a50ea106cd0e47c024e47afc154ab42",
       "url": "https://github.com/viperML/noshell/archive/4d194d838a50ea106cd0e47c024e47afc154ab42.tar.gz",
       "hash": "1x2d9j6ndihypq985s0610q1l878v6v6k6lg9mm9d46qfjz23wil"
+    },
+    "rycee-nur-expressions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "rycee/nur-expressions",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "31d3a915a1441afc3fdf98fd287be3616f416508",
+      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=31d3a915a1441afc3fdf98fd287be3616f416508",
+      "hash": "1l6vmnz2x7cpghq38ryx9830kz32ydg4lcij423x2ygx3zcqsy0w"
     }
   },
   "version": 5
