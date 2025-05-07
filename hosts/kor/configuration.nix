@@ -62,7 +62,7 @@
 
   systemd.tmpfiles.rules = [
     "L+ /run/nvidia-gpu - - - - /dev/dri/by-path/pci-0000:01:00.0-card"
-    "L+ /run/amd-igpu - - - - /dev/dri/by-path/pci-0000:10:00.0-card"
+    # "L+ /run/amd-igpu - - - - /dev/dri/by-path/pci-0000:10:00.0-card"
   ];
 
   # environment.variables = {
