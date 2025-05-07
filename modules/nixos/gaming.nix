@@ -9,13 +9,13 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.steam = {
-      enable = true;
+      enable = false;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
 
       # extest.enable = true; # translate x11 input event to uinput (for steam input on wayland?)
-      protontricks.enable = true;
+      # protontricks.enable = true;
 
       extraCompatPackages = [ pkgs.proton-ge-bin ];
 
