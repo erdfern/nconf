@@ -67,6 +67,16 @@
         options.ashift = "12";
 
         datasets = {
+          # nixos-anywhere currently has issues with impermanence so agenix keys are lost during the install process.
+          # as such we give /etc/ssh its own zfs dataset rather than using impermanence to save the keys when we wipe the root directory on boot
+          # not needed if you don't use agenix or don't use nixos-anywhere to install
+          etcssh = {
+            type = "zfs_fs";
+            options.mountpoint = "legacy";
+            mountpoint = "/etc/ssh";
+            options."com.sun:auto-snapshot" = "false";
+            postCreateHook = "zfs snapshot zroot/etcssh@empty";
+          };
           "local" = {
             type = "zfs_fs";
             options.mountpoint = "none";
