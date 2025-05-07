@@ -6,20 +6,24 @@
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
 
   # zfs support per nixos wiki
-  boot.loader.systemd-boot.enable = lib.mkForce false;
+  # boot.loader.systemd-boot.enable = lib.mkForce false;
   boot.loader.grub = {
     enable = true;
     zfsSupport = true;
-    efiSupport = false;
-    # efiInstallAsRemovable = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    # mirroredBoots = [ «thunk» «thunk» ];
   };
 
   # or per openzfs
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
+  # boot.supportedFilesystems = [ "zfs" ];
+  # boot.zfs.forceImportRoot = false;
+
   # generated via
   # head -c4 /dev/urandom | od -A none -t x4
-  networking.hostId = "5060d0a1";
+  # or
+  # head -c 8 /etc/machine-id on host
+  networking.hostId = "e1ce6466";
 
   # services.zfs = {
   #   autoScrub = {
