@@ -26,6 +26,7 @@ in
 
     # enable graphics support
     hardware.graphics.enable = true;
+    hardware.graphics.enable32Bit = true;
 
     # enable wifi and bluetooth support
     networking.networkmanager.enable = true;
@@ -48,6 +49,9 @@ in
 
       withUWSM = true; # means that home.wayland.windowManager.hyprland.systemd.enable should be false
     };
+    # sync mesa version with hyprlands
+    hardware.graphics.package = inputs.hyprland.result.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
+    hardware.graphics.package32 = inputs.hyprland.result.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.pkgsi686Linux.mesa;
 
     environment.systemPackages = map lib.lowPrio [
       pkgs.kitty
