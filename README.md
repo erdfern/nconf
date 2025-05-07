@@ -18,7 +18,7 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko/
 ### Install system:
 
 ```sh
-nixos-install -f nilla.nix -A systems.nixos.<name>.result
+nixos-install --no-root-passwd --no-channel-copy -f nilla.nix -A systems.nixos.<name>.result
 ```
 
 ```sh

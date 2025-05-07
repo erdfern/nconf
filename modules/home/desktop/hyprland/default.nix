@@ -61,6 +61,11 @@ in
         export ELECTRON_OZONE_PLATFORM_HINT="auto"
         export GRIMBLAST_HIDE_CURSOR=0
         export XCURSOR_SIZE=24
+
+        export GDK_BACKEND=wayland,x11,*
+        export QT_QPA_PLATFORM=wayland;xcb
+        export SDL_VIDEODRIVER=wayland
+        export CLUTTER_BACKEND=wayland
       '';
     };
     # home.file.".config/uwsm/env-hyprland" = {
