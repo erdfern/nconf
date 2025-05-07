@@ -21,8 +21,8 @@
 
   services.openssh = {
     enable = true;
-    ports = [ 5678 2222 ];
-    # settings.PermitRootLogin = "prohibit-password";
+    # ports = [ 5678 2222 ];
+    settings.PermitRootLogin = "prohibit-password";
   };
 
   # NOTE this is redundant

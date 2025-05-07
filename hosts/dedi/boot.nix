@@ -1,6 +1,13 @@
+# TODO https://yomaq.github.io/posts/zfs-encryption-backups-and-convenience
 { lib, pkgs, ... }:
 {
-  kor.boot.enable = lib.mkForce false;
+  kor.boot.enable = lib.mkForce false; # TODO make boot module configurable
+
+  # generated via
+  # head -c4 /dev/urandom | od -A none -t x4
+  # or
+  # head -c 8 /etc/machine-id on host
+  networking.hostId = "e1ce6466";
 
   # need to use older kernel, since zfs package is marked broken for newer versions...
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
@@ -15,24 +22,20 @@
     # mirroredBoots = [ «thunk» «thunk» ];
   };
 
+  boot.supportedFilesystems = [ "zfs" "vfat" ];
+  # boot.zfs.forceImportRoot = false;
+  boot.zfs.forceImportAll = true;
+
   # pools to import at boot...? https://nixos.wiki/wiki/ZFS#Importing_pools_at_boot
   # boot.zfs.extraPools = [ "zpool_name" ];
 
-  # or per openzfs
-  # boot.supportedFilesystems = [ "zfs" ];
-  # boot.zfs.forceImportRoot = false;
-
-  # generated via
-  # head -c4 /dev/urandom | od -A none -t x4
-  # or
-  # head -c 8 /etc/machine-id on host
-  networking.hostId = "e1ce6466";
-
-  # services.zfs = {
-  #   autoScrub = {
-  #     enable = true;
-  #     pools = cfg.pools;
-  #   };
+  services.zfs = {
+    autoScrub = {
+      enable = true;
+      # pools = cfg.pools;
+    };
+    trim.enable = true;
+  };
 
   #   autoSnapshot = lib.mkIf cfg.auto-snapshot.enable {
   #     enable = true;
