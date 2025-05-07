@@ -9,7 +9,6 @@
   # TODO clean this uppp
   # home.file.".config/uwsm/env-hyprland" = {
   #   text = ''
-  #     export DUMMY=42
   #     export HYPRLAND_TRACE=1
   #     export AQ_TRACE=1
   #     export AQ_DRM_DEVICES=/run/amd-igpu
@@ -26,7 +25,6 @@
 
   home.file.".config/uwsm/env-hyprland" = {
     text = ''
-      export DUMMY=42
       export HYPRLAND_TRACE=1
       export AQ_TRACE=1
       export AQ_DRM_DEVICES=/run/nvidia-gpu

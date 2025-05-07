@@ -56,18 +56,18 @@ in
     };
 
     # TODO clean this up, merge env vars from different sources etc.
-    home.file.".config/uwsm/env" = {
-      text = ''
-        export ELECTRON_OZONE_PLATFORM_HINT="auto"
-        export GRIMBLAST_HIDE_CURSOR=0
-        export XCURSOR_SIZE=24
+    # home.file.".config/uwsm/env" = {
+    #   text = ''
+    #     export ELECTRON_OZONE_PLATFORM_HINT="auto"
+    #     export GRIMBLAST_HIDE_CURSOR=0
+    #     export XCURSOR_SIZE=24
 
-        export GDK_BACKEND=wayland,x11,*
-        export QT_QPA_PLATFORM=wayland;xcb
-        export SDL_VIDEODRIVER=wayland
-        export CLUTTER_BACKEND=wayland
-      '';
-    };
+    #     export GDK_BACKEND=wayland,x11,*
+    #     export QT_QPA_PLATFORM=wayland;xcb
+    #     export CLUTTER_BACKEND=wayland
+    #   '';
+    #     # export SDL_VIDEODRIVER=wayland
+    # };
     # home.file.".config/uwsm/env-hyprland" = {
     #   text = ''
     #     export DUMMY=42
