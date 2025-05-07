@@ -21,12 +21,12 @@
 
   services.openssh = {
     enable = true;
-    # ports = [ 5678 2222 ];
+    ports = [ 5678 2222 ];
     settings.PermitRootLogin = "prohibit-password";
   };
 
   # NOTE this is redundant
-  # networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports;
+  networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports;
 
   # mkpasswd -m sha512crypt
   users.users.root.initialHashedPassword = "$6$Bj5CiI0JyU1ti7ue$/RtnUyhGHPKDwwIExnJi7fx.a8ai8qOWv6Z4X0rwYdzFJGEHIpJJb.bqI/hMiNhInd62nQFsrdNUlxvNKtRux1";
