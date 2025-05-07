@@ -6,8 +6,6 @@
 }:
 let
   cfg = config.kor.preset.desktop;
-
-  app2unit = pkgs.writeShellScriptBin "app2unit" (builtins.fetchurl "https://raw.githubusercontent.com/Vladimir-csp/app2unit/refs/heads/master/app2unit");
 in
 {
   imports = [
