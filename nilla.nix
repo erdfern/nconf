@@ -67,7 +67,6 @@ nilla.create ({ config }:
       modules = [
         config.modules.nixos.default
         config.inputs.catppuccin-nix.result.nixosModules.catppuccin
-        config.inputs.catppuccin-nix.result.nixosModules.catppuccin
         config.inputs.noshell.result.nixosModules.default
         "${config.inputs.disko.result}/module.nix"
         # TODO make lix per-system option
