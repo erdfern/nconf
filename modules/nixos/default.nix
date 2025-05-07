@@ -13,7 +13,7 @@
     kor.boot.enable = lib.mkDefault true;
 
     # TODO mv
-    # catppuccin.enable = false;
+    catppuccin.enable = false;
     catppuccin.flavor = "mocha";
     catppuccin.accent = "peach";
 
