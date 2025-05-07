@@ -51,9 +51,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "6aabf68429c0a414221d1790945babfb6a0bd068",
-      "url": "https://github.com/nixos/nixos-hardware/archive/6aabf68429c0a414221d1790945babfb6a0bd068.tar.gz",
-      "hash": "1xydjxa5wpx707ac15028bjiy5cy4v6q3zqmyamh29ycpfb948w5"
+      "revision": "2ea3ad8a1f26a76f8a8e23fc4f7757c46ef30ee5",
+      "url": "https://github.com/nixos/nixos-hardware/archive/2ea3ad8a1f26a76f8a8e23fc4f7757c46ef30ee5.tar.gz",
+      "hash": "126j8p4wjn4j551j1xwrx2nh0bc3bnzx25g8c98kvml89b2cxnsg"
     },
     "home-manager": {
       "type": "Git",
@@ -64,9 +64,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "35535345be0be7dbae2e9b787c6cf790f8c893d5",
-      "url": "https://github.com/nix-community/home-manager/archive/35535345be0be7dbae2e9b787c6cf790f8c893d5.tar.gz",
-      "hash": "1rjqkav1fw0zj2cxbzj7vsm7291r70hjj3w8mfs2yq64q4mxzvd7"
+      "revision": "708074ae6db9e0468e4f48477f856e8c2d059795",
+      "url": "https://github.com/nix-community/home-manager/archive/708074ae6db9e0468e4f48477f856e8c2d059795.tar.gz",
+      "hash": "0bcxcm9w1fcfpfs3xp672yavb82b0m6gz0mycx252qpyyrp437ij"
     },
     "hyprland": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f8bbe5124c0012865ea36f52d304313084a31fe9",
-      "url": "https://github.com/hyprwm/Hyprland/archive/f8bbe5124c0012865ea36f52d304313084a31fe9.tar.gz",
-      "hash": "1zvhhkzsvql1ppm2swsyrjxgwanrglhzkx7mywi7nb5isa77q1iw"
+      "revision": "7a971735af6bfc7f8d74005afa02f6fd01228f89",
+      "url": "https://github.com/hyprwm/Hyprland/archive/7a971735af6bfc7f8d74005afa02f6fd01228f89.tar.gz",
+      "hash": "1flfnkif37mszcvdm9ws7bd1saxg613pd87v77vhab52qv1a20x6"
     },
     "hyprpanel": {
       "type": "Git",
