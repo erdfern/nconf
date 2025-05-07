@@ -35,14 +35,5 @@ in
         efi.canTouchEfiVariables = true;
       };
     };
-
-    # silence acpi errors and such
-    boot.kernelParams = lib.mkDefault [
-      "quiet"
-      "loglevel=3" # KERN_ERR or higher
-      # "rd.systemd.show_status=false"
-      # "rd.udev.log_level=3"
-      # "udev.log_priority=3"
-    ];
   };
 }

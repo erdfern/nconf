@@ -17,6 +17,9 @@
   ];
 
   # networking.hostName = "kor-t14";
+  kor.preset.laptop.enable = true;
+  kor.preset.development.enable = true;
+
   # sudo nix run \
   #   --option experimental-features "nix-command flakes" \
   #   --option extra-substituters https://numtide.cachix.org \
@@ -24,12 +27,20 @@
   #   github:numtide/nixos-facter -- -o facter.json
   facter.reportPath = ./facter.json;
 
-  services.xserver.videoDrivers = [ "modesetting" ];
   hardware.graphics.extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
-  kor.preset.laptop.enable = true;
-  kor.preset.development.enable = true;
+  # silence acpi errors and such
+  boot.kernelParams = [
+    "quiet"
+    "loglevel=3" # KERN_ERR or higher
+    # "rd.systemd.show_status=false"
+    "rd.udev.log_level=3"
+    "udev.log_priority=3"
+  ];
+
+
 
   system.stateVersion = "24.11";
 }
