@@ -22,7 +22,7 @@ in
     path = mkOption {
       type = types.str;
       default = "${config.kor.preset.immutable.device}/persist";
-      description = "Path to the persistance folder.";
+      description = "Path to the persistence folder.";
     };
     directories = mkOption {
       type = types.listOf types.str;
