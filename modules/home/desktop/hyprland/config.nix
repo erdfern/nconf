@@ -127,6 +127,12 @@ in
         allow_workspace_cycles = true;
       };
 
+      # TODO toggle keybinds keybind:
+      # bind = MOD, KEY, submap, clean
+      # submap = clean
+      # bind = MOD, KEY, submap, reset
+      # submap = reset
+
       bind =
         let
           binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
