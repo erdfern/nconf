@@ -26,18 +26,13 @@
   };
 
   # NOTE this is redundant
-  networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports;
+  # networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports;
 
   # mkpasswd -m sha512crypt
   users.users.root.initialHashedPassword = "$6$Bj5CiI0JyU1ti7ue$/RtnUyhGHPKDwwIExnJi7fx.a8ai8qOWv6Z4X0rwYdzFJGEHIpJJb.bqI/hMiNhInd62nQFsrdNUlxvNKtRux1";
   users.users.${user}.initialHashedPassword = "$6$SC5Ksnj2dZmuaU2S$UDrBWt4BpjzD8ZiW3Ks1dnAupLpMX82jIVDUFbmkoa2UOJQ7vV5r0PyT.QECWJTTrnUGOj7m/k7H.bcAYYYwj/";
 
   # TEMP
-  # boot.swraid.enable = true;
-  # boot.swraid.mdadmConf = ''
-  #   MAILADDR root
-  #   HOMEHOST ${config.networking.hostName}
-  # '';
   # boot.initrd.network = {
   #   enable = true;
   #   ssh = {
