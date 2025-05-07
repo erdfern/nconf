@@ -15,6 +15,9 @@
     # mirroredBoots = [ «thunk» «thunk» ];
   };
 
+  # pools to import at boot...? https://nixos.wiki/wiki/ZFS#Importing_pools_at_boot
+  # boot.zfs.extraPools = [ "zpool_name" ];
+
   # or per openzfs
   # boot.supportedFilesystems = [ "zfs" ];
   # boot.zfs.forceImportRoot = false;
