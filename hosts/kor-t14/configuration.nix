@@ -19,6 +19,7 @@
   # networking.hostName = "kor-t14";
   kor.preset.laptop.enable = true;
   kor.preset.development.enable = true;
+  kor.boot.plymouth.enable = true;
 
   # sudo nix run \
   #   --option experimental-features "nix-command flakes" \
@@ -31,16 +32,12 @@
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   services.xserver.videoDrivers = [ "modesetting" ];
 
-  # silence acpi errors and such
+  # stop low level messages (acpi errors and such) flooding the console
+  boot.kernel.sysctl = { "kernel.printk" = "3 4 1 3"; };
   boot.kernelParams = [
     "quiet"
-    "loglevel=3" # KERN_ERR or higher
-    # "rd.systemd.show_status=false"
-    "rd.udev.log_level=3"
-    "udev.log_priority=3"
+    "splash"
   ];
-
-
 
   system.stateVersion = "24.11";
 }
