@@ -15,6 +15,7 @@ in
 
   config = lib.mkIf cfg.enable {
     # kor.boot.plymouth.enable = lib.mkDefault true;
+    catppuccin.plymouth.enable = cfg.plymouth.enable;
 
     boot = {
       initrd.systemd.enable = true; # systemd-stage-1 
