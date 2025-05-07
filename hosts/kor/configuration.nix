@@ -17,14 +17,14 @@
 
   # networking.hostName = "kor";
 
-  # boot.kernelParams = [ "nvidia-drm.modeset=1" "fbdev=1" ];
+  boot.kernelParams = [ "nvidia-drm.modeset=1" "fbdev=1" ];
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  # boot.initrd.kernelModules = [ "amdgpu" ];
 
   services = {
-    # xserver.videoDrivers = [ "nvidia" ];
+    xserver.videoDrivers = [ "nvidia" ];
     # xserver.videoDrivers = [ "nouveau" ];
-    xserver.videoDrivers = [ "amdgpu" ];
+    # xserver.videoDrivers = [ "amdgpu" ];
   };
 
   hardware = {
@@ -34,10 +34,10 @@
       libvdpau-va-gl
       vaapiVdpau
       # mesa.drivers
-      amdvlk
+      # amdvlk
     ];
     graphics.extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
+      # driversi686Linux.amdvlk
     ];
     nvidia = {
       modesetting.enable = true;
