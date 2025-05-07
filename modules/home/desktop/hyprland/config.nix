@@ -14,6 +14,7 @@ let
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   light = "${pkgs.light}/bin/light";
+  # brightnessctl = "${pkgs.brightnessctl}/bin/light";
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   terminal = "kitty";
   mod = "ALT";
