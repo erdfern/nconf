@@ -1,6 +1,0 @@
-nixos-anywhere \
-  -i /home/lk/.ssh/id_ed25519 \
-  -p 2222 \
-  --debug \
-  --store-paths $(nix-build nilla.nix -A systems.nixos.dedi.result.config.system.build.formatScript -A systems.nixos.dedi.result.config.system.build.toplevel --no-out-link) \
-  dedi
