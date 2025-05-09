@@ -50,8 +50,8 @@ in
       withUWSM = true; # means that home.wayland.windowManager.hyprland.systemd.enable should be false
     };
     # sync mesa version with hyprlands
-    hardware.graphics.package = inputs.hyprland.result.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
-    hardware.graphics.package32 = inputs.hyprland.result.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.pkgsi686Linux.mesa;
+    # hardware.graphics.package = inputs.hyprland.result.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.mesa;
+    # hardware.graphics.package32 = inputs.hyprland.result.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.pkgsi686Linux.mesa;
 
     environment.systemPackages = map lib.lowPrio [
       pkgs.kitty
