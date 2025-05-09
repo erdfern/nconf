@@ -31,6 +31,7 @@
     graphics.enable = true;
     graphics.extraPackages = with pkgs; [
       nvidia-vaapi-driver
+      libvdpau
       libvdpau-va-gl
       vaapiVdpau
       # mesa.drivers
