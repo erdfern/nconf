@@ -13,6 +13,7 @@ in
     ./apps
     ./gtk.nix
     ./waybar
+    ./gaming.nix
   ];
 
   options.kor.preset.desktop = with lib; {
