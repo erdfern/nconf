@@ -40,13 +40,18 @@ in
     # gamecube controller support
     # services.udev.packages = with pkgs; [ dolphin-emu ];
 
+    programs.gamemode.enable = true;
+
     environment = {
-      # systemPackages = with pkgs; [
-      #   # heroic
-      #   # wineWowPackages.stable
-      #   # wineWowPackages.full
-      #   # protonup-qt
-      # ];
+      systemPackages = with pkgs; [
+        (heroic.override {
+          extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
+        })
+        bottles
+        # wineWowPackages.stable
+        # wineWowPackages.full
+        # protonup-qt
+      ];
       sessionVariables = {
         STEAM_COMPAT_DATA_PATH = "$HOME/.local/share/Steam/steamapps/compatdata";
         STEAM_EXTRA_COMPAT_TOOLS_PATHS = "$HOME/.steam/root/compatibilitytools.d";
