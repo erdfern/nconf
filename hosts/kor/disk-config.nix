@@ -1,68 +1,76 @@
-{ lib, ... }:
 {
   disko.devices = {
-    disk.main = {
-      device = "/dev/nvme0n1";
-      type = "disk";
-      content = {
-        type = "gpt";
-        partitions = {
-          boot = {
-            size = "1M";
-            type = "EF02"; # for grub MBR
-          };
-          ESP = {
-            name = "ESP";
-            size = "512M";
-            type = "EF00";
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot";
-              mountOptions = [ "umask=0077" ];
+    disk = {
+      main = {
+        type = "disk";
+        device = "/dev/nvme0n1";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              priority = 1;
+              name = "ESP";
+              start = "1M";
+              end = "512M";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
+              };
+            };
+            root = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ]; # Override existing partition
+                # Subvolumes must set a mountpoint in order to be mounted,
+                # unless their parent is mounted
+                subvolumes = {
+                  # Subvolume name is different from mountpoint
+                  "/rootfs" = {
+                    mountpoint = "/";
+                  };
+                  # Subvolume name is the same as the mountpoint
+                  "/home" = {
+                    mountOptions = [ "compress=zstd" ];
+                    mountpoint = "/home";
+                  };
+                  # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
+                  "/home/user" = { };
+                  # Parent is not mounted so the mountpoint must be set
+                  "/nix" = {
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                    mountpoint = "/nix";
+                  };
+                  # Subvolume for the swapfile
+                  "/swap" = {
+                    mountpoint = "/.swapvol";
+                    swap = {
+                      swapfile.size = "20M";
+                      swapfile2.size = "20M";
+                      swapfile2.path = "rel-path";
+                    };
+                  };
+                };
+                mountpoint = "/partition-root";
+                swap = {
+                  swapfile = {
+                    size = "20M";
+                  };
+                  swapfile1 = {
+                    size = "20M";
+                  };
+                };
+              };
             };
           };
-          root = {
-            size = "100%";
-            # end = "-32G";
-            content = {
-              type = "btrfs";
-              extraArgs = [ "-f" ];
-              mountpoint = "/";
-              mountOptions = [ "compress=zstd" "noatime" ];
-              # swap.swapfile = { size = "20M"; };
-
-              # subvolumes = {
-              #   "/nix" = { mountpoint = "/nix"; mountOptions = [ "compress=zstd" "noatime" ]; };
-              #   "/swap" = {
-              #     mountpoint = "/.swapvol";
-              #     swap = {
-              #       swapfile.size = "32G";
-              #       # swapfile1.size = "20M";
-              #       # swapfile1.path = "rel-path";
-              #     };
-              #   };
-              # };
-            };
-          };
-          # plainSwap = {
-          #   size = "100%";
-          #   content = {
-          #     type = "swap";
-          #     discardPolicy = "both";
-          #     resumeDevice = true;
-          #   };
-          # };
         };
       };
     };
-    # nodev."/" = {
-    #   fsType = "tmpfs";
-    #   mountOptions = [
-    #     "size=16G"
-    #     "defaults"
-    #     "mode=755"
-    #   ];
-    # };
   };
 }
