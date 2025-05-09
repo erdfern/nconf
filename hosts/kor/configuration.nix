@@ -34,6 +34,8 @@
       libvdpau
       libvdpau-va-gl
       vaapiVdpau
+
+      libva-libva-vdpau-driver # not suree
       # mesa.drivers
       # amdvlk
     ];
