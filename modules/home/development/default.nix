@@ -12,6 +12,7 @@
     ./fish
     ./helix
     ./yazi
+    ./direnv.nix
   ];
 
   # options.kor.profiles.desktop = with lib; {
@@ -68,9 +69,5 @@
       ripgrep.enable = true;
       ripgrep-all.enable = true;
     };
-
-    home.file.".gitignore_global".text = ''
-      .direnv
-    '';
   };
 }
