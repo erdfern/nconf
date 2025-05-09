@@ -21,13 +21,13 @@
 
     services.openssh = {
       enable = true;
-      settings = {
+      # settings = {
         # Opinionated: forbid root login through SSH.
         # PermitRootLogin = "no";
         # Opinionated: use keys only.
         # Remove if you want to SSH using passwords
         # PasswordAuthentication = false;
-      };
+      # };
     };
 
     programs.ssh.startAgent = true;
@@ -51,14 +51,15 @@
       ];
       root.shell = pkgs.bashInteractive;
       ${user} = {
-        # initialPassword = "kk"; # TEMP
-        # shell = lib.mkDefault pkgs.bash; # doesn't seem to respect mkDefault??
         isNormalUser = true;
         uid = 1000;
         group = "${user}";
         extraGroups = [ "wheel" ];
         home = "/home/${user}";
-        openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/rupin71C/GxJ9r74UNanoxuUR7FA3u+Wc88Z/5oYh lk@kor" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJw9d44H5L7ivkWwWhzV6TEycwpMe8wA3jHXydoBqbaj lk@kor-t14" ];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/rupin71C/GxJ9r74UNanoxuUR7FA3u+Wc88Z/5oYh lk@kor"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJw9d44H5L7ivkWwWhzV6TEycwpMe8wA3jHXydoBqbaj lk@kor-t14"
+        ];
         packages = map lib.lowPrio [
           pkgs.home-manager
         ];

@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "a5db9e41a4dccfa5ffe38e6f1841a5f9ad5c5c04",
-      "url": "https://github.com/catppuccin/nix/archive/a5db9e41a4dccfa5ffe38e6f1841a5f9ad5c5c04.tar.gz",
-      "hash": "1k5lsnx6shjx6189cj2pny79whm72wpjj67aq2hs6hl3a2gxq27z"
+      "revision": "f746600f15b69df05c84e3037749a3be5b1276d1",
+      "url": "https://github.com/catppuccin/nix/archive/f746600f15b69df05c84e3037749a3be5b1276d1.tar.gz",
+      "hash": "054qpg2plb2dz64db01wnh9pgllw7k6kfq3vqcq7yj4waa9p3sp3"
     },
     "disko": {
       "type": "GitRelease",
@@ -24,10 +24,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v1.11.0",
-      "revision": "cdf8deded8813edfa6e65544f69fdd3a59fa2bb4",
-      "url": "https://api.github.com/repos/nix-community/disko/tarball/v1.11.0",
-      "hash": "13brimg7z7k9y36n4jc1pssqyw94nd8qvgfjv53z66lv4xkhin92"
+      "version": "v1.12.0",
+      "revision": "7121f74b976481bc36877abaf52adab2a178fcbe",
+      "url": "https://api.github.com/repos/nix-community/disko/tarball/v1.12.0",
+      "hash": "0wbx518d2x54yn4xh98cgm65wvj0gpy6nia6ra7ns4j63hx14fkq"
     },
     "facter": {
       "type": "Git",
@@ -64,9 +64,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "708074ae6db9e0468e4f48477f856e8c2d059795",
-      "url": "https://github.com/nix-community/home-manager/archive/708074ae6db9e0468e4f48477f856e8c2d059795.tar.gz",
-      "hash": "0bcxcm9w1fcfpfs3xp672yavb82b0m6gz0mycx252qpyyrp437ij"
+      "revision": "8d2ee39915119dead6b794f7d2b63d6a1554941d",
+      "url": "https://github.com/nix-community/home-manager/archive/8d2ee39915119dead6b794f7d2b63d6a1554941d.tar.gz",
+      "hash": "1dzf4bd6w9k96ywhwgj0mfl94vz5m3qcxhai88zkwy71mlp9q4mh"
     },
     "hyprland": {
       "type": "Git",
@@ -77,9 +77,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "7a971735af6bfc7f8d74005afa02f6fd01228f89",
-      "url": "https://github.com/hyprwm/Hyprland/archive/7a971735af6bfc7f8d74005afa02f6fd01228f89.tar.gz",
-      "hash": "1flfnkif37mszcvdm9ws7bd1saxg613pd87v77vhab52qv1a20x6"
+      "revision": "25cf06f6cfe1b23b97d9beae91247413a3683803",
+      "url": "https://github.com/hyprwm/Hyprland/archive/25cf06f6cfe1b23b97d9beae91247413a3683803.tar.gz",
+      "hash": "0xwzcfzn2x7kqfmrcavz6wqi8vdzb9idssx34a6ddw11kl0vkgm7"
     },
     "hyprpanel": {
       "type": "Git",
@@ -127,9 +127,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "dbdf7c76e6309efe546269d18e6cd94f8ca9fa6b",
+      "revision": "294c55026c082e31e211d54b1ee4409bce585614",
       "url": null,
-      "hash": "0lqnk0h9swn04p9xkpic5b8x5837nc0qhc48q0n040v01qs5kyyf"
+      "hash": "1g55fr78r7pp1nb0g5hzj76195yndpr3rn371g1svl5gfaqdzpx4"
     },
     "nilla": {
       "type": "Git",
@@ -205,9 +205,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "3730d8a308f94996a9ba7c7138ede69c1b9ac4ae",
-      "url": "https://github.com/nixos/nixpkgs/archive/3730d8a308f94996a9ba7c7138ede69c1b9ac4ae.tar.gz",
-      "hash": "0h8dhnw8j9ngxcj6wpyr8k1kx2jvwl4n5y2rk9ji7gv3iza4dspg"
+      "revision": "dda3dcd3fe03e991015e9a74b22d35950f264a54",
+      "url": "https://github.com/nixos/nixpkgs/archive/dda3dcd3fe03e991015e9a74b22d35950f264a54.tar.gz",
+      "hash": "05x5s520m4wzi7xxkzlfcq3dvkkz8qr9bp4rm36mrhns66n1vbai"
     },
     "nixpkgs-stable": {
       "type": "Git",
@@ -244,9 +244,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0c84460279d64a35225529b90d906b15d7e30068",
-      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=0c84460279d64a35225529b90d906b15d7e30068",
-      "hash": "0i5rbfkdxl5s7cz8435v3pz0fsp9amx8mzlrjan91b7hykbjmq30"
+      "revision": "4f972935f830e5fc4ac4574c197c70c40cfa49bc",
+      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=4f972935f830e5fc4ac4574c197c70c40cfa49bc",
+      "hash": "19q3pnj05zka2ddh2lav2406i69dkcdff4kxnijpw0lwvmjr93hz"
     }
   },
   "version": 5
