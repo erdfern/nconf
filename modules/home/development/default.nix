@@ -25,7 +25,8 @@
       nil
       nixd
       nixpkgs-fmt
-      elvish
+      # elvish
+      devenv
     ];
 
     programs.atuin = {
