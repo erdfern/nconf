@@ -56,7 +56,7 @@
   environment = {
     systemPackages = with pkgs; [
       glxinfo
-      vulkan-validation-layers
+      # vulkan-validation-layers
       vulkan-tools
     ];
   };
