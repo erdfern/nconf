@@ -42,7 +42,7 @@
     ];
     nvidia = {
       modesetting.enable = true;
-      open = true;
+      open = false; # open module currently crashes some games
       powerManagement.enable = true; # fix suspend/wakeup issues
       nvidiaSettings = true;
       # dynamicBoost.enable = true;
