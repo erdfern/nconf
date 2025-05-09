@@ -7,6 +7,12 @@ references
 
 # Install
 
+### kexec if you must
+```sh
+curl -L https://github.com/nix-community/nixos-images/releases/latest/download/nixos-kexec-installer-noninteractive-x86_64-linux.tar.gz | tar -xzf- -C /root
+/root/kexec/run
+```
+
 ### Partition, Format, Mount
 
 Manually or using Disko:
