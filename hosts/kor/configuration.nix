@@ -39,9 +39,10 @@
       # mesa.drivers
       # amdvlk
     ];
-    graphics.extraPackages32 = with pkgs; [
-      # driversi686Linux.amdvlk
-    ];
+    graphics.enable32Bit = true;
+    # graphics.extraPackages32 = with pkgs; [
+    # driversi686Linux.amdvlk
+    # ];
     nvidia = {
       modesetting.enable = true;
       open = false; # open module currently crashes some games
@@ -50,8 +51,8 @@
       # dynamicBoost.enable = true;
       # package = config.boot.kernelPackages.nvidiaPackages.stable;
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
-      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.production;
     };
   };
 
