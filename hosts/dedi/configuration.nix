@@ -9,7 +9,8 @@
   imports = [
     ./boot.nix
     ./networking.nix
-    ./disk-config.nix
+    # ./disk-config.nix
+    ./disk-config-r1md.nix
     ./hardware-configuration.nix
     "${inputs.facter.result}/modules/nixos/facter.nix"
   ];
@@ -33,6 +34,9 @@
   users.users.${user}.initialHashedPassword = "$6$SC5Ksnj2dZmuaU2S$UDrBWt4BpjzD8ZiW3Ks1dnAupLpMX82jIVDUFbmkoa2UOJQ7vV5r0PyT.QECWJTTrnUGOj7m/k7H.bcAYYYwj/";
 
   # TEMP
+  # boot.swraid.enable = true;
+  # boot.swraid.mdadmConf = ''
+  # '';
   # boot.initrd.network = {
   #   enable = true;
   #   ssh = {
