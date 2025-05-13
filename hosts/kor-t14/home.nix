@@ -10,9 +10,8 @@
 
   home.file.".config/uwsm/env-hyprland" = {
     text = ''
-      export DUMMY=42
-      export HYPRLAND_TRACE=1
-      export AQ_TRACE=1
+      export HYPRLAND_TRACE=0
+      export AQ_TRACE=0
 
       export LIBVA_DRIVER_NAME=iHD
     '';

@@ -39,16 +39,24 @@
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
-  hardware.graphics.extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
-  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
+  # graphics
   services.xserver.videoDrivers = [ "modesetting" ];
-
-  # stop low level messages (acpi errors and such) flooding the console
-  boot.kernel.sysctl = { "kernel.printk" = "3 4 1 3"; };
-  boot.kernelParams = [
-    "quiet"
-    "splash"
+  # use intel Xe driver
+  boot.initrd.kernelModules = [ "xe" ]; # load GPU kernel module at stage 1 boot
+  boot.kernelParams = lib.mkIf (config.hardware.intelgpu.driver == "xe") [
+    "i915.force_probe=!9a49"
+    "xe.force_probe=9a49"
   ];
+
+  hardware.graphics.extraPackages = with pkgs;
+    [
+      # intel-vaapi-driver intel-ocl # LIBVA_DRIVER_NAME=i915
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-compute-runtime
+      vpl-gpu-rt
+    ];
+  # hardware.graphics.extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-intel-media-driver ];
 
   system.stateVersion = "24.11";
 }

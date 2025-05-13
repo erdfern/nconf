@@ -31,6 +31,19 @@ in
         # theme = 
       };
 
+      # silent boot
+      consoleLogLevel = 3;
+      initrd.verbose = false;
+      kernelParams = [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "udev.log_priority=3"
+        "rd.systemd.show_status=auto"
+      ];
+      # stop low level messages (acpi errors and such) flooding the console after boot
+      # kernel.sysctl = { "kernel.printk" = "3 4 1 3"; };
+
       loader = {
         timeout = 0; # if 0, press any key to show OS selection
         systemd-boot = {
