@@ -56,7 +56,7 @@
       vpl-gpu-rt
     ];
   # hardware.graphics.extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
-  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-intel-media-driver ];
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
 
   system.stateVersion = "24.11";
 }
