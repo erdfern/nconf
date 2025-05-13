@@ -9,11 +9,14 @@
   imports = [
     ./disk-config.nix
     ./hardware-configuration.nix
+    "${inputs.facter.result}/modules/nixos/facter.nix"
     # ./impermanence.nix
   ];
 
   kor.preset.desktop.enable = true;
   kor.preset.development.enable = true;
+
+  facter.reportPath = ./facter.json;
 
   # networking.hostName = "kor";
 
