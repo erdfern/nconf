@@ -62,7 +62,7 @@ in
     # - https://wiki.archlinux.org/title/CPU_frequency_scaling#tuned
     # - https://fedoraproject.org/wiki/Changes/TunedAsTheDefaultPowerProfileManagementDaemon#Make_Tuned_the_Default_Power_Profile_Management_Daemon#see
     # but consider https://discussion.fedoraproject.org/t/f41-change-proposal-make-tuned-the-default-power-profile-management-daemon-system-wide/118554/29
-    services.power-power-profiles-daemon.enable = true; # more modern way of managing power than tlp. clashes with tlp (or other power management services) if enabled simultaneously
+    services.power-profiles-daemon.enable = true; # more modern way of managing power than tlp. clashes with tlp (or other power management services) if enabled simultaneously
     services.auto-cpufreq = {
       enable = true;
       settings = {
