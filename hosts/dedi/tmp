@@ -1,0 +1,14 @@
+nvme0n1     259:0    0 894.3G  0 disk  
+├─nvme0n1p1 259:2    0    32G  0 part  
+│ └─md0       9:0    0    32G  0 raid1 [SWAP]
+├─nvme0n1p2 259:4    0     1G  0 part  
+│ └─md1       9:1    0  1022M  0 raid1 /boot
+└─nvme0n1p3 259:6    0 861.3G  0 part  
+  └─md2       9:2    0 861.1G  0 raid1 /
+nvme1n1     259:1    0 894.3G  0 disk  
+├─nvme1n1p1 259:3    0    32G  0 part  
+│ └─md0       9:0    0    32G  0 raid1 [SWAP]
+├─nvme1n1p2 259:5    0     1G  0 part  
+│ └─md1       9:1    0  1022M  0 raid1 /boot
+└─nvme1n1p3 259:7    0 861.3G  0 part  
+  └─md2       9:2    0 861.1G  0 raid1 /

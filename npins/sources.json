@@ -1,0 +1,253 @@
+{
+  "pins": {
+    "catppuccin-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "nix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "bbc926d6f93a7cdad1cd38dc1410cea23589a40e",
+      "url": "https://github.com/catppuccin/nix/archive/bbc926d6f93a7cdad1cd38dc1410cea23589a40e.tar.gz",
+      "hash": "0gdf285kyb8hzmcy19v5ixkf2n60g7255di7vd4wryq8yly6mfmf"
+    },
+    "disko": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "disko"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.12.0",
+      "revision": "7121f74b976481bc36877abaf52adab2a178fcbe",
+      "url": "https://api.github.com/repos/nix-community/disko/tarball/v1.12.0",
+      "hash": "0wbx518d2x54yn4xh98cgm65wvj0gpy6nia6ra7ns4j63hx14fkq"
+    },
+    "facter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixos-facter-modules"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "58ad9691670d293a15221d4a78818e0088d2e086",
+      "url": "https://github.com/nix-community/nixos-facter-modules/archive/58ad9691670d293a15221d4a78818e0088d2e086.tar.gz",
+      "hash": "09cgh59si6pha8kvfgw4gi84bfm5mknk7yg2n1vv8wli9y1j5ipf"
+    },
+    "hardware": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixos-hardware"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "e81fd167b33121269149c57806599045fd33eeed",
+      "url": "https://github.com/nixos/nixos-hardware/archive/e81fd167b33121269149c57806599045fd33eeed.tar.gz",
+      "hash": "1a48x06dnlc78ddz0dwsfq77xv3isf7b08dqwf2q0y86jq1jaxrg"
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "535a541b429c1e89f0955c160df1d6d2bfeaf802",
+      "url": "https://github.com/nix-community/home-manager/archive/535a541b429c1e89f0955c160df1d6d2bfeaf802.tar.gz",
+      "hash": "04pkpr5b9ajvhfkq8mmrwdw037yamhblj6jzhiscl069kic53rwq"
+    },
+    "hyprland": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "hyprwm",
+        "repo": "Hyprland"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "da3583fd5e86044d02af9fcfac84724e02545336",
+      "url": "https://github.com/hyprwm/Hyprland/archive/da3583fd5e86044d02af9fcfac84724e02545336.tar.gz",
+      "hash": "1jnz2slrmb04n4n0z8r45g6jglkraw89ax9cpbcn1fvanibvfivk"
+    },
+    "hyprpanel": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Jas-SinghFSU",
+        "repo": "HyprPanel"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "2bb1449fb6ad60a736ce6fb4de2037d7655545ed",
+      "url": "https://github.com/Jas-SinghFSU/HyprPanel/archive/2bb1449fb6ad60a736ce6fb4de2037d7655545ed.tar.gz",
+      "hash": "07kjdzjkpq9rb00vg44gfn68zvlg65hvpgpa7i9ya5yl3jb4ighp"
+    },
+    "impermanence": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "impermanence"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "4b3e914cdf97a5b536a889e939fb2fd2b043a170",
+      "url": "https://github.com/nix-community/impermanence/archive/4b3e914cdf97a5b536a889e939fb2fd2b043a170.tar.gz",
+      "hash": "04l16szln2x0ajq2x799krb53ykvc6vm44x86ppy1jg9fr82161c"
+    },
+    "lix": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.lix.systems/lix-project/nixos-module.git"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "58baedd53f9da81fd728a4f3b08c378e5ba9ae58",
+      "url": null,
+      "hash": "0w7n1i403j1pkdx44y4pfhbvq711x3nsnq4zwgiqfqpwd7qj4755"
+    },
+    "lix-src": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.lix.systems/lix-project/lix.git"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "901940df00665457005af20281f090de77420fe2",
+      "url": null,
+      "hash": "1nx646fk65cjd9p1wy1rr5fn3bzrdb4c1ambi3zafc6ln21wl9z1"
+    },
+    "nilla": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nilla"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "d9df762b85ec7f96e1ee26cbf328c20a04aac6f6",
+      "url": "https://github.com/nilla-nix/nilla/archive/d9df762b85ec7f96e1ee26cbf328c20a04aac6f6.tar.gz",
+      "hash": "061z0jiafchim5pisjznn09cg7nbr86b9jj13bini4bzhldgbfmh"
+    },
+    "nilla-cli": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "cli"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "43f118601e03afe31b9b3c2912df2e362428ae50",
+      "url": "https://github.com/nilla-nix/cli/archive/43f118601e03afe31b9b3c2912df2e362428ae50.tar.gz",
+      "hash": "195k13324wnxgxf5465jxzdfk0m8j4icijic6bfji9112k52xh4y"
+    },
+    "nilla-nixos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nixos"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6e13605fbc1cbfd3ee4b474c01d93a7f2942c61d",
+      "url": "https://github.com/nilla-nix/nixos/archive/6e13605fbc1cbfd3ee4b474c01d93a7f2942c61d.tar.gz",
+      "hash": "1dwkilaz8324rp3kcxnx5r2jjsx0lavm7xhg5xwrklawlyvk5r7q"
+    },
+    "nilla-utils": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "erdfern",
+        "repo": "nilla-utils"
+      },
+      "branch": "dev",
+      "submodules": false,
+      "revision": "3323f8bb4edfba9aac65e16dc61e7ef1ece18aca",
+      "url": "https://github.com/erdfern/nilla-utils/archive/3323f8bb4edfba9aac65e16dc61e7ef1ece18aca.tar.gz",
+      "hash": "1scmhingig23ms5m778bhg5aaw416pj0h64nnji0a0w75isy723g"
+    },
+    "nix-index-database": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nix-index-database"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "e9b21b01e4307176b9718a29ac514838e7f6f4ff",
+      "url": "https://github.com/nix-community/nix-index-database/archive/e9b21b01e4307176b9718a29ac514838e7f6f4ff.tar.gz",
+      "hash": "085414ygbi9pnv8qmx7mpjklcdiwx5881vqnjaih831cbpwa4zny"
+    },
+    "nixpkgs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-unstable",
+      "submodules": false,
+      "revision": "d89fc19e405cb2d55ce7cc114356846a0ee5e956",
+      "url": "https://github.com/nixos/nixpkgs/archive/d89fc19e405cb2d55ce7cc114356846a0ee5e956.tar.gz",
+      "hash": "1i3sj7bapriaanmnlrr6p3khr20j1k59il12fkww78ik2xa81vyx"
+    },
+    "nixpkgs-stable": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-24.11",
+      "submodules": false,
+      "revision": "a39ed32a651fdee6842ec930761e31d1f242cb94",
+      "url": "https://github.com/nixos/nixpkgs/archive/a39ed32a651fdee6842ec930761e31d1f242cb94.tar.gz",
+      "hash": "16pw0f94nr3j91z0wm4ndjm44xfd238vcdkg07s2l74znkaavnwk"
+    },
+    "noshell": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "noshell"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "4d194d838a50ea106cd0e47c024e47afc154ab42",
+      "url": "https://github.com/viperML/noshell/archive/4d194d838a50ea106cd0e47c024e47afc154ab42.tar.gz",
+      "hash": "1x2d9j6ndihypq985s0610q1l878v6v6k6lg9mm9d46qfjz23wil"
+    },
+    "rycee-nur-expressions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "rycee/nur-expressions",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "715c43885ea99f47cb182c2f401103be9f9e8f92",
+      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=715c43885ea99f47cb182c2f401103be9f9e8f92",
+      "hash": "1jhplwpr002ybq0sb29dp60fhh8sb9w5rcriwpn6pxxgyihzqpbw"
+    }
+  },
+  "version": 5
+}
