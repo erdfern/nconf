@@ -64,9 +64,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "535a541b429c1e89f0955c160df1d6d2bfeaf802",
-      "url": "https://github.com/nix-community/home-manager/archive/535a541b429c1e89f0955c160df1d6d2bfeaf802.tar.gz",
-      "hash": "04pkpr5b9ajvhfkq8mmrwdw037yamhblj6jzhiscl069kic53rwq"
+      "revision": "8d832ddfda9facf538f3dda9b6985fb0234f151c",
+      "url": "https://github.com/nix-community/home-manager/archive/8d832ddfda9facf538f3dda9b6985fb0234f151c.tar.gz",
+      "hash": "030sqblvllr3x7igyx09s5yjs4iq16nwr2r9mvgqhz9af76z6wrn"
     },
     "hyprland": {
       "type": "Git",
