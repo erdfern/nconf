@@ -11,7 +11,7 @@ config.haskell.formattingProvider = "ormolu" # default is "ormolu"
 [[language]]
 name = "nix"
 formatter = { command = "nixpkgs-fmt" }
-language-servers = ["nixd", "nil" ]
+# language-servers = ["nixd", "nil" ]
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"

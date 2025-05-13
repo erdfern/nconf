@@ -14,6 +14,7 @@
 
     # TODO mv
     catppuccin.enable = false;
+    catppuccin.tty.enable = true;
     catppuccin.flavor = "mocha";
     catppuccin.accent = "peach";
 
