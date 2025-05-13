@@ -22,7 +22,7 @@ in
 
   config = lib.mkIf (cfg.enable) {
     programs.starship.enable = true;
-    # catppuccin.mako.enable = false; # until they stop using mako.extraConfig
+    catppuccin.mako.enable = false; # until they stop using mako.extraConfig
     services.mako = {
       enable = true; # conflicts with hyprpanel/ags notif service
       # font = "Iosevka Nerd Font 12";
