@@ -10,12 +10,17 @@ in
     enable = mkEnableOption "system bootloader";
     plymouth = {
       enable = mkEnableOption "use plymouth";
+      catppuccinTheme = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Whether to enable the catppuccin theme for plymouth.";
+      };
     };
   };
 
   config = lib.mkIf cfg.enable {
     # kor.boot.plymouth.enable = lib.mkDefault true;
-    catppuccin.plymouth.enable = cfg.plymouth.enable;
+    catppuccin.plymouth.enable = cfg.plymouth.catppuccinTheme;
 
     boot = {
       initrd.systemd.enable = true; # systemd-stage-1 
