@@ -36,8 +36,6 @@
 
   hardware.nitrokey.enable = true;
 
-  hardware.logitech.enable = true;
-  hardware.logitech.enableGraphical = true;
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
