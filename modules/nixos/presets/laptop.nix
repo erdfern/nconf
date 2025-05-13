@@ -63,19 +63,19 @@ in
     # - https://fedoraproject.org/wiki/Changes/TunedAsTheDefaultPowerProfileManagementDaemon#Make_Tuned_the_Default_Power_Profile_Management_Daemon#see
     # but consider https://discussion.fedoraproject.org/t/f41-change-proposal-make-tuned-the-default-power-profile-management-daemon-system-wide/118554/29
     services.power-profiles-daemon.enable = true; # more modern way of managing power than tlp. clashes with tlp (or other power management services) if enabled simultaneously
-    services.auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "auto";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-      };
-    };
+    # services.auto-cpufreq = {
+    #   enable = true;
+    #   settings = {
+    #     battery = {
+    #       governor = "powersave";
+    #       turbo = "auto";
+    #     };
+    #     charger = {
+    #       governor = "performance";
+    #       turbo = "auto";
+    #     };
+    #   };
+    # };
 
     # Enable light to control backlight.
     programs.light.enable = true;
