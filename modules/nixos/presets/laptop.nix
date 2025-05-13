@@ -57,8 +57,12 @@ in
     networking.networkmanager.wifi.powersave = true;
 
     services.upower.enable = true;
-    services.thermald.enable = true;
-    services.tlp.enable = false; # succeeded by auto-cpufreq? would be auto-enabled by t14 hardware module, i think
+    services.tlp.enable = false; # succeeded by auto-cpufreq? uh, or ppd ig. would be default-enabled by t14 hardware module (or rather generic laptop module) if ppd is disabled, i think
+    # TODO consider replacing with tuned, see
+    # - https://wiki.archlinux.org/title/CPU_frequency_scaling#tuned
+    # - https://fedoraproject.org/wiki/Changes/TunedAsTheDefaultPowerProfileManagementDaemon#Make_Tuned_the_Default_Power_Profile_Management_Daemon#see
+    # but consider https://discussion.fedoraproject.org/t/f41-change-proposal-make-tuned-the-default-power-profile-management-daemon-system-wide/118554/29
+    services.power-power-profiles-daemon.enable = true; # more modern way of managing power than tlp. clashes with tlp (or other power management services) if enabled simultaneously
     services.auto-cpufreq = {
       enable = true;
       settings = {
@@ -75,9 +79,11 @@ in
 
     # Enable light to control backlight.
     programs.light.enable = true;
-    users.users.${user}.extraGroups = [ "video" ]; # needed for light to have correct privs
+    hardware.acpilight.enable = true; # might be nice for compat
+
+    users.users.${user}.extraGroups = [ "video" ]; # needed for light and acpilight to work
     environment.systemPackages = map lib.lowPrio [
-      pkgs.brightnessctl # prefer over light, which is abandoned
+      pkgs.brightnessctl # prefer over light, which seems abandoned
     ];
 
     # Enable bluetooth.

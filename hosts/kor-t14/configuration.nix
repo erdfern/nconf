@@ -28,6 +28,12 @@
   #   github:numtide/nixos-facter -- -o facter.json
   facter.reportPath = ./facter.json;
 
+  # prevent CPU overheating
+  # TODO figure out: [WARN][/sys/devices/platform/thinkpad_acpi/dytc_lapmode] present: Thermald can't run on this platform
+  # Really just unsupported or misconfigured?
+  # I guess lenovo firmware is managing stuff already? hm
+  services.thermald.enable = true;
+
   hardware.graphics.extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   services.xserver.videoDrivers = [ "modesetting" ];
