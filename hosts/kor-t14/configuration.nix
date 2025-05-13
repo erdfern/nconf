@@ -43,7 +43,7 @@
   services.xserver.videoDrivers = [ "modesetting" ];
   # use intel Xe driver
   boot.initrd.kernelModules = [ "xe" ]; # load GPU kernel module at stage 1 boot
-  boot.kernelParams = lib.mkIf (config.hardware.intelgpu.driver == "xe") [
+  boot.kernelParams = [
     "i915.force_probe=!9a49"
     "xe.force_probe=9a49"
   ];
