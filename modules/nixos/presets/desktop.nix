@@ -87,6 +87,8 @@ in
       "video"
       "dialout"
       "networkmanager"
+
+      "render" # not suree. might be important for vulkan stuff
     ];
   };
 }
