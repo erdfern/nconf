@@ -19,13 +19,17 @@
 
   boot.kernelParams = [ "nvidia-drm.modeset=1" "fbdev=1" ];
 
-  # boot.initrd.kernelModules = [ "amdgpu" ];
+  users.users.root.initialHashedPassword = "$6$orbHsnj6yKVLTMmN$bFX5tXgje5OP9HDcu4Hb46EmDkFoA58po/fTkqMgxfqMH7ARvOR6xOPj.ANROEdlUzwFIoAeW/ARU.jC4vDPh1";
+
+  users.users.${user}.initialHashedPassword = "$6$orbHsnj6yKVLTMmN$bFX5tXgje5OP9HDcu4Hb46EmDkFoA58po/fTkqMgxfqMH7ARvOR6xOPj.ANROEdlUzwFIoAeW/ARU.jC4vDPh1";
 
   services = {
     xserver.videoDrivers = [ "nvidia" ];
     # xserver.videoDrivers = [ "nouveau" ];
     # xserver.videoDrivers = [ "amdgpu" ];
   };
+
+  # boot.initrd.kernelModules = [ "amdgpu" ];
 
   hardware = {
     graphics.enable = true;
