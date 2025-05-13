@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, user, ... }:
 let
   cfg = config.kor.gaming;
 in
@@ -43,6 +43,7 @@ in
     # services.udev.packages = with pkgs; [ dolphin-emu ];
 
     programs.gamemode.enable = true;
+    users.users.${user}.extraGroups = [ "gamemode" ];
 
     environment = {
       systemPackages = with pkgs; [
