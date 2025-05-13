@@ -32,6 +32,7 @@
     # xserver.videoDrivers = [ "amdgpu" ];
   };
 
+  boot.initrd.kernelModules = [ "nvidia" ];
   # boot.initrd.kernelModules = [ "amdgpu" ];
 
   hardware = {
@@ -52,13 +53,15 @@
     # ];
     nvidia = {
       modesetting.enable = true;
-      open = false; # open module currently crashes some games
+      open = true;
       powerManagement.enable = true; # fix suspend/wakeup issues
       nvidiaSettings = true;
+      videoAcceleration = true;
+      # forceFullCompositionPipeline = true;
       # dynamicBoost.enable = true;
-      # package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       # package = config.boot.kernelPackages.nvidiaPackages.beta;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       # package = config.boot.kernelPackages.nvidiaPackages.production;
     };
   };
@@ -72,7 +75,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "L+ /run/nvidia-gpu - - - - /dev/dri/by-path/pci-0000:01:00.0-card"
+    # "L+ /run/nvidia-gpu - - - - /dev/dri/by-path/pci-0000:01:00.0-card"
     # "L+ /run/amd-igpu - - - - /dev/dri/by-path/pci-0000:10:00.0-card"
   ];
 
