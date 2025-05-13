@@ -30,7 +30,7 @@
     ];
 
     programs.atuin = {
-      enable = true;
+      enable = false;
       settings = {
         auto_sync = false;
         sync_frequency = "5m";

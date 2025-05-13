@@ -34,6 +34,13 @@
   # I guess lenovo firmware is managing stuff already? hm
   services.thermald.enable = true;
 
+  hardware.nitrokey.enable = true;
+
+  hardware.logitech.enable = true;
+  hardware.logitech.enableGraphical = true;
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+
   hardware.graphics.extraPackages = with pkgs; [ intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt ];
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
   services.xserver.videoDrivers = [ "modesetting" ];
