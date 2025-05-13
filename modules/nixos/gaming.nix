@@ -14,6 +14,8 @@ in
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
 
+      gamescopeSession = { enable = true; };
+
       # extest.enable = true; # translate x11 input event to uinput (for steam input on wayland?)
       # protontricks.enable = true;
 
@@ -48,6 +50,7 @@ in
           extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
         })
         bottles
+        usbutils # steam wants this in some shell script i think
         # wineWowPackages.stable
         # wineWowPackages.full
         # protonup-qt

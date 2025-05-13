@@ -20,17 +20,27 @@
 
   # networking.hostName = "kor";
 
-  boot.kernelParams = [ "nvidia-drm.modeset=1" "fbdev=1" ];
+  boot.kernelParams = [
+    "nvidia-drm.modeset=1"
+    # not sure which one is correct
+    # "fbdev=1"
+    "nvidia-drm.fbdev=1"
+  ];
 
   users.users.root.initialHashedPassword = "$6$orbHsnj6yKVLTMmN$bFX5tXgje5OP9HDcu4Hb46EmDkFoA58po/fTkqMgxfqMH7ARvOR6xOPj.ANROEdlUzwFIoAeW/ARU.jC4vDPh1";
 
   users.users.${user}.initialHashedPassword = "$6$orbHsnj6yKVLTMmN$bFX5tXgje5OP9HDcu4Hb46EmDkFoA58po/fTkqMgxfqMH7ARvOR6xOPj.ANROEdlUzwFIoAeW/ARU.jC4vDPh1";
 
-  services = {
-    xserver.videoDrivers = [ "nvidia" ];
-    # xserver.videoDrivers = [ "nouveau" ];
-    # xserver.videoDrivers = [ "amdgpu" ];
-  };
+
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "fbdev"
+    "nvidia"
+  ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nouveau" ];
+  # services.xserver.videoDrivers = [ "amdgpu" ];
+
 
   boot.initrd.kernelModules = [ "nvidia" ];
   # boot.initrd.kernelModules = [ "amdgpu" ];
@@ -59,10 +69,10 @@
       videoAcceleration = true;
       # forceFullCompositionPipeline = true;
       # dynamicBoost.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # package = config.boot.kernelPackages.nvidiaPackages.beta;
-      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.stable;
       # package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     };
   };
 

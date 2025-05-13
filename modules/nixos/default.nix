@@ -79,6 +79,9 @@
     # programs.noshell.enable = true;
 
     environment.systemPackages = map lib.lowPrio [
+      inputs.nilla-cli.result.packages.default.result.x86_64-linux
+      inputs.nilla-utils.result.packages.default.result.x86_64-linux
+
       pkgs.git
       pkgs.helix
       pkgs.curl
@@ -89,8 +92,6 @@
       pkgs.fzf
       pkgs.unzip
       pkgs.btop
-      inputs.nilla-cli.result.packages.default.result.x86_64-linux
-      inputs.nilla-utils.result.packages.default.result.x86_64-linux
 
       # pkgs.linux-firmware # maybe fix acpi?
       # TEMP hyprpanel dep
