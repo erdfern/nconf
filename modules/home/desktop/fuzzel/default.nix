@@ -1,13 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.fuzzel = {
     enable = true;
 
     settings = {
-      # main = {icon-theme = config.gtk.iconTheme.name;};
-      # launch-prefix = "uwsm app --"; should use this when running uwsm, or call fuzzel with --launch-prefix="..."
-      launch-prefix = "app2unit --fuzzel-compat --";
-      # terminal = "${pkgs.kitty}/bin/kitty";
+      main = {
+        # launch-prefix = "uwsm app --"; should use this when running uwsm, or call fuzzel with --launch-prefix="..."
+        launch-prefix = "app2unit --fuzzel-compat --";
+        # icon-theme = config.gtk.iconTheme.name;
+        # terminal = "${pkgs.kitty}/bin/kitty";
+      };
       colors = {
         # catpuccin macchiato
         background = "24273add";

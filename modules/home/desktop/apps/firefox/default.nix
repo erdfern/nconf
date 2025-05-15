@@ -4,13 +4,13 @@
 , ...
 }:
 let
-  cfg = config.kor.preset.desktop.apps.firefox;
+  cfg = config.kor.apps.desktop.firefox;
 in
 {
   imports = [ ./preferences.nix ./policies.nix ./search.nix ./extensions.nix ];
 
-  # rename suite.desktop?
-  options.kor.preset.desktop.apps.firefox = with lib; {
+  # rename suite.desktop/browser?
+  options.kor.desktop.apps.firefox = with lib; {
     enable = mkEnableOption "firefox browser";
   };
 

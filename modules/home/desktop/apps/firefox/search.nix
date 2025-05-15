@@ -1,9 +1,6 @@
-{ config, lib, ... }:
-let
-  cfg = config.kor.preset.desktop.apps.firefox;
-in
+{ lib, ... }:
 {
-  programs.firefox.profiles.default.search.engines = lib.mkIf cfg.enable
+  programs.firefox.profiles.default.search.engines =
     {
       # Disable all the stupid "This time, search with" icons
       # ddg.metaData.hidden = true;
@@ -36,38 +33,38 @@ in
           definedAliases = lib.singleton "@gh";
         };
 
-      "Github Search Fish" =
-        {
-          urls = lib.singleton
-            {
-              template = "https://github.com/search?type=code&q=lang:fish+NOT+is:fork+{searchTerms}";
-            };
+      # "Github Search Fish" =
+      #   {
+      #     urls = lib.singleton
+      #       {
+      #         template = "https://github.com/search?type=code&q=lang:fish+NOT+is:fork+{searchTerms}";
+      #       };
 
-          icon = "https://fishshell.com/favicon.ico";
-          definedAliases = lib.singleton "@gf";
-        };
+      #     icon = "https://fishshell.com/favicon.ico";
+      #     definedAliases = lib.singleton "@gf";
+      #   };
 
-      "Github Search Lua" =
-        {
-          urls = lib.singleton
-            {
-              template = "https://github.com/search?type=code&q=lang:lua+NOT+is:fork+{searchTerms}";
-            };
+      # "Github Search Lua" =
+      #   {
+      #     urls = lib.singleton
+      #       {
+      #         template = "https://github.com/search?type=code&q=lang:lua+NOT+is:fork+{searchTerms}";
+      #       };
 
-          icon = "https://github.com/favicon.ico";
-          definedAliases = lib.singleton "@gl";
-        };
+      #     icon = "https://github.com/favicon.ico";
+      #     definedAliases = lib.singleton "@gl";
+      #   };
 
-      "Github Search Gleam" =
-        {
-          urls = lib.singleton
-            {
-              template = "https://github.com/search?type=code&q=lang:gleam+NOT+is:fork+{searchTerms}";
-            };
+      # "Github Search Gleam" =
+      #   {
+      #     urls = lib.singleton
+      #       {
+      #         template = "https://github.com/search?type=code&q=lang:gleam+NOT+is:fork+{searchTerms}";
+      #       };
 
-          icon = "https://github.com/favicon.ico";
-          definedAliases = lib.singleton "@gg";
-        };
+      #     icon = "https://github.com/favicon.ico";
+      #     definedAliases = lib.singleton "@gg";
+      #   };
 
       "Noogle" =
         {
@@ -100,7 +97,6 @@ in
           definedAliases = lib.singleton "@hmgr";
         };
 
-
       "Home Manager Options" =
         {
           urls = lib.singleton
@@ -121,6 +117,5 @@ in
 
           definedAliases = lib.singleton "@on";
         };
-
     };
 }

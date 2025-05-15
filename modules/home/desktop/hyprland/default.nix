@@ -17,10 +17,9 @@ in
 
   config = lib.mkIf cfg.hyprland.enable {
     kor.preset.desktop.enable = true;
+    kor.desktop.apps.kitty.enable = true;
 
     home.packages = with pkgs; [ hyprsunset ];
-
-    programs.kitty.enable = true;
 
     programs.bash.enable = true;
     programs.bash.profileExtra = ''

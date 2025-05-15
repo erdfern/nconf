@@ -9,8 +9,8 @@ let
 in
 {
   imports = [
-    ./hyprland
     ./apps
+    ./hyprland
     ./gtk.nix
     ./waybar
     ./gaming.nix

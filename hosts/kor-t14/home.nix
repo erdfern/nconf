@@ -5,8 +5,8 @@
   imports = [ ./batcheck.nix ];
   kor.preset.desktop.enable = true;
   kor.preset.desktop.hyprland.enable = true;
-  kor.preset.desktop.apps.firefox.enable = true;
-  kor.preset.desktop.gaming.enable = true;
+  kor.desktop.apps.firefox.enable = true;
+  kor.desktop.gaming.enable = true;
 
   home.file.".config/uwsm/env-hyprland" = {
     text = ''

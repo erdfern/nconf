@@ -4,10 +4,10 @@
 , ...
 }:
 let
-  cfg = config.kor.preset.desktop.gaming;
+  cfg = config.kor.desktop.gaming;
 in
 {
-  options.kor.preset.desktop.gaming = with lib; {
+  options.kor.desktop.gaming = with lib; {
     enable = mkEnableOption "firefox browser";
   };
 

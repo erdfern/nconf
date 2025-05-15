@@ -4,8 +4,8 @@
 }: {
   kor.preset.desktop.enable = true;
   kor.preset.desktop.hyprland.enable = true;
-  kor.preset.desktop.apps.firefox.enable = true;
-  kor.preset.desktop.gaming.enable = true;
+  kor.desktop.apps.firefox.enable = true;
+  kor.desktop.gaming.enable = true;
 
   # TODO clean this uppp
   # home.file.".config/uwsm/env-hyprland" = {
