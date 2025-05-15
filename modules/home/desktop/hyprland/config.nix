@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 let
   uwsmRun = cmd: "app2unit ${cmd}";
-  toggle_waybar = pkgs.writeShellScriptBin "toggle_waybar" ''
+  toggle_waybar = pkgs.writeShellScript "toggle_waybar" ''
     killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   '';
   toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
@@ -29,7 +29,7 @@ in
       "$mod" = mod;
 
       exec-once = [ ]
-        ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun toggle_waybar/bin/toggle_waybar}";
+        ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun "${toggle_waybar}"}";
 
       # env = [
       # "XCURSOR_SIZE,24"
