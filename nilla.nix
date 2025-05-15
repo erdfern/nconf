@@ -54,6 +54,14 @@ nilla.create ({ config }:
       #     pkgs = config.inputs.nixpkgs.result."x86_64-linux"; # obv only works on one system, but i realistically won't be running firefox on arm or smth
       #   in
       #   { fetchurl = pkgs.fetchurl; lib = pkgs.lib; stdenv = pkgs.stdenv; };
+
+      # TODO hy3
+      # hy3 = {
+      #   url = "github:outfoxxed/hy3?ref=hl{version}"; # where {version} is the hyprland release version
+      #   # or "github:outfoxxed/hy3" to follow the development branch.
+      #   # (you may encounter issues if you dont do the same for hyprland)
+      #   inputs.hyprland.follows = "hyprland";
+      # };
     };
 
     ###########

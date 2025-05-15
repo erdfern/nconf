@@ -23,9 +23,10 @@ in
 
   config = lib.mkIf (cfg.enable) {
     programs.starship.enable = true;
+
     catppuccin.mako.enable = false; # until they stop using mako.extraConfig
     services.mako = {
-      enable = true; # conflicts with hyprpanel/ags notif service
+      enable = true; # NOTE conflicts with hyprpanel/ags notif service
       # font = "Iosevka Nerd Font 12";
       # backgroundColor = "#3A4353";
       # borderColor = "#c0caf5";
@@ -72,9 +73,6 @@ in
     home.packages = with pkgs; [
       wl-clipboard
       wev
-      app2unit
-      # eglinfo
-      glxinfo
     ];
   };
 }

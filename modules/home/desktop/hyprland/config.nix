@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
 let
   uwsmRun = cmd: "app2unit ${cmd}";
-  # toggle_waybar = pkgs.writeShellScriptBin "toggle_waybar" ''
-  #   killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
-  # '';
+  toggle_waybar = pkgs.writeShellScriptBin "toggle_waybar" ''
+    killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
+  '';
   toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
     if [ "$(hyprctl monitors all -j | ${pkgs.jq}/bin/jq 'map(.dpmsStatus) | any')" = "true" ]; then
       hyprctl dispatch dpms off
@@ -19,18 +19,20 @@ let
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   terminal = "kitty";
   mod = "ALT";
+
+  cfg = config.kor.desktop.hyprland;
 in
 {
+
+  cfg.uwsmEnv = [ "export XCURSOR_SIZE=24" ];
+
   wayland.windowManager.hyprland = {
     sourceFirst = true;
     settings = {
       "$mod" = mod;
 
-      # exec-once = [
-      # "${toggle_waybar}/bin/toggle_waybar &"
-      # "mako &"
-      # "nm-applet &"
-      # ];
+      exec-once = [
+      ] ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun toggle_waybar}";
 
       # env = [
       # "XCURSOR_SIZE,24"

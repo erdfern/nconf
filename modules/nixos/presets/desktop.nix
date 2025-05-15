@@ -59,6 +59,7 @@ in
       pkgs.kitty
       pkgs.starship
       pkgs.networkmanagerapplet
+      pkgs.app2unit # for uwsm
     ];
 
     # Setup persisted directories.

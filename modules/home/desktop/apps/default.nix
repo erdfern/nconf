@@ -4,14 +4,15 @@
 , pkgs
 , ...
 }:
-let
-  cfg = config.kor.desktop.apps;
-in
+# let
+#   cfg = config.kor.desktop.apps;
+# in
 {
   imports = [
     ./firefox
     ./kitty
     ./nemo
+    ./waybar
   ];
 
   home.packages = with pkgs; [ discord ];

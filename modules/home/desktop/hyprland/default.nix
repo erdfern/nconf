@@ -5,19 +5,29 @@
 , ...
 }:
 let
-  cfg = config.kor.preset.desktop;
+  cfg = config.kor.desktop.hyprland;
 in
 {
   imports = [ ./config.nix ./hyprpaper ./hyprlock ];
   # ++ [ inputs.hyprpanel.result.homeManagerModules.hyprpanel ];
 
-  options.kor.preset.desktop.hyprland = with lib; {
+  options.kor.desktop.hyprland = with lib; {
     enable = mkEnableOption "hyprland integration";
+    autostartWaybar = mkOption { type = types.bool; default = false; description = "Whether to start waybar together with Hyprland"; };
+    uwsmEnv = mkOption {
+      type = types.listOf types.string;
+      default = [ ];
+      description = "List of environment variables to export in ~/.config/uwsm/env-hyprland. Format is \"export <VAR>=<value>\"";
+    };
   };
 
-  config = lib.mkIf cfg.hyprland.enable {
+  config = lib.mkIf cfg.enable {
     kor.preset.desktop.enable = true;
     kor.desktop.apps.kitty.enable = true;
+
+    kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar lib.mkForce true;
+
+    kor.desktop.hyprland.uwsmEnv = [ "export EXAMPLE_DUMMY=42" "export EXAMPLE_DUMMY2=84" ];
 
     home.packages = with pkgs; [ hyprsunset ];
 
@@ -56,18 +66,19 @@ in
 
     # TODO clean this up, merge env vars from different sources etc.
     home.file.".config/uwsm/env" = {
-      text = ''
-        export ELECTRON_OZONE_PLATFORM_HINT="auto"
-        export GRIMBLAST_HIDE_CURSOR=0
-        export XCURSOR_SIZE=24
+      text = lib.strings.concatStringsSep "\n" cfg.uwsmEnv;
+      # text = ''
+      #   export ELECTRON_OZONE_PLATFORM_HINT="auto"
+      #   export GRIMBLAST_HIDE_CURSOR=0
+      #   export XCURSOR_SIZE=24
 
-        export SDL_VIDEODRIVER=wayland,x11
-        export GDK_BACKEND=wayland,x11,*
-        export QT_QPA_PLATFORM=wayland;xcb
-        export CLUTTER_BACKEND=wayland
+      #   export SDL_VIDEODRIVER=wayland,x11
+      #   export GDK_BACKEND=wayland,x11,*
+      #   export QT_QPA_PLATFORM=wayland;xcb
+      #   export CLUTTER_BACKEND=wayland
 
-        APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
-      '';
+      #   APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
+      # '';
     };
 
     services.hyprpolkitagent.enable = true;
