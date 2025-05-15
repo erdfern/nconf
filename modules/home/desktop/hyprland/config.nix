@@ -2,7 +2,7 @@
 let
   uwsmRun = cmd: "app2unit ${cmd}";
   toggle_waybar = pkgs.writeShellScript "toggle_waybar" ''
-    killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
+    ${pkgs.killall}/bin/killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   '';
   toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
     if [ "$(hyprctl monitors all -j | ${pkgs.jq}/bin/jq 'map(.dpmsStatus) | any')" = "true" ]; then
