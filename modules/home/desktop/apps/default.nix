@@ -8,7 +8,11 @@ let
   cfg = config.kor.desktop.apps;
 in
 {
-  imports = [ ./nemo ./firefox ];
+  imports = [
+    ./firefox
+    ./kitty
+    ./nemo
+  ];
 
   home.packages = with pkgs; [ discord ];
 }
