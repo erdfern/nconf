@@ -83,9 +83,11 @@
       inputs.nilla-utils.result.packages.default.result.x86_64-linux
 
       pkgs.git
-      pkgs.helix
       pkgs.curl
       pkgs.npins
+
+      # some basic tools
+      pkgs.helix
       pkgs.inxi
       pkgs.ripgrep
       pkgs.fd
@@ -95,8 +97,8 @@
 
       # pkgs.linux-firmware # maybe fix acpi?
       # TEMP hyprpanel dep
-      pkgs.pkgconf
-      pkgs.libgtop
+      # pkgs.pkgconf
+      # pkgs.libgtop
     ];
 
     system.rebuild.enableNg = true;

@@ -1,11 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
+  kor.preset.desktop.uwsmEnv = [
+    "export GTK_THEME=${config.gtk.theme.name}"
+    # just re-export these since they get set by catppuccin cursors module
+    "export XCURSOR_THEME=${config.home.pointerCursor.name}"
+    "export XCURSOR_SIZE=${config.home.pointerCursor.size}"
+  ];
+
   # dconf.settings = {
   #   "org/gnome/desktop/interface".color-scheme = "prefer-dark";
   # };
 
   # gtk settings viewer/editor
   home.packages = with pkgs; [ nwg-look ]; #++ (with kdePackages; [ breeze breeze.qt5 breeze-gtk breeze-icons ]);
+
+  home.pointerCursor.size = 24;
 
   gtk = {
     enable = true;

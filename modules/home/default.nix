@@ -12,6 +12,8 @@
 
   programs.nix-index.enable = true;
 
+  xdg.enable = true;
+
   # TODO move
   # dconf.settings = {
   #   "org/virt-manager/virt-manager/connections" = {

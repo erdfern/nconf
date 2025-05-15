@@ -14,22 +14,44 @@ in
   options.kor.desktop.hyprland = with lib; {
     enable = mkEnableOption "hyprland integration";
     autostartWaybar = mkOption { type = types.bool; default = false; description = "Whether to start waybar together with Hyprland"; };
+
+    # NOTE this instead of "standard" env vars because of uwsm  https://wiki.hyprland.org/Configuring/Environment-variables/
     uwsmEnv = mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.lines;
       default = [ ];
       description = "List of environment variables to export in ~/.config/uwsm/env-hyprland. Format is \"export <VAR>=<value>\"";
     };
   };
 
   config = lib.mkIf cfg.enable {
-    kor.preset.desktop.enable = true;
     kor.desktop.apps.kitty.enable = true;
 
-    kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar lib.mkForce true;
+    kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar (lib.mkForce true);
 
-    kor.desktop.hyprland.uwsmEnv = [ "export EXAMPLE_DUMMY=42" "export EXAMPLE_DUMMY2=84" ];
+    kor.desktop.hyprland.uwsmEnv = [
+      "export EXAMPLE_DUMMY=42"
+      "export EXAMPLE_DUMMY2=84"
+
+      "export ELECTRON_OZONE_PLATFORM_HINT=auto"
+      "export GRIMBLAST_HIDE_CURSOR=0"
+
+      # QT stuff
+      # "export QT_QPA_PLATFORM=wayland;xcb"
+      # "export QT_QPA_PLATFORMTHEME=qt6ct"
+      "export QT_WAYLAND_DISABLE_WINDOWDECORATION=1"
+      "export QT_AUTO_SCREEN_SCALE_FACTOR=1"
+    ] # ++ lib.lists.optional config.home.pointerCursor.hyprcursor.enable "export HYPRCURSOR_SIZE=${config.home.pointerCursor.hyprcursor.size}";
+    ++ (if config.home.pointerCursor.hyprcursor.enable then [
+      "export HYPRCURSOR_SIZE=${config.home.pointerCursor.hyprcursor.size}"
+      # "export HYPRCURSOR_THEME=${config.home.pointerCursor.hyprcursor.size}"
+    ] else [ ]);
+
+    home.file."${config.xdg.configHome}/uwsm/TESTenv-hyprland".text = lib.mkIf (cfg.uwsmEnv != [ ]) lib.strings.concatLines cfg.uwsmEnv;
 
     home.packages = with pkgs; [ hyprsunset ];
+
+    home.pointerCursor.hyprcursor.enable = true;
+    home.pointerCursor.hyprcursor.size = 24;
 
     programs.bash.enable = true;
     programs.bash.profileExtra = ''
@@ -60,26 +82,7 @@ in
     #
     # might work too?
     # home.sessionVariables = {
-    #   ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    #   GRIMBLAST_HIDE_CURSOR = 0;
     # };
-
-    # TODO clean this up, merge env vars from different sources etc.
-    home.file.".config/uwsm/env" = {
-      text = lib.strings.concatStringsSep "\n" cfg.uwsmEnv;
-      # text = ''
-      #   export ELECTRON_OZONE_PLATFORM_HINT="auto"
-      #   export GRIMBLAST_HIDE_CURSOR=0
-      #   export XCURSOR_SIZE=24
-
-      #   export SDL_VIDEODRIVER=wayland,x11
-      #   export GDK_BACKEND=wayland,x11,*
-      #   export QT_QPA_PLATFORM=wayland;xcb
-      #   export CLUTTER_BACKEND=wayland
-
-      #   APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
-      # '';
-    };
 
     services.hyprpolkitagent.enable = true;
 

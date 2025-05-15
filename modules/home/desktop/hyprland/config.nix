@@ -23,16 +23,13 @@ let
   cfg = config.kor.desktop.hyprland;
 in
 {
-
-  cfg.uwsmEnv = [ "export XCURSOR_SIZE=24" ];
-
   wayland.windowManager.hyprland = {
     sourceFirst = true;
     settings = {
       "$mod" = mod;
 
-      exec-once = [
-      ] ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun toggle_waybar}";
+      exec-once = [ ]
+        ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun toggle_waybar}";
 
       # env = [
       # "XCURSOR_SIZE,24"

@@ -10,6 +10,7 @@
 {
   imports = [
     ./firefox
+    ./fuzzel
     ./kitty
     ./nemo
     ./waybar
