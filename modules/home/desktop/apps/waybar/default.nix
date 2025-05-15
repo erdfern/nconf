@@ -9,17 +9,17 @@ in
   options.kor.desktop.apps.waybar = with lib; {
     enable = mkEnableOption "waybar panel";
     modules-left = mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       default = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
       description = "left side panel modules";
     };
     modules-center = mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       default = [ "clock" ];
       description = "center panel modules";
     };
     modules-right = mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       default = [ "cpu" "memory" "temperature" "battery" "network" "tray" ];
       description = "right side panel modules";
     };

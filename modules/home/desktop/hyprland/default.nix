@@ -14,13 +14,6 @@ in
   options.kor.desktop.hyprland = with lib; {
     enable = mkEnableOption "hyprland integration";
     autostartWaybar = mkOption { type = types.bool; default = false; description = "Whether to start waybar together with Hyprland"; };
-
-    # NOTE this instead of "standard" env vars because of uwsm  https://wiki.hyprland.org/Configuring/Environment-variables/
-    uwsmEnv = mkOption {
-      type = types.listOf types.lines;
-      default = [ ];
-      description = "List of environment variables to export in ~/.config/uwsm/env-hyprland. Format is \"export <VAR>=<value>\"";
-    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -28,25 +21,25 @@ in
 
     kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar (lib.mkForce true);
 
-    kor.desktop.hyprland.uwsmEnv = [
-      "export EXAMPLE_DUMMY=42"
-      "export EXAMPLE_DUMMY2=84"
+    kor.desktop.uwsm.envHyprland = [
+      "EXAMPLE_DUMMY=42"
+      "EXAMPLE_DUMMY2=84"
 
-      "export ELECTRON_OZONE_PLATFORM_HINT=auto"
-      "export GRIMBLAST_HIDE_CURSOR=0"
+      "ELECTRON_OZONE_PLATFORM_HINT=auto"
+      "GRIMBLAST_HIDE_CURSOR=0"
 
       # QT stuff
       # "export QT_QPA_PLATFORM=wayland;xcb"
       # "export QT_QPA_PLATFORMTHEME=qt6ct"
-      "export QT_WAYLAND_DISABLE_WINDOWDECORATION=1"
-      "export QT_AUTO_SCREEN_SCALE_FACTOR=1"
+      "QT_WAYLAND_DISABLE_WINDOWDECORATION=1"
+      "QT_AUTO_SCREEN_SCALE_FACTOR=1"
     ] # ++ lib.lists.optional config.home.pointerCursor.hyprcursor.enable "export HYPRCURSOR_SIZE=${config.home.pointerCursor.hyprcursor.size}";
     ++ (if config.home.pointerCursor.hyprcursor.enable then [
-      "export HYPRCURSOR_SIZE=${config.home.pointerCursor.hyprcursor.size}"
+      "HYPRCURSOR_SIZE=${toString config.home.pointerCursor.hyprcursor.size}"
       # "export HYPRCURSOR_THEME=${config.home.pointerCursor.hyprcursor.size}"
     ] else [ ]);
 
-    home.file."${config.xdg.configHome}/uwsm/TESTenv-hyprland".text = lib.mkIf (cfg.uwsmEnv != [ ]) lib.strings.concatLines cfg.uwsmEnv;
+    # home.file."${config.xdg.configHome}/uwsm/TESTenv-hyprland".text = lib.mkIf (cfg.uwsmEnv != [ ]) (lib.strings.concatLines cfg.uwsmEnv);
 
     home.packages = with pkgs; [ hyprsunset ];
 

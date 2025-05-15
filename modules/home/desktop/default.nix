@@ -13,25 +13,18 @@ in
     ./hyprland
     ./gtk.nix
     ./suites
+    ./uwsm.nix
   ];
 
   options.kor.preset.desktop = with lib; {
     enable = mkEnableOption "desktop preset";
     enableHyprland = mkEnableOption "Hyprland compositor";
-    # TODO check format and automatically prepend "export"
-    uwsmEnv = mkOption {
-      type = types.listOf types.lines;
-      default = [ ];
-      description = "List of environment variables to export in ~/.config/uwsm/env. Format is \"export <VAR>=<value>\"";
-    };
   };
 
   config = lib.mkIf (cfg.enable || cfg.enableHyprland) {
     programs.starship.enable = true;
 
     kor.desktop.hyprland.enable = lib.mkIf cfg.enableHyprland true; # mkIf so it could be set elswhere without conflict
-
-    home.file."${config.xdg.configHome}/uwsm/TESTenv".text = lib.mkIf (cfg.uwsmEnv != [ ]) lib.strings.concatLines cfg.uwsmEnv;
 
     catppuccin.mako.enable = false; # until they stop using mako.extraConfig
     services.mako = {

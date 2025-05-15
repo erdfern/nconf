@@ -14,10 +14,10 @@
   kor.desktop.hyprland.autostartWaybar = true;
   kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
 
-  kor.desktop.hyprland.uwsmEnv = [
-    "export HYPRLAND_TRACE=0"
-    "export AQ_TRACE=0"
-    "export LIBVA_DRIVER_NAME=iHD"
+  kor.desktop.uwsm.env = [
+    "HYPRLAND_TRACE=0"
+    "AQ_TRACE=0"
+    "LIBVA_DRIVER_NAME=iHD"
   ];
 
   # home.packages = with pkgs; [

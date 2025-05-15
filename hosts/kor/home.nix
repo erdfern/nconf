@@ -7,7 +7,7 @@
   kor.desktop.apps.firefox.enable = true;
   kor.desktop.suites.gaming.enable = true;
 
-  kor.desktop.hyprland.uwsmEnv = [
+  kor.desktop.uwsm.env = [
     "export HYPRLAND_TRACE=0"
     "export AQ_TRACE=1"
     "export AQ_DRM_DEVICES=/dev/dri/card1"

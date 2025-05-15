@@ -1,10 +1,10 @@
 { pkgs, config, ... }:
 {
-  kor.preset.desktop.uwsmEnv = [
-    "export GTK_THEME=${config.gtk.theme.name}"
+  kor.desktop.uwsm.env = [
+    "GTK_THEME=${config.gtk.theme.name}"
     # just re-export these since they get set by catppuccin cursors module
-    "export XCURSOR_THEME=${config.home.pointerCursor.name}"
-    "export XCURSOR_SIZE=${config.home.pointerCursor.size}"
+    "XCURSOR_THEME=${config.home.pointerCursor.name}"
+    "XCURSOR_SIZE=${toString config.home.pointerCursor.size}"
   ];
 
   # dconf.settings = {
