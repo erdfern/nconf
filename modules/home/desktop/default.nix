@@ -12,8 +12,8 @@ in
     ./apps
     ./hyprland
     ./gtk.nix
-    ./suites
     ./uwsm.nix
+    ./suites
   ];
 
   options.kor.preset.desktop = with lib; {

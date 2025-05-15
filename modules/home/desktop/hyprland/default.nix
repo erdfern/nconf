@@ -22,20 +22,17 @@ in
     # kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar (lib.mkForce true);
 
     kor.desktop.uwsm.envHyprland = [
-      "EXAMPLE_DUMMY=42"
-      "EXAMPLE_DUMMY2=84"
-
       "ELECTRON_OZONE_PLATFORM_HINT=auto"
       "GRIMBLAST_HIDE_CURSOR=0"
 
       # QT stuff
       # "export QT_QPA_PLATFORM=wayland;xcb"
       # "export QT_QPA_PLATFORMTHEME=qt6ct"
-      "QT_WAYLAND_DISABLE_WINDOWDECORATION=1"
-      "QT_AUTO_SCREEN_SCALE_FACTOR=1"
+      # "QT_WAYLAND_DISABLE_WINDOWDECORATION=1"
+      # "QT_AUTO_SCREEN_SCALE_FACTOR=1"
     ] # ++ lib.lists.optional config.home.pointerCursor.hyprcursor.enable "export HYPRCURSOR_SIZE=${config.home.pointerCursor.hyprcursor.size}";
     ++ (if config.home.pointerCursor.hyprcursor.enable then [
-      "HYPRCURSOR_SIZE=${toString config.home.pointerCursor.hyprcursor.size}"
+      # "HYPRCURSOR_SIZE=${toString config.home.pointerCursor.hyprcursor.size}"
       # "export HYPRCURSOR_THEME=${config.home.pointerCursor.hyprcursor.size}"
     ] else [ ]);
 
@@ -43,8 +40,8 @@ in
 
     home.packages = with pkgs; [ hyprsunset ];
 
-    home.pointerCursor.hyprcursor.enable = true;
-    home.pointerCursor.hyprcursor.size = 24;
+    # home.pointerCursor.hyprcursor.enable = true;
+    # home.pointerCursor.hyprcursor.size = 24;
 
     programs.bash.enable = true;
     programs.bash.profileExtra = ''
@@ -59,7 +56,7 @@ in
       enable = true;
       package = null; # https://github.com/nix-community/home-manager/blob/542078066b1a99cdc5d5fce1365f98b847ca0b5a/modules/services/window-managers/hyprland.nix#L72
       portalPackage = null; # TODO check if this is right. Maybe I need to enable the xdg portal in nixos conf if package/portalPackage are null
-      systemd.enable = false; # conflicts with nixos option programs.hyprland.withUWSM
+      systemd.enable = lib.mkForce false; # conflicts with nixos option programs.hyprland.withUWSM
       plugins = [
         # inputs.hycov.packages.${pkgs.system}.hycov
       ];
@@ -77,7 +74,7 @@ in
     # home.sessionVariables = {
     # };
 
-    services.hyprpolkitagent.enable = true;
+    # services.hyprpolkitagent.enable = true;
 
     services.hyprsunset = {
       enable = true;
