@@ -19,7 +19,7 @@ in
   config = lib.mkIf cfg.enable {
     kor.desktop.apps.kitty.enable = true;
 
-    kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar (lib.mkForce true);
+    # kor.desktop.apps.waybar.enable = lib.mkIf cfg.autostartWaybar (lib.mkForce true);
 
     kor.desktop.uwsm.envHyprland = [
       "EXAMPLE_DUMMY=42"

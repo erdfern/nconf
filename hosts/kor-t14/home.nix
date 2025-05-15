@@ -10,13 +10,12 @@
   kor.desktop.apps.firefox.enable = true;
   kor.desktop.suites.gaming.enable = true;
 
-  # kor.desktop.apps.waybar.enable  = true;
-  kor.desktop.hyprland.autostartWaybar = true;
-  kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
+  # kor.desktop.hyprland.autostartWaybar = false;
+  # kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
 
   kor.desktop.uwsm.env = [
-    "HYPRLAND_TRACE=0"
-    "AQ_TRACE=0"
+    "HYPRLAND_TRACE=1"
+    "AQ_TRACE=1"
     "LIBVA_DRIVER_NAME=iHD"
   ];
 

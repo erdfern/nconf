@@ -160,7 +160,8 @@ in
 
           ",Super_L, exec, pkill fuzzel || ${fuzzel}"
           "$mod, Super_L,exec, pkill fuzzel || ${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu"
-          "$mod, Return, exec, ${uwsmRun terminal}" # proobably don't need to uwsmRun kitty? but still
+          # "$mod, Return, exec, ${uwsmRun terminal}" # proobably don't need to uwsmRun kitty? but still
+          "$mod, Return, exec, ${terminal}"
           "$mod SHIFT, Return, exec, ${uwsmRun terminal} --class='termfloat'"
           # "$mod SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
           # "$mod SHIFT, O, exec, ${toggle_waybar}/bin/toggle_waybar"
