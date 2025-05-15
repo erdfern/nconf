@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  cfg = config.kor.apps.desktop.kitty;
+  cfg = config.kor.desktop.apps.kitty;
 in
 {
   options.kor.desktop.apps.kitty = with lib; {

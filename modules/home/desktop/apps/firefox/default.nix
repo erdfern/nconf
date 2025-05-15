@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  cfg = config.kor.apps.desktop.firefox;
+  cfg = config.kor.desktop.apps.firefox;
 in
 {
   imports = [ ./preferences.nix ./policies.nix ./search.nix ./extensions.nix ];
