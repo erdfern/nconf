@@ -16,7 +16,7 @@ in
           "ctrl+alt+t" = "new_tab_with_cwd";
         };
         font.name = "monospace";
-        font.size = 16;
+        # font.size = 16;
         settings = {
           remote_control = "yes"; # TODO make this finegrained for security? i basically just want this for fuzzel/kitty @ launch
           disable_ligatures = "cursor";
