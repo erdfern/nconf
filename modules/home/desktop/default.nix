@@ -29,11 +29,6 @@ in
     catppuccin.mako.enable = false;
     services.mako = {
       enable = true; # NOTE conflicts with hyprpanel/ags notif service
-      # font = "Iosevka Nerd Font 12";
-      backgroundColor = "#3A4353";
-      borderColor = "#c0caf5";
-      progressColor = "over #3B4252";
-      textColor = "#FAF4FC";
       settings = {
         default-timeout = 5000;
         width = 256;
@@ -43,6 +38,12 @@ in
         border-size = 3;
         border-radius = 3;
         text-alignment = "center";
+
+        # font = "Iosevka Nerd Font 12";
+        backgroundColor = "#3A4353";
+        borderColor = "#c0caf5";
+        progressColor = "over #3B4252";
+        textColor = "#FAF4FC";
 
         "urgency=critical".border-color = "#B45C65";
       };
