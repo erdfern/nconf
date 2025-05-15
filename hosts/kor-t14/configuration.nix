@@ -12,7 +12,7 @@
     ./impermanence.nix
 
     "${inputs.hardware.result}/lenovo/thinkpad/t14"
-    "${inputs.facter.result}/modules/nixos/facter.nix"
+    # "${inputs.facter.result}/modules/nixos/facter.nix"
     # "${inputs.hardware.result}/common/cpu/intel/tiger-lake"
   ];
 
@@ -26,7 +26,7 @@
   #   --option extra-substituters https://numtide.cachix.org \
   #   --option extra-trusted-public-keys numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE= \
   #   github:numtide/nixos-facter -- -o facter.json
-  facter.reportPath = ./facter.json;
+  # facter.reportPath = ./facter.json;
 
   # prevent CPU overheating
   # TODO figure out: [WARN][/sys/devices/platform/thinkpad_acpi/dytc_lapmode] present: Thermald can't run on this platform
