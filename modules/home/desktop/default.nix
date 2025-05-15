@@ -26,7 +26,7 @@ in
 
     kor.desktop.hyprland.enable = lib.mkIf cfg.enableHyprland true; # mkIf so it could be set elswhere without conflict
 
-    catppuccin.mako.enable = false; # until they stop using mako.extraConfig
+    catppuccin.mako.enable = true;
     services.mako = {
       enable = true; # NOTE conflicts with hyprpanel/ags notif service
       # font = "Iosevka Nerd Font 12";
