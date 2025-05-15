@@ -18,11 +18,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-
     # enable audio support
     kor.hardware.audio.enable = true;
 
     kor.gaming.enable = lib.mkDefault true;
+
+    # time.timeZone = lib.mkDefault "Europe/Berlin";
+    services.automatic-timezoned.enable = true; # figure it out
 
     # enable graphics support
     hardware.graphics.enable = true;

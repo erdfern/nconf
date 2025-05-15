@@ -12,7 +12,7 @@ writeShellScriptBin "fuzzel-powermenu" ''
   	*"Suspend")
   		systemctl suspend;;
   	*"Log out")
-  		exit;;
+  		loginctl terminate-user "";;
   	*"Reboot")
   		systemctl reboot;;
   	*"Reboot to UEFI")
