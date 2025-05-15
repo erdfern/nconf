@@ -29,7 +29,7 @@ in
       "$mod" = mod;
 
       exec-once = [ ]
-        ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun toggle_waybar}";
+        ++ lib.lists.optional cfg.autostartWaybar "${uwsmRun toggle_waybar/bin/toggle_waybar}";
 
       # env = [
       # "XCURSOR_SIZE,24"
