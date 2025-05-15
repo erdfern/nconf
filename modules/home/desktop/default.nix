@@ -14,6 +14,7 @@ in
     ./gtk.nix
     ./waybar
     ./gaming.nix
+    ./fuzzel
   ];
 
   options.kor.preset.desktop = with lib; {

@@ -50,10 +50,10 @@ in
     # export XCURSOR_SIZE=24
     #
     # might work too?
-    home.sessionVariables = {
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      GRIMBLAST_HIDE_CURSOR = 0;
-    };
+    # home.sessionVariables = {
+    #   ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    #   GRIMBLAST_HIDE_CURSOR = 0;
+    # };
 
     # TODO clean this up, merge env vars from different sources etc.
     home.file.".config/uwsm/env" = {
@@ -66,6 +66,8 @@ in
         export GDK_BACKEND=wayland,x11,*
         export QT_QPA_PLATFORM=wayland;xcb
         export CLUTTER_BACKEND=wayland
+
+        APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'
       '';
     };
 

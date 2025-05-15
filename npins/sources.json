@@ -77,9 +77,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "59b23406804d0c6aa37dc40c271852e697759663",
-      "url": "https://github.com/hyprwm/Hyprland/archive/59b23406804d0c6aa37dc40c271852e697759663.tar.gz",
-      "hash": "001xgpxzc254fy4qp8v5r65bn637avh3dy958h152xnq8bpwwlpz"
+      "revision": "75f2cb5f6559ca6ca7c6300b270e5ddc3fdabe31",
+      "url": "https://github.com/hyprwm/Hyprland/archive/75f2cb5f6559ca6ca7c6300b270e5ddc3fdabe31.tar.gz",
+      "hash": "1hl3r9xkwgj1dh1lxcb9dg27ygbgs2zmwzr8pn7v2mbyq4ibvr6b"
     },
     "hyprpanel": {
       "type": "Git",
@@ -127,9 +127,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "5ed5efe6fc912cc1b1c2d8725aad793e55d6ee7f",
+      "revision": "fed92d56ee77cb4cac021e7fa06813c70c163d45",
       "url": null,
-      "hash": "1qr0sydn9dv2rk6pl75j4x09ww3zq25s7a9q5gxb872dw5hkysgy"
+      "hash": "0261ammhqs4j103q50kzkkcd3sgnynv81710ghkndyak73a76n7h"
     },
     "nilla": {
       "type": "Git",
@@ -140,9 +140,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "d9df762b85ec7f96e1ee26cbf328c20a04aac6f6",
-      "url": "https://github.com/nilla-nix/nilla/archive/d9df762b85ec7f96e1ee26cbf328c20a04aac6f6.tar.gz",
-      "hash": "061z0jiafchim5pisjznn09cg7nbr86b9jj13bini4bzhldgbfmh"
+      "revision": "34e40573367a0665b0b1aec1aebd5ed479008d2a",
+      "url": "https://github.com/nilla-nix/nilla/archive/34e40573367a0665b0b1aec1aebd5ed479008d2a.tar.gz",
+      "hash": "1cjh0mar8wpjh8lfyhxfkk0x1ra3i2gy9rlqmc7ldkyd2v1r33mx"
     },
     "nilla-cli": {
       "type": "Git",

@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  uwsmRun = cmd: "app2unit ${cmd}";
   # toggle_waybar = pkgs.writeShellScriptBin "toggle_waybar" ''
   #   killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   # '';
@@ -159,15 +160,14 @@ in
           "$mod, T, togglegroup"
 
           ",Super_L, exec, pkill fuzzel || ${fuzzel}"
-          # "$mod, Super_L,exec, pkill fuzzel || ${sharedScripts.fuzzel-powermenu}/bin/fuzzel-powermenu"
-          "$mod, Return, exec, ${terminal}"
-          "$mod SHIFT, Return, exec, ${terminal} --class='termfloat'"
+          "$mod, Super_L,exec, pkill fuzzel || ${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu"
+          "$mod, Return, exec, ${uwsmRun terminal}" # proobably don't need to uwsmRun kitty? but still
+          "$mod SHIFT, Return, exec, ${uwsmRun terminal} --class='termfloat'"
           # "$mod SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
           # "$mod SHIFT, O, exec, ${toggle_waybar}/bin/toggle_waybar"
           "$mod, bracketleft, exec, grimblast --notify copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
           "$mod, bracketright, exec, grimblast --notify copy area"
           "$mod, Print, exec, grimblast --notify copy screen"
-
 
           # minimize using special workspace
           "$mod SHIFT, S, togglespecialworkspace, magic"
