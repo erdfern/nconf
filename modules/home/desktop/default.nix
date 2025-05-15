@@ -26,14 +26,14 @@ in
 
     kor.desktop.hyprland.enable = lib.mkIf cfg.enableHyprland true; # mkIf so it could be set elswhere without conflict
 
-    catppuccin.mako.enable = true;
+    catppuccin.mako.enable = false;
     services.mako = {
       enable = true; # NOTE conflicts with hyprpanel/ags notif service
       # font = "Iosevka Nerd Font 12";
-      # backgroundColor = "#3A4353";
-      # borderColor = "#c0caf5";
-      # progressColor = "over #3B4252";
-      # textColor = "#FAF4FC";
+      backgroundColor = "#3A4353";
+      borderColor = "#c0caf5";
+      progressColor = "over #3B4252";
+      textColor = "#FAF4FC";
       settings = {
         default-timeout = 5000;
         width = 256;
@@ -43,15 +43,9 @@ in
         border-size = 3;
         border-radius = 3;
         text-alignment = "center";
-        # criteria."urgency=critical".border-color = "#B45C65";
+
+        "urgency=critical".border-color = "#B45C65";
       };
-      # ''
-      #   {
-      #    text-alignment=center
-      #    [urgency=critical]
-      #    border-color=#B45C65
-      #   }
-      # '';
     };
 
     # hm sets up a similar service already
