@@ -13,7 +13,7 @@
     ./fuzzel
     ./kitty
     ./nemo
-    # ./waybar
+    ./waybar
   ];
 
   home.packages = with pkgs; [ discord ];
