@@ -34,13 +34,14 @@
 
     # enable nitrokey udev rules and gpg agent
     hardware.nitrokey.enable = true;
-    programs = {
-      ssh.startAgent = false;
-      gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
+    # programs = {
+    #   ssh.startAgent = false;
+    #   gnupg.agent = {
+    #     enable = true;
+    #     enableSSHSupport = true;
+    #   };
+    # };
+    programs.ssh.startAgent = true;
 
     services.dbus = {
       enable = true;
@@ -56,8 +57,7 @@
 
     users.users = {
       root.openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/rupin71C/GxJ9r74UNanoxuUR7FA3u+Wc88Z/5oYh lk@kor"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJw9d44H5L7ivkWwWhzV6TEycwpMe8wA3jHXydoBqbaj lk@kor-t14"
+        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIFDGW5X40nM8SGOPPGdLl3461jIFIwWgsMYrho4KItj+AAAAB3NzaDprb3I= ssh:kor"
       ];
       root.shell = pkgs.bashInteractive;
       ${user} = {
@@ -67,8 +67,7 @@
         extraGroups = [ "wheel" ];
         home = "/home/${user}";
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/rupin71C/GxJ9r74UNanoxuUR7FA3u+Wc88Z/5oYh lk@kor"
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJw9d44H5L7ivkWwWhzV6TEycwpMe8wA3jHXydoBqbaj lk@kor-t14"
+          "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIFDGW5X40nM8SGOPPGdLl3461jIFIwWgsMYrho4KItj+AAAAB3NzaDprb3I= ssh:kor"
         ];
         packages = map lib.lowPrio [
           pkgs.home-manager
