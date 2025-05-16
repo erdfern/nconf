@@ -16,13 +16,12 @@
 
   # TEMP
   users.users = {
-    root.hashedPasswordFile = "${cfg.path}/passwords/root";
-    ${user}.hashedPasswordFile = "${cfg.path}/passwords/${user}";
+    root.hashedPasswordFile = "/persist/passwords/root";
+    ${user}.hashedPasswordFile = "/persist/passwords/${user}";
   };
-  fileSystems."${cfg.device}".neededForBoot = true;
+  fileSystems."/persist".neededForBoot = true;
   services.flatpak.enable = true;
 
-  # networking.hostName = "kor-t14";
   kor.preset.laptop.enable = true;
   kor.preset.development.enable = true;
   kor.boot.plymouth.enable = true;
@@ -43,8 +42,6 @@
   # Really just unsupported or misconfigured?
   # I guess lenovo firmware is managing stuff already? hm
   services.thermald.enable = false;
-
-  hardware.nitrokey.enable = true;
 
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
