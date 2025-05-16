@@ -16,6 +16,9 @@
     # "${inputs.hardware.result}/common/cpu/intel/tiger-lake"
   ];
 
+  # TEMP
+  services.flatpak.enable = true;
+
   # networking.hostName = "kor-t14";
   kor.preset.laptop.enable = true;
   kor.preset.development.enable = true;
