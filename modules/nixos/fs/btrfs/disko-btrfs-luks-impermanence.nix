@@ -33,6 +33,14 @@
             ];
             # https://0pointer.net/blog/unlocking-luks2-volumes-with-tpm2-fido2-pkcs11-security-hardware-on-systemd-248.html
             settings = { crypttabExtraOpts = [ "fido2-device=auto" "token-timeout=10" ]; };
+            # disable settings.keyFile if you want to use interactive password entry
+            #passwordFile = "/tmp/secret.key"; # Interactive
+            settings = {
+              allowDiscards = true;
+              # keyFile = "/tmp/secret.key";
+            };
+            additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
+
             # /dev/disk/by-label/nixos
             content = {
               type = "btrfs";

@@ -32,7 +32,15 @@
       # };
     };
 
-    programs.ssh.startAgent = true;
+    # enable nitrokey udev rules and gpg agent
+    hardware.nitrokey.enable = true;
+    programs = {
+      ssh.startAgent = false;
+      gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
+    };
 
     services.dbus = {
       enable = true;

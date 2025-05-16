@@ -25,6 +25,8 @@ nix --experimental-features "nix-command flakes" run github:nix-community/disko/
 ```
 mkpasswd -m sha-512 > /persist/passwords/root
 mkpasswd -m sha-512 > /persist/passwords/<user>
+
+systemd-cryptenroll --fido2-device=auto /dev/nvme0n1p2
 ```
 
 ### Install system:
