@@ -10,8 +10,9 @@ config.haskell.formattingProvider = "ormolu" # default is "ormolu"
 # TODO configure for nilla nconf https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md#configuration-overview
 [[language]]
 name = "nix"
-formatter = { command = "nixpkgs-fmt" }
 # language-servers = ["nixd", "nil" ]
+formatter = { command = "nixpkgs-fmt" }
+auto-format = true
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"

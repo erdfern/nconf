@@ -18,7 +18,13 @@ curl -L https://github.com/nix-community/nixos-images/releases/latest/download/n
 Manually or using Disko:
 
 ```sh
-nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount hosts/<name>/disk-config.nix
+nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disk-config.nix
+```
+
+### Generate passwords if users are immutable enabled!!
+```
+mkpasswd -m sha-512 > /persist/passwords/root
+mkpasswd -m sha-512 > /persist/passwords/<user>
 ```
 
 ### Install system:

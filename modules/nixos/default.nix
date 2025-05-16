@@ -1,10 +1,11 @@
 { user, lib, inputs, pkgs, ... }: {
   imports = [
     ./boot.nix
+    ./fs
+    ./system
     ./presets/desktop.nix
     ./presets/development.nix
     ./presets/laptop.nix
-    ./presets/immutable.nix
     ./presets/server.nix
     # ./virtualisation/qemu.nix
   ];
@@ -23,11 +24,11 @@
     services.openssh = {
       enable = true;
       # settings = {
-        # Opinionated: forbid root login through SSH.
-        # PermitRootLogin = "no";
-        # Opinionated: use keys only.
-        # Remove if you want to SSH using passwords
-        # PasswordAuthentication = false;
+      # Opinionated: forbid root login through SSH.
+      # PermitRootLogin = "no";
+      # Opinionated: use keys only.
+      # Remove if you want to SSH using passwords
+      # PasswordAuthentication = false;
       # };
     };
 

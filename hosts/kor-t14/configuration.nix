@@ -7,9 +7,7 @@
 }:
 {
   imports = [
-    ./disk-config.nix
     ./hardware-configuration.nix
-    ./impermanence.nix
 
     "${inputs.hardware.result}/lenovo/thinkpad/t14"
     # "${inputs.facter.result}/modules/nixos/facter.nix"
@@ -24,6 +22,10 @@
   kor.preset.development.enable = true;
   kor.boot.plymouth.enable = true;
 
+  kor.system.impermanence.root.enable = false;
+  kor.system.impermanence.home.enable = false;
+  kor.fs.btrfs.enable = true;
+
   # sudo nix run \
   #   --option experimental-features "nix-command flakes" \
   #   --option extra-substituters https://numtide.cachix.org \
@@ -35,7 +37,7 @@
   # TODO figure out: [WARN][/sys/devices/platform/thinkpad_acpi/dytc_lapmode] present: Thermald can't run on this platform
   # Really just unsupported or misconfigured?
   # I guess lenovo firmware is managing stuff already? hm
-  services.thermald.enable = true;
+  services.thermald.enable = false;
 
   hardware.nitrokey.enable = true;
 

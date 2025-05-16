@@ -63,12 +63,12 @@ in
     ];
 
     # Setup persisted directories.
-    kor.preset.immutable = lib.mkIf config.kor.preset.immutable.enable {
-      directories = [
+    kor.system.impermanence.root = lib.mkIf config.kor.system.impermanence.enable {
+      extraDirectories = [
         "/var/lib/bluetooth"
         "/etc/NetworkManager/system-connections"
       ];
-      files = [
+      extraFiles = [
         "/var/lib/NetworkManager/secret_key"
         "/var/lib/NetworkManager/seen-bssids"
         "/var/lib/NetworkManager/timestamps"

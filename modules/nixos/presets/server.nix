@@ -15,14 +15,14 @@ in
 
     time.timeZone = lib.mkForce "utc";
 
-    kor.preset.immutable.directories = [ "/etc/ssh" ];
-    # kor.preset.immutable.files = [
-    #   "/etc/ssh/ssh_host_rsa_key"
-    #   "/etc/ssh/ssh_host_rsa_key.pub"
-    #   "/etc/ssh/ssh_host_ed25519_key"
-    #   "/etc/ssh/ssh_host_ed25519_key.pub"
-    #   "/etc/ssh/ssh_host_ed25519_key"
-    #   "/etc/ssh/ssh_host_ed25519_key.pub"
-    # ];
+    kor.system.impermanence.root.extraDirectories = [ "/etc/ssh" ];
+    kor.system.impermanence.root.extraFiles = [
+      "/etc/ssh/ssh_host_rsa_key"
+      "/etc/ssh/ssh_host_rsa_key.pub"
+      "/etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_ed25519_key.pub"
+      "/etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_ed25519_key.pub"
+    ];
   };
 }

@@ -16,7 +16,7 @@
   ];
 
   kor.preset.server.enable = true;
-  kor.preset.immutable.enable = true;
+  kor.system.impermanence.enable = true;
 
   facter.reportPath = ./facter.json;
 
