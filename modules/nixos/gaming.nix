@@ -47,9 +47,9 @@ in
 
     environment = {
       systemPackages = with pkgs; [
-        (heroic.override {
-          extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
-        })
+        # (heroic.override {
+        #   extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
+        # })
         bottles
         usbutils # steam wants this in some shell script i think
         # wineWowPackages.stable

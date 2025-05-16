@@ -8,7 +8,7 @@
   kor.preset.desktop.enable = true;
   kor.preset.desktop.enableHyprland = true;
   kor.desktop.apps.firefox.enable = false;
-  kor.desktop.suites.gaming.enable = true;
+  kor.desktop.suites.gaming.enable = false;
 
   kor.desktop.hyprland.autostartWaybar = true;
   kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
