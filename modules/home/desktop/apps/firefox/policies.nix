@@ -1,28 +1,49 @@
 {
   programs.firefox.policies =
     {
-      DontCheckDefaultBrowser = true;
+      AppAutoUpdate = false;
+      ExtensionUpdate = false;
+
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       DisablePocket = true;
       DisableFirefoxScreenshots = true;
+      DisableSetDesktopBackground = true;
+      DisableSystemAddonUpdate = true;
 
       DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "never"; # Previously appeared when pressing alt
 
+      DontCheckDefaultBrowser = true;
+
+      NoDefaultBookmarks = true;
+
+      SkipTermsOfUse = true;
+
       OverrideFirstRunPage = "";
+      OverridePostUpdatePage = "";
+
+      Homepage.StartPage = "previous-session";
+      NewTabPage = false; # trying this to get rid of "tridactyl changed newpage" message
+
+      # let extension handle it
+      OfferToSaveLogins = false;
+      OfferToSaveLoginsDefault = false;
+
       PictureInPicture.Enabled = false;
       PromptForDownloadLocation = false;
 
       HardwareAcceleration = true;
       TranslateEnabled = true;
 
-      Homepage.StartPage = "previous-session";
-
       UserMessaging =
         {
           UrlbarInterventions = false;
           SkipOnboarding = true;
+          ExtensionRecommendations = false;
+          FeatureRecommendations = false;
+          MoreFromMozilla = false;
+          FirefoxLabs = false;
         };
 
       FirefoxSuggest =
@@ -63,5 +84,4 @@
           ask = false;
         };
     };
-
 }

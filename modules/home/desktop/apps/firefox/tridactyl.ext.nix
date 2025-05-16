@@ -10,6 +10,11 @@ in
     nativeMessagingHosts = lib.singleton pkgs.tridactyl-native;
   };
 
+  programs.firefox.policies."3rdparty".extensions."tridactyl.vim@cmcaine.co.uk" = {
+    permissions = [ "internal:privateBrowsingAllowed:<all_urls>" ];
+    origins = [ "<all_urls>" ];
+  };
+
   programs.firefox.policies.Preferences."browser.autofocus" = false;
 
   xdg.configFile."tridactyl/tridactylrc" = {
@@ -41,7 +46,7 @@ in
         bind J scrollpage +1
         bind K scrollpage -1
 
-        bind a tab # " Last used tab
+        " bind a tab # " Last used tab
 
         " t for tab, silly
         bind t tabopen
@@ -53,7 +58,6 @@ in
 
         bind f hint -Jc a,button,input
         bind F hint -Jbc a,button,input
-
 
         unbind <<
         unbind >>
@@ -68,7 +72,7 @@ in
         unbind <C-a>
 
         " gi goes to github search
-        bindurl ^https://github.com gi hint -Vc .AppHeader-searchButton
+        " bindurl ^https://github.com gi hint -Vc .AppHeader-searchButton
         " More relevant hints with github search
         bindurl ^https://github.com/search f hint -Jc .search-title a
         bindurl ^https://github.com/search F hint -Jbc .search-title a
@@ -82,7 +86,6 @@ in
         " More relevant hints when selecting videos
         bindurl youtube.com$ f hint -Jc [class~=yt-simple-endpoint]
         bindurl youtube.com$ F hint -Jc [class~=yt-simple-endpoint]
-
 
         set searchurls.@gh https://github.com/search?type=code&q=NOT+is:fork+%s
         set searchurls.@gn https://github.com/search?type=code&q=lang:nix+NOT+is:fork+%s
@@ -102,7 +105,7 @@ in
 
   # TODO https://github.com/tridactyl/base16-tridactyl | https://github.com/catppuccin/base16 | https://github.com/tridactyl/tridactyl/blob/master/src/static/themes/midnight/midnight.css
   xdg.configFile."tridactyl/themes/catppuccin.css" = {
-    force = true;
+    # force = true;
     source = ./tridactyl.cat.b16.css;
   };
 }
