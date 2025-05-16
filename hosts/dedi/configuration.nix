@@ -26,6 +26,13 @@
     settings.PermitRootLogin = "prohibit-password";
   };
 
+  services.fail2ban.enable = true;
+  services.endlessh = {
+    enable = true;
+    port = 22;
+    openFirewall = true;
+  };
+
   # NOTE this is redundant
   networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports;
 

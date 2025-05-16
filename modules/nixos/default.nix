@@ -22,14 +22,14 @@
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
     services.openssh = {
-      enable = true;
-      # settings = {
-      # Opinionated: forbid root login through SSH.
-      # PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      # PasswordAuthentication = false;
-      # };
+      enable = lib.mkDefault false;
+      settings = {
+        # Opinionated: forbid root login through SSH.
+        PermitRootLogin = lib.mkDefault "no";
+        # Opinionated: use keys only.
+        # Remove if you want to SSH using passwords
+        PasswordAuthentication = lib.mkDefault false;
+      };
     };
 
     # enable nitrokey udev rules and gpg agent
