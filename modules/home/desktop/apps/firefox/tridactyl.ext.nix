@@ -21,7 +21,7 @@ in
         sanitise tridactyllocal tridactylsync
 
         " Tridactyl has to override the new tab page due to WebExtension limitations, so we set it here
-        " set newtab start.duckduckgo.com
+        set newtab https://start.duckduckgo.com
 
         colours catppuccin
 
