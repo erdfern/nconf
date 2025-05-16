@@ -7,7 +7,7 @@
 
   kor.preset.desktop.enable = true;
   kor.preset.desktop.enableHyprland = true;
-  kor.desktop.apps.firefox.enable = false;
+  kor.desktop.apps.firefox.enable = true;
   kor.desktop.suites.gaming.enable = false;
 
   kor.desktop.hyprland.autostartWaybar = true;
