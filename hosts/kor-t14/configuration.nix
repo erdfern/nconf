@@ -15,6 +15,11 @@
   ];
 
   # TEMP
+  users.users = {
+    root.hashedPasswordFile = "${cfg.path}/passwords/root";
+    ${user}.hashedPasswordFile = "${cfg.path}/passwords/${user}";
+  };
+  fileSystems."${cfg.device}".neededForBoot = true;
   services.flatpak.enable = true;
 
   # networking.hostName = "kor-t14";
@@ -22,9 +27,9 @@
   kor.preset.development.enable = true;
   kor.boot.plymouth.enable = true;
 
+  kor.fs.btrfs.enable = true;
   kor.system.impermanence.root.enable = false;
   kor.system.impermanence.home.enable = false;
-  kor.fs.btrfs.enable = true;
 
   # sudo nix run \
   #   --option experimental-features "nix-command flakes" \

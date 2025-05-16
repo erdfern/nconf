@@ -21,7 +21,8 @@
           };
         };
         luks = {
-          size = "-${disko.swap.size}"; # make room for swap
+          # size = "100%";
+          end =  "-${disko.swap.size}"; # make room for swap
           label = "luks";
           content = {
             type = "luks";
@@ -39,7 +40,7 @@
               allowDiscards = true;
               # keyFile = "/tmp/secret.key";
             };
-            additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
+            # additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
 
             # /dev/disk/by-label/nixos
             content = {

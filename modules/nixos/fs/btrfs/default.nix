@@ -47,9 +47,10 @@ in
     fileSystems."/var/log".neededForBoot = lib.mkIf cfg.disko.enable true;
 
     # TODO move
+    # NOTE not supported by systemd-stage-1, use systemd-cryptenroll instead...
     # enable fido2 support for unlocking luks
-    boot.initrd.luks.fido2Support = true;
-    boot.initrd.luks.devices.cryptroot.fido2.credential = "a300582d361f82eaaf0d1cc1bda042811933ed89a08b838d4275fb2f914f61315459af0f06387532d388d1feb9c4a72f1b014c3b5843299d63d184d21a41890250e638d47d01d46f0886fc011cadbb0268";
-    boot.initrd.luks.devices.cryptroot.fido2.passwordLess = true;
+    # boot.initrd.luks.fido2Support = true;
+    # boot.initrd.luks.devices.cryptroot.fido2.credential = "a300582d361f82eaaf0d1cc1bda042811933ed89a08b838d4275fb2f914f61315459af0f06387532d388d1feb9c4a72f1b014c3b5843299d63d184d21a41890250e638d47d01d46f0886fc011cadbb0268";
+    # boot.initrd.luks.devices.cryptroot.fido2.passwordLess = true;
   };
 }
