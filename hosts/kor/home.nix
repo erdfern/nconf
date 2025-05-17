@@ -8,10 +8,6 @@
   kor.desktop.suites.gaming.enable = true;
 
   kor.desktop.uwsm.env = [
-    "export HYPRLAND_TRACE=1"
-    "export AQ_TRACE=1"
-    # "export AQ_DRM_DEVICES=/dev/dri/card1"
-
     "LIBVA_DRIVER_NAME=radeonsi"
     "VDPAU_DRIVER=radeonsi"
 
@@ -19,6 +15,11 @@
 
     # export __GL_GSYNC_ALLOWED=1
     # export __GL_VRR_ALLOWED=0
+  ];
+  kor.desktop.uwsm.envHyprland = [
+    "export HYPRLAND_TRACE=1"
+    "export AQ_TRACE=1"
+    # "export AQ_DRM_DEVICES=/dev/dri/card1"
   ];
 
   # home.packages = with pkgs; [
