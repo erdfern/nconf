@@ -42,6 +42,7 @@
     #   };
     # };
     programs.ssh.startAgent = true;
+    programs.ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" "ssh-ed25519-sk" "ssh-ecdsa-sk" "ssh-ecdsa" ];
 
     services.dbus = {
       enable = true;
