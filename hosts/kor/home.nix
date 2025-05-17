@@ -8,21 +8,18 @@
   kor.desktop.suites.gaming.enable = true;
 
   kor.desktop.uwsm.env = [
-    "export HYPRLAND_TRACE=0"
+    "export HYPRLAND_TRACE=1"
     "export AQ_TRACE=1"
-    "export AQ_DRM_DEVICES=/dev/dri/card1"
+    # "export AQ_DRM_DEVICES=/dev/dri/card1"
 
-    "export GBM_BACKEND=nvidia-drm"
+    "LIBVA_DRIVER_NAME=radeonsi"
+    "VDPAU_DRIVER=radeonsi"
 
-    "export LIBVA_DRIVER_NAME=nvidia"
-    "export __GLX_VENDOR_LIBRARY_NAME=nvidia"
-    "export NVD_BACKEND=direct"
+    # "export GBM_BACKEND=nvidia-drm"
 
-    # export AQ_DRM_DEVICES=/run/nvidia-gpu
     # export __GL_GSYNC_ALLOWED=1
     # export __GL_VRR_ALLOWED=0
   ];
-
 
   # home.packages = with pkgs; [
   #   npins

@@ -1,108 +1,29 @@
-{ lib
-, config
-, pkgs
-, inputs
+{ inputs
 , user
 , ...
 }:
 {
   imports = [
-    ./disk-config.nix
     ./hardware-configuration.nix
+    # ./disk-config.nix
+    ./f2fs.nix
+    ./graphics.nix
     "${inputs.facter.result}/modules/nixos/facter.nix"
-    # ./impermanence.nix
   ];
 
   kor.preset.desktop.enable = true;
   kor.preset.development.enable = true;
   kor.gaming.enable = false;
 
-  facter.reportPath = ./facter.json;
+  # facter.reportPath = ./facter.json;
 
   # networking.hostName = "kor";
 
-  boot.kernelParams = [
-    "nvidia-drm.modeset=1"
-    # not sure which one is correct
-    # "fbdev=1"
-    "nvidia-drm.fbdev=1"
-  ];
-
+  users.mutableUsers = false;
   users.users.root.initialHashedPassword = "$6$orbHsnj6yKVLTMmN$bFX5tXgje5OP9HDcu4Hb46EmDkFoA58po/fTkqMgxfqMH7ARvOR6xOPj.ANROEdlUzwFIoAeW/ARU.jC4vDPh1";
-
   users.users.${user}.initialHashedPassword = "$6$orbHsnj6yKVLTMmN$bFX5tXgje5OP9HDcu4Hb46EmDkFoA58po/fTkqMgxfqMH7ARvOR6xOPj.ANROEdlUzwFIoAeW/ARU.jC4vDPh1";
 
   services.flatpak.enable = true;
 
-
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "fbdev"
-    "nvidia"
-  ];
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # services.xserver.videoDrivers = [ "nouveau" ];
-  # services.xserver.videoDrivers = [ "amdgpu" ];
-
-
-  boot.initrd.kernelModules = [ "nvidia" ];
-  # boot.initrd.kernelModules = [ "amdgpu" ];
-
-  hardware = {
-    graphics.enable = true;
-    graphics.extraPackages = with pkgs; [
-      nvidia-vaapi-driver
-      libvdpau
-      libvdpau-va-gl
-      vaapiVdpau
-
-      libva-vdpau-driver # not suree
-      # mesa.drivers
-      # amdvlk
-    ];
-    graphics.enable32Bit = true;
-    # graphics.extraPackages32 = with pkgs; [
-    # driversi686Linux.amdvlk
-    # ];
-    nvidia = {
-      modesetting.enable = true;
-      open = true;
-      powerManagement.enable = true; # fix suspend/wakeup issues
-      nvidiaSettings = true;
-      videoAcceleration = true;
-      # forceFullCompositionPipeline = true;
-      # dynamicBoost.enable = true;
-      # package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # package = config.boot.kernelPackages.nvidiaPackages.production;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-    };
-  };
-
-  environment = {
-    systemPackages = with pkgs; [
-      glxinfo
-      # vulkan-validation-layers
-      vulkan-tools
-    ];
-  };
-
-  systemd.tmpfiles.rules = [
-    # "L+ /run/nvidia-gpu - - - - /dev/dri/by-path/pci-0000:01:00.0-card"
-    # "L+ /run/amd-igpu - - - - /dev/dri/by-path/pci-0000:10:00.0-card"
-  ];
-
-  # environment.variables = {
-  #   # AQ_DRM_DEVICES = "/run/amd-igpu:/run/nvidia-gpu";
-  #   # AQ_DRM_DEVICES = "run/nvidia-gpu:/run/amd-igpu";
-
-  #   # LIBVA_DRIVER_NAME = "nvidia";
-  #   # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-
-  #   # GBM_BACKEND = "nvidia-drm";
-  #   # __GL_GSYNC_ALLOWED = "1";
-  #   # __GL_VRR_ALLOWED = "0";
-  # };
-
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }
