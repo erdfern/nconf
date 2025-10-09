@@ -10,7 +10,7 @@
     # "${inputs.facter.result}/modules/nixos/facter.nix"
 
     ./boot.nix
-    # ./networking.nix
+    ./networking.nix
     ./hardware-configuration.nix
   ];
 
