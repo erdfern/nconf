@@ -22,7 +22,7 @@ in
 
   config = {
     kor.system.boot.enable = lib.mkDefault true;
-    kor.system.boot.basic-utils = lib.mkDefault true;
+    kor.basic-utils = lib.mkDefault true;
     # kor.system.boot.plymouth.enable = lib.mkDefault true;
 
     # TODO mv
