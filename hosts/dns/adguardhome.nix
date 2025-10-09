@@ -12,6 +12,11 @@ in
     host = addr;
     port = port;
     settings = {
+      users = [{
+        name = "kor";
+        # TODO make hash not public
+        password = "$2y$10$u1Qb8QSi32e/nkiLCibZQOjbqedXUDFgWCDrLq/3PaK4sY0iGBC6m";
+      }];
       # http = {
       #   # You can select any ip and port, just make sure to open firewalls where needed
       #   address = "${ip}:${toString port}";
