@@ -10,11 +10,13 @@
     # "${inputs.facter.result}/modules/nixos/facter.nix"
 
     ./boot.nix
-    ./networking.nix
+    # ./networking.nix
     ./hardware-configuration.nix
   ];
 
   # facter.reportPath = ./facter.json;
+  #
+  networking.interfaces = { eth0 = { }; };
 
   services.openssh = {
     enable = true;

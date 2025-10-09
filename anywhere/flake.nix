@@ -13,12 +13,22 @@
     }:
     let
       project = import ../nilla.nix;
+
+      systems = builtins.mapAttrs
+        (name: value: value.result)
+        project.systems.nixos;
+
+      nodes = builtins.mapAttrs
+        (name: value: {
+          modules = value._module.args.modules;
+        })
+        systems;
     in
     {
 
       nixosConfigurations.dedi =
         let
-          system = project.systems.nixos.dedi;
+          system = systems.dedi;
         in
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -30,7 +40,7 @@
         };
       nixosConfigurations.dns =
         let
-          system = project.systems.nixos.dns;
+          system = systems.dns;
         in
         nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
