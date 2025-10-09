@@ -16,6 +16,8 @@ in
     "${pins.nilla-utils}/modules"
     # ./modules/nilla-utils/modules
     ./modules/hive
+
+    ./hosts/dns
   ];
 
   config = {
