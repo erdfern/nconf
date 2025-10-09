@@ -1,4 +1,8 @@
-{ config, me, lib, inputs, pkgs, ... }: {
+{ config, me, lib, inputs, pkgs, ... }:
+let
+  cfg = config.kor;
+in
+{
   imports = [
     ./system
     ./sops
@@ -13,8 +17,12 @@
     ./flatpak.nix
   ];
 
+  options.kor.ssh.enable = lib.mkEnableOption "SSH";
+  options.kor.basic-utils = lib.mkEnableOption "Basic utility programs";
+
   config = {
     kor.system.boot.enable = lib.mkDefault true;
+    kor.system.boot.basic-utils = lib.mkDefault true;
     # kor.system.boot.plymouth.enable = lib.mkDefault true;
 
     # TODO mv
@@ -48,7 +56,7 @@
       "ssh-rsa-cert-v01@openssh.com"
     ];
 
-    environment.systemPackages = map lib.lowPrio [
+    environment.systemPackages = lib.mkIf cfg.basic-utils (map lib.lowPrio [
       # some basic tools
       pkgs.git
       pkgs.curl
@@ -78,7 +86,7 @@
       pkgs.npins-git
       pkgs.attic-client
       pkgs.sops
-    ];
+    ]);
 
     system.rebuild.enableNg = true;
 

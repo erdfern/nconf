@@ -15,8 +15,8 @@
   ];
 
   # facter.reportPath = ./facter.json;
-  #
-  networking.interfaces = { eth0 = { }; };
+
+  kor.basic-utils = false;
 
   services.openssh = {
     enable = true;
