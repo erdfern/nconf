@@ -18,16 +18,16 @@
         (name: value: value.result)
         project.systems.nixos;
 
-      configs = builtins.mapAttrs
-        (name: value: {
-          system = value.pkgs.system;
-          specialArgs = value._module.specialArgs;
-          modules = value._module.args.modules;
-        })
-        systems;
+      # configs = builtins.mapAttrs
+      #   (name: value: nixpkgs.lib.nixosSystem {
+      #     system = value.pkgs.system;
+      #     # specialArgs = value._module.specialArgs;
+      #     modules = value._module.args.modules;
+      #   })
+      #   systems;
     in
     {
-      nixosConfigurations = configs // {
+      nixosConfigurations = systems // {
         # dedi =
         #   let
         #     system = systems.dedi;
