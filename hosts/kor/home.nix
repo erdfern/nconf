@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
 
   kor.desktop.enable = true;
@@ -18,6 +18,11 @@
   # kor.desktop.apps.waybar.enable= true;
   # kor.desktop.apps.waybar.hyprlandAutostart = true;
   kor.desktop.apps.hyprpanel.enable = true;
+
+  home.packages = with pkgs; [
+    seamly2d
+    # valentina
+  ];
 
   kor.desktop.uwsm.env = [
     "LIBVA_DRIVER_NAME=radeonsi"
