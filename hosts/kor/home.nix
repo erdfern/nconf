@@ -20,8 +20,8 @@
   kor.desktop.apps.hyprpanel.enable = true;
 
   home.packages = with pkgs; [
-    seamly2d
-    valentina-git
+    # seamly2d
+    # valentina-git
   ];
 
   kor.desktop.uwsm.env = [
