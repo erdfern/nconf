@@ -21,7 +21,7 @@
 
   home.packages = with pkgs; [
     seamly2d
-    # valentina
+    valentina-git
   ];
 
   kor.desktop.uwsm.env = [

@@ -92,8 +92,8 @@ in
         bind gh followpage prev
         bind gl followpage next
 
-        # unbind <C-f>
-        # unbind <C-a>
+        unbind <C-f>
+        unbind <C-a>
 
         " gi goes to github search
         bindurl ^https://github.com gi hint -Vc .AppHeader-searchButton
