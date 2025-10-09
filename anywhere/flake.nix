@@ -14,20 +14,26 @@
     let
       project = import ../nilla.nix;
 
+      nillaInputs = builtins.mapAttrs
+        (name: value: value.result)
+        project.inputs;
+
       systems = builtins.mapAttrs
         (name: value: value.result)
         project.systems.nixos;
 
-      # configs = builtins.mapAttrs
-      #   (name: value: nixpkgs.lib.nixosSystem {
-      #     system = value.pkgs.system;
-      #     # specialArgs = value._module.specialArgs;
-      #     modules = value._module.args.modules;
-      #   })
-      #   systems;
+      configs = builtins.mapAttrs
+        (name: value: nixpkgs.lib.nixosSystem {
+          system = value.pkgs.system;
+          # specialArgs = value._module.specialArgs;
+          specialArgs = { inherit nillaInputs; };
+          modules = value._module.args.modules;
+        })
+        systems;
     in
     {
-      nixosConfigurations = systems // {
+      # nixosConfigurations = systems // {
+      nixosConfigurations = configs // {
         # dedi =
         #   let
         #     system = systems.dedi;
