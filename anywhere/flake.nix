@@ -3,7 +3,6 @@
   inputs.disko.url = "github:nix-community/disko";
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
   inputs.nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-  # inputs.impermanence.result = (import ../nilla.nix).inputs.impermanence.result;
 
   outputs =
     inputs @
@@ -23,6 +22,18 @@
         in
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = system._module.args.modules;
+          # modules = system.modules;
+        };
+      nixosConfigurations.dns =
+        let
+          system = project.systems.nixos.dns;
+        in
+        nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
           specialArgs = {
             inherit inputs;
           };

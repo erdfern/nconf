@@ -19,7 +19,6 @@
             # "${nixpkgs}/nixos/modules/installer/cd-dvd/iso-image.nix"
             # "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
             "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-combined.nix"
-
             (
               { lib
               , pkgs
