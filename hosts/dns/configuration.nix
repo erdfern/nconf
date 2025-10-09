@@ -8,30 +8,18 @@
 {
   imports = [
     # "${inputs.facter.result}/modules/nixos/facter.nix"
+    inputs.facter.result.nixosModules.facter
 
     ./boot.nix
     ./networking.nix
     ./hardware-configuration.nix
+
+    ./adguardhome.nix
   ];
 
-  # facter.reportPath = ./facter.json;
+  facter.reportPath = ./facter.json;
 
   kor.basic-utils = false;
-
-  services.openssh = {
-    enable = true;
-    ports = [ 5678 2222 ];
-    settings.PermitRootLogin = "prohibit-password";
-  };
-
-  networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports; # NOTE adding openssh ports here is redundant
-
-  services.fail2ban.enable = true;
-  services.endlessh = {
-    enable = true;
-    port = 22;
-    openFirewall = true;
-  };
 
   users.users = {
     root.openssh.authorizedKeys.keys = [ ];

@@ -29,7 +29,7 @@ let
     hardware = "raw";
     impermanence = "raw";
     disko = "raw";
-    facter = "raw";
+    # facter = "raw";
     lix = "raw";
     lix-src = "raw";
   };
