@@ -19,7 +19,9 @@
 
   facter.reportPath = ./facter.json;
 
-  kor.basic-utils = true;
+  kor.basic-utils = false;
+
+  environment.systemPackages = [ pkgs.git ];
 
   users.users = {
     root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFC/7GNB7BzQQP9Au/tKFPSKOiyL18HJaUwCqy/sSdrf j@kor" ];
