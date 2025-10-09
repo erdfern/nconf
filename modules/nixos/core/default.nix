@@ -1,0 +1,113 @@
+{ config, me, lib, inputs, pkgs, ... }: {
+  imports = [
+    ./system
+    ./sops
+    ./presets/desktop.nix
+    ./presets/development.nix
+    ./presets/laptop.nix
+    ./presets/server.nix
+    ./hardware
+    ./virtualisation
+    ./users.nix
+    ./gaming.nix
+    ./flatpak.nix
+  ];
+
+  config = {
+    kor.system.boot.enable = lib.mkDefault true;
+    # kor.system.boot.plymouth.enable = lib.mkDefault true;
+
+    # TODO mv
+    catppuccin.enable = false;
+    catppuccin.tty.enable = true;
+    catppuccin.flavor = "mocha";
+    catppuccin.accent = "peach";
+
+    # TODO mv
+    programs.nix-ld.enable = true;
+
+    services.openssh = {
+      enable = lib.mkDefault false;
+      settings = {
+        # Opinionated: forbid root login through SSH.
+        PermitRootLogin = lib.mkDefault "no";
+        # Opinionated: use keys only.
+        PasswordAuthentication = lib.mkDefault false;
+      };
+    };
+
+    programs.ssh.startAgent = lib.mkDefault true;
+    programs.ssh.pubkeyAcceptedKeyTypes = lib.mkDefault [
+      "ssh-ed25519"
+      "ssh-ed25519-cert-v01@openssh.com"
+      "sk-ssh-ed25519@openssh.com"
+      "sk-ssh-ed25519-cert-v01@openssh.com"
+      "sk-ecdsa-sha2-nistp256@openssh.com"
+      "sk-ecdsa-sha2-nistp256-cert-v01@openssh.com"
+      "ssh-rsa"
+      "ssh-rsa-cert-v01@openssh.com"
+    ];
+
+    environment.systemPackages = map lib.lowPrio [
+      # some basic tools
+      pkgs.git
+      pkgs.curl
+      pkgs.inxi
+      pkgs.ripgrep
+      pkgs.fd
+      pkgs.fzf
+      pkgs.unzip
+      pkgs.file
+      pkgs.trashy
+      pkgs.btop
+      pkgs.helix
+      pkgs.neovim
+      pkgs.glow
+
+      # file system view
+      # cool resource: https://dev.yorhel.nl/ncdu
+      pkgs.gdu
+      # pkgs.ncdu
+      # pkgs.duf
+      # pkgs.dust
+
+      # things that should probably be in a dev shell (and home profile, but don't need to be in initial system after clean install)
+      inputs.nilla-cli.result.packages.default.result.x86_64-linux
+      inputs.nilla-utils.result.packages.default.result.x86_64-linux
+      # pkgs.npins
+      pkgs.npins-git
+      pkgs.attic-client
+      pkgs.sops
+    ];
+
+    system.rebuild.enableNg = true;
+
+    nix = {
+      # package = pkgs.lix; # TODO use raw lix module instead
+      generateNixPathFromInputs = true;
+      generateRegistryFromInputs = true;
+      settings = {
+        trusted-users = [ "root" "${me.user}" ]; # maybe add @wheel
+        substituters = [
+          # "https://cache.nixos.org"
+          "https://nix-community.cachix.org"
+          "https://kor.cachix.org"
+          "https://hyprland.cachix.org"
+        ];
+        trusted-public-keys = [
+          # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          "kor.cachix.org-1:120l5rP3Npq4wDdbg8AkJ85J4zqilDXMGt2XQHWDHOM="
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        ];
+        keep-derivations = true;
+        keep-outputs = true;
+      };
+      extraOptions = ''
+        experimental-features = nix-command flakes
+        keep-outputs          = true
+        keep-derivations      = true
+      '';
+    };
+  };
+}

@@ -1,0 +1,57 @@
+{ pkgs
+, inputs
+, ...
+}:
+{
+  imports = [ ./batcheck.nix ];
+
+  kor.desktop.enable = true;
+
+  kor.desktop.enableHyprland = true;
+  # kor.desktop.hyprland.hy3.enable = true;
+  kor.desktop.apps.waybar.enable = true;
+  kor.desktop.apps.waybar.hyprlandAutostart = true;
+  kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
+
+  kor.development.neovim.enable = true;
+  kor.development.vscode.enable = true;
+
+  kor.desktop.apps.firefox.enable = true;
+
+  kor.desktop.uwsm.env = [
+    "LIBVA_DRIVER_NAME=iHD"
+  ];
+
+  kor.desktop.suites.gaming.enable = true;
+
+  # TEMP
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  };
+
+  services.hypridle.settings.listener = [
+    {
+      timeout = 150; # 2.5min.
+      on-timeout = "light -O && light -S 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+      on-resume = "light -I"; # monitor backlight restore.
+    }
+    # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
+    {
+      timeout = 150; # 2.5min.
+      on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0"; # turn off keyboard backlight.
+      on-resume = "brightnessctl -rd rgb:kbd_backlight"; # turn on keyboard backlight.
+    }
+  ];
+
+  programs.btop.settings.presets = "cpu:0:default,proc:0:default"; # compact view on preset 1
+  programs.fish.shellAliases.btop = "btop -p 1";
+
+  # home.packages = with pkgs; [
+  #   npins
+  #   inputs.nilla-cli.result.packages.nilla-cli.result.x86_64-linux
+  #   inputs.nilla-utils.result.packages.nilla-utils-plugins.result.x86_64-linux
+  # ];
+
+  home.stateVersion = "25.11";
+}

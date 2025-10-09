@@ -1,0 +1,216 @@
+:root {    /* Tomorrow-night by Chris Kempson (http://chriskempson.com) */
+    --base00: #1e1e2e; /* base */
+    --base01: #181825; /* mantle */
+    --base02: #313244; /* surface0 */
+    --base03: #45475a; /* surface1 */
+    --base04: #585b70; /* surface2 */
+    --base05: #cdd6f4; /* text */
+    --base06: #f5e0dc; /* rosewater */
+    --base07: #b4befe; /* lavender */
+    --base08: #f38ba8; /* red */
+    --base09: #fab387; /* peach */
+    --base0A: #f9e2af; /* yellow */
+    --base0B: #a6e3a1; /* green */
+    --base0C: #94e2d5; /* teal */
+    --base0D: #89b4fa; /* blue */
+    --base0E: #cba6f7; /* mauve */
+    --base0F: #f2cdcd; /* flamingo */
+
+    --tridactyl-fg: var(--base05);
+    --tridactyl-bg: var(--base00);
+    --tridactyl-url-fg: var(--base08);
+    --tridactyl-url-bg: var(--base00);
+    --tridactyl-highlight-box-bg: var(--base0B);
+    --tridactyl-highlight-box-fg: var(--base00);
+
+    /* Hint character tags */
+    --tridactyl-hintspan-fg: var(--base00) !important;
+    --tridactyl-hintspan-bg: var(--base0A) !important;
+
+    /* Element Highlights */
+    --tridactyl-hint-active-fg: none;
+    --tridactyl-hint-active-bg: none;
+    --tridactyl-hint-active-outline: var(--base0E);
+    --tridactyl-hint-bg: none;
+    --tridactyl-hint-outline: var(--base06);
+
+    /* midnight */
+    --tridactyl-font-family: "San Francisco", sans-serif;
+    --tridactyl-status-font-size: 12px;
+    --tridactyl-status-font-family: "Fira Code", "San Francisco";
+    --tridactyl-status-font-bg: var(--tridactyl-cmdl-bg);
+    --tridactyl-status-border: 2px solid black;
+    --tridactyl-status-border-radius: 4px;
+
+    --tridactyl-header-font-size: 16px;
+
+/*
+    --tridactyl-bg: #161a20;
+    --tridactyl-fg: white;
+
+
+    --tridactyl-of-fg: black;
+    --tridactyl-of-bg: #ffd662;
+
+    --tridactyl-hintspan-fg: white;
+    --tridactyl-hintspan-bg: #204e8a;
+
+    --tridactyl-hint-active-fg: #333;
+    --tridactyl-hint-active-bg: #006e51;
+    --tridactyl-hint-active-outline: 1px solid #000;
+
+    --tridactyl-hint-bg: rgba(13, 31, 54, 0.25);
+    --tridactyl-hint-outline: 1px solid var(--tridactyl-hintspan-bg);
+*/
+
+    --tridactyl-cmdl-font-size: 1.5rem;
+    --tridactyl-cmplt-option-height: 1.9em;
+
+    --tridactyl-border-radius: 4px;
+}
+
+:root.TridactylOwnNamespace {
+    scrollbar-width: thin;
+}
+
+
+:root #command-line-holder {
+    order: 1;
+    border: 2px solid var(--base0B);
+    color: var(--tridactyl-bg);
+}
+
+:root #command-line-holder,
+:root #tridactyl-input {
+    border-radius: var(--tridactyl-border-radius) !important;
+}
+
+:root #tridactyl-colon::before {
+    content: "";
+}
+
+:root #tridactyl-input {
+    padding: 1rem;
+    background: var(--tridactyl-bg);
+    color: var(--tridactyl-fg);
+    width: 96%;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding-left: unset;
+    padding: 1rem;
+}
+
+#completions table {
+    font-size: 0.8rem;
+    font-weight: 200;
+    border-spacing: 0;
+    table-layout: fixed;
+    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#completions > div {
+    max-height: calc(20 * var(--option-height));
+    min-height: calc(10 * var(--option-height));
+}
+
+/* COMPLETIONS */
+
+#completions {    --option-height: 1.4em;
+    color: var(--tridactyl-fg);
+    background: var(--tridactyl-bg);
+    display: inline-block;
+    font-size: unset;
+    font-weight: 200;
+    overflow: hidden;
+    width: 100%;
+    border-top: unset;
+    order: 2;
+}
+
+/* Olie doesn't know how CSS inheritance works */
+#completions .HistoryCompletionSource {
+    max-height: unset;
+    min-height: unset;
+}
+
+#completions .HistoryCompletionSource table {
+    width: 100%;
+    font-size: 9pt;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+/* redundancy 2: redundancy 2: more redundancy */
+#completions .BmarkCompletionSource {
+    max-height: unset;
+    min-height: unset;
+}
+
+#completions table tr td.prefix,#completions table tr td.privatewindow,#completions table tr td.container,#completions table tr td.icon {
+    display: none;
+}
+
+#completions .BufferCompletionSource table {
+    width: unset;
+    font-size: unset;
+    border-spacing: unset;
+    table-layout: unset;
+}
+
+#completions table tr .title {
+    width: 50%;
+}
+
+#completions table tr {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#completions .sectionHeader {
+    background: unset;
+    font-weight: 200;
+    border-bottom: unset;
+    padding: 1rem !important;
+    padding-left: unset;
+    padding-bottom: 0.2rem;
+}
+
+:root #cmdline_iframe {
+    position: fixed !important;
+    bottom: unset;
+    top: 25% !important;
+    left: 10% !important;
+    z-index: 2147483647 !important;
+    width: 80% !important;
+    filter: drop-shadow(0px 0px 20px #000000) !important;
+    color-scheme: only light; /* Prevent Firefox from adding a white background on dark-mode sites */
+}
+
+
+:root .TridactylStatusIndicator {
+    position: fixed !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    font-weight: 200 !important;
+    padding: 5px !important;
+}
+
+#completions .focused {
+    background: var(--base0B);
+    color: var(--base00);
+}
+
+#completions .focused .url {
+    background: var(--base0B);
+    color: var(--base00);
+}
+/* #Ocean-normal { */
+/*  border-color: green !important; */
+/* } */
+
+/* #Ocean-insert { */
+/*  border-color: yellow !important; */
+/* } */

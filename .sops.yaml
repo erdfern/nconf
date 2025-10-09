@@ -1,0 +1,32 @@
+# Also see https://github.com/Mic92/dotfiles/blob/d6114726d859df36ccaa32891c4963ae5717ef7f/nixos/.sops.yaml
+# for a more complex example.
+keys:
+  - &j 30E263E676E1E8C1
+  - &ykage age1yubikey1qdzuf5d0ady5k77utvwnpnsug926z9yqlrhwzpcnnl9kkxce3gen708uxvn
+  - &nkage age1leh9nw584xtu2uyp2mqd2ufsv74d9xqxuz3vc8h8tt90as2hqyhqge5r9u
+  - &jkorssh age122e5ealy9ddmjuw9e707gxlarert7lksz2468drm7kr40uruf50st0x9d3
+  - &jt14ssh "age162rg3s0mvjj98qylede9ky0tcfd7wd4lgef20f4lpvxygl7yf4cq26vvk7"
+  - &dedihost age1ncehxk06ugz58n557nexdssh433an3en0hvpfwqj007j7w5ptcmsxuqs90
+
+creation_rules:
+  # - age:
+  #   - *nkage
+  #   - *ykage
+  # - pgp: >-
+  #     30E263E676E1E8C1!
+  - path_regex: ^secrets/[^\/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *jkorssh
+      - *jt14ssh
+      - *dedihost
+      - *ykage
+      - *nkage
+  - path_regex: (secrets|hosts)\/dedi\/[^\/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *dedihost
+  - path_regex: ^hosts/dedi/[\w./-]+
+    key_groups:
+    - age:
+      - *dedihost

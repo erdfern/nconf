@@ -1,0 +1,224 @@
+[[grammar]]
+name = "surrealql"
+source = { git = "https://github.com/erdfern/tree-sitter-surrealql.git", rev = "07bf1704b91eeec6b001e2e0d29a4d7f03a01af9" }
+# source.path = "/home/j/Development/tree-sitter-surrealql"
+
+[[language]]
+name = "surrealql"
+# scope = "source.surql"
+scope = "source.surrealql"
+injection-regex = "surql"
+file-types = ["surql"]
+# auto-format = false
+comment-tokens = "#"
+indent = { tab-width = 2, unit = "	" }
+grammar = "surrealql"
+# formatter = 
+# language-servers
+
+[[language]]
+name = "haskell"
+roots = ["Setup.hs", "stack.yaml", "*.cabal"]
+auto-format = true
+
+[language-server.haskell-language-server] # hls config docs: https://haskell-language-server.readthedocs.io/en/latest/configuration.html#example-with-settings
+config.haskell.formattingProvider = "ormolu" # default is "ormolu"
+# config.haskell.checkParents = "NeverCheck" # default is "OnSave"
+
+# TODO configure for nilla nconf https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md#configuration-overview
+[[language]]
+name = "nix"
+language-servers = ["nixd", "nil"] # default
+# language-servers = ["nixd"]
+formatter = { command = "nixpkgs-fmt" }
+auto-format = true
+
+[[language]]
+name = "toml"
+language-servers = ["taplo"]
+# language-servers = ["taplo", "tombi"]
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+[language-server.texlab.config.texlab.build]
+onSave = true
+
+[[language]]
+name = "python"
+language-servers = ["basedpyright"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "standard" # off | basic | standard | strict
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
+
+# -- JS/TS and other web stuff
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+# ew. requires typescript as dependency
+config = { typescript = { tsdk = "./node_modules/typescript/lib/" } }
+# also ew
+# config = {typescript = {tsdk = "~/.cache/.bun/install/global/node_modules/typescript/lib"}, environment = "node"}
+
+[[language]]
+name = "astro"
+scope = "source.astro"
+injection-regex = "astro"
+file-types = ["astro"]
+roots = ["astro.config.mjs"]
+# language-servers = ["astro-ls"]
+language-servers = ["astro-ls", "tailwindcss-ls"]
+formatter = { command = "prettier", args = [
+  "--plugin",
+  "prettier-plugin-astro",
+  "--parser",
+  "astro",
+] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+shebangs = ["deno", "node"]
+roots = ["deno.json", "deno.jsonc", "package.json"]
+# file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".js"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+shebangs = ["deno", "bun", "ts-node"]
+roots = ["deno.json", "deno.jsonc", "package.json", "tsconfig.json"]
+# file-types = ["ts", "mts", "cts"]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".ts"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+shebangs = ["deno"]
+roots = ["deno.json", "deno.jsonc", "package.json"]
+# file-types = ["jsx"]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".jsx"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+shebangs = ["deno"]
+roots = ["deno.json", "deno.jsonc"]
+# file-types = ["tsx"]
+# language-servers = ["deno-lsp", "typescript-language-server", "tailwindcss-ls" ]
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+formatter = { command = 'prettierd', args = [".tsx"] }
+auto-format = true
+
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+environment = { NO_COLOR = "1" }
+
+[language-server.deno-lsp.config.deno]
+enable = true
+# Uncomment to enable completion of unstable features of Deno
+# unstable = true
+# Uncomment to cache dependencies on save
+# cacheOnSave = true
+# Enable completion of importing from registries
+# suggest = { imports = { hosts = { "https://deno.land" = true, "https://crux.land" = true, "https://x.nest.land" = true } } }
+# Enable completion of function calls
+suggest = { completeFunctionCalls = false, imports = { hosts = { "https://deno.land" = true } } }
+# Uncomment to enable inlay hints
+# inlayHints.parameterNames.enabled = "all"
+# inlayHints.parameterTypes.enabled = true
+# inlayHints.variableTypes.enabled = true
+# inlayHints.propertyDeclarationTypes.enabled  = true
+# inlayHints.functionLikeReturnTypes.enabled = true
+# inlayHints.enumMemberValues.enabled = true
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "html"] }
+formatter = { command = 'prettierd', args = [".html"] }
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+# formatter = { command = 'prettier', args = ["--parser", "css"] }
+formatter = { command = 'prettierd', args = [".css"] }
+
+[language-server.vscode-css-language-server]
+config.lint = { unknownAtRules = "ignore" }
+config.hover = { documentation = true, references = true }
+config.customData = ["./tailwind.css-data.json", "./.vscode/css-data.json"]
+
+[[language]]
+name = "scss"
+formatter = { command = 'prettierd', args = [".scss"] }
+
+[[language]]
+name = "svelte"
+language-servers = [
+  "svelteserver",
+  { name = "tailwindcss-ls", except-features = [
+    "hover",
+  ] },
+]
+# language-servers = ["svelteserver", "tailwindcss-ls"]
+roots = ["svelte.config.js", "svelte.config.ts", "package.json"]
+formatter = { command = "prettierd", args = [".svelte"] }
+# formatter = { command = "prettier", args = [
+#   "--plugin",
+#   "prettier-plugin-svelte",
+#   "--parser",
+#   "svelte",
+# ] }
+auto-format = true
+# kind of a hack, since single line will only work in <script>, and block will only work in template
+# TODO remove when support for syntax context get's merged
+# comment-tokens = ["//"] # now default as of 25.07
+block-comment-tokens = { start = "<!--", end = "--->" }
+# /---/
+#
+# Example TailwindCSS ls config for other language
+# [[language]]
+# name = "rust"
+# language-servers = ["rust-analyzer", "tailwindcss-ls"]
+
+# [language-server.tailwindcss-ls]
+# config = { userLanguages = { rust = "html", "*.rs" = "html" } }
+
+[[language]]
+name = "zig"
+language-servers = ["zls"]
+roots = ["build.zig", "build.zig.zon"]
+
+[language-server.zls]
+command = "zls"
