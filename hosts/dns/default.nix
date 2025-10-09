@@ -2,7 +2,7 @@
 {
   config = {
     systems.nixos.dns = {
-      nixpkgs = config.inputs.nixpkgs-unstable;
+      # nixpkgs = config.inputs.nixpkgs-unstable;
       system = "aarch64-linux";
     };
   };
