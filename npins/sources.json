@@ -248,6 +248,19 @@
       "url": "https://github.com/nix-community/nix-index-database/archive/0ca69684091aa3a6b1fe994c4afeff305b15e915.tar.gz",
       "hash": "sha256-8NI1SqntLfKl6Q0Luemc3aIboezSJElofUrqipF5g78="
     },
+    "nixos-generators": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixos-generators"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "032decf9db65efed428afd2fa39d80f7089085eb",
+      "url": "https://github.com/nix-community/nixos-generators/archive/032decf9db65efed428afd2fa39d80f7089085eb.tar.gz",
+      "hash": "sha256-PeSkNMvkpEvts+9DjFiop1iT2JuBpyknmBUs0Un0a4I="
+    },
     "nixpkgs": {
       "type": "Git",
       "repository": {
