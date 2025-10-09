@@ -9,6 +9,7 @@
     # pkgs.duf
     # pkgs.dust
 
+    pkgs.npins-git
   ];
 
 }

@@ -76,7 +76,6 @@ in
       inputs.nilla-cli.result.packages.default.result.x86_64-linux
       inputs.nilla-utils.result.packages.default.result.x86_64-linux
       # pkgs.npins
-      pkgs.npins-git
       # pkgs.attic-client
       # pkgs.sops
     ]);
