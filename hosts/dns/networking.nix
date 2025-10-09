@@ -22,7 +22,7 @@
     settings.PermitRootLogin = "prohibit-password";
   };
 
-  services.fail2ban.enable = true;
+  # services.fail2ban.enable = true;
   services.endlessh = {
     enable = true;
     port = 22;

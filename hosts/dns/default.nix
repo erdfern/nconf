@@ -6,7 +6,8 @@
         targetUser = "j";
         privilegeEscalationCommand = [ "sudo" ];
         targetPort = 2222;
-        targetHost = "192.178.168.42";
+        # targetHost = "192.178.168.42";
+        targetHost = "dns";
 
         tags = [ "dns" "home" ];
       };

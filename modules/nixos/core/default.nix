@@ -69,23 +69,16 @@ in
       pkgs.trashy
       pkgs.btop
       pkgs.helix
-      pkgs.neovim
-      pkgs.glow
-
-      # file system view
-      # cool resource: https://dev.yorhel.nl/ncdu
-      pkgs.gdu
-      # pkgs.ncdu
-      # pkgs.duf
-      # pkgs.dust
+      # pkgs.neovim
+      # pkgs.glow
 
       # things that should probably be in a dev shell (and home profile, but don't need to be in initial system after clean install)
       inputs.nilla-cli.result.packages.default.result.x86_64-linux
       inputs.nilla-utils.result.packages.default.result.x86_64-linux
       # pkgs.npins
       pkgs.npins-git
-      pkgs.attic-client
-      pkgs.sops
+      # pkgs.attic-client
+      # pkgs.sops
     ]);
 
     system.rebuild.enableNg = true;
