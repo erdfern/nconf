@@ -10,7 +10,7 @@
       address = "192.168.178.42";
       prefixLength = 24;
     }];
-    nameservers = [ "192.168.178.1" ];
+    # nameservers = [ "192.168.178.1" ];
   };
 
   networking.firewall.enable = true;

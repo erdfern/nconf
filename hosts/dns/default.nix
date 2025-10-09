@@ -1,6 +1,16 @@
 { config }:
 {
   config = {
+    hive.nodes.dns = {
+      deployment = {
+        targetUser = "j";
+        privilegeEscalationCommand = [ "sudo" ];
+        targetPort = 2222;
+        targetHost = "192.178.168.42";
+
+        tags = [ "dns" "home" ];
+      };
+    };
     systems.nixos.dns = {
       # nixpkgs = config.inputs.nixpkgs-unstable;
       system = "aarch64-linux";
