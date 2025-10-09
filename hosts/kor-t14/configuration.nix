@@ -31,6 +31,8 @@
   kor.gaming.enable = true;
   kor.flatpak.enable = true;
 
+  environment.systemPackages = [ pkgs.colmena ];
+
   # TEMP
   nix.package = pkgs.lix;
   users.users = {
