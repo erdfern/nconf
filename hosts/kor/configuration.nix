@@ -14,6 +14,9 @@
 
   # networking.hostName = "kor";
 
+  # so I can cross-build for the rpi...
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   kor.preset.desktop.enable = true;
   kor.preset.development.enable = true;
 
