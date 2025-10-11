@@ -68,10 +68,11 @@ in
         # wineWowPackages.full
         # wineWowPackages.staging
         # wineWowPackages.waylandFull
+        wineWow64Packages.full
 
-        # (heroic.override {
-        #   extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
-        # })
+        (heroic.override {
+          extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
+        })
       ];
       sessionVariables = {
         STEAM_COMPAT_DATA_PATH = "/home/${me.user}/.local/share/Steam/steamapps/compatdata";

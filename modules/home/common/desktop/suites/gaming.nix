@@ -32,6 +32,8 @@ in
       extraPackages = with pkgs; [ mangohud winetricks gamescope gamemode umu-launcher ];
     };
 
-    home.packages = [ pkgs.wineWow64Packages.full ];
+    home.packages = [
+      # pkgs.wineWow64Packages.full
+    ];
   };
 }
