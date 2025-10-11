@@ -18,14 +18,14 @@
 
   services.openssh = {
     enable = true;
-    ports = [ 5678 2222 ];
+    ports = [ 5678 2222 22 ];
     settings.PermitRootLogin = "prohibit-password";
   };
 
   # services.fail2ban.enable = true;
-  services.endlessh = {
-    enable = true;
-    port = 22;
-    openFirewall = true;
-  };
+  # services.endlessh = {
+  #   enable = true;
+  #   port = 22;
+  #   openFirewall = true;
+  # };
 }

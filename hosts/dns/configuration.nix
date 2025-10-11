@@ -14,7 +14,7 @@
     ./networking.nix
     ./hardware-configuration.nix
 
-    ./adguardhome.nix
+    # ./adguardhome.nix
   ];
 
   kor.basic-utils = false;
