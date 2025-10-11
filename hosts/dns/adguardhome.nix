@@ -9,11 +9,11 @@ let
     # dhcph server
     # 67 68
     # HTTPS/DNS-over-HTTPS
-    443
+    # 443
     # DNS-over-QUIC
-    853
+    # 853
     # DNSCrypt
-    5443
+    # 5443
   ];
   tcpPorts = [
     # plain dns
@@ -22,15 +22,15 @@ let
     # 68
     # HTTPS/DNS-over-HTTPS
     80
-    443
-    3000
+    # 443
+    # 3000
     uiPort
     # DNS-over-TLS
-    853
+    # 853
     # DNSCrypt
-    5443
+    # 5443
     # debugging profiles
-    6000
+    # 6000
   ];
 in
 {
@@ -51,6 +51,8 @@ in
         address = "${addr}:${toString uiPort}";
       };
       dns = {
+        bind_hosts = "0.0.0.0";
+        port = 53;
         upstream_dns = [
           # Example config with quad9
           # BUG: the ipv6 comments seem to break adguard
