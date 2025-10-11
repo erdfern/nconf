@@ -17,9 +17,11 @@
     ./adguardhome.nix
   ];
 
+  kor.basic-utils = false;
+
   facter.reportPath = ./facter.json;
 
-  kor.basic-utils = false;
+  documentation.man.generateCaches = lib.mkForce false;
 
   environment.systemPackages = [
     pkgs.git
