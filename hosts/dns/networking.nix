@@ -14,7 +14,7 @@
   };
 
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports; # NOTE adding openssh ports here is redundant
+  # networking.firewall.allowedTCPPorts = [ ] ++ config.services.openssh.ports; # NOTE adding openssh ports here is redundant
 
   services.openssh = {
     enable = true;

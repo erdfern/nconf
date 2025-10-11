@@ -23,10 +23,7 @@
 
   documentation.man.generateCaches = lib.mkForce false;
 
-  environment.systemPackages = [
-    pkgs.git
-    pkgs.colmena
-  ];
+  # environment.systemPackages = [ ];
 
   users.users = {
     root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFC/7GNB7BzQQP9Au/tKFPSKOiyL18HJaUwCqy/sSdrf j@kor" ];

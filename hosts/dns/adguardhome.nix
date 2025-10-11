@@ -2,7 +2,7 @@
 let
   # addr = "127.0.0.1";
   addr = "0.0.0.0";
-  uiPort = 3003;
+  uiPort = 3000;
   udpPorts = [
     # plain dns
     53
@@ -45,14 +45,14 @@ in
         # TODO make hash not public
         password = "$2y$10$u1Qb8QSi32e/nkiLCibZQOjbqedXUDFgWCDrLq/3PaK4sY0iGBC6m";
       }];
-      # http = {
-      #   # You can select any ip and port, just make sure to open firewalls where needed
-      #   address = "${ip}:${toString port}";
-      # };
+      http = {
+        # You can select any ip and port, just make sure to open firewalls where needed
+        address = "${addr}:${toString uiPort}";
+      };
       dns = {
         upstream_dns = [
           # Example config with quad9
-          # the ipv6 comments seem to break adguard
+          # BUG: the ipv6 comments seem to break adguard
           # "9.9.9.9#dns.quad9.net"
           # "149.112.112.112#dns.quad9.net"
           "9.9.9.9"
