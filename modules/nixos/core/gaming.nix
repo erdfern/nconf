@@ -71,7 +71,11 @@ in
         wineWow64Packages.full
 
         (heroic.override {
-          extraPkgs = pkgs: [ pkgs.gamescope pkgs.gamemode ];
+          extraPkgs = pkgs: [
+            pkgs.gamescope
+            pkgs.gamemode
+            pkgs.proton-ge-bin
+          ];
         })
       ];
       sessionVariables = {
