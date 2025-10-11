@@ -2,15 +2,43 @@
 let
   # addr = "127.0.0.1";
   addr = "0.0.0.0";
-  port = 3003;
+  uiPort = 3003;
+  udpPorts = [
+    # plain dns
+    53
+    # dhcph server
+    # 67 68
+    # HTTPS/DNS-over-HTTPS
+    443
+    # DNS-over-QUIC
+    853
+    # DNSCrypt
+    5443
+  ];
+  tcpPorts = [
+    # plain dns
+    53
+    # dhcph server
+    # 68
+    # HTTPS/DNS-over-HTTPS
+    80
+    443
+    uiPort
+    # DNS-over-TLS
+    853
+    # DNSCrypt
+    5443
+    # debugging profiles
+    6000
+  ];
 in
 {
-  networking.firewall.allowedTCPPorts = [ port 3000 ];
-  networking.firewall.allowedUDPPorts = [ port 3000 ];
+  networking.firewall.allowedTCPPorts = udpPorts;
+  networking.firewall.allowedUDPPorts = tcpPorts;
   services.adguardhome = {
     enable = true;
     host = addr;
-    port = port;
+    port = uiPort;
     settings = {
       users = [{
         name = "kor";
