@@ -74,7 +74,7 @@ in
           extraPkgs = pkgs: [
             pkgs.gamescope
             pkgs.gamemode
-            pkgs.proton-ge-bin
+            # pkgs.proton-ge-bin
           ];
         })
       ];
