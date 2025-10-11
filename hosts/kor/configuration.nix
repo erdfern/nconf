@@ -14,6 +14,7 @@
   # facter.reportPath = ./facter.json;
 
   # networking.hostName = "kor";
+  # networking.useDHCP = true;
   # networking.nameservers = [ "192.168.178.42" ];
 
   # so I can cross-build for the rpi...

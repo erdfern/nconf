@@ -117,6 +117,11 @@ in
       "1.1.1.1"
       "1.0.0.1"
     ];
+    # since we manage dns manually..
+    networking.useDHCP = false;
+    networking.dhcpcd.enable = false;
+    networking.networkmanager.dhcp = "internal";
+    # networking.networkmanager.dns = "systemd-resolved";
 
     # TEMP ports for wake on lan
     # networking.firewall.rejectPackets = true;
