@@ -2,7 +2,7 @@
 let
   # addr = "127.0.0.1";
   addr = "0.0.0.0";
-  uiPort = 3000;
+  uiPort = 3003;
   udpPorts = [
     # plain dns
     53
@@ -23,6 +23,7 @@ let
     # HTTPS/DNS-over-HTTPS
     80
     443
+    3000
     uiPort
     # DNS-over-TLS
     853
