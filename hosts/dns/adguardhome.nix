@@ -51,8 +51,8 @@ in
         address = "${addr}:${toString uiPort}";
       };
       dns = {
-        bind_hosts = "0.0.0.0";
-        port = 53;
+        # bind_hosts = ["0.0.0.0"];
+        # port = 53;
         upstream_dns = [
           # Example config with quad9
           # BUG: the ipv6 comments seem to break adguard
