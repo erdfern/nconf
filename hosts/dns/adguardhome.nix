@@ -37,8 +37,8 @@ in
   networking.firewall.allowedUDPPorts = tcpPorts;
   services.adguardhome = {
     enable = true;
-    host = addr;
-    port = uiPort;
+    # host = addr;
+    # port = uiPort;
     settings = {
       users = [{
         name = "kor";
