@@ -28,8 +28,8 @@
       nixd
       nixpkgs-fmt
       # elvish
-      devenv
-      # devenv-git
+      # devenv
+      devenv-git
       gh
     ];
 
