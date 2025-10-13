@@ -36,6 +36,13 @@ in
 {
   networking.firewall.allowedTCPPorts = udpPorts;
   networking.firewall.allowedUDPPorts = tcpPorts;
+  # encryption..
+  # https://nixos.org/manual/nixos/stable/#module-security-acme
+  # security.acme.acceptTerms = true;
+  # security.acme.defaults.email = "j@erdfern.dev";
+  # ...
+
+  # adguard
   services.adguardhome = {
     enable = true;
     host = addr;
