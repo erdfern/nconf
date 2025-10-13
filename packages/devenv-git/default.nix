@@ -43,7 +43,7 @@ rustPlatform.buildRustPackage {
     repo = "devenv";
     tag = "v${version}";
     # hash = "sha256-v86pQGIWHJPkRryglJSXOp0aEoU6ZtURuURsXLqfqSE=";
-    hash = lib.fakeHash;
+    hash = "sha256-rsb+6Wca43guzLL4Czoc89L394ZW9JZF2MShxaz2Sx4=";
   };
 
   # cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
