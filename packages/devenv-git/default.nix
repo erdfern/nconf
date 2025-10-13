@@ -46,8 +46,8 @@ rustPlatform.buildRustPackage {
     hash = lib.fakeHash;
   };
 
-  cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
-  # cargoHash = lib.fakeHash;
+  # cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
+  cargoHash = lib.fakeHash;
 
   buildAndTestSubdir = "devenv";
 
