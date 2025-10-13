@@ -39,7 +39,7 @@
     web.enable = true;
   };
 
-  environment.systemPackages = [ pkgs.colmena pkgs.devenv-git ];
+  environment.systemPackages = [ pkgs.colmena ];
 
   # environment.systemPackages = [ pkgs.zoom-us pkgs.droidcam ];
   # programs.obs-studio = {
