@@ -15,7 +15,7 @@
 }:
 
 let
-  version = "1.1.0";
+  version = "1.10";
   devenvNixVersion = "2.30.4";
 
   devenv_nix =
@@ -46,8 +46,8 @@ rustPlatform.buildRustPackage {
     hash = lib.fakeHash;
   };
 
-  # cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
-  cargoHash = lib.fakeHash;
+  cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
+  # cargoHash = lib.fakeHash;
 
   buildAndTestSubdir = "devenv";
 
