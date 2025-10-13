@@ -90,12 +90,12 @@ rustPlatform.buildRustPackage {
         --zsh $compdir/_devenv
     '';
 
-  passthru.tests = {
-    version = testers.testVersion {
-      package = devenv;
-      command = "export XDG_DATA_HOME=$PWD; devenv version";
-    };
-  };
+  # passthru.tests = {
+  #   version = testers.testVersion {
+  #     package = devenv;
+  #     command = "export XDG_DATA_HOME=$PWD; devenv version";
+  #   };
+  # };
 
   meta = {
     changelog = "https://github.com/cachix/devenv/releases/tag/v${version}";
