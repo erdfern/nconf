@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
 
   kor.desktop.enable = true;
@@ -19,9 +19,10 @@
   # kor.desktop.apps.waybar.hyprlandAutostart = true;
   kor.desktop.apps.hyprpanel.enable = true;
 
-  home.packages = with pkgs; [
-    # seamly2d
-    # valentina-git
+  home.packages = [
+    inputs.devenv.result.packages.x86_64-linux.default
+    # pkgs.seamly2d
+    # pkgs.valentina-git
   ];
 
   kor.desktop.uwsm.env = [

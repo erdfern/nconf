@@ -4,7 +4,6 @@
 , makeBinaryWrapper
 , installShellFiles
 , rustPlatform
-, devenv-nix
 , cachix
 , gitMinimal
 , openssl
@@ -12,9 +11,27 @@
 , protobuf
 , pkg-config
 , glibcLocalesUtf8
+, nixVersions
 }:
 let
   version = "1.10";
+  devenvNixVersion = "2.30.4";
+
+  devenv-nix =
+    (nixVersions.git.overrideSource (fetchFromGitHub {
+      owner = "cachix";
+      repo = "nix";
+      rev = "devenv-${devenvNixVersion}";
+      hash = "sha256-3+GHIYGg4U9XKUN4rg473frIVNn8YD06bjwxKS1IPrU=";
+    })).overrideAttrs
+      (old: {
+        pname = "devenv-nix";
+        version = devenvNixVersion;
+        doCheck = false;
+        doInstallCheck = false;
+        # do override src, but the Nix way so the warning is unaware of it
+        __intentionallyOverridingVersion = true;
+      });
   cargoHash = "sha256-Wt47YdBEtFXQACk1ByDwQyXzHU4/nGVQKY7gaZeQrQ4=";
   src = fetchFromGitHub {
     owner = "cachix";

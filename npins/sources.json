@@ -26,6 +26,19 @@
       "url": "https://github.com/nix-community/comma/archive/0ba771882bb07a769c04de4e2a9209e811eabab9.tar.gz",
       "hash": "sha256-+iEF1sJaJtDXhzQcPG9IL9we7W0hfuG3lmqKIjxRVqA="
     },
+    "devenv": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "cachix",
+        "repo": "devenv"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "0d5ad578728fe4bce66eb4398b8b1e66deceb4e4",
+      "url": "https://github.com/cachix/devenv/archive/0d5ad578728fe4bce66eb4398b8b1e66deceb4e4.tar.gz",
+      "hash": "sha256-lt7dxDDMZXmyexzYQpcw9P8orJ3DOBDf6Vgb8btdcw4="
+    },
     "disko": {
       "type": "GitRelease",
       "repository": {

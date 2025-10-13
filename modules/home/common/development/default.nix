@@ -29,7 +29,6 @@
       nixpkgs-fmt
       # elvish
       # devenv
-      devenv-git
       gh
     ];
 
