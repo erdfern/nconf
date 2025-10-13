@@ -1,17 +1,17 @@
-{
-  lib,
-  fetchFromGitHub,
-  makeBinaryWrapper,
-  installShellFiles,
-  rustPlatform,
-  testers,
-  cachix,
-  nixVersions,
-  openssl,
-  dbus,
-  pkg-config,
-  glibcLocalesUtf8,
-  devenv, # required to run version test
+{ lib
+, fetchFromGitHub
+, makeBinaryWrapper
+, installShellFiles
+, rustPlatform
+, testers
+, cachix
+, nixVersions
+, openssl
+, dbus
+, pkg-config
+, glibcLocalesUtf8
+, devenv
+, # required to run version test
 }:
 
 let
@@ -42,10 +42,12 @@ rustPlatform.buildRustPackage {
     owner = "cachix";
     repo = "devenv";
     tag = "v${version}";
-    hash = "sha256-v86pQGIWHJPkRryglJSXOp0aEoU6ZtURuURsXLqfqSE=";
+    # hash = "sha256-v86pQGIWHJPkRryglJSXOp0aEoU6ZtURuURsXLqfqSE=";
+    hash = lib.fakeHash;
   };
 
-  cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
+  # cargoHash = "sha256-41VmzZvoRd2pL5/o6apHztpS2XrL4HGPIJPBkUbPL1I=";
+  cargoHash = lib.fakeHash;
 
   buildAndTestSubdir = "devenv";
 
