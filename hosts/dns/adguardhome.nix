@@ -2,7 +2,7 @@
 let
   # addr = "127.0.0.1";
   addr = "0.0.0.0";
-  uiPort = 3003;
+  uiPort = 3000;
   udpPorts = [
     # plain dns
     53
@@ -23,7 +23,7 @@ let
     # HTTPS/DNS-over-HTTPS
     80
     # 443
-    # 3000
+    # 3000 # default ui port
     uiPort
     # DNS-over-TLS
     # 853
@@ -38,17 +38,17 @@ in
   networking.firewall.allowedUDPPorts = tcpPorts;
   services.adguardhome = {
     enable = true;
-    # host = addr;
-    # port = uiPort;
+    host = addr;
+    port = uiPort;
     settings = {
       users = [{
         name = "kor";
-        # TODO make hash not public
+        # TODO make sops for hash
         password = "$2y$10$u1Qb8QSi32e/nkiLCibZQOjbqedXUDFgWCDrLq/3PaK4sY0iGBC6m";
       }];
       http = {
         # You can select any ip and port, just make sure to open firewalls where needed
-        address = "${addr}:${toString uiPort}";
+        # address = "${addr}:${toString uiPort}"; # setting both this and adguardhome.host/port borks something; i think host/port options just set this?
       };
       dns = {
         # bind_hosts = ["0.0.0.0"];
@@ -78,10 +78,10 @@ in
       };
       # The following notation uses map
       # to not have to manually create {enabled = true; url = "";} for every filter
-      # This is, however, fully optional
       filters = map (url: { enabled = true; url = url; }) [
-        "https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt" # The Big List of Hacked Malware Web Sites
-        "https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt" # malicious url blocklist
+        # "https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt" # The Big List of Hacked Malware Web Sites
+        # "https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt" # malicious url blocklist
+        "https://github.com/ppfeufer/adguard-filter-list/blob/master/blocklist?raw=true" # combines 80+ other lists, including defaults; extensive
       ];
     };
   };
