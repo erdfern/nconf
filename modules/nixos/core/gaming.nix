@@ -71,6 +71,8 @@ in
         # wineWow64Packages.full # experimental compat layer for running 32bit without installing 32bit libs, idk
         wineWowPackages.full
 
+        winetricks
+
         (heroic.override {
           extraPkgs = pkgs: [
             pkgs.gamescope
