@@ -1,6 +1,7 @@
 {
   imports = [ ./ui.nix ];
 
+  # https://mozilla.github.io/policy-templates/
   programs.firefox.policies.Preferences =
     {
       # sync
@@ -53,5 +54,9 @@
       "extensions.update.enabled" = false;
 
       "widget.use-xdg-desktop-portal.file-picker" = 1; # Use new gtk file picker instead of legacy one
+
+      # Privacy
+      privacy.globalprivacycontrol.enabled = true;
+      privacy.globalprivacycontrol.was_ever_enabled = true;
     };
 }

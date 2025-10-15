@@ -5,9 +5,18 @@
     "AppUpdatePin": "106.",
     "AppUpdateURL": "https://yoursite.com",
     "Authentication": {
-      "SPNEGO": ["mydomain.com", "https://myotherdomain.com"],
-      "Delegated": ["mydomain.com", "https://myotherdomain.com"],
-      "NTLM": ["mydomain.com", "https://myotherdomain.com"],
+      "SPNEGO": [
+        "mydomain.com",
+        "https://myotherdomain.com"
+      ],
+      "Delegated": [
+        "mydomain.com",
+        "https://myotherdomain.com"
+      ],
+      "NTLM": [
+        "mydomain.com",
+        "https://myotherdomain.com"
+      ],
       "AllowNonFQDN": {
         "SPNEGO": true | false,
         "NTLM": true | false
@@ -19,12 +28,14 @@
       "Locked": true | false,
       "PrivateBrowsing": true | false
     },
-    "AutoLaunchProtocolsFromOrigins": [{
-      "protocol": "zoommtg",
-      "allowed_origins": [
-        "https://somesite.zoom.us"
-      ]
-    }],
+    "AutoLaunchProtocolsFromOrigins": [
+      {
+        "protocol": "zoommtg",
+        "allowed_origins": [
+          "https://somesite.zoom.us"
+        ]
+      }
+    ],
     "BackgroundAppUpdate": true | false,
     "BlockAboutAddons": true | false,
     "BlockAboutConfig": true | false,
@@ -41,7 +52,10 @@
     ],
     "CaptivePortal": true | false,
     "Certificates": {
-      "Install": ["cert1.der", "/home/username/cert2.pem"],
+      "Install": [
+        "cert1.der",
+        "/home/username/cert2.pem"
+      ],
     },
     "Containers": {
       "Default": [
@@ -53,9 +67,15 @@
       ]
     },
     "Cookies": {
-      "Allow": ["http://example.org/"],
-      "AllowSession": ["http://example.edu/"],
-      "Block": ["http://example.edu/"],
+      "Allow": [
+        "http://example.org/"
+      ],
+      "AllowSession": [
+        "http://example.edu/"
+      ],
+      "Block": [
+        "http://example.edu/"
+      ],
       "Locked": true | false,
       "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
       "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
@@ -75,7 +95,6 @@
     "DisableFormHistory": true | false,
     "DisableMasterPasswordCreation": true | false,
     "DisablePasswordReveal": true | false,
-    "DisablePocket": true | false,
     "DisablePrivateBrowsing": true | false,
     "DisableProfileImport": true | false,
     "DisableProfileRefresh": true | false,
@@ -88,12 +107,17 @@
     "DisableSystemAddonUpdate": true | false,
     "DisableTelemetry": true | false,
     "DisplayBookmarksToolbar": "always" | "never" | "newtab",
-    "DisplayMenuBar": "always", "never", "default-on", "default-off",
+    "DisplayMenuBar": "always",
+    "never",
+    "default-on",
+    "default-off",
     "DNSOverHTTPS": {
-      "Enabled":  true | false,
+      "Enabled": true | false,
       "ProviderURL": "URL_TO_ALTERNATE_PROVIDER",
       "Locked": true | false,
-      "ExcludedDomains": ["example.com"]
+      "ExcludedDomains": [
+        "example.com"
+      ]
     },
     "DontCheckDefaultBrowser": true | false,
     "DownloadDirectory": "${home}/Downloads",
@@ -103,27 +127,46 @@
       "Cryptomining": true | false,
       "Fingerprinting": true | false,
       "EmailTracking": true | false,
-      "Exceptions": ["https://example.com"]
+      "SuspectedFingerprinting": true | false,
+      "Category": "strict" | "standard",
+      "Exceptions": [
+        "https://example.com"
+      ]
     },
     "EncryptedMediaExtensions": {
       "Enabled": true | false,
       "Locked": true | false
     },
-    "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings": [{
-      "file_extension": "jnlp",
-      "domains": ["example.com"]
-    }],
+    "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings": [
+      {
+        "file_extension": "jnlp",
+        "domains": [
+          "example.com"
+        ]
+      }
+    ],
     "Extensions": {
-      "Install": ["https://addons.mozilla.org/firefox/downloads/somefile.xpi", "//path/to/xpi"],
-      "Uninstall": ["bad_addon_id@mozilla.org"],
-      "Locked":  ["addon_id@mozilla.org"]
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/somefile.xpi",
+        "//path/to/xpi"
+      ],
+      "Uninstall": [
+        "bad_addon_id@mozilla.org"
+      ],
+      "Locked": [
+        "addon_id@mozilla.org"
+      ]
     },
     "ExtensionSettings": {
       "*": {
         "blocked_install_message": "Custom error message.",
-        "install_sources": ["https://yourwebsite.com/*"],
+        "install_sources": [
+          "https://yourwebsite.com/*"
+        ],
         "installation_mode": "blocked",
-        "allowed_types": ["extension"]
+        "allowed_types": [
+          "extension"
+        ]
       },
       "uBlock0@raymondhill.net": {
         "installation_mode": "force_installed",
@@ -162,20 +205,24 @@
         "mailto": {
           "action": "useHelperApp",
           "ask": true | false,
-          "handlers": [{
-            "name": "Gmail",
-            "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
-          }]
+          "handlers": [
+            {
+              "name": "Gmail",
+              "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
+            }
+          ]
         }
       },
       "extensions": {
         "pdf": {
           "action": "useHelperApp",
           "ask": true | false,
-          "handlers": [{
-            "name": "Adobe Acrobat",
-            "path": "/usr/bin/acroread"
-          }]
+          "handlers": [
+            {
+              "name": "Adobe Acrobat",
+              "path": "/usr/bin/acroread"
+            }
+          ]
         }
       }
     },
@@ -183,21 +230,33 @@
     "Homepage": {
       "URL": "http://example.com/",
       "Locked": true | false,
-      "Additional": ["http://example.org/",
-                    "http://example.edu/"],
+      "Additional": [
+        "http://example.org/",
+        "http://example.edu/"
+      ],
       "StartPage": "none" | "homepage" | "previous-session" | "homepage-locked"
     },
-    "HttpAllowlist": ["http://example.org",
-                       "http://example.edu"],
+    "HttpAllowlist": [
+      "http://example.org",
+      "http://example.edu"
+    ],
     "HttpsOnlyMode": "allowed" | "disallowed" | "enabled" | "force_enabled",
     "InstallAddonsPermission": {
-      "Allow": ["http://example.org/",
-                "http://example.edu/"],
+      "Allow": [
+        "http://example.org/",
+        "http://example.edu/"
+      ],
       "Default": true | false
     },
     "LegacySameSiteCookieBehaviorEnabled": true | false,
-    "LegacySameSiteCookieBehaviorEnabledForDomainList": ["example.org", "example.edu"],
-    "LocalFileLinks": ["http://example.org/", "http://example.edu/"],
+    "LegacySameSiteCookieBehaviorEnabledForDomainList": [
+      "example.org",
+      "example.edu"
+    ],
+    "LocalFileLinks": [
+      "http://example.org/",
+      "http://example.edu/"
+    ],
     "ManagedBookmarks": [
       {
         "toplevel_name": "My managed bookmarks folder"
@@ -228,50 +287,96 @@
     "OverrideFirstRunPage": "http://example.org",
     "OverridePostUpdatePage": "http://example.org",
     "PasswordManagerEnabled": true | false,
-    "PasswordManagerExceptions": ["https://example.org", "https://example.edu"],
+    "PasswordManagerExceptions": [
+      "https://example.org",
+      "https://example.edu"
+    ],
     "PDFjs": {
       "Enabled": true | false,
       "EnablePermissions": true | false
     },
     "Permissions": {
       "Camera": {
-        "Allow": ["https://example.org","https://example.org:1234"],
-        "Block": ["https://example.edu"],
+        "Allow": [
+          "https://example.org",
+          "https://example.org:1234"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
         "BlockNewRequests": true | false,
         "Locked": true | false
       },
       "Microphone": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
+        "Allow": [
+          "https://example.org"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
         "BlockNewRequests": true | false,
         "Locked": true | false
       },
       "Location": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
+        "Allow": [
+          "https://example.org"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
         "BlockNewRequests": true | false,
         "Locked": true | false
       },
       "Notifications": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
+        "Allow": [
+          "https://example.org"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
         "BlockNewRequests": true | false,
         "Locked": true | false
       },
       "Autoplay": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
+        "Allow": [
+          "https://example.org"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
         "Default": "allow-audio-video" | "block-audio" | "block-audio-video",
         "Locked": true | false
-      }
+      },
+      "VirtualReality": {
+        "Allow": [
+          "https://example.org"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
+      "ScreenShare": {
+        "Allow": [
+          "https://example.org"
+        ],
+        "Block": [
+          "https://example.edu"
+        ],
+        "BlockNewRequests": true | false,
+        "Locked": true | false
+      },
     },
     "PictureInPicture": {
       "Enabled": true | false,
       "Locked": true | false
     },
     "PopupBlocking": {
-      "Allow": ["http://example.org/",
-                "http://example.edu/"],
+      "Allow": [
+        "http://example.org/",
+        "http://example.edu/"
+      ],
       "Default": true | false,
       "Locked": true | false
     },
@@ -332,7 +437,9 @@
       ],
       "Default": "NAME_OF_SEARCH_ENGINE",
       "PreventInstalls": true | false,
-      "Remove": ["NAME_OF_SEARCH_ENGINE"]
+      "Remove": [
+        "NAME_OF_SEARCH_ENGINE"
+      ]
     },
     "SearchSuggestEnabled": true | false,
     "SecurityDevices": {
@@ -360,8 +467,12 @@
     },
     "UseSystemPrintDialog": true | false.,
     "WebsiteFilter": {
-      "Block": ["<all_urls>"],
-      "Exceptions": ["http://example.org/*"]
+      "Block": [
+        "<all_urls>"
+      ],
+      "Exceptions": [
+        "http://example.org/*"
+      ]
     }
   }
 }
