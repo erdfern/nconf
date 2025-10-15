@@ -68,13 +68,16 @@ in
         # wineWowPackages.full
         # wineWowPackages.staging
         # wineWowPackages.waylandFull
-        wineWow64Packages.full
+        # wineWow64Packages.full # experimental compat layer for running 32bit without installing 32bit libs, idk
+        wineWowPackages.full
 
         (heroic.override {
           extraPkgs = pkgs: [
             pkgs.gamescope
             pkgs.gamemode
             # pkgs.proton-ge-bin
+            # wineWow64Packages.full
+            wineWowPackages.full
           ];
         })
       ];
