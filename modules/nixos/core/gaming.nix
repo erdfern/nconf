@@ -58,8 +58,8 @@ in
         # just custom desktop items for launching steam with -pipewire and so on
         steam-pipewire
 
-
         # protonup-qt # installer for proton versions
+        # protonup-rs # cli
 
         mangohud
 
@@ -80,6 +80,8 @@ in
             wineWowPackages.full
           ];
         })
+
+        nexusmods-app-unfree # unfree for RAR support
       ];
       sessionVariables = {
         STEAM_COMPAT_DATA_PATH = "/home/${me.user}/.local/share/Steam/steamapps/compatdata";
