@@ -75,11 +75,12 @@ in
 
         (heroic.override {
           extraPkgs = pkgs: [
-            pkgs.gamescope
-            pkgs.gamemode
+            gamescope
+            gamemode
             # pkgs.proton-ge-bin
             # wineWow64Packages.full
             wineWowPackages.full
+            winetricks
           ];
         })
 
