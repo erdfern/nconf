@@ -41,9 +41,9 @@ in
         bar.layouts = {
           "0" = {
             # left = [ "dashboard" "workspaces" "microphone" "volume" "cava" ];
-            left = [ "dashboard" "workspaces" "microphone" "volume" ];
+            left = [ "dashboard" "hyprsunset" "microphone" "volume" "separator" "workspaces" ];
             middle = [ "media" ];
-            right = [ "submap" "cputemp" "cpu" "ram" "systray" "notifications" ];
+            right = [ "submap" "separator" "cputemp" "cpu" "ram" "separator" "systray" "notifications" "clock" ];
           };
         };
 
