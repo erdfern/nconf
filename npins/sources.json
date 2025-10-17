@@ -179,9 +179,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "ac8209404cb1b6b89ad3ee527985ac2e7ad7e253",
+      "revision": "ab9dddfb7ad1e252e7abd6956765b87a05d298c2",
       "url": null,
-      "hash": "sha256-HlzunxwqIXCDcmJ+w+Oc5vvwdXuaRrYkN6542FX3skg="
+      "hash": "sha256-m86+M6BfKaAJ7H7H1jHXxvHrrujsPLkMtst9FfJ52wQ="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
