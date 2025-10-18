@@ -40,20 +40,17 @@
       "hash": "sha256-GsBdYlQ0zfeNdBzTH/IlqpBMNrMbgBK98+PlGyUV3nw="
     },
     "disko": {
-      "type": "GitRelease",
+      "type": "Git",
       "repository": {
         "type": "GitHub",
         "owner": "nix-community",
         "repo": "disko"
       },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
+      "branch": "master",
       "submodules": false,
-      "version": "v1.12.0",
-      "revision": "7121f74b976481bc36877abaf52adab2a178fcbe",
-      "url": "https://api.github.com/repos/nix-community/disko/tarball/refs/tags/v1.12.0",
-      "hash": "sha256-eDoSOhxGEm2PykZFa/x9QG5eTH0MJdiJ9aR00VAofXE="
+      "revision": "3a9450b26e69dcb6f8de6e2b07b3fc1c288d85f5",
+      "url": "https://github.com/nix-community/disko/archive/3a9450b26e69dcb6f8de6e2b07b3fc1c288d85f5.tar.gz",
+      "hash": "sha256-y7UhnWlER8r776JsySqsbTUh2Txf7K30smfHlqdaIQw="
     },
     "facter": {
       "type": "Git",
