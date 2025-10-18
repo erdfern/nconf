@@ -36,7 +36,7 @@
 
   services.deluge = {
     enable = true;
-    web.enable = true;
+    web.enable = false;
   };
 
   environment.systemPackages = [ pkgs.colmena ];
