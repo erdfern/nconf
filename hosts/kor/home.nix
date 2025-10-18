@@ -20,7 +20,8 @@
   kor.desktop.apps.hyprpanel.enable = true;
 
   home.packages = [
-    inputs.devenv.result.packages.x86_64-linux.default
+    # inputs.devenv.result.packages.x86_64-linux.default
+    pkgs.devenv
     # pkgs.seamly2d
     # pkgs.valentina-git
   ];
