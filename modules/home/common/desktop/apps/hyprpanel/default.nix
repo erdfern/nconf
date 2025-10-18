@@ -68,6 +68,7 @@ in
             hideSeconds = true;
           };
           weather.unit = "metric";
+          weather.api_key = "ad8906b40d1c43c9b0c234212251810";
         };
         theme.font = {
           name = "CaskaydiaCove NF";
