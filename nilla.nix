@@ -24,6 +24,7 @@ in
 
     # inputs.nilla-utils = { src = ./modules/nilla-utils; loader = "nilla"; };
 
+    # TODO make lix per-system option
     modules.nixos.lix = (import "${config.inputs.lix.result}/module.nix" {
       lix = (lib.paths.into.drv config.inputs.lix-src.src) // {
         rev = "latest";
@@ -50,10 +51,6 @@ in
         # config.inputs.noshell.result.nixosModules.default
         # config.inputs.sops-nix.result.nixosModules.sops
         "${config.inputs.disko.result}/module.nix"
-        # TODO make lix per-system option
-        # (import "${config.inputs.lix.result}/module.nix" {
-        #   lix = (config.lib.paths.into.drv config.inputs.lix-src.result) // { rev = "latest"; };
-        # })
         # same thing if loader=raw... (import "${config.inputs.disko.src}/module.nix")
         # config.inputs.disko.result.nixosModules.disko
 
@@ -121,7 +118,18 @@ in
     # systems.home."${user}@kor-t14".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
 
     systems.nixos.kor = {
-      modules = [ config.modules.nixos.lix ];
+      # modules = [ config.modules.nixos.lix ];
+      modules = [
+        ({ ... }: {
+          nixpkgs.overlays = (final: prev: {
+            inherit (prev.lixPackageSets.stable)
+              nixpkgs-review
+              nix-eval-jobs
+              nix-fast-build
+              colmena;
+          });
+        })
+      ];
     };
 
     shells.default = {
