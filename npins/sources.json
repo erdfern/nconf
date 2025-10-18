@@ -156,6 +156,18 @@
       "url": "https://github.com/nix-community/impermanence/archive/4b3e914cdf97a5b536a889e939fb2fd2b043a170.tar.gz",
       "hash": "sha256-LJggUHbpyeDvNagTUrdhe/pRVp4pnS6wVKALS782gRI="
     },
+    "lix": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.lix.systems/lix-project/nixos-module"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "7c31a18259b8358ac196cf803a26967c0fa1d3e4",
+      "url": null,
+      "hash": "sha256-n5dRAIC3/78drQtFxmQRrBLd6TKfotUnX7GWu0mAcSg="
+    },
     "lix-src": {
       "type": "Git",
       "repository": {
@@ -258,18 +270,6 @@
       "revision": "032decf9db65efed428afd2fa39d80f7089085eb",
       "url": "https://github.com/nix-community/nixos-generators/archive/032decf9db65efed428afd2fa39d80f7089085eb.tar.gz",
       "hash": "sha256-PeSkNMvkpEvts+9DjFiop1iT2JuBpyknmBUs0Un0a4I="
-    },
-    "nixos-module": {
-      "type": "Git",
-      "repository": {
-        "type": "Git",
-        "url": "https://git.lix.systems/lix-project/nixos-module"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "7c31a18259b8358ac196cf803a26967c0fa1d3e4",
-      "url": null,
-      "hash": "sha256-n5dRAIC3/78drQtFxmQRrBLd6TKfotUnX7GWu0mAcSg="
     },
     "nixpkgs": {
       "type": "Git",
