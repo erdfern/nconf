@@ -73,24 +73,23 @@
         enable = false;
         options.navigate = true;
       };
+      difftastic.enable = true;
+      difftastic.git.enable = true;
       git = {
         enable = true;
         lfs.enable = false;
-        userName = me.git.user;
-        userEmail = me.git.email;
-        signing.key = me.gpg.signKey;
-        signing.format = "openpgp";
-        signing.signByDefault = false;
-        difftastic = {
-          enable = true;
-        };
-        extraConfig = {
+        settings = {
+          user.name = me.git.user;
+          user.email = me.git.email;
           core.exludesFile = "~/.gitignore_global";
           merge.conflictstyle = "diff3"; # or "merge";
           # merge.ff = true;
           pull.rebase = true; # rebase
           diff.colorMoved = "default";
         };
+        signing.key = me.gpg.signKey;
+        signing.format = "openpgp";
+        signing.signByDefault = false;
       };
       fd.enable = true;
       fzf.enable = true;
