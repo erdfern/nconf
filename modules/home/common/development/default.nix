@@ -68,6 +68,11 @@
       };
       jjui.enable = true;
       git-cliff.enable = true;
+      delta = {
+        # syntax highlighting pager
+        enable = false;
+        options.navigate = true;
+      };
       git = {
         enable = true;
         lfs.enable = false;
@@ -76,11 +81,6 @@
         signing.key = me.gpg.signKey;
         signing.format = "openpgp";
         signing.signByDefault = false;
-        delta = {
-          # syntax highlighting pager
-          enable = false;
-          options.navigate = true;
-        };
         difftastic = {
           enable = true;
         };
