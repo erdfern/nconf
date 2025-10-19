@@ -68,11 +68,11 @@
       };
       jjui.enable = true;
       git-cliff.enable = true;
-      delta = {
-        # syntax highlighting pager
-        enable = false;
-        options.navigate = true;
-      };
+      # delta = {
+      #   # syntax highlighting pager
+      #   enable = false;
+      #   options.navigate = true;
+      # };
       difftastic.enable = true;
       difftastic.git.enable = true;
       git = {
