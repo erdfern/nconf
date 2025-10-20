@@ -28,6 +28,7 @@ in
     # enable audio support
     kor.system.audio.enable = true;
 
+    # https://wiki.archlinux.org/title/ICC_profiles
     services.colord.enable = true;
 
     # services.getty.autologinOnce = cfg.autologin; # only once per boot on first tty

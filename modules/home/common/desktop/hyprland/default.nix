@@ -86,7 +86,7 @@ in
         # max-gamma = 100;
         profile = [
           { time = "7:30"; identity = true; }
-          # { time = "21:30"; identity = true; }
+          { time = "21:30"; temperature = 5500; }
         ];
       };
     };
