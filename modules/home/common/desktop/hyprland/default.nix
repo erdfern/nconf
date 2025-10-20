@@ -78,16 +78,16 @@ in
 
     services.hyprpolkitagent.enable = true;
 
-    # services.hyprsunset = {
-    #   enable = true;
+    services.hyprsunset = {
+      enable = true;
 
-    #   # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
-    #   settings = {
-    #     # max-gamma = 100;
-    #     # profile = [
-    #     #   { }
-    #     # ];
-    #   };
-    # };
+      # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
+      settings = {
+        # max-gamma = 100;
+        # profile = [
+        #   { }
+        # ];
+      };
+    };
   };
 }
