@@ -54,6 +54,13 @@ in
         # bar.clock.format = "%a %b %d %H:%M:S";
         bar.clock.format = "%a %b %d %T";
 
+        bar.hypridle = {
+          label = false;
+        };
+        bar.hyprsunset = {
+          label = false;
+        };
+
         menus.dashboard.directories.enabled = false;
         menus.dashboard.shortcuts.enabled = true;
         menus.dashboard.powermenu.avatar = "~/.face.icon";

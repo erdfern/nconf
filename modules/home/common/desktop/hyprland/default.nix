@@ -77,7 +77,12 @@ in
       enable = true;
 
       # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
-      # settings = { };
+      settings = {
+        # max-gamma = 100;
+        # profile = [
+        #   { }
+        # ];
+      };
     };
   };
 }
