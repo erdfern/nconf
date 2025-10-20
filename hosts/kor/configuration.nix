@@ -13,11 +13,34 @@
 
   # facter.reportPath = ./facter.json;
 
+  # so I can cross-build for the rpi...
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  kor.preset.desktop.enable = true;
+  kor.preset.development.enable = true;
+
+  kor.gaming.enable = true;
+  kor.flatpak.enable = true;
+
+  kor.hardware.sk.yubikey.enable = true;
+  kor.hardware.sk.nitrokey.enable = true;
+  kor.hardware.sk.piv.enable = true;
+
+  # kor.virtualisation.qemu.enable = true;
+  kor.virtualisation.containers.enable = true;
+  kor.virtualisation.waydroid.enable = true;
+
+  services.deluge = {
+    enable = true;
+    web.enable = false;
+  };
+
+  # TODO move
   # networking.hostName = "kor";
   # networking.useDHCP = true;
   # networking.nameservers = [ "192.168.178.42" ];
-  # might need iw and haveged..
   # check wifi capabilities with `iw dev`/`iw list`
+  environment.systemPackages = [ pkgs.haveged ]; # for entropy
   # https://github.com/NixOS/nixpkgs/blob/d916df777523d75f7c5acca79946652f032f633e/nixos/modules/services/networking/create_ap.nix
   services.create_ap = {
     enable = true;
@@ -55,30 +78,6 @@
       # DHCP_HOSTS=;
     };
   };
-
-  # so I can cross-build for the rpi...
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  kor.preset.desktop.enable = true;
-  kor.preset.development.enable = true;
-
-  kor.gaming.enable = true;
-  kor.flatpak.enable = true;
-
-  kor.hardware.sk.yubikey.enable = true;
-  kor.hardware.sk.nitrokey.enable = true;
-  kor.hardware.sk.piv.enable = true;
-
-  # kor.virtualisation.qemu.enable = true;
-  kor.virtualisation.containers.enable = true;
-  kor.virtualisation.waydroid.enable = true;
-
-  services.deluge = {
-    enable = true;
-    web.enable = false;
-  };
-
-  environment.systemPackages = [ pkgs.colmena ];
 
   # environment.systemPackages = [ pkgs.zoom-us pkgs.droidcam ];
   # programs.obs-studio = {
