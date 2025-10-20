@@ -12,7 +12,7 @@ in
 {
   imports = [
     # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#upstream-module
-    inputs.hyprland.result.nixosModules.default
+    # inputs.hyprland.result.nixosModules.default
     ./hyprland
   ];
 

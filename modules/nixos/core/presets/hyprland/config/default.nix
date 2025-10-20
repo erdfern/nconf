@@ -6,7 +6,7 @@ let
     ${pkgs.killall}/bin/killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   '';
 
-  autostartWaybar = config.kor.desktop.apps.waybar.enable && config.kor.desktop.apps.waybar.hyprlandAutostart;
+  # autostartWaybar = config.kor.desktop.apps.waybar.enable && config.kor.desktop.apps.waybar.hyprlandAutostart;
 
   cfg = config.kor.desktop.hyprland;
 in
@@ -27,8 +27,8 @@ in
 
     withUWSM = true; # means that home.wayland.windowManager.hyprland.systemd.enable should be false
     settings = {
-      exec-once = [ ]
-        ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
+      # exec-once = [ ]
+      #   ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
 
       # env = [
       # "XCURSOR_SIZE,24"

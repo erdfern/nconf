@@ -9,7 +9,7 @@ let
 in
 {
   imports = [
-    # ./config
+    ./config
     ./hyprpaper
     ./hyprlock
     ./hypridle.nix
