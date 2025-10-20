@@ -9,7 +9,7 @@ in
 {
   options.kor.system.networking = { };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     networking.usePredictableInterfaceNames = lib.mkDefault true;
 
     # example (https://github.com/infinisil/system/blob/f41c1437aa146fcfd038694d92a077a02f01f142/config/modules/iphone-usb-tethering.nix#L9-L17)

@@ -18,6 +18,7 @@
   # networking.nameservers = [ "192.168.178.42" ];
   # might need iw and haveged..
   # check wifi capabilities with `iw dev`/`iw list`
+  # https://github.com/NixOS/nixpkgs/blob/d916df777523d75f7c5acca79946652f032f633e/nixos/modules/services/networking/create_ap.nix
   services.create_ap = {
     enable = true;
     # https://raw.githubusercontent.com/lakinduakash/linux-wifi-hotspot/master/src/scripts/create_ap.conf
@@ -26,7 +27,7 @@
       INTERNET_IFACE = "enp9s0";
       SSID = "kor-ap";
       PASSPHRASE = "kor-hothothot";
-      # FREQ_BAND=5;
+      FREQ_BAND = 5;
       CHANNEL = "default";
       # IEEE80211N=0;
       # IEEE80211AC=0;
