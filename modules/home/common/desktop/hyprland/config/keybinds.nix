@@ -76,6 +76,8 @@ in
 
           ",Super_L, exec, pkill fuzzel || ${fuzzel}"
           "${mod}, Super_L,exec, pkill fuzzel || ${uwsmRun powermenu}"
+          ",code:277, exec, pkill fuzzel || ${uwsmRun powermenu}"
+          # ",mouse:277, exec, pkill fuzzel || ${uwsmRun powermenu}"
           "${mod}, Return, exec, ${uwsmRun terminal}"
           "${mod} SHIFT, Return, exec, ${uwsmRun terminal} --class='termfloat'"
           # "${mod} SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
