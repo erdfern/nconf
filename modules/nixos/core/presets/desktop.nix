@@ -28,8 +28,9 @@ in
     # enable audio support
     kor.system.audio.enable = true;
 
+    # https://github.com/hyprwm/Hyprland/issues/9064
     # https://wiki.archlinux.org/title/ICC_profiles
-    services.colord.enable = true;
+    # services.colord.enable = true;
 
     # services.getty.autologinOnce = cfg.autologin; # only once per boot on first tty
     services.getty.autologinUser = lib.mkIf cfg.autologin me.user; # always login this user at console
