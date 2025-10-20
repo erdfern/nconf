@@ -150,11 +150,11 @@
         "owner": "erdfern",
         "repo": "HyprPanel"
       },
-      "branch": "master",
+      "branch": "dev",
       "submodules": false,
-      "revision": "0a961ce8a959c521f41546af7f355e04adee5503",
-      "url": "https://github.com/erdfern/HyprPanel/archive/0a961ce8a959c521f41546af7f355e04adee5503.tar.gz",
-      "hash": "sha256-pz69vejsrB+7N+jyKxZcckTjJtzw9BCAIRzHNbFUIp0="
+      "revision": "9f958f6b855ef7f4b6d996d98f4a2da422aa52ca",
+      "url": "https://github.com/erdfern/HyprPanel/archive/9f958f6b855ef7f4b6d996d98f4a2da422aa52ca.tar.gz",
+      "hash": "sha256-3n5LCaQfrxTcAu+Ypq5wzGpk12wCXeNayqL5CFwdiSU="
     },
     "impermanence": {
       "type": "Git",
