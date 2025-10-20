@@ -25,7 +25,7 @@ in
     kor.basic-utils = lib.mkDefault true;
     # kor.system.boot.plymouth.enable = lib.mkDefault true;
 
-    documentation.man.generateCaches = false; # sometimes _veryy_ slow, and i don't use man often tbh..
+    documentation.man.generateCaches = lib.mkDefault false; # sometimes _veryy_ slow, and i don't use man often tbh..
 
     # TODO mv
     catppuccin.enable = false;

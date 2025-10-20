@@ -5,5 +5,6 @@
     ./locale.nix
     ./impermanence.nix
     ./fs
+    ./networking.nix
   ];
 }

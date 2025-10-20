@@ -16,6 +16,18 @@
   # networking.hostName = "kor";
   # networking.useDHCP = true;
   # networking.nameservers = [ "192.168.178.42" ];
+  # might want hostapd and haveged
+  # check wifi capabilities with `iw dev`/`iw list`
+  # services.create_ap = {
+  #   enable = true;
+  # https://raw.githubusercontent.com/lakinduakash/linux-wifi-hotspot/master/src/scripts/create_ap.conf
+  #   settings = {
+  #     INTERNET_IFACE = "enp9s0";
+  #     WIFI_IFACE = "wlp8s0";
+  #     PASSPHRASE = "12345678";
+  #     SSID = "kor-ap";
+  #   };
+  # };
 
   # so I can cross-build for the rpi...
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
