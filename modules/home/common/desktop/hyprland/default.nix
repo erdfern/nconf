@@ -84,9 +84,10 @@ in
       # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
       settings = {
         # max-gamma = 100;
-        # profile = [
-        #   { }
-        # ];
+        profile = [
+          { time = "7:30"; identity = true; }
+          # { time = "21:30"; identity = true; }
+        ];
       };
     };
   };

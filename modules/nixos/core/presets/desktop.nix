@@ -28,6 +28,8 @@ in
     # enable audio support
     kor.system.audio.enable = true;
 
+    services.colord.enable = true;
+
     # services.getty.autologinOnce = cfg.autologin; # only once per boot on first tty
     services.getty.autologinUser = lib.mkIf cfg.autologin me.user; # always login this user at console
 
