@@ -73,9 +73,11 @@ in
 
     services.hyprpolkitagent.enable = true;
 
-    # services.hyprsunset = {
-    #   enable = true;
-    #   transitions = { };
-    # };
+    services.hyprsunset = {
+      enable = true;
+
+      # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
+      # settings = { };
+    };
   };
 }

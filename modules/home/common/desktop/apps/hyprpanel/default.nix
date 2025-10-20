@@ -41,15 +41,18 @@ in
         bar.layouts = {
           "0" = {
             # left = [ "dashboard" "workspaces" "microphone" "volume" "cava" ];
-            left = [ "dashboard" "hyprsunset" "microphone" "volume" "separator" "workspaces" ];
+            left = [ "dashboard" "hypridle" "hyprsunset" "microphone" "volume" "separator" "workspaces" ];
             middle = [ "media" ];
-            right = [ "submap" "separator" "cputemp" "cpu" "ram" "separator" "systray" "notifications" "clock" ];
+            right = [ "submap" "separator" "cputemp" "cpu" "ram" "separator" "systray" "clock" "notifications" ];
           };
         };
 
         # bar.launcher.autoDetectIcon = true;
         bar.launcher.icon = "";
         bar.workspaces.show_icons = true;
+
+        # bar.clock.format = "%a %b %d %H:%M:S";
+        bar.clock.format = "%a %b %d %T";
 
         menus.dashboard.directories.enabled = false;
         menus.dashboard.shortcuts.enabled = true;
@@ -61,11 +64,11 @@ in
           shortcut4 = { command = "fuzzel"; };
         };
 
-        # menus.dashboard.stats.enable_gpu = true;
+        menus.dashboard.stats.enable_gpu = true;
         menus.clock = {
           time = {
             military = true;
-            hideSeconds = true;
+            # hideSeconds = true;
           };
           weather.unit = "metric";
           weather.key = "ad8906b40d1c43c9b0c234212251810";
