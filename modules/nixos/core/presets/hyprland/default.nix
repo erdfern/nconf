@@ -24,4 +24,7 @@ in
 
     withUWSM = true; # means that home.wayland.windowManager.hyprland.systemd.enable should be false
   };
+
+  # needed for home-manager programs.hyprlock.enable to work
+  security.pam.services.hyprlock = { };
 }
