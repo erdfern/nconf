@@ -8,7 +8,12 @@ let
   cfg = config.kor.desktop.hyprland;
 in
 {
-  imports = [ ./config ./hyprpaper ./hyprlock ./hypridle.nix ];
+  imports = [
+    # ./config
+    ./hyprpaper
+    ./hyprlock
+    ./hypridle.nix
+  ];
   # ++ [ inputs.hyprpanel.result.homeManagerModules.hyprpanel ];
 
   options.kor.desktop.hyprland = with lib; {
@@ -36,7 +41,6 @@ in
       "HYPRCURSOR_THEME=${config.home.pointerCursor.name}"
     ] else [ ]);
 
-    # home.packages = with pkgs; [ hyprsunset ];
     home.packages = with pkgs; [ hyprprop ];
 
     home.pointerCursor.hyprcursor.enable = true;
@@ -60,11 +64,12 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      # package = null; # https://github.com/nix-community/home-manager/blob/542078066b1a99cdc5d5fce1365f98b847ca0b5a/modules/services/window-managers/hyprland.nix#L72
-      # portalPackage = null; # TODO check if this is right. Maybe I need to enable the xdg portal in nixos conf if package/portalPackage are null
+      # https://github.com/nix-community/home-manager/blob/c3a5e5f0df6f53aa4b51adc0107796cc407c641c/modules/services/window-managers/hyprland.nix#L70C5-L77C7
+      # "Set this to null if you use the NixOS module to install Hyprland."
+      # package = null;
+      # package = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       # NOTE keep in sync with nixos module!!! see for why this is needed instead of null: https://github.com/nix-community/home-manager/issues/7484
-      package = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      # portalPackage = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       systemd.enable = lib.mkForce false; # conflicts with nixos option programs.hyprland.withUWSM
       plugins = [
         # inputs.hycov.packages.${pkgs.system}.hycov
@@ -73,16 +78,16 @@ in
 
     services.hyprpolkitagent.enable = true;
 
-    services.hyprsunset = {
-      enable = true;
+    # services.hyprsunset = {
+    #   enable = true;
 
-      # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
-      settings = {
-        # max-gamma = 100;
-        # profile = [
-        #   { }
-        # ];
-      };
-    };
+    #   # https://wiki.hypr.land/Hypr-Ecosystem/hyprsunset/
+    #   settings = {
+    #     # max-gamma = 100;
+    #     # profile = [
+    #     #   { }
+    #     # ];
+    #   };
+    # };
   };
 }

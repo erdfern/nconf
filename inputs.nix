@@ -3,10 +3,13 @@ let
   pins = import ./npins;
 
   flake-compat = config.inputs.flake-compat.result;
+  # flake-compat-aswell = config.inputs.flake-compat-aswell;
+  # hyprland = (import flake-compat { }).defaultNix;
 
   # TODO might be using this wrong https://github.com/nilla-nix/flake-compat
   # nixpkgs-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
   nixpkgs-unstable-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
+  # don't think I need to do this; config.inputs.hyprland.result should probably work the same
   hyprland-flake = flake-compat.load { src = config.inputs.hyprland.src; };
   # hyprpanel-flake = flake-compat.load {
   #   src = config.inputs.hyprpanel.src;
