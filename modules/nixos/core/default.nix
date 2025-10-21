@@ -6,14 +6,10 @@ in
   imports = [
     ./system
     ./sops
-    ./presets/desktop.nix
-    ./presets/development.nix
-    ./presets/laptop.nix
-    ./presets/server.nix
+    ./profiles
     ./hardware
     ./virtualisation
     ./users.nix
-    ./gaming.nix
     ./flatpak.nix
   ];
 
@@ -23,7 +19,6 @@ in
   config = {
     kor.system.boot.enable = lib.mkDefault true;
     kor.basic-utils = lib.mkDefault true;
-    # kor.system.boot.plymouth.enable = lib.mkDefault true;
 
     documentation.man.generateCaches = lib.mkForce false; # sometimes _veryy_ slow, and i don't use man often tbh. Enabled by fish.
 
@@ -92,16 +87,16 @@ in
       settings = {
         trusted-users = [ "root" "${me.user}" ]; # maybe add @wheel
         substituters = [
-          # "https://cache.nixos.org"
+          "https://cache.nixos.org"
           "https://nix-community.cachix.org"
-          "https://kor.cachix.org"
           "https://hyprland.cachix.org"
+          "https://kor.cachix.org"
         ];
         trusted-public-keys = [
-          # "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "kor.cachix.org-1:120l5rP3Npq4wDdbg8AkJ85J4zqilDXMGt2XQHWDHOM="
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          "kor.cachix.org-1:120l5rP3Npq4wDdbg8AkJ85J4zqilDXMGt2XQHWDHOM="
         ];
         keep-derivations = true;
         keep-outputs = true;

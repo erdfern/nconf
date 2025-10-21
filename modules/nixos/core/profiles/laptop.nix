@@ -25,7 +25,7 @@ in
       delayHours = mkOption {
         type = types.int;
         default = 1;
-        description = "Delay in hours before it should hibernate the laptop after suspending.";
+        description = "Delay in hours before the laptop should hibernate after suspending.";
       };
     };
   };

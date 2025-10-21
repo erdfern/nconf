@@ -7,17 +7,18 @@
 }:
 let
   inherit (me) user;
-  cfg = config.kor.preset.desktop;
+  cfg = config.kor.profiles.desktop;
 in
 {
   imports = [
     # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#upstream-module
     # inputs.hyprland.result.nixosModules.default
     ./hyprland
+    ./gaming.nix
   ];
 
-  options.kor.preset.desktop = with lib; {
-    enable = mkEnableOption "desktop preset (hyprland compositor)";
+  options.kor.profiles.desktop = with lib; {
+    enable = mkEnableOption "desktop profile (hyprland compositor)";
     autologin = mkOption { type = types.bool; default = true; description = "Whether to login me.user on startup"; };
     # TODO for machines which don't have wifi or bluetooth
     # wifi = mkEnableOption "wifi support";
@@ -27,6 +28,9 @@ in
   config = lib.mkIf cfg.enable {
     # enable audio support
     kor.system.audio.enable = true;
+    kor.system.graphics.enable = true;
+    kor.system.wifi.enable = true;
+    kor.system.bluetooth.enable = true;
 
     # https://github.com/hyprwm/Hyprland/issues/9064
     # https://wiki.archlinux.org/title/ICC_profiles
@@ -38,25 +42,7 @@ in
     time.timeZone = "Europe/Berlin";
     # services.automatic-timezoned.enable = true; # figure it out
 
-    # enable graphics support
-    hardware.graphics.enable = true;
-    hardware.graphics.enable32Bit = true;
-
-    # enable wifi and bluetooth support
-    networking.networkmanager.enable = true;
-
-    hardware.bluetooth.enable = true;
-    hardware.bluetooth.powerOnBoot = true;
-    hardware.bluetooth.settings = { General = { Experimental = true; }; }; # enable battery reporting to upower
-    services.blueman.enable = true;
-    services.upower.enable = true;
-
     programs.dconf.enable = true;
-
-    services.dbus = {
-      enable = true;
-      implementation = lib.mkForce "broker"; # uwsm suggestion/soft requirement
-    };
 
     xdg.portal = {
       # enable = true;
@@ -108,7 +94,7 @@ in
       ];
       dnsovertls = "true";
     };
-    networking.nameservers = [
+    networking.nameservers = lib.mkDefault [
       "1.1.1.1"
       "1.0.0.1"
     ];
@@ -122,7 +108,7 @@ in
     # networking.firewall.rejectPackets = true;
     # networking.firewall.allowedTCPPorts = [ 9 ];
     # networking.firewall.allowedUDPPorts = [ 9 ];
-    # 
+
     environment.systemPackages = map lib.lowPrio [
       pkgs.kitty
       pkgs.starship

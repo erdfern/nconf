@@ -6,5 +6,8 @@
     ./impermanence.nix
     ./fs
     ./networking.nix
+    ./wifi.nix
+    ./bluetooth.nix
+    ./graphics.nix
   ];
 }

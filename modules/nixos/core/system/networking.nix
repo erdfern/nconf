@@ -3,11 +3,11 @@
 , config
 , ...
 }:
-let
-  cfg = config.kor.system.networking;
-in
+# let
+# cfg = config.kor.system.networking;
+# in
 {
-  options.kor.system.networking = { };
+  # options.kor.system.networking = { };
 
   config = {
     networking.usePredictableInterfaceNames = lib.mkDefault true;
