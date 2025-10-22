@@ -26,11 +26,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # enable audio support
     kor.system.audio.enable = true;
     kor.system.graphics.enable = true;
     kor.system.wifi.enable = true;
     kor.system.bluetooth.enable = true;
+
+    kor.desktop.hyprland.enable = true;
 
     # https://github.com/hyprwm/Hyprland/issues/9064
     # https://wiki.archlinux.org/title/ICC_profiles
@@ -45,7 +46,7 @@ in
     programs.dconf.enable = true;
 
     xdg.portal = {
-      # enable = true;
+      enable = true;
       xdgOpenUsePortal = true;
       # config.common.default = "*";
       # config.common.default = "hyprland;gtk"; # portal-hyprland is only for interfaces which portal-gtk doesn't handle, like screenshare
