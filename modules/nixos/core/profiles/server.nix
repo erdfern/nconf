@@ -3,11 +3,11 @@
 , ...
 }:
 let
-  cfg = config.kor.preset.server;
+  cfg = config.kor.profiles.server;
 in
 {
-  options.kor.preset.server = with lib; {
-    enable = mkEnableOption "server preset";
+  options.kor.profiles.server = with lib; {
+    enable = mkEnableOption "server profile";
   };
 
   config = lib.mkIf cfg.enable {

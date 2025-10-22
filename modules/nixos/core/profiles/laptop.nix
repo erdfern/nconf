@@ -6,10 +6,10 @@
 }:
 let
   inherit (me) user;
-  cfg = config.kor.preset.laptop;
+  cfg = config.kor.profiles.laptop;
 in
 {
-  options.kor.preset.laptop = with lib; {
+  options.kor.profiles.laptop = with lib; {
     enable = mkEnableOption "laptop profile";
     # preferTLP = mkOption {
     #   type = types.bool;
@@ -31,7 +31,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    kor.preset.desktop.enable = true;
+    kor.profiles.desktop.enable = true;
     kor.system.boot.plymouth.enable = true;
 
     # power saving for wifi connections

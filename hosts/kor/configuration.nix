@@ -16,8 +16,8 @@
   # so I can cross-build for the rpi...
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  kor.preset.desktop.enable = true;
-  kor.preset.development.enable = true;
+  kor.profiles.desktop.enable = true;
+  kor.profiles.development.enable = true;
 
   kor.gaming.enable = true;
   kor.flatpak.enable = true;

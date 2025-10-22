@@ -17,7 +17,7 @@ in
   ];
 
   options.kor.desktop = with lib; {
-    enable = mkEnableOption "desktop preset";
+    enable = mkEnableOption "desktop profile";
     enableHyprland = mkEnableOption "Hyprland compositor";
   };
 

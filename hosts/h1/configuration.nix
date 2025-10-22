@@ -16,7 +16,7 @@
     # ./gh-runner.nix
   ];
 
-  kor.preset.server.enable = true;
+  kor.profile.server.enable = true;
 
   boot.loader.grub.enable = true;
 

@@ -18,7 +18,7 @@
     # ./gh-runner.nix
   ];
 
-  kor.preset.server.enable = true;
+  kor.profile.server.enable = true;
 
   facter.reportPath = ./facter.json;
 

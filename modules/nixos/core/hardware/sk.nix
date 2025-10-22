@@ -7,7 +7,7 @@
 let
   inherit (me) user;
 
-  gui = config.kor.preset.desktop.enable;
+  gui = config.kor.profiles.desktop.enable;
   yubikey = {
     # packages = with pkgs; [ yubikey-personalization-gui yubikey-personalization yubioath-flutter ];
     packages = with pkgs; [

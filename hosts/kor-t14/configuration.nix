@@ -15,9 +15,9 @@
     # "${inputs.hardware.result}/common/cpu/intel/tiger-lake"
   ];
 
-  kor.preset.laptop.enable = true;
-  kor.preset.development.enable = true;
-  kor.preset.development.virtualisation = true;
+  kor.profile.laptop.enable = true;
+  kor.profile.development.enable = true;
+  kor.profile.development.virtualisation = true;
   kor.virtualisation.containers.enable = true;
 
   # kor.fs.btrfs.enable = true;

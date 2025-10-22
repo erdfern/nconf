@@ -4,11 +4,11 @@
 , ...
 }:
 let
-  cfg = config.kor.preset.development;
+  cfg = config.kor.profiles.development;
 in
 {
-  options.kor.preset.development = with lib; {
-    enable = mkEnableOption "development preset";
+  options.kor.profiles.development = with lib; {
+    enable = mkEnableOption "development profile";
     virtualisation = mkOption { type = types.bool; default = false; description = "Whether to enable virtualisation tools"; };
   };
 
