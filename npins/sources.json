@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "057695bc3f7de5e8841c15252fc51029590895e4",
+      "revision": "aa5a239ac92a6bd6947cce2ca3911606df392cb6",
       "url": null,
-      "hash": "sha256-E3tDPhcG2g3DDdfnRkU40CN9JS0mU2TRt25SpJottP0="
+      "hash": "sha256-KDy8Vtlwe+7Z053HtD4fCRqlHBt0Kils0Zea4D77R7o="
     },
     "hyprpanel": {
       "type": "Git",
