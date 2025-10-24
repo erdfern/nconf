@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0adf9ba3f567da2d53af581a857aacf671aaa547",
-      "url": "https://github.com/nix-community/home-manager/archive/0adf9ba3f567da2d53af581a857aacf671aaa547.tar.gz",
-      "hash": "sha256-cux9xeceLIER1lBxUa1gMafkz7gg5ntcUmJBynWdBWI="
+      "revision": "5c71d4a730bd3c972befff343bb074421e345937",
+      "url": "https://github.com/nix-community/home-manager/archive/5c71d4a730bd3c972befff343bb074421e345937.tar.gz",
+      "hash": "sha256-QxCyKWBmuzI+eMhYV1JmbZsiUnBNATRP1EW34OBt5Vg="
     },
     "hy3": {
       "type": "Git",
@@ -189,9 +189,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "253ed1cc05ff75703e36504244f210bc8af8e560",
+      "revision": "18efc848fe7b79c84a2e4311ac9ce3492b7aaa82",
       "url": null,
-      "hash": "sha256-/qVkVUpT3MRxsZz9J68hLhli3VMcx8+xAbyYuTXWvfE="
+      "hash": "sha256-B4TrQgd/3pm0SvnCkYkvLuldhrO+9QRB/mKa6JrItNo="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
@@ -202,9 +202,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "9f699bc0aafdc2d5ba1c20ad203f4e0858eadc29",
-      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/9f699bc0aafdc2d5ba1c20ad203f4e0858eadc29.tar.gz",
-      "hash": "sha256-IBeMIf93AxYi9xsoWsuz+c65MSvVtrcyOMFlnh+dYFc="
+      "revision": "f83070dd6cc29bfa0e5190cf1ed5bcf902ef86a4",
+      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/f83070dd6cc29bfa0e5190cf1ed5bcf902ef86a4.tar.gz",
+      "hash": "sha256-BD4xa7MZ+XQftVhWDSE8gzd/XDgNDXYRz6agc0e5voQ="
     },
     "nilla": {
       "type": "Git",
@@ -319,9 +319,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f7cb4f5b05fd542a7c2b6d612b6340c3c59f1314",
-      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=f7cb4f5b05fd542a7c2b6d612b6340c3c59f1314",
-      "hash": "sha256-X3vyI+bD9bC5Yqpxv+ENPa20k+nTF4a8Xc+YGDYmQNY="
+      "revision": "de5552e6036ecfdf1cab325bf17b3c9040869d45",
+      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=de5552e6036ecfdf1cab325bf17b3c9040869d45",
+      "hash": "sha256-wXblionelTRI2Bpiigez6UpCiz+760ItWHeXcrQA2cE="
     },
     "sops-nix": {
       "type": "Git",
