@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "949fc6dc8f36f38e1cceb1bf1673c4e995a6a766",
-      "url": "https://github.com/cachix/devenv/archive/949fc6dc8f36f38e1cceb1bf1673c4e995a6a766.tar.gz",
-      "hash": "sha256-IScY9PpnF48Q/Z17YG5/ZcYWiWOkY2zCKLqsx1CJESM="
+      "revision": "105db6350884b8c2d3d7df4d155d8688cd5229f7",
+      "url": "https://github.com/cachix/devenv/archive/105db6350884b8c2d3d7df4d155d8688cd5229f7.tar.gz",
+      "hash": "sha256-Skc5f4nv+Wss+WBRCV1pKL1X/kuG5het+uMbv60BCJQ="
     },
     "disko": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "5c71d4a730bd3c972befff343bb074421e345937",
-      "url": "https://github.com/nix-community/home-manager/archive/5c71d4a730bd3c972befff343bb074421e345937.tar.gz",
-      "hash": "sha256-QxCyKWBmuzI+eMhYV1JmbZsiUnBNATRP1EW34OBt5Vg="
+      "revision": "82b58f38202540bce4e5e00759d115c5a43cab85",
+      "url": "https://github.com/nix-community/home-manager/archive/82b58f38202540bce4e5e00759d115c5a43cab85.tar.gz",
+      "hash": "sha256-BAAjCpjTnfaxtc9NCkbUl9MUv5JmAG5qU7/G8TTHmb4="
     },
     "hy3": {
       "type": "Git",
