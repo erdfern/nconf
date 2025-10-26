@@ -29,7 +29,14 @@ in
       # protonPackages = [ pkgs.proton-ge-bin ];
       winePackages = [ pkgs.wineWowPackages.full ]; # waylandFull?
       steamPackage = osConfig.programs.steam.package;
-      extraPackages = with pkgs; [ mangohud winetricks gamescope gamemode umu-launcher ];
+      extraPackages = with pkgs; [
+        mangohud
+        winetricks
+        gamescope
+        gamemode
+        umu-launcher
+        protobuf # Battle.net??
+      ];
     };
 
     home.packages = [
