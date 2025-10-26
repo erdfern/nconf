@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "1830716059bfee7cbcfbfcc38d7be98e482a5762",
-      "url": "https://github.com/nix-community/home-manager/archive/1830716059bfee7cbcfbfcc38d7be98e482a5762.tar.gz",
-      "hash": "sha256-nY4vyN1QdHhC5Gj3545fI2Y7FSr/gs8ID4gPmF8HPww="
+      "revision": "255b6a0ef2f488a2fad051361699cc67db57338c",
+      "url": "https://github.com/nix-community/home-manager/archive/255b6a0ef2f488a2fad051361699cc67db57338c.tar.gz",
+      "hash": "sha256-w7qOcQb1FSMZASvWe01r99QqZ5LnHO0k3rgs5ryyig0="
     },
     "hy3": {
       "type": "Git",
@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "6ea4769b39fccec22ae2acd015511a745d378840",
+      "revision": "fd42e9d0826e8af71dd6dc40e10f590169afae6d",
       "url": null,
-      "hash": "sha256-VHGGX5AQAWljyFHKkFT+3/0SZy7eDQVOo7wZa4E4has="
+      "hash": "sha256-OMFDGuULsGCyXQYLEy0hKpQRH5BZGwvIzdMBEaRELxY="
     },
     "hyprpanel": {
       "type": "Git",
@@ -202,9 +202,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "21595d9f79b5da0eef177dcfdd84ca981ac253a9",
-      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/21595d9f79b5da0eef177dcfdd84ca981ac253a9.tar.gz",
-      "hash": "sha256-X4SNeOXdFkE7Gt+waO5ck3TqfqWskqJHxt1WIu3nnUQ="
+      "revision": "1b8422bb0263444ed25922c4e4ca1708e4e8b0c0",
+      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/1b8422bb0263444ed25922c4e4ca1708e4e8b0c0.tar.gz",
+      "hash": "sha256-U5mhW7AGCq+qTlrjTkKuSQy7KS7DIZjNbMoy71qMhig="
     },
     "nilla": {
       "type": "Git",
