@@ -8,6 +8,14 @@
 }:
 let
   cfg = config.kor.profiles.development;
+
+
+  nix-alien-pkgs = import
+    (
+      # builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master"
+      builtins.fetchTarball "https://codeload.github.com/thiagokokada/nix-alien/legacy.tar.gz/refs/heads/master"
+    )
+    { };
 in
 {
   options.kor.profiles.development = with lib; {
@@ -47,6 +55,7 @@ in
 
       # NOTE nix-alien is awesome 🥺
       environment.systemPackages = [ inputs.nix-alien.result.packages.${pkgs.system}.nix-alien ];
+      # environment.systemPackages = with nix-alien-pkgs; [ nix-alien ];
       # could also use nix-alien-ld  
       programs.nix-ld.enable = true;
       # programs.nix-ld.libraries = [];
