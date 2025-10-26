@@ -29,7 +29,8 @@ in
     catppuccin.accent = "peach";
 
     # TODO mv
-    programs.nix-ld.enable = true;
+    # programs.nix-ld.enable = true;
+    # programs.nix-ld.libraries = [];
 
     services.openssh = {
       enable = lib.mkDefault false;
