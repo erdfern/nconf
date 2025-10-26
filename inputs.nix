@@ -35,6 +35,7 @@ let
     # facter = "raw";
     lix = "raw";
     lix-src = "raw";
+    nix-alien-tar = "raw";
   };
 
   # Per-input settings

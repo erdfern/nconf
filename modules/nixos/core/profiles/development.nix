@@ -1,21 +1,20 @@
 { lib
 , config
 , me
-  # , inputs
-, system
-, pkgs
+, inputs
 , ...
 }:
 let
   cfg = config.kor.profiles.development;
 
 
-  nix-alien-pkgs = import
-    (
-      # builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master"
-      builtins.fetchTarball "https://codeload.github.com/thiagokokada/nix-alien/legacy.tar.gz/refs/heads/master"
-    )
-    { };
+  # nix-alien-pkgs = import
+  # (
+  #   # builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master"
+  #   builtins.fetchTarball "https://codeload.github.com/thiagokokada/nix-alien/legacy.tar.gz/refs/heads/master"
+  # )
+  # { };
+  nix-alien-pkgs = import inputs.nix-alien-tar.result.outPath; # usign this since flake fails to build, idk
 in
 {
   options.kor.profiles.development = with lib; {
