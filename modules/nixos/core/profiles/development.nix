@@ -1,7 +1,8 @@
 { lib
 , config
 , me
-, pkgs
+, inputs
+, system
 , ...
 }:
 let
@@ -43,32 +44,38 @@ in
       #
       # https://nixos-and-flakes.thiscute.world/best-practices/run-downloaded-binaries-on-nixos
 
-      # NOTE maybe nix-ld could be useful here, too??? ?? e.g. https://brianmckenna.org/blog/running_binaries_on_nixos
+      # NOTE nix-alien is awesome 🥺
+      environment.systemPackages = [ inputs.nix-alien.result.packages.${system}.nix-alien ];
+      # could also use nix-alien-ld  
+      programs.nix-ld.enable = true;
+      # programs.nix-ld.libraries = [];
+
+      # NOTE maybe nix-ld could be useful here, too??? ?? e.g. https://brianmckenna.org/blog/running_binaries_on_nixos https://blog.thalheim.io/2022/12/31/nix-ld-a-clean-solution-for-issues-with-pre-compiled-executables-on-nixos/
       # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
-      environment.systemPackages = with pkgs; [
-        (
-          let base = pkgs.appimageTools.defaultFhsEnvArgs;
-          in
-          pkgs.buildFHSEnv (base // {
-            name = "fhs";
-            targetPkgs = pkgs:
-              # pkgs.buildFHSEnv provides only a minimal FHS environment,
-              # lacking many basic packages needed by most software.
-              # Therefore, we need to add them manually.
-              #
-              # pkgs.appimageTools provides basic packages required by most software.
-              (base.targetPkgs pkgs) ++ (with pkgs; [
-                pkg-config
-                ncurses
-                # ...
-              ]
-              );
-            profile = "export FHS=1";
-            # runScript = "bash";
-            runScript = "bash";
-            extraOutputsToInstall = [ "dev" ];
-          })
-        )
+      # environment.systemPackages = with pkgs; [
+      #   (
+      #     let base = pkgs.appimageTools.defaultFhsEnvArgs;
+      #     in
+      #     pkgs.buildFHSEnv (base // {
+      #       name = "fhs";
+      #       targetPkgs = pkgs:
+      #         # pkgs.buildFHSEnv provides only a minimal FHS environment,
+      #         # lacking many basic packages needed by most software.
+      #         # Therefore, we need to add them manually.
+      #         #
+      #         # pkgs.appimageTools provides basic packages required by most software.
+      #         (base.targetPkgs pkgs) ++ (with pkgs; [
+      #           pkg-config
+      #           ncurses
+      #           # ...
+      #         ]
+      #         );
+      #       profile = "export FHS=1";
+      #       # runScript = "bash";
+      #       runScript = "bash";
+      #       extraOutputsToInstall = [ "dev" ];
+      #     })
+      #   )
       ];
-    };
-}
+      };
+      }
