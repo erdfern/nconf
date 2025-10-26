@@ -54,7 +54,7 @@ in
       # https://nixos-and-flakes.thiscute.world/best-practices/run-downloaded-binaries-on-nixos
 
       # NOTE nix-alien is awesome 🥺
-      environment.systemPackages = [ inputs.nix-alien.result.packages.${pkgs.system}.nix-alien ];
+      environment.systemPackages = with  inputs.nix-alien.result.packages.${pkgs.system}; [ nix-alien ];
       # environment.systemPackages = with nix-alien-pkgs; [ nix-alien ];
       # could also use nix-alien-ld  
       programs.nix-ld.enable = true;
