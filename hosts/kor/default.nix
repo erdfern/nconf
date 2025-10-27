@@ -1,4 +1,4 @@
-{ config }:
+{ config, me }:
 {
   config = {
     # system
@@ -9,7 +9,7 @@
 
     # hive node
     deployment = {
-      targetUser = "j";
+      targetUser = me.user;
       tags = [ "workstation" ];
     };
   };

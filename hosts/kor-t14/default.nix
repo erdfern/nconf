@@ -1,4 +1,4 @@
-{ config }:
+{ config, me }:
 let
   inherit (config) lib;
 in
@@ -6,11 +6,12 @@ in
   config = {
     hive.nodes.kor-t14 = {
       deployment = {
-        targetUser = "j";
+        targetUser = me.user;
         # targetHost = "192.168.178.68";
-        targetHost = "kor-t14";
         # targetPort = 22;
-        privilegeEscalationCommand = [ "sudo" ];
+        targetHost = "kor-t14";
+        # 
+        privilegeEscalationCommand = [ "sudo" "-H" "--" ];
 
         tags = [ "laptop" ];
       };

@@ -1,13 +1,14 @@
-{ config }:
+{ config, me }:
 {
   config = {
     hive.nodes.dns = {
       deployment = {
-        targetUser = "j";
-        privilegeEscalationCommand = [ "sudo" ];
+        targetUser = me.user;
         targetPort = 2222;
         # targetHost = "192.178.168.42";
         targetHost = "dns";
+
+        privilegeEscalationCommand = [ "sudo" "-H" "--" ];
 
         tags = [ "dns" "home" ];
       };
