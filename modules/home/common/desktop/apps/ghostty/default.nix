@@ -19,8 +19,8 @@ in
       };
       Service = {
         RemainAfterExit = "yes";
+        ExecStart = "/usr/bin/env true";
         # Type = "simple";
-        # SuccessAction = "none"; # noop. we love noops
       };
       # Install.WantedBy = [ "graphical-session.target" ];
     };
