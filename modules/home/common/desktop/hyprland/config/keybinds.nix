@@ -26,7 +26,7 @@ let
   powermenu = "${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu";
 
   terminal = cfg.terminal;
-  quick-terminal = cfg.quick-terminal;
+  quick-terminal = cfg.terminalQ;
 
   mod = "ALT";
 
