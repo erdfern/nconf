@@ -7,8 +7,9 @@ in
     hive.nodes.kor-t14 = {
       deployment = {
         targetUser = "j";
-        targetHost = "192.168.178.68";
-        targetPort = 22;
+        # targetHost = "192.168.178.68";
+        targetHost = "kor-t14";
+        # targetPort = 22;
         privilegeEscalationCommand = [ "sudo" ];
 
         tags = [ "laptop" ];
