@@ -84,6 +84,8 @@ in
           "${mod}, Return, exec, ${uwsmRun terminal}"
           # "${mod} SHIFT, Return, exec, ${uwsmRun terminal} --class='termfloat'"
           "${mod} SHIFT, Return, exec, ${uwsmRun quick-terminal}"
+          # "${mod} SHIFT, code:49, exec, ${uwsmRun quick-terminal}"
+          "${mod} SHIFT, grave, exec, ${uwsmRun quick-terminal}"
           # "${mod} SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
           "${mod} SHIFT, O, exec, ${uwsmRun toggle_bar}"
           "${mod}, bracketleft, exec, ${uwsmRun grimblast} --notify copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"
