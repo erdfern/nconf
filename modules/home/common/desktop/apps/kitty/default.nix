@@ -40,10 +40,12 @@ in
         quickAccessTerminalConfig =
           {
             # kitty_override ???
-            kitty_override = [
-              "allow_remote_control=socket-only"
-              "listen_on=unix:/tmp/quickitty"
-            ];
+            # This would need to be valid, since kitty_override can appear multiple times!! :<
+            # kitty_override = [
+            #   "allow_remote_control=socket-only"
+            #   "listen_on=unix:/tmp/quickitty"
+            # ];
+            kitty_override = "listen_on=unix:/tmp/quickitty";
             start_as_hidden = false;
             hide_on_focus_loss = false;
             background_opacity = 0.85;

@@ -18,6 +18,8 @@
 
   kor.desktop.apps.firefox.enable = true;
 
+  kor.desktop.apps.ghostty.enable = true;
+
   kor.desktop.uwsm.env = [
     "LIBVA_DRIVER_NAME=iHD"
   ];
