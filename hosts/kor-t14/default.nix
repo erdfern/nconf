@@ -7,7 +7,7 @@ in
     hive.nodes.kor-t14 = {
       deployment = {
         targetUser = "j";
-        targetHost = "192.168.178.54";
+        targetHost = "192.168.178.68";
         targetPort = 22;
         privilegeEscalationCommand = [ "sudo" ];
 
@@ -15,7 +15,7 @@ in
       };
     };
 
-    # systems.nixos.adamite = {
+    # systems.nixos.kor-t14 = {
     #   pkgs = config.inputs.nixpkgs.result.x86_64-linux;
     #   args = {
     #     project = config;

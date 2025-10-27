@@ -18,6 +18,7 @@ in
     ./modules/hive
 
     ./hosts/dns
+    ./hosts/kor-t14
   ];
 
   config = {
