@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "b7e3b2aeb90ce37517fb8da09ceff8ab587a9fcf",
-      "url": "https://github.com/cachix/devenv/archive/b7e3b2aeb90ce37517fb8da09ceff8ab587a9fcf.tar.gz",
-      "hash": "sha256-vJ0ylFdPPESUCBYZvEtVmVemSp4G0WH8CbVIkboHIJs="
+      "revision": "17560d064ba5e4fc946c0ea0ee7b31ec291e706f",
+      "url": "https://github.com/cachix/devenv/archive/17560d064ba5e4fc946c0ea0ee7b31ec291e706f.tar.gz",
+      "hash": "sha256-KTL+8Fw1qAbqubZSHRMjO4HkILJWVdWTylqHXQ4VTBE="
     },
     "disko": {
       "type": "Git",
@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "b186d3bf1b0c9eb4637f369f602ff5650cfe3602",
+      "revision": "309c3c78485781a28ad9f5bef48b09ecb3b81473",
       "url": null,
-      "hash": "sha256-S4k3zqkV9MyQ5p5ZmWcuCv8a4NDY4vKFV2k79kyjKzw="
+      "hash": "sha256-wm/LRofC17wgVklLdVF5biQ1+dtn+lTqMQOd189pGWc="
     },
     "hyprpanel": {
       "type": "Git",
