@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "354ef7fc8bb69b81d0714061bc176290da252727",
-      "url": "https://github.com/cachix/devenv/archive/354ef7fc8bb69b81d0714061bc176290da252727.tar.gz",
-      "hash": "sha256-UiPExOO4jG+bBbgYj3qVBihEn7sqeBIMcsQimmJd+uY="
+      "revision": "b7e3b2aeb90ce37517fb8da09ceff8ab587a9fcf",
+      "url": "https://github.com/cachix/devenv/archive/b7e3b2aeb90ce37517fb8da09ceff8ab587a9fcf.tar.gz",
+      "hash": "sha256-vJ0ylFdPPESUCBYZvEtVmVemSp4G0WH8CbVIkboHIJs="
     },
     "disko": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "bbaeb9f1c29e79bb1653b32c3d73244cdf4bd888",
-      "url": "https://github.com/nix-community/home-manager/archive/bbaeb9f1c29e79bb1653b32c3d73244cdf4bd888.tar.gz",
-      "hash": "sha256-+9+YCK9Lh6GThkXu/8JTxMFUnImIdZpb8ElUh6/F5Y8="
+      "revision": "e82585308aef3d4cc2c36c7b6946051c8cdf24ef",
+      "url": "https://github.com/nix-community/home-manager/archive/e82585308aef3d4cc2c36c7b6946051c8cdf24ef.tar.gz",
+      "hash": "sha256-dISPEZahlfs5K6d58zR4akRRyogfE9P4WSyPPNT7HiE="
     },
     "hy3": {
       "type": "Git",
@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "560c53d87dedf7df8185eb370cfbf3575826e85c",
+      "revision": "b186d3bf1b0c9eb4637f369f602ff5650cfe3602",
       "url": null,
-      "hash": "sha256-C4DUaJPLlEB2eUoZE80qLSQ0SZi3a6GewnaTPh12hgw="
+      "hash": "sha256-S4k3zqkV9MyQ5p5ZmWcuCv8a4NDY4vKFV2k79kyjKzw="
     },
     "hyprpanel": {
       "type": "Git",
@@ -189,9 +189,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "836caf117379fe7371ad4bbad256a36d31ba5590",
+      "revision": "73c019c57b902043c57a7b15f5682ef34ffdcd2b",
       "url": null,
-      "hash": "sha256-3tX33Krz4rXP/W+uZOnpnWEw4M2y0hb1MDnoDsfaHH4="
+      "hash": "sha256-/bKYOXEodgpnj9UHSFc6qOhSWoKc/XNZYksnZijqkgg="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
