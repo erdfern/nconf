@@ -25,6 +25,7 @@ let
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   powermenu = "${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu";
   terminal = "kitty";
+  quick-terminal = "kitten quick-access-terminal";
   mod = "ALT";
 
   # cfg = config.kor.desktop.hyprland;
@@ -79,7 +80,8 @@ in
           # ",code:277, exec, pkill fuzzel || ${uwsmRun powermenu}"
           ",mouse:277, exec, pkill fuzzel || ${uwsmRun powermenu}"
           "${mod}, Return, exec, ${uwsmRun terminal}"
-          "${mod} SHIFT, Return, exec, ${uwsmRun terminal} --class='termfloat'"
+          # "${mod} SHIFT, Return, exec, ${uwsmRun terminal} --class='termfloat'"
+          "${mod} SHIFT, Return, exec, ${uwsmRun quick-terminal}"
           # "${mod} SHIFT, Return, exec, [termfloat;noanim] $TERMINAL"
           "${mod} SHIFT, O, exec, ${uwsmRun toggle_bar}"
           "${mod}, bracketleft, exec, ${uwsmRun grimblast} --notify copysave area ~/Pictures/$(date \"+%Y-%m-%d\"T\"%H:%M:%S\").png"

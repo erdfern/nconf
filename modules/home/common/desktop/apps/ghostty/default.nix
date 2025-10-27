@@ -13,6 +13,11 @@ in
         enable = cfg.enable;
         # installVimSyntax = true;
         installBatSyntax = true;
+        settings = {
+          keybind = [
+            "global:ctrl+grave_accent=toggle_quick_terminal"
+          ];
+        };
       };
     };
   };

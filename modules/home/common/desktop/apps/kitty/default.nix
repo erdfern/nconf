@@ -45,7 +45,7 @@ in
             #   "allow_remote_control=socket-only"
             #   "listen_on=unix:/tmp/quickitty"
             # ];
-            kitty_override = "listen_on=unix:/tmp/quickitty allow_remote_control=socket-only";
+            kitty_override = "listen_on=unix:/tmp/quickitty";
             start_as_hidden = false;
             hide_on_focus_loss = false;
             background_opacity = 0.85;
