@@ -6,6 +6,7 @@ in
   options.kor.desktop.apps.kitty = with lib; {
     enable = mkEnableOption "kitty terminal";
     makeFishAliases = mkOption { type = lib.types.bool; default = config.programs.fish.enable; };
+    makeDefault = mkOption { type = lib.types.bool; default = true; };
   };
 
   config = lib.mkIf cfg.enable {
@@ -61,7 +62,9 @@ in
       fish.shellAliases = lib.mkIf cfg.makeFishAliases {
         s = "kitten ssh";
       };
-    };
 
+      # $TERM is set to xterm-kitty by default
+      kor.desktop.uwsm.env = lib.mkIf cfg.makeDefault [ "TERMINAL=kitty" ];
+    };
   };
 }

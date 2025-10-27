@@ -10,7 +10,8 @@
         # launch-prefix = "uwsm app --"; should use this when running uwsm, or call fuzzel with --launch-prefix="..."
         launch-prefix = "app2unit --fuzzel-compat --";
         icon-theme = config.gtk.iconTheme.name;
-        terminal = "app2unit --fuzzel-compat -- ghostty -e";
+        # terminal = "app2unit --fuzzel-compat -- ghostty -e";
+        terminal = "app2unit --fuzzel-compat -- kitty -e";
       };
       # colors = {
       #   # catpuccin macchiato
