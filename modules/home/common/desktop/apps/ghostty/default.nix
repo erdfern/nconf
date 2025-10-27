@@ -13,14 +13,16 @@ in
       Unit = {
         Description = "Express a deep longing for the ghostty service.. will it heed my call?";
         # Documentation = [ "" ];
-        After = [ "graphical-session.target" ];
-        Requires = "app-com.mitchellh.ghostty.service";
-        SuccessAction = "none"; # noop. we love noops
+        # After = [ "graphical-session.target" ];
+        # Requires = "app-com.mitchellh.ghostty.service";
+        # SuccessAction = "none"; # noop. we love noops
       };
       Service = {
-        Type = "simple";
+        RemainAfterExit = "yes";
+        # Type = "simple";
+        # SuccessAction = "none"; # noop. we love noops
       };
-      Install.WantedBy = [ "graphical-session.target" ];
+      # Install.WantedBy = [ "graphical-session.target" ];
     };
     programs = lib.mkIf cfg.enable {
       ghostty = {
