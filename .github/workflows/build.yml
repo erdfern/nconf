@@ -1,8 +1,8 @@
 name: "Build and Cache"
-on:
-  push
+on: [push]
 jobs:
   build:
+    if: false # disable for now
     runs-on: ubuntu-latest
     # runs-on: [self-hosted, nixos]
     steps:
