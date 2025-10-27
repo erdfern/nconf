@@ -12,6 +12,7 @@ in
     programs = lib.mkIf cfg.enable {
       kitty = {
         enable = cfg.enable;
+        enableGitIntegration = true;
         environment = { };
         keybindings = {
           "ctrl+alt+t" = "new_tab_with_cwd";
