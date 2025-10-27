@@ -1,4 +1,4 @@
-{ config, me }:
+{ config }:
 let
   inherit (config) lib;
 in
@@ -6,7 +6,7 @@ in
   config = {
     hive.nodes.kor-t14 = {
       deployment = {
-        targetUser = me.user;
+        targetUser = "j";
         # targetHost = "192.168.178.68";
         # targetPort = 22;
         targetHost = "kor-t14";

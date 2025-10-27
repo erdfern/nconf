@@ -1,9 +1,9 @@
-{ config, me }:
+{ config }:
 {
   config = {
     hive.nodes.dns = {
       deployment = {
-        targetUser = me.user;
+        targetUser = "j";
         targetPort = 2222;
         # targetHost = "192.178.168.42";
         targetHost = "dns";
