@@ -16,6 +16,9 @@ in
         After = [ "graphical-session.target" ];
         Requires = "app-com.mitchellh.ghostty.service";
       };
+      Service = {
+        SuccessAction = "none"; # noop. we love noops
+      };
       Install.WantedBy = [ "graphical-session.target" ];
     };
     programs = lib.mkIf cfg.enable {
