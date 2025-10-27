@@ -24,11 +24,13 @@ let
   bright = "${pkgs.brightnessctl}/bin/brightnessctl";
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   powermenu = "${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu";
-  terminal = "kitty";
-  quick-terminal = "kitten quick-access-terminal";
+
+  terminal = cfg.terminal;
+  quick-terminal = cfg.quick-terminal;
+
   mod = "ALT";
 
-  # cfg = config.kor.desktop.hyprland;
+  cfg = config.kor.desktop.hyprland;
 in
 {
   wayland.windowManager.hyprland = {

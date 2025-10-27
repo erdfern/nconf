@@ -18,6 +18,20 @@ in
 
   options.kor.desktop.hyprland = with lib; {
     enable = mkEnableOption "hyprland compositor";
+    terminal = mkOption {
+      description = ''
+        Terminal command
+      '';
+      type = types.str;
+      default = "kitty";
+    };
+    terminalQ = mkOption {
+      description = ''
+        Quick/Qake terminal command
+      '';
+      type = types.str;
+      default = "kitten quick-access-terminal";
+    };
   };
 
   config = lib.mkIf cfg.enable {

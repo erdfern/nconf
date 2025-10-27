@@ -18,19 +18,16 @@
 
   kor.desktop.apps.firefox.enable = true;
 
-  kor.desktop.apps.ghostty.enable = true;
+  # kor.desktop.apps.ghostty.enable = true;
+  # kor.desktop.hyprland.terminal = "ghostty";
+  # TODO how do I run this without using an in-process ghostty keybind??
+  # kor.desktop.hyprland.terminalQ= "";
 
   kor.desktop.uwsm.env = [
     "LIBVA_DRIVER_NAME=iHD"
   ];
 
   kor.desktop.suites.gaming.enable = true;
-
-  # TEMP
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhs;
-  };
 
   services.hypridle.settings.listener = [
     {
