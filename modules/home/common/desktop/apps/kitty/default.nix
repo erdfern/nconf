@@ -36,6 +36,12 @@ in
           #Close the terminal =  without confirmation;
           confirm_os_window_close = 0;
           background_opacity = "0.9";
+
+          # performance, maybe at the cost of energy usage
+          input_delay = 0;
+          repaint_delay = 2;
+          sync_to_monitor = "no";
+          wayland_enable_ime = "no";
         };
         quickAccessTerminalConfig =
           {
