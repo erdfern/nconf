@@ -3,22 +3,30 @@
 , dash
 , scdoc
 , fetchFromGitHub
+, nix-update-script
+, installShellFiles
 ,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "app2unit";
-  version = "1.0.2";
+  # version = "1.1.2";
+  version = "git";
 
   src = fetchFromGitHub {
     owner = "Vladimir-csp";
     repo = "app2unit";
-    tag = "v${version}";
-    # NOTE nurl is cool
-    # , nurl https://github.com/Vladimir-csp/app2unit v1.0.2 2>/dev/null
-    sha256 = "sha256-TjePNU9Wu9kaXSczMAZcMV0HSC9zqzLcgKXdbkyLSAU=";
+    rev = "6e2f0cd6939093ff2792d88d56c453fd66ec4871";
+    sha256 = lib.fakeSha256;
+    # tag = "v${finalAttrs.version}";
+    # sha256 = "sha256-M2sitlrQNSLthSaDH+R8gUcZ8i+o1ktf2SB/vvjyJEI=";
   };
 
-  nativeBuildInputs = [ scdoc ];
+  passthru.updateScript = nix-update-script { };
+
+  nativeBuildInputs = [
+    scdoc
+    installShellFiles
+  ];
 
   buildPhase = ''
     scdoc < app2unit.1.scd > app2unit.1
@@ -26,6 +34,7 @@ stdenvNoCC.mkDerivation rec {
 
   installPhase = ''
     install -Dt $out/bin app2unit
+    installManPage app2unit.1
 
     for link in \
       app2unit-open \
@@ -53,4 +62,4 @@ stdenvNoCC.mkDerivation rec {
     maintainers = with lib.maintainers; [ fazzi ];
     platforms = lib.platforms.linux;
   };
-}
+})
