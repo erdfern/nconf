@@ -87,9 +87,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "9100a0f413b0c601e0533d1d94ffd501ce2e7885",
-      "url": "https://github.com/edolstra/flake-compat/archive/9100a0f413b0c601e0533d1d94ffd501ce2e7885.tar.gz",
-      "hash": "sha256-CIVLLkVgvHYbgI2UpXvIIBJ12HWgX+fjA8Xf8PUmqCY="
+      "revision": "f387cd2afec9419c8ee37694406ca490c3f34ee5",
+      "url": "https://github.com/edolstra/flake-compat/archive/f387cd2afec9419c8ee37694406ca490c3f34ee5.tar.gz",
+      "hash": "sha256-XKUZz9zewJNUj46b4AJdiRZJAvSZ0Dqj2BNfXvFlJC4="
     },
     "hardware": {
       "type": "Git",
@@ -189,9 +189,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "73c019c57b902043c57a7b15f5682ef34ffdcd2b",
+      "revision": "95234469015505131983ebc0bf092b7e20b6d2fd",
       "url": null,
-      "hash": "sha256-/bKYOXEodgpnj9UHSFc6qOhSWoKc/XNZYksnZijqkgg="
+      "hash": "sha256-yS2G3b1mTQhmfgeMrTTBGnmiWNcmq3C83/Kbcehef7Y="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
