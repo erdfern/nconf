@@ -7,7 +7,7 @@ in
     enable = mkEnableOption "ghostty terminal";
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     # enable systemd service, provided by ghostty package (~/.nix-profile/share/systemd/user/app-com.mitchellh.ghostty.service)
     systemd.user.services."ghosttyineeedyou" = {
       Unit = {
@@ -24,7 +24,7 @@ in
       };
       Install.WantedBy = [ "graphical-session.target" ];
     };
-    programs = lib.mkIf cfg.enable {
+    programs = {
       ghostty = {
         enable = cfg.enable;
         # installVimSyntax = true;

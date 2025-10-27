@@ -8,8 +8,8 @@ in
     makeFishAliases = mkOption { type = lib.types.bool; default = config.programs.fish.enable; };
   };
 
-  config = {
-    programs = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
+    programs = {
       kitty = {
         enable = cfg.enable;
         enableGitIntegration = true;
