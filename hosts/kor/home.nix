@@ -19,6 +19,8 @@
   # kor.desktop.apps.waybar.hyprlandAutostart = true;
   kor.desktop.apps.hyprpanel.enable = true;
 
+  kor.desktop.apps.ghostty.enable = true;
+
   home.packages = [
     # inputs.devenv.result.packages.x86_64-linux.default
     pkgs.devenv

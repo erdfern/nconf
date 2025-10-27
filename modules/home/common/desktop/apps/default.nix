@@ -6,6 +6,7 @@
   imports = [
     ./firefox
     ./fuzzel
+    ./ghostty
     ./kitty
     ./nemo
     ./waybar

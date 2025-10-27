@@ -1,11 +1,10 @@
 { lib, config, ... }:
 let
-  cfg = config.kor.desktop.apps.kitty;
+  cfg = config.kor.desktop.apps.ghostty;
 in
 {
-  options.kor.desktop.apps.kitty = with lib; {
-    enable = mkEnableOption "kitty terminal";
-    makeFishAliases = mkOption { type = lib.types.bool; default = config.programs.fish.enable; };
+  options.kor.desktop.apps.ghostty = with lib; {
+    enable = mkEnableOption "ghostty terminal";
   };
 
   config = {
@@ -15,10 +14,6 @@ in
         # installVimSyntax = true;
         installBatSyntax = true;
       };
-      # fish.shellAliases = lib.mkIf cfg.makeFishAliases {
-      #   s = "kitten ssh";
-      # };
     };
-
   };
 }
