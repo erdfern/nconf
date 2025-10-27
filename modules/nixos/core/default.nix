@@ -23,8 +23,8 @@ in
     documentation.man.generateCaches = lib.mkForce false; # sometimes _veryy_ slow, and i don't use man often tbh. Enabled by fish.
 
     # TODO mv
-    catppuccin.enable = false;
-    catppuccin.tty.enable = true;
+    catppuccin.enable = lib.mkDefault true;
+    # catppuccin.tty.enable = true;
     catppuccin.flavor = "mocha";
     catppuccin.accent = "peach";
 
