@@ -19,8 +19,12 @@ in
         };
         font.name = "GeistMono NF";
         # font.size = 16;
+        actionAliases = {
+          "launch_tab" = "launch --cwd=current --type=tab";
+          "launch_window" = "launch --cwd=current --type=os-window";
+        };
         settings = {
-          remote_control = "yes"; # TODO make this finegrained for security? i basically just want this for fuzzel/kitty @ launch
+          allow_remote_control = "yes"; # TODO make this finegrained for security? i basically just want this for fuzzel/kitty @ launch
           disable_ligatures = "cursor";
           italic_font = "auto";
           bold_italic_font = "auto";
@@ -32,7 +36,20 @@ in
           confirm_os_window_close = 0;
           background_opacity = "0.9";
         };
+        quickAccessTerminalConfig =
+          let
+            # kitty_override ???
+            override = o: "kitty_override ${o}";
+          in
+          {
+            ${override "allow_remote_control"} = "socket-only";
+            ${override "listen_on"} = "unix:/tmp/quickitty";
+            start_as_hidden = false;
+            hide_on_focus_loss = false;
+            background_opacity = 0.85;
+          };
       };
+
       fish.shellAliases = lib.mkIf cfg.makeFishAliases {
         s = "kitten ssh";
       };
