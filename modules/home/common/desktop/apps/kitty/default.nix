@@ -38,13 +38,12 @@ in
           background_opacity = "0.9";
         };
         quickAccessTerminalConfig =
-          let
-            # kitty_override ???
-            override = o: "kitty_override ${o}";
-          in
           {
-            ${override "allow_remote_control"} = "socket-only";
-            ${override "listen_on"} = "unix:/tmp/quickitty";
+            # kitty_override ???
+            kitty_override = [
+              "allow_remote_control=socket-only"
+              "listen_on=unix:/tmp/quickitty"
+            ];
             start_as_hidden = false;
             hide_on_focus_loss = false;
             background_opacity = 0.85;
