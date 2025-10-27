@@ -32,9 +32,9 @@ in
           background = hexcolor "base";
 
           title-color = hexcolor "text";
-          title-font = "Hack Nerd Font:slant=italic";
+          title-font = "Hack Nerd Font:slant=italic:size=18";
           summary-color = hexcolor "subtext0";
-          summary-font = "Hack Nerd Font:weight=bold";
+          summary-font = "Hack Nerd Font:weight=bold:size=14";
           body-color = hexcolor "text";
           body-font = "DroidSansM Nerd Font";
         };
