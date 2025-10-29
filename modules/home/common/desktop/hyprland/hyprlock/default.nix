@@ -66,20 +66,20 @@ in
       #   { }
       # ];
 
-      image = [
-        {
-          # monitor =
-          # path = "$HOME/.avatar.jpg";
-          # path = toString ./avatar.jpg;
-          path = "${./avatar.jpg}";
-          size = 100;
-          border_size = 2;
-          border_color = "$accent";
-          position = "0,75";
-          halign = "center";
-          valign = "center";
-        }
-      ];
+      # image = [
+      #   {
+      #     # monitor =
+      #     # path = "$HOME/.avatar.jpg";
+      #     # path = toString ./avatar.jpg;
+      #     path = "${./avatar.jpg}";
+      #     size = 100;
+      #     border_size = 2;
+      #     border_color = "$accent";
+      #     position = "0,75";
+      #     halign = "center";
+      #     valign = "center";
+      #   }
+      # ];
 
       label = [
         {

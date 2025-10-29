@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  light = "${pkgs.light}/bin/light";
-in
+{ ... }:
 {
   services.hypridle = {
     enable = true;
