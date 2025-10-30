@@ -17,10 +17,6 @@ in
       enable = cfg.enable;
       enableGitIntegration = true;
       environment = { };
-      keybindings = {
-        "ctrl+alt+t" = "new_tab_with_cwd";
-        "ctrl+alt+w" = "new_window_with_cwd";
-      };
       font.name = "GeistMono NF";
       # font.size = 16;
       actionAliases = {
@@ -41,10 +37,23 @@ in
         background_opacity = "0.9";
 
         # performance, maybe at the cost of energy usage
-        input_delay = 0;
-        repaint_delay = 2;
+        # input_delay = 0;
+        input_delay = 3;
+        # repaint_delay = 2;
+        repaint_delay = 8; # ~125fps
         sync_to_monitor = "no";
-        wayland_enable_ime = "no";
+        wayland_enable_ime = "no"; # input method extensions; don't need it, and is said to be buggy+add input latency
+      };
+      # https://sw.kovidgoyal.net/kitty/mapping/#unmapping-default-shortcuts
+      # https://sw.kovidgoyal.net/kitty/conf/#keyboard-shortcuts
+      keybindings = {
+        "ctrl+alt+t" = "new_tab_with_cwd";
+        "ctrl+alt+w" = "new_window_with_cwd";
+
+        # Tabs
+        "" = "next_layout"; # kitty_mod+l by default
+        "kitty_mod+l" = "next_tab";
+        "kitty_mod+h" = "previous_tab";
       };
       quickAccessTerminalConfig =
         {
