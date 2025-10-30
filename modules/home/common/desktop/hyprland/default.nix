@@ -68,13 +68,13 @@ in
     #     exec uwsm start hyprland-uwsm.desktop
     #   fi
     # '';
-    programs.fish.loginShellInit = ''
-      set TTY (tty)
-      if test "$TTY" = "/dev/tty1"
-         and uwsm check may-start
-         exec uwsm start hyprland-uwsm.desktop
-      end
-    '';
+    # programs.fish.loginShellInit = ''
+    #   set TTY (tty)
+    #   if test "$TTY" = "/dev/tty1"
+    #      and uwsm check may-start
+    #      exec uwsm start hyprland-uwsm.desktop
+    #   end
+    # '';
 
     wayland.windowManager.hyprland = {
       enable = true;

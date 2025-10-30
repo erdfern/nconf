@@ -71,7 +71,7 @@ in
           shortcut4 = { command = "fuzzel"; };
         };
 
-        menus.dashboard.stats.enable_gpu = true;
+        menus.dashboard.stats.enable_gpu = false;
         menus.clock = {
           time = {
             military = true;
