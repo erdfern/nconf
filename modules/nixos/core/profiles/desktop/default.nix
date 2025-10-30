@@ -28,8 +28,8 @@ in
   config = lib.mkIf cfg.enable {
     kor.system.audio.enable = true;
     kor.system.graphics.enable = true;
-    kor.system.wifi.enable = true;
-    kor.system.bluetooth.enable = true;
+    # kor.system.wifi.enable = true;
+    # kor.system.bluetooth.enable = true;
 
     kor.desktop.hyprland.enable = true;
 
