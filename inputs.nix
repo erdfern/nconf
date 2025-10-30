@@ -53,7 +53,7 @@ let
 
     comma.inputs.nixpkgs = nixpkgs-unstable-flake;
     hyprpanel.inputs.nixpkgs = nixpkgs-unstable-flake;
-    firefox-nightly.inputs.nixpkgs = nixpkgs-unstable-flake;
+    # firefox-nightly.inputs.nixpkgs = nixpkgs-unstable-flake;
     nixos-generators.inputs.nixpkgs = nixpkgs-unstable-flake;
 
     #   #   # TODO hy3
