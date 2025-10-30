@@ -65,7 +65,7 @@ in
 
     # programs.firefox.profiles.default.extensions.force
     home = {
-      file.".mozilla/firefox/profiles.ini".force = true;
+      # file.".mozilla/firefox/profiles.ini".force = true;
       sessionVariables = {
         BROWSER = "firefox"; # `man` likes having this
         MOZ_ENABLE_WAYLAND = "1";
