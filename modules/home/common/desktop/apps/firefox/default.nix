@@ -67,18 +67,24 @@ in
     home = {
       # file.".mozilla/firefox/profiles.ini".force = true;
       sessionVariables = {
-        BROWSER = "firefox"; # `man` likes having this
+        # BROWSER = "firefox"; # `man` likes having this
+        BROWSER = "firefox-nightly"; # `man` likes having this
         MOZ_ENABLE_WAYLAND = "1";
         MOZ_USE_XINPUT2 = "1";
       };
     };
 
     xdg.mimeApps.defaultApplications = lib.mkIf cfg.makeDefault {
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "x-scheme-handler/about" = "firefox.desktop";
-      "x-scheme-handler/unknown" = "firefox.desktop";
+      # "text/html" = "firefox.desktop";
+      # "x-scheme-handler/http" = "firefox.desktop";
+      # "x-scheme-handler/https" = "firefox.desktop";
+      # "x-scheme-handler/about" = "firefox.desktop";
+      # "x-scheme-handler/unknown" = "firefox.desktop";
+      "text/html" = "firefox-nightly.desktop";
+      "x-scheme-handler/http" = "firefox-nightly.desktop";
+      "x-scheme-handler/https" = "firefox-nightly.desktop";
+      "x-scheme-handler/about" = "firefox-nightly.desktop";
+      "x-scheme-handler/unknown" = "firefox-nightly.desktop";
     };
   };
 }
