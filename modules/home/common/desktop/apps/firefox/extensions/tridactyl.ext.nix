@@ -63,8 +63,10 @@ in
         bind j scrollline 5
         bind k scrollline -5
         " tabs are more important than horizontal scrolling
-        bind --mode=browser h tabprev
-        bind --mode=browser l tabnext
+        " bind --mode=browser h tabprev
+        " bind --mode=browser l tabnext
+        bind h tabprev
+        bind l tabnext
 
         bind H back
         bind L forward
