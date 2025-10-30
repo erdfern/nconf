@@ -14,11 +14,10 @@ writeShellScriptBin "fuzzel-powermenu" ''
   		# loginctl terminate-user "";;
   		uwsm stop;;
   	*"Reboot")
-  		uwsm stop && systemctl reboot;;
+  		systemctl reboot;;
   	*"Reboot to UEFI")
-  		# systemctl reboot --firmware-setup;;
-  		uwsm stop && systemctl reboo --firmware-setupt;;
+  		systemctl reboot --firmware-setup;;
   	*"Shutdown")
-  		uwsm stop && systemctl poweroff;;
+  		systemctl poweroff;;
   esac
 ''
