@@ -45,11 +45,11 @@ in
 
         " WARNING dangerous. See https://github.com/tridactyl/tridactyl/blob/344fc9fad7d6787f8ec4425984740baa56d72abf/.tridactylrc#L8-L22
         " make tridactyl work on more restricted sites (addons.mozilla.org and others)
-        fixamo_quiet
+        " fixamo_quiet
 
         " Tridactyl has to override the new tab page due to WebExtension limitations, so we set it here
         " set newtab https://start.duckduckgo.com
-        set newtab about:blank
+        " set newtab about:blank
 
         set modeindicatorshowkeys true
         set hintnames short
@@ -62,8 +62,8 @@ in
         bind j scrollline 5
         bind k scrollline -5
         " tabs are more important than horizontal scrolling
-        bind h tabprev
-        bind l tabnext
+        bind --mode=browser h tabprev
+        bind --mode=browser l tabnext
 
         bind H back
         bind L forward
@@ -74,7 +74,7 @@ in
 
         " t for tab, silly
         bind t tabopen
-        bind o fillcmdline open
+        " bind o fillcmdline open
         " bind s fillcmdline tab
 
         bind q hint
@@ -93,7 +93,7 @@ in
         bind gl followpage next
 
         unbind <C-f>
-        unbind <C-a>
+        " unbind <C-a>
 
         " gi goes to github search
         bindurl ^https://github.com gi hint -Vc .AppHeader-searchButton
