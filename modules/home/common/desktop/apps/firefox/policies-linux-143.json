@@ -193,6 +193,12 @@
       "ImproveSuggest": true | false,
       "Locked": true | false
     },
+    "GenerativeAI": {
+      "Chatbot": true | false,
+      "LinkPreviews": true | false,
+      "TabGroups": true | false,
+      "Locked": true | false
+    },
     "GoToIntranetSiteForSingleWordEntryInAddressBar": true | false,
     "Handlers": {
       "mimeTypes": {
@@ -466,6 +472,7 @@
       "Locked": true | false
     },
     "UseSystemPrintDialog": true | false.,
+    "VisualSearchEnabled": true | false.,
     "WebsiteFilter": {
       "Block": [
         "<all_urls>"

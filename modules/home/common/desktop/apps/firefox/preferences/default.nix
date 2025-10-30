@@ -3,12 +3,13 @@
   programs.firefox.policies.Preferences =
     {
       # sync
-      "services.sync.declinedEngines" = "passwords,addons,prefs,addresses,creditcards";
-      "services.sync.engine.addons" = false;
-      "services.sync.engine.addresses.available" = true;
-      "services.sync.engine.passwords" = false;
-      "services.sync.engine.prefs" = false;
-      "services.sync.engine.prefs.modified" = false;
+      # NOTE these cannot be set; "Preference not allowed for stability reasons."
+      # "services.sync.declinedEngines" = "passwords,addons,prefs,addresses,creditcards";
+      # "services.sync.engine.addons" = false;
+      # "services.sync.engine.addresses.available" = true;
+      # "services.sync.engine.passwords" = false;
+      # "services.sync.engine.prefs" = false;
+      # "services.sync.engine.prefs.modified" = false;
       # may be interesting
       # user_pref("identity.fxaccounts.account.device.name", "j’s Firefox on kor");
       # user_pref("identity.fxaccounts.account.telemetry.sanitized_uid", "...");
@@ -19,7 +20,7 @@
       # # "devtools.chrome.enabled" = true;
       # "devtools.debugger.remote-enabled" = true;
 
-      "browser.startup.homepage" = "about:blank"; # don't want to get stuck on home. maybe this should be tridactyls' page so it can load?
+      # "browser.startup.homepage" = "about:blank"; # don't want to get stuck on home. maybe this should be tridactyls' page so it can load?
       # "browser.newtabpage.enabled" = false;
 
       "browser.urlbar.suggest.searches" = true; # Need this for basic search suggestions
@@ -35,7 +36,7 @@
       "browser.aboutConfig.showWarning" = false; # No warning when going to config
       "browser.warnOnQuitShortcut" = false;
 
-      "browser.tabs.loadInBackground" = true; # Load tabs automatically
+      "browser.tabs.loadInBackground" = true;
 
       "media.ffmpeg.vaapi.enabled" = true; # Enable hardware acceleration
       "layers.acceleration.force-enabled" = true;
@@ -54,7 +55,8 @@
       "widget.use-xdg-desktop-portal.file-picker" = 1; # Use new gtk file picker instead of legacy one
 
       # Privacy
-      privacy.globalprivacycontrol.enabled = true;
-      privacy.globalprivacycontrol.was_ever_enabled = true;
+      # "Preference not allowed for stability reasons."
+      # privacy.globalprivacycontrol.enabled = true;
+      # privacy.globalprivacycontrol.was_ever_enabled = true;
     };
 }
