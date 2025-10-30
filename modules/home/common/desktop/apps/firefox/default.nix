@@ -33,7 +33,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.firefox =
       {
-        enable = false;
+        enable = true;
 
         # package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; })) { };
         # TODO use nightly option to decide which package to use
