@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "60a3443eef7bfacbbcf017caa0a0fb3c86ebe43b",
-      "url": "https://github.com/cachix/devenv/archive/60a3443eef7bfacbbcf017caa0a0fb3c86ebe43b.tar.gz",
-      "hash": "sha256-I2u3Cg4/b6TFy6DREoA4IxaXOuo/UwrqUK4/T0HVVQU="
+      "revision": "bb7849648b68035f6b910120252c22b28195cf54",
+      "url": "https://github.com/cachix/devenv/archive/bb7849648b68035f6b910120252c22b28195cf54.tar.gz",
+      "hash": "sha256-DXDb6AVCRPosOkQPyvVrHpO//VXqyzS3uLWiasTuENI="
     },
     "disko": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "ec7bf039cadc4c1481b29b4a44309d1d9b921e78",
-      "url": "https://github.com/nixos/nixos-hardware/archive/ec7bf039cadc4c1481b29b4a44309d1d9b921e78.tar.gz",
-      "hash": "sha256-0r7HylkUX68/NWdLkp63UC9us0SFIqdhbHC8aEfqoCk="
+      "revision": "43ffe9ac82567512abb83187cb673de1091bdfa8",
+      "url": "https://github.com/nixos/nixos-hardware/archive/43ffe9ac82567512abb83187cb673de1091bdfa8.tar.gz",
+      "hash": "sha256-XdPVSYyIBK4/ruoqujaQmmSGg3J2/EenexV9IEXhr6o="
     },
     "home-manager": {
       "type": "Git",
@@ -126,9 +126,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "124b99dbd1594dbebdd575ac7142752ee96a98a0",
-      "url": "https://github.com/nix-community/home-manager/archive/124b99dbd1594dbebdd575ac7142752ee96a98a0.tar.gz",
-      "hash": "sha256-IQIWG6kHxnUpx5KEb9r0BROL3/R6UQ/30aO2oHncBA8="
+      "revision": "c6d4cb31d7cef3a6deb16a6734f100e3f3a55122",
+      "url": "https://github.com/nix-community/home-manager/archive/c6d4cb31d7cef3a6deb16a6734f100e3f3a55122.tar.gz",
+      "hash": "sha256-W/l4Bjrd8XQtNwDgFO6WvBmRUtRIDRadYYFQy9912dw="
     },
     "hy3": {
       "type": "Git",
@@ -202,9 +202,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1f08eaeb553cdc73a3b2895c758d5f40394b2731",
+      "revision": "95f15cf94fb621795eb854db6d0387cfd22cd310",
       "url": null,
-      "hash": "sha256-qc6aWlPJwtLr1PWv+WbvWe59rgAGjQ6A/L1npM7S3Hs="
+      "hash": "sha256-fKU8EXmpzorb5qvsdpmB0B812ydhN0E1YxpaH8EYrhY="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
