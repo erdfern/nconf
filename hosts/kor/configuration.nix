@@ -8,14 +8,14 @@
     ./disk-config.nix
     # ./f2fs.nix
     ./graphics.nix
-    ./wifihotspot.nix
+    # ./wifihotspot.nix
     # "${inputs.facter.result}/modules/nixos/facter.nix"
   ];
 
   # facter.reportPath = ./facter.json;
 
   # so I can cross-build for the rpi...
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   kor.profiles.desktop.enable = true;
   kor.profiles.development.enable = true;
@@ -29,14 +29,14 @@
 
   # kor.virtualisation.qemu.enable = true;
   kor.virtualisation.containers.enable = true;
-  kor.virtualisation.waydroid.enable = true;
+  # kor.virtualisation.waydroid.enable = true;
 
   services.deluge = {
     enable = true;
     web.enable = false;
   };
 
-  environment.systemPackages = [ pkgs.zoom-us ];
+  # environment.systemPackages = [ pkgs.zoom-us ];
   # programs.obs-studio = {
   #   enable = true;
   #   enableVirtualCamera = true;

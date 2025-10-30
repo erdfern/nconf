@@ -22,6 +22,6 @@ in
     hardware.bluetooth.powerOnBoot = true;
     hardware.bluetooth.settings = { General = { Experimental = true; }; }; # enable battery reporting to upower
     services.blueman.enable = true;
-    services.upower.enable = true;
+    # services.upower.enable = true;
   };
 }
