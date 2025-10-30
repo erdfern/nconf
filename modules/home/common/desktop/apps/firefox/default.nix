@@ -9,7 +9,7 @@ let
   cfg = config.kor.desktop.apps.firefox;
 in
 {
-  imports = [ ./preferences ./extensions ./policies.nix ./search.nix ];
+  imports = [ ./ui ./preferences ./policies.nix ./search.nix ./extensions ];
 
   # rename suite.desktop/browser?
   options.kor.desktop.apps.firefox = with lib; {
@@ -51,7 +51,7 @@ in
             settings =
               {
                 # Normal firefox settings that happen to be blocked with policies
-                "services.sync.declinedEngines" = "";
+                # "services.sync.declinedEngines" = "";
 
                 "sidebar.verticalTabs" = true;
                 "sidebar.visibility" = "hide-sidebar";

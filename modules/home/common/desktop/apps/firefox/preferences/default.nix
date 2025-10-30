@@ -1,6 +1,4 @@
 {
-  imports = [ ./ui.nix ];
-
   # https://mozilla.github.io/policy-templates/
   programs.firefox.policies.Preferences =
     {

@@ -50,6 +50,7 @@ in
         " Tridactyl has to override the new tab page due to WebExtension limitations, so we set it here
         " set newtab https://start.duckduckgo.com
         " set newtab about:blank
+        " set newtab moz-extension://921a1fa9-acfd-4486-9708-a8f104999437/static/newtab.html
 
         set modeindicatorshowkeys true
         set hintnames short
