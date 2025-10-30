@@ -65,6 +65,19 @@
       "url": "https://github.com/nix-community/nixos-facter-modules/archive/70bcd64225d167c7af9b475c4df7b5abba5c7de8.tar.gz",
       "hash": "sha256-4lDjGnWRBLwqKQ4UWSUq6Mvxu9r8DSqCCydodW/Jsi8="
     },
+    "firefox-nightly": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "flake-firefox-nightly"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "87bca74e7ea9a20156bad0aadbab8d64ed8f90ce",
+      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/87bca74e7ea9a20156bad0aadbab8d64ed8f90ce.tar.gz",
+      "hash": "sha256-cSlt6y26xmGBnmbzZTyHVNFWqq1mRsLQP7xDjkbrzuM="
+    },
     "flake-compat": {
       "type": "Git",
       "repository": {

@@ -18,7 +18,7 @@ in
       type = types.bool;
       default = false;
       description = ''
-        Whether to use the nightly version of Firefox the default browser for opening associated mime types.
+        Whether to use the nightly version of Firefox.
       '';
     };
     makeDefault = mkOption {
