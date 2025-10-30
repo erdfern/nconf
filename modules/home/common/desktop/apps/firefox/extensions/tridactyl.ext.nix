@@ -76,7 +76,7 @@ in
         " bind a tab # " Last used tab
 
         " t for tab, silly
-        bind t tabopen
+        " bind t tabopen
         " bind o fillcmdline open
         " bind s fillcmdline tab
 
