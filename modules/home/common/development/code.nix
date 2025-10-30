@@ -12,7 +12,7 @@ in
         (oldAttrs: {
           src = (builtins.fetchTarball {
             url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-            sha256 = "sha256-zl4zl1HepayCQ7aFt+dGN6EHLLvaJlCdGdym4SsdNwk=";
+            sha256 = lib.fakeSha256;
           });
           version = "latest";
 
