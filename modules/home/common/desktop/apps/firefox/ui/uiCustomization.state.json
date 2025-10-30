@@ -1,8 +1,8 @@
 {
   "placements": {
     "widget-overflow-fixed-list": [
-      "firefox-view-button",
       "fxa-toolbar-menu-button",
+      "firefox-view-button",
       "preferences-button",
       "open-file-button",
       "developer-button",
@@ -77,5 +77,5 @@
     "PersonalToolbar"
   ],
   "currentVersion": 23,
-  "newElementCount": 9
+  "newElementCount": 10
 }
