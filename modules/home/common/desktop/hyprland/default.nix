@@ -45,7 +45,7 @@ in
       "ELECTRON_OZONE_PLATFORM_HINT=auto"
       "GRIMBLAST_HIDE_CURSOR=0"
 
-      # "SDL_VIDEODRIVER=wayland" #;x11 fallback?
+      "SDL_VIDEODRIVER=wayland,x11" #x11 fallback? only wayland breaks sternentautal (and some others, probably)
       "GDK_BACKEND=wayland,x11"
       "CLUTTER_BACKEND=wayland"
     ] # ++ lib.lists.optional config.home.pointerCursor.hyprcursor.enable "export HYPRCURSOR_SIZE=${config.home.pointerCursor.hyprcursor.size}";
