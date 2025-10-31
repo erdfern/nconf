@@ -12,12 +12,11 @@
 
     amdgpu.initrd.enable = true; # load in stage 1; boot.initrd.kernelModules = ["amdgpu"]
     amdgpu.opencl.enable = true; # 20.06.25, caused a weird build issue (error: output '/nix/store/...-clr-6.3.3-icd' is not allowed to refer to the following paths: /nix/store/...-gcc-14.3.0)
+    # amdgpu.overdrive.enable = true; # overclocking support
+
     # NOTE: amdvlk is said to sometimes be problematic
-    # NOTE: discontinued in favor of radv? https://www.gamingonlinux.com/2025/09/amdvlk-has-been-discontinued-as-amd-are-throwing-their-full-support-behind-radv/
+    # NOTE: discontinued in favor of radv: https://www.gamingonlinux.com/2025/09/amdvlk-has-been-discontinued-as-amd-are-throwing-their-full-support-behind-radv/
     # amdgpu.amdvlk.enable = true;
-    # amdgpu.amdvlk.support32Bit.enable = true;
-    # amdgpu.amdvlk.supportExperimental.enable = true;
-    # amdgpu.amdvlk.settings = {};
   };
 
   environment = {
