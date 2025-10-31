@@ -45,6 +45,16 @@ let
       overlays = [
         config.overlays.default
         config.inputs.neovim-nightly-overlay.result.overlays.default
+        # (self: super: {
+        #   gnome = super.gnome.overrideScope' (gself: gsuper: {
+        #     nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
+        #       buildInputs = nsuper.buildInputs ++ (with gst_all_1; [
+        #         gst-plugins-good
+        #         gst-plugins-bad
+        #       ]);
+        #     });
+        #   });
+        # })
       ];
     };
     nixpkgs-unstable = config.inputs.nixpkgs.settings;

@@ -59,12 +59,13 @@ in
     # Secrets portal
     services.gnome.gnome-keyring.enable = true;
 
-    # wanted by file managers for MTP transfer, e.g. Nemo
+    # wanted by file managers for MTP transfer, e.g. Nemo, Nautilus
     services.gvfs.enable = true;
 
     # removable media automounting
     # services.devmon.enable = true;
     services.udisks2.enable = true;
+    programs.gnome-disks.enable = true; # UDisks2 graphical front-end; nemo likes having this for gnome-disk-image-mounter
     # services.udisks2.settings = {
     #   "udisks2.conf" = {
     #     defaults = {
