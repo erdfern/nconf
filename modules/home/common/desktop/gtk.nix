@@ -1,5 +1,5 @@
 # kinda interesting..: https://github.com/ALEX11BR/ThemeChanger
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 {
   # it's ded
   # catppuccin.gtk.enable = true;
@@ -35,8 +35,9 @@
       # package = pkgs.gnome-themes-extra;
       # name = "Adwaita";
       # TODO set the accent color; override?
-      package = pkgs.catppuccin-gtk-theme;
-      name = "Catppuccin-Dark";
+      package = pkgs.catppuccin-gtk-theme.override { themeVariants = [ config.catppuccin.accent ]; };
+      # package = pkgs.catppuccin-gtk-theme;
+      name = "Catppuccin-${lib.toUpper config.catppuccin.accent}-Dark";
     };
     # iconTheme = {
     #   name = "Papirus-Dark";
@@ -48,21 +49,5 @@
       name = "GeistMono Nerd Font";
       size = 14;
     };
-    # gtk4.extraConfig = {
-    #   gtk-application-prefer-dark-theme = true;
-    # };
-    # gtk3.extraConfig = {
-    #   gtk-application-prefer-dark-theme = true;
-    #   gtk-xft-antialias = 1;
-    #   gtk-xft-hinting = 1;
-    #   gtk-xft-hintstyle = "hintslight";
-    #   gtk-xft-rgba = "rgb";
-    # };
-    # gtk2.extraConfig = ''
-    #   gtk-xft-antialias=1
-    #   gtk-xft-hinting=1
-    #   gtk-xft-hintstyle="hintslight"
-    #   gtk-xft-rgba="rgb"
-    # '';
   };
 }
