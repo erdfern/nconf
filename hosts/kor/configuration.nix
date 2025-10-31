@@ -1,5 +1,6 @@
 { me
 , pkgs
+, inputs
 , ...
 }:
 {
@@ -9,10 +10,10 @@
     # ./f2fs.nix
     ./graphics.nix
     # ./wifihotspot.nix
-    # "${inputs.facter.result}/modules/nixos/facter.nix"
+    "${inputs.facter.result}/modules/nixos/facter.nix"
   ];
 
-  # facter.reportPath = ./facter.json;
+  facter.reportPath = ./facter.json;
 
   # so I can cross-build for the rpi...
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
