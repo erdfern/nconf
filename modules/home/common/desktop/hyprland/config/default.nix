@@ -122,6 +122,7 @@ in
           (f "mpv")
           (f "nemo")
           (f "termfloat")
+          (f "clipse")
 
           "rounding 5, class:termfloat"
           "size 980 640,class:termfloat"

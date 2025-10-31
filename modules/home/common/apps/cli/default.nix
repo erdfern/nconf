@@ -12,4 +12,5 @@
     pkgs.npins-git
   ];
 
+  services.clipse.enable = true;
 }
