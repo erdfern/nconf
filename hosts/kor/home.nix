@@ -33,8 +33,8 @@
     "LIBVA_DRIVER_NAME=radeonsi"
     "VDPAU_DRIVER=radeonsi"
 
+    # nvidia
     # "export GBM_BACKEND=nvidia-drm"
-
     # export __GL_GSYNC_ALLOWED=1
     # export __GL_VRR_ALLOWED=0
   ];
