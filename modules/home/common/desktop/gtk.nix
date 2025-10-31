@@ -34,8 +34,9 @@
       #   package = pkgs.tokyonight-gtk-theme;
       # package = pkgs.gnome-themes-extra;
       # name = "Adwaita";
+      # TODO set the accent color; override?
       package = pkgs.catppuccin-gtk-theme;
-      name = "Catppuccin";
+      name = "Catppuccin-Dark";
     };
     # iconTheme = {
     #   name = "Papirus-Dark";
