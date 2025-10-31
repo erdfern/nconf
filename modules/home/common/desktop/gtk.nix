@@ -32,8 +32,10 @@
     theme = {
       #   name = "Tokyonight-Dark";
       #   package = pkgs.tokyonight-gtk-theme;
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita";
+      # package = pkgs.gnome-themes-extra;
+      # name = "Adwaita";
+      package = pkgs.catppuccin-gtk-theme;
+      name = "Catppuccin";
     };
     # iconTheme = {
     #   name = "Papirus-Dark";
