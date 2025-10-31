@@ -101,9 +101,10 @@ in
     ##############
     ## Overlays ##
     ##############
-    # Generate `default` overlay using `./packages`
-    # folder structure
+    # Generate `default` overlay from folders with `default.nix` in `./packages`
     generators.overlays.default.folder = ./packages;
+    # and packages by themselves, useful for building them via just packages.<pname> or `nilla build <pname>`
+    generators.packages.folder = ./packages;
 
     #######################
     ## Special overrides ##
