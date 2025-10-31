@@ -1,5 +1,12 @@
 # kinda interesting..: https://github.com/ALEX11BR/ThemeChanger
 { pkgs, config, lib, ... }:
+let
+
+  # capitalize = lib.strings.toSentenceCase;
+  capitalize = str:
+    if str == "" then ""
+    else (lib.toUpper (builtins.substring 0 1 str)) + (builtins.substring 1 ((builtins.stringLength str) - 1) str);
+in
 {
   # it's ded
   # catppuccin.gtk.enable = true;
@@ -37,7 +44,7 @@
       # TODO set the accent color; override?
       package = pkgs.catppuccin-gtk-theme.override { themeVariants = [ config.catppuccin.accent ]; };
       # package = pkgs.catppuccin-gtk-theme;
-      name = "Catppuccin-${lib.toUpper config.catppuccin.accent}-Dark";
+      name = "Catppuccin-${capitalize config.catppuccin.accent}-Dark";
     };
     # iconTheme = {
     #   name = "Papirus-Dark";
