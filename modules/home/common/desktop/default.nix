@@ -11,8 +11,9 @@ in
     ./apps
     ./hyprland
     ./suites
-    ./gtk.nix
     ./uwsm.nix
+    ./gtk.nix
+    ./qt.nix
     ./notifications.nix
   ];
 
