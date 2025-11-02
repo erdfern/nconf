@@ -39,9 +39,10 @@ in
           pkgs.xdg-utils # latest client doesn't find these otherwise...
         ];
         extraLibraries = pkgs: (with config.hardware.graphics;
-          if pkgs.hostPlatform.is64bit
-          then [ package ] ++ extraPackages
-          else [ package32 ] ++ extraPackages32);
+          [ package ] ++ extraPackages);
+        # if pkgs.hostPlatform.is64bit
+        # then [ package ] ++ extraPackages
+        # else [ package32 ] ++ extraPackages32);
       };
     };
 
