@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "3e07f0a5885f8a4156ab353cc5c5c9652371b017",
-      "url": "https://github.com/cachix/devenv/archive/3e07f0a5885f8a4156ab353cc5c5c9652371b017.tar.gz",
-      "hash": "sha256-0z73K2XW9jF+6aoMFk9UbFrKVyWoAiYdOh/EteRlfvw="
+      "revision": "cd6e1489feacebdadc74aff0d8aba0af759104ce",
+      "url": "https://github.com/cachix/devenv/archive/cd6e1489feacebdadc74aff0d8aba0af759104ce.tar.gz",
+      "hash": "sha256-UEB6ntaWmbLgw005nKYtae3FOKKEHZW3CjnRmc2uLxg="
     },
     "disko": {
       "type": "Git",
@@ -74,9 +74,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "7f9361ea77fb4ae4e4a052ecf00b8cfe22249e35",
-      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/7f9361ea77fb4ae4e4a052ecf00b8cfe22249e35.tar.gz",
-      "hash": "sha256-Lge2UMlidphn2miw4Ogt3eHJSM/U0Y86HYtkOteCQ+0="
+      "revision": "a4d11b1b0949480600807bdc4b7b26ac5215c5df",
+      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/a4d11b1b0949480600807bdc4b7b26ac5215c5df.tar.gz",
+      "hash": "sha256-fYAKGajro9wrroKL6c2DlUmfoW74Sks6BS2aJ+tSiAI="
     },
     "flake-compat": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "d48e8f0e1691e0200a675c13df7c85e275090a15",
-      "url": "https://github.com/nixos/nixos-hardware/archive/d48e8f0e1691e0200a675c13df7c85e275090a15.tar.gz",
-      "hash": "sha256-2u5rstcMTqpAr4UF+exs5WGOT62VJRb4yauR6JJHJXs="
+      "revision": "e4c6ee69e710805a15a3da905214a25618271609",
+      "url": "https://github.com/nixos/nixos-hardware/archive/e4c6ee69e710805a15a3da905214a25618271609.tar.gz",
+      "hash": "sha256-VjZLHnj9tqFRigpD6SJtTKmQsys77jCX5YcnmMnUqH8="
     },
     "home-manager": {
       "type": "Git",
