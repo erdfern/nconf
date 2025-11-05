@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "Vladimir-csp";
     repo = "app2unit";
-    rev = "6e2f0cd6939093ff2792d88d56c453fd66ec4871";
+    rev = "a2e59316c9bd4693b87b3e5b2e587e15eb0b6e3b";
     sha256 = "sha256-XjpSdkwmnho3ReIrzC0x4iFMJKur2q+TUcFPhsrFv1c=";
     # tag = "v${finalAttrs.version}";
     # sha256 = "sha256-M2sitlrQNSLthSaDH+R8gUcZ8i+o1ktf2SB/vvjyJEI=";
