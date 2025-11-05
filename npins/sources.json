@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "24277fe0dc4884e1699d1aded7f3ffbb71b9d243",
-      "url": "https://github.com/cachix/devenv/archive/24277fe0dc4884e1699d1aded7f3ffbb71b9d243.tar.gz",
-      "hash": "sha256-tQkYkNsyzbshnQvxp0+fy90dMCzxcfh3tf1tmPk70tc="
+      "revision": "3e07f0a5885f8a4156ab353cc5c5c9652371b017",
+      "url": "https://github.com/cachix/devenv/archive/3e07f0a5885f8a4156ab353cc5c5c9652371b017.tar.gz",
+      "hash": "sha256-0z73K2XW9jF+6aoMFk9UbFrKVyWoAiYdOh/EteRlfvw="
     },
     "disko": {
       "type": "Git",
@@ -126,9 +126,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "34fe48801d2a5301b814eaa1efb496499d06cebc",
-      "url": "https://github.com/nix-community/home-manager/archive/34fe48801d2a5301b814eaa1efb496499d06cebc.tar.gz",
-      "hash": "sha256-Jyv3L5rrUYpecON+9zyFz2VqgTSTsIG35fXuCyuCQv0="
+      "revision": "af119feb17cb242398e0fb97f92b867d25882522",
+      "url": "https://github.com/nix-community/home-manager/archive/af119feb17cb242398e0fb97f92b867d25882522.tar.gz",
+      "hash": "sha256-c/164YOPkV09BH8KIUdvVvJs3VF2LNIbE2piKGgXPxk="
     },
     "hy3": {
       "type": "Git",
@@ -202,9 +202,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f369c711dd8bd6eec6905645dab9a153ebbba0a8",
+      "revision": "24054c110787d725ac0bbdafd40c71c83bf1f9a0",
       "url": null,
-      "hash": "sha256-DTwYxw0oiJfe6FtdJ+6KbqQeKUoV9E0nEUUwtwcF42U="
+      "hash": "sha256-vFSL9+KvrckyLJB4AEgbAEyKgkaBYBVN6ZDUAa+4Yps="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
