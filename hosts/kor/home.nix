@@ -4,7 +4,7 @@
   kor.desktop.enable = true;
   kor.desktop.apps.firefox.enable = true;
   kor.desktop.apps.firefox.makeDefault = true;
-  kor.desktop.suites.gaming.enable = true;
+  # kor.desktop.suites.gaming.enable = true;
 
   kor.development.neovim.enable = true;
   kor.development.vscode.enable = true;
