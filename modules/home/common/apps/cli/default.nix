@@ -8,8 +8,6 @@
     # pkgs.ncdu
     # pkgs.duf
     # pkgs.dust
-
-    pkgs.npins-git
   ];
 
   services.clipse.enable = true;

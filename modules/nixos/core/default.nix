@@ -75,6 +75,7 @@ in
       inputs.nilla-cli.result.packages.default.result.x86_64-linux
       inputs.nilla-utils.result.packages.default.result.x86_64-linux
       pkgs.colmena
+      pkgs.npins-git
       # pkgs.npins
       # pkgs.attic-client
       # pkgs.sops
