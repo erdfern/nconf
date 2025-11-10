@@ -64,11 +64,12 @@ in
       pkgs.fzf
       pkgs.unzip
       pkgs.file
-      pkgs.trashy
       pkgs.btop
       pkgs.helix
       # pkgs.neovim
       # pkgs.glow
+      pkgs.trashy
+      pkgs.trash-cli
 
       # things that should probably be in a dev shell (and home profile, but don't need to be in initial system after clean install)
       inputs.nilla-cli.result.packages.default.result.x86_64-linux
