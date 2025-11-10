@@ -2,8 +2,8 @@
 , rustPlatform
 , fetchFromGitHub
 , makeWrapper
-, # runtime dependencies
-  nix
+  # runtime dependencies
+  # , nix
 , # for nix-prefetch-url
   nix-prefetch-git
 , git
@@ -12,7 +12,7 @@
 
 let
   runtimePath = lib.makeBinPath [
-    nix
+    # nix
     nix-prefetch-git
     git
   ];
@@ -29,6 +29,7 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-dBMY5L9xzq3czs5fGHFXNqzQQvHO3+c6WRY8tVvIz20=";
+
   buildNoDefaultFeatures = true;
   buildFeatures = [
     "clap"
