@@ -287,7 +287,7 @@
     "nix-alien-tar": {
       "type": "Tarball",
       "url": "https://github.com/thiagokokada/nix-alien/tarball/master",
-      "hash": "sha256-s4rKeUH1MEbXxraqbI+KKzAayqDa7FWGd/hNowRStiU="
+      "hash": "sha256-wDaM4D0Fqt0nCoFbZsi3mtAkIzzsbGdmuj+356KHEvU="
     },
     "nix-index-database": {
       "type": "Git",
@@ -368,5 +368,5 @@
       "hash": "sha256-2Kv2mANf+FRisqhpfeZ8j9firBxb23ZvEXwdcunbpGI="
     }
   },
-  "version": 6
+  "version": 7
 }
