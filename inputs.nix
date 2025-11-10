@@ -1,6 +1,15 @@
-{ config }:
+{ config, lib }:
 let
-  pins = import ./npins;
+  # need to filter this so we don't fail an assertion made by nilla inputs module
+  # not entirely sure why this isn't fixed by https://github.com/nilla-nix/nilla/commit/b617bdbaa5faa9345ca077cd497372ece77bf119
+  # must be because i construct config.inputs manually below
+  pins =
+    let
+      # There's a top-level __functor lambda, too
+      cleanPins = removeAttrs (import ./npins) [ "__functor" ];
+      filteredPins = builtins.mapAttrs (path: pin: lib.attrs.filter (n: v: n != "__functor") pin) cleanPins;
+    in
+    filteredPins;
 
   flake-compat = config.inputs.flake-compat.result;
   # flake-compat-aswell = config.inputs.flake-compat-aswell;
