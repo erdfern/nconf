@@ -25,10 +25,10 @@ rustPlatform.buildRustPackage rec {
     owner = "andir";
     repo = "npins";
     rev = "f4e3698681704e74196fa0f905c7dfdd43cf5c86";
-    hash = lib.fakeHash;
+    hash = "sha256-8lkiistkBemkRN4aTqGW3SvI1CqibOnvFvNJS9OOdnU=";
   };
 
-  cargoHash = lib.fakeHash;
+  cargoHash = "sha256-YAIjrGQkmrurftV0fFP2s3BZSuNnpaFRGXZ89y+1tSc=";
 
   buildNoDefaultFeatures = true;
   buildFeatures = [
