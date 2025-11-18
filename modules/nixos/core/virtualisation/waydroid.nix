@@ -16,6 +16,8 @@ in
       pkgs.waydroid-helper
       pkgs.cage
       # pkgs.cagebreak
+      # https://rafa-dot-el.github.io/blog/posts/waydroid-on-x11-on-nixos/
+      pkgs.weston
     ];
 
     programs.adb.enable = true;
