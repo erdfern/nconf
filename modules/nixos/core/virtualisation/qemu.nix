@@ -13,6 +13,7 @@ in
         swtpm # TMP emulation
       ];
     };
+    users.users.${me.user}.extraGroups = [ "kvm" ];
     programs.virt-manager.enable = true;
     virtualisation.libvirtd = {
       enable = true;

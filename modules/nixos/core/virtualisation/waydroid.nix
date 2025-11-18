@@ -18,6 +18,8 @@ in
       # pkgs.cagebreak
       # https://rafa-dot-el.github.io/blog/posts/waydroid-on-x11-on-nixos/
       pkgs.weston
+
+      pkgs.android-studio
     ];
 
     programs.adb.enable = true;
