@@ -112,7 +112,7 @@ in
 
       windowrule =
         let
-          f = regex: "match:class ^(${regex})$, float";
+          f = regex: "match:class ^(${regex})$, float on";
         in
         [
           # #`hyprctl clients` get class、title...
