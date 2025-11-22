@@ -128,7 +128,7 @@ in
           "match:class termfloat, size 980 640"
           "match:title ^(Picture-in-Picture)$, move -25%"
 
-          "match:class ^(rimworld)$, immediate"
+          "match:class ^(rimworld)$, immediate on"
         ] ++ lib.optionals (!cfg.hy3.enable) [
           # smart gaps/'no gaps when only'
           "match:float false, match:workspace w[tv1], border_size 0"
