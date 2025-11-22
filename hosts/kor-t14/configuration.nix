@@ -20,6 +20,9 @@
   kor.profiles.development.virtualisation = true;
   kor.virtualisation.containers.enable = true;
 
+  # TEMP
+  kor.virtualisation.waydroid.enable = true;
+
   # kor.fs.btrfs.enable = true;
   kor.system.impermanence.root.enable = false;
   kor.system.impermanence.home.enable = false;
