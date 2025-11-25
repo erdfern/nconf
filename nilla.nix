@@ -13,8 +13,8 @@ in
   includes = [
     ./inputs.nix
 
-    # "${pins.nilla-utils}/modules"
-    ../nilla-utils/modules
+    "${pins.nilla-utils}/modules"
+    # ../nilla-utils/modules
     ./modules/hive
 
     ./hosts/dns

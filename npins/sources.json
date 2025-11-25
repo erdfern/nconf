@@ -262,14 +262,14 @@
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "arnarg",
+        "owner": "erdfern",
         "repo": "nilla-utils"
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1ec203913b4fc9d6e64d30fb3b646654938d30ac",
-      "url": "https://github.com/arnarg/nilla-utils/archive/1ec203913b4fc9d6e64d30fb3b646654938d30ac.tar.gz",
-      "hash": "sha256-6MdxdRa5s7c29EbK0OjeE7LSWBh20pSY1261vNI1WeA="
+      "revision": "e868ff2ad53a605fbb854bf98832f2ca89985fa4",
+      "url": "https://github.com/erdfern/nilla-utils/archive/e868ff2ad53a605fbb854bf98832f2ca89985fa4.tar.gz",
+      "hash": "sha256-qes6wSnpbu+TnUTbP3O58Lu9DNyR/jbGD2daRRYETeY="
     },
     "nix-alien": {
       "type": "Git",
