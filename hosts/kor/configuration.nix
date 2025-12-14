@@ -25,7 +25,7 @@
   # kor.flatpak.enable = true;
 
   kor.hardware.sk.yubikey.enable = true;
-  kor.hardware.sk.nitrokey.enable = true;
+  # kor.hardware.sk.nitrokey.enable = true;
   kor.hardware.sk.piv.enable = true;
 
   # kor.virtualisation.qemu.enable = true;
