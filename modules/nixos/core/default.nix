@@ -81,8 +81,6 @@ in
       # pkgs.sops
     ]);
 
-    system.rebuild.enableNg = true;
-
     nix = {
       # package = pkgs.lix; # TODO use raw lix module instead
       generateNixPathFromInputs = true;
