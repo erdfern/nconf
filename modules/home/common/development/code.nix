@@ -8,6 +8,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
+      pkgs.vscode-insiders
       # (pkgs.vscode.override { isInsiders = true; }).overrideAttrs
       #   (oldAttrs: {
       #     # src = (builtins.fetchTarball {
