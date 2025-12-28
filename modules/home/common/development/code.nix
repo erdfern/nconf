@@ -8,7 +8,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      # ((pkgs.vscode.override { isInsiders = true; }).overrideAttrs
+      # (pkgs.vscode.override { isInsiders = true; }).overrideAttrs
       #   (oldAttrs: {
       #     # src = (builtins.fetchTarball {
       #     #   url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
@@ -19,7 +19,7 @@ in
       #     version = "latest";
 
       #     buildInputs = oldAttrs.buildInputs ++ [ pkgs.krb5 pkgs.libsoup_3 pkgs.webkitgtk_4_1 ];
-      #   }))
+      #   })
     ];
     # programs.vscode = {
     #   enable = true;
