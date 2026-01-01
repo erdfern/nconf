@@ -8,7 +8,7 @@
 
   kor.development.neovim.enable = true;
   kor.development.vscode.enable = true;
-  # kor.development.rider.enable = true;
+  kor.development.rider.enable = true;
   # kor.development.idea.enable = true;
 
   kor.desktop.enableHyprland = true;

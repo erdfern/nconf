@@ -87,7 +87,7 @@ in
     home.packages = [
       rider-pkg
       # TODO move
-      pkgs.unityhub
+      # pkgs.unityhub
     ]
     ++ (with pkgs; [
       # jetbrains.rider
