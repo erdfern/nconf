@@ -84,10 +84,13 @@ in
   options.kor.development.rider.enable = lib.mkEnableOption "Rider IDE";
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.config.permittedInsecurePackages = [
+      "dotnet-sdk-6.0.428"
+    ];
     home.packages = [
       pkgs.jetbrains.rider
       pkgs.mono
-      pkgs.dotnet-sdk
+      pkgs.dotnet-sdk_6
       # rider-pkg
       # TODO move
       # pkgs.unityhub
