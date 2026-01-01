@@ -85,7 +85,10 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      rider-pkg
+      pkgs.jetbrains.rider
+      pkgs.mono
+      pkgs.dotnet-sdk
+      # rider-pkg
       # TODO move
       # pkgs.unityhub
     ]
@@ -97,8 +100,8 @@ in
       # dotnet-sdk_9
       # dotnet-sdk
     ]);
-    # home.sessionVariables = {
-    #   DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet/";
-    # };
+    home.sessionVariables = {
+      DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet/";
+    };
   };
 }
