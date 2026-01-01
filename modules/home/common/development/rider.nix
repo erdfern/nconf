@@ -84,6 +84,7 @@ in
   options.kor.development.rider.enable = lib.mkEnableOption "Rider IDE";
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.config.allowUnfree = true;
     nixpkgs.config.permittedInsecurePackages = [
       "dotnet-sdk-6.0.428"
     ];
