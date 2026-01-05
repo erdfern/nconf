@@ -22,7 +22,7 @@
   kor.profiles.development.enable = true;
 
   kor.gaming.enable = true;
-  # kor.flatpak.enable = true;
+  kor.flatpak.enable = true;
 
   kor.hardware.sk.yubikey.enable = true;
   # kor.hardware.sk.nitrokey.enable = true;
