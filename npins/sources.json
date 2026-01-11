@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "9bfc4a64c3a798ed8fa6cee3a519a9eac5e73cb5",
-      "url": "https://github.com/cachix/devenv/archive/9bfc4a64c3a798ed8fa6cee3a519a9eac5e73cb5.tar.gz",
-      "hash": "sha256-EsRLowiEQPhdAXbOw8W4sDwQ+XJDxIaH1L+Nzcd1Tjs="
+      "revision": "b3d5f5d2fe88b78341ea30fec4fd5ae1a3a3c214",
+      "url": "https://github.com/cachix/devenv/archive/b3d5f5d2fe88b78341ea30fec4fd5ae1a3a3c214.tar.gz",
+      "hash": "sha256-s3p5kjkYDYYdMMe7p4TxUdfivNwSwjdDwwt+x8xMwYQ="
     },
     "disko": {
       "type": "Git",
