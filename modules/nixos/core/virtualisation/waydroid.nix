@@ -20,9 +20,10 @@ in
       pkgs.weston
 
       pkgs.android-studio
+      pkgs.android-tools # adb
     ];
 
-    programs.adb.enable = true;
+    # programs.adb.enable = true;
     users.users.${me.user}.extraGroups = [ "adbusers" ];
   };
 }
