@@ -12,11 +12,13 @@ in
 {
   includes = [
     ./inputs.nix
+    ./lib
 
     "${pins.nilla-utils}/modules"
     # ../nilla-utils/modules
     ./modules/hive
 
+    # meeeehhhh
     ./hosts/dns
     ./hosts/kor-t14
   ];

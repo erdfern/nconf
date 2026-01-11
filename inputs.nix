@@ -3,13 +3,14 @@ let
   # need to filter this so we don't fail an assertion made by nilla inputs module
   # not entirely sure why this isn't fixed by https://github.com/nilla-nix/nilla/commit/b617bdbaa5faa9345ca077cd497372ece77bf119
   # must be because i construct config.inputs manually below
-  pins =
-    let
-      # There's a top-level __functor lambda, too
-      cleanPins = removeAttrs (import ./npins) [ "__functor" ];
-      filteredPins = builtins.mapAttrs (path: pin: lib.attrs.filter (n: v: n != "__functor") pin) cleanPins;
-    in
-    filteredPins;
+  # pins =
+  #   let
+  #     # There's a top-level __functor lambda, too
+  #     cleanPins = removeAttrs (import ./npins) [ "__functor" ];
+  #     filteredPins = builtins.mapAttrs (path: pin: lib.attrs.filter (n: v: n != "__functor") pin) cleanPins;
+  #   in
+  #   filteredPins;
+  pins = import ./npins;
 
   flake-compat = config.inputs.flake-compat.result;
   # flake-compat-aswell = config.inputs.flake-compat-aswell;
@@ -95,9 +96,10 @@ in
       (name: pin: {
         src = pin;
 
-        loader = loaders.${name} or (config.lib.modules.when false { });
-        settings = settings.${name} or (config.lib.modules.when false { });
+        loader = loaders.${name} or config.lib.modules.never;
+        settings = settings.${name} or config.lib.modules.never;
+        # }) pins;
       })
-      pins;
+      (config.lib.attrs.filter (name: value: name != "__functor") pins);
   };
 }
