@@ -14,7 +14,7 @@
   kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
 
   kor.development.neovim.enable = true;
-  kor.development.vscode.enable = true;
+  # kor.development.vscode.enable = true;
 
   kor.desktop.apps.firefox.enable = true;
 
