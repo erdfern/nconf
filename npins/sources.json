@@ -366,11 +366,6 @@
       "revision": "94f9cbd20f680ebb2ad6cdf39da97cbcfaedf004",
       "url": "https://github.com/Mic92/sops-nix/archive/94f9cbd20f680ebb2ad6cdf39da97cbcfaedf004.tar.gz",
       "hash": "sha256-HdnXWQsA1EI27IJlaENUEEug58trUrh6+MT0cFiDHmY="
-    },
-    "vscode-insider": {
-      "type": "Tarball",
-      "url": "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64",
-      "hash": "sha256-E9hTjY1eRwNKrdpMJOgOJMsTIHV4qA7nTPT+wXIAVzE="
     }
   },
   "version": 7
