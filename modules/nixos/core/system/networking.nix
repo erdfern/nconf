@@ -18,7 +18,7 @@ in
   config = {
     networking.usePredictableInterfaceNames = lib.mkDefault true;
 
-    networking.networkmanager = lib.mkIf cfg.enable {
+    networking.networkmanager = lib.mkIf cfg.networkmanager {
       enable = true;
       plugins = [ pkgs.networkmanager-networkmanager-openvpn ];
     };
