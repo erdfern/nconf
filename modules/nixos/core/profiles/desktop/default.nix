@@ -30,6 +30,7 @@ in
     kor.system.graphics.enable = true;
     kor.system.wifi.enable = true;
     kor.system.bluetooth.enable = true;
+    kor.system.networking.networkmanager = true;
 
     kor.desktop.hyprland.enable = true;
 
