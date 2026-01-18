@@ -25,7 +25,7 @@
   home.packages = [
     # inputs.devenv.result.packages.x86_64-linux.default
     pkgs.devenv
-    pkgs.freecad-qt6
+    # pkgs.freecad
     # pkgs.seamly2d
     # pkgs.valentina-git
   ];
