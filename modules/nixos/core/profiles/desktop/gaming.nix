@@ -85,7 +85,7 @@ in
           ];
         })
 
-        nexusmods-app-unfree # unfree for RAR support
+        # nexusmods-app-unfree # unfree for RAR support; DISCONTINUEEEED :[
       ];
       sessionVariables = {
         STEAM_COMPAT_DATA_PATH = "/home/${me.user}/.local/share/Steam/steamapps/compatdata";
