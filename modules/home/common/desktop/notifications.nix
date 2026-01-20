@@ -32,9 +32,9 @@ in
           background = hexcolor "base";
 
           title-color = hexcolor "text";
-          title-font = "Geist Mono Nerd Font:weight=bold:size=14";
+          title-font = "Geist Mono Nerd Font:weight=bold:size=12";
           summary-color = hexcolor "subtext0";
-          summary-font = "Hack Nerd Font:size=11";
+          summary-font = "Hack Nerd Font:size=9";
           body-color = hexcolor "text";
           body-font = "DroidSansM Nerd Font";
         };
