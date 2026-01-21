@@ -94,7 +94,7 @@ in
         config.modules.home.common
         config.inputs.catppuccin-nix.result.homeModules.catppuccin
         config.inputs.nix-index-database.result.homeModules.nix-index
-        config.inputs.nvim-conf.result.homeModules.default
+        # config.inputs.nvim-conf.result.homeModules.default
         # ({}:{
         # })
       ];

@@ -7,8 +7,8 @@ in
   options.kor.development.neovim.enable = lib.mkEnableOption "Neovim";
 
   config = lib.mkIf cfg.enable {
-    nixCats.enable = true;
-    nixCats.packageNames = [ "nixCats" "regularCats" ];
+    # nixCats.enable = true;
+    # nixCats.packageNames = [ "nixCats" "regularCats" ];
     # programs.neovim = {
     #   # for compat and stuff
     #   enable = true;

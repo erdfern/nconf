@@ -315,19 +315,6 @@
       "url": "https://github.com/NixOS/nixpkgs/archive/80e4adbcf8992d3fd27ad4964fbb84907f9478b0.tar.gz",
       "hash": "sha256-C2TjvwYZ2VDxYWeqvvJ5XPPp6U7H66zeJlRaErJKoEM="
     },
-    "nvim-conf": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "erdfern",
-        "repo": "nvim-conf"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "a99cd24de6115e5c5c27b4a78af2e738653ced2a",
-      "url": "https://github.com/erdfern/nvim-conf/archive/a99cd24de6115e5c5c27b4a78af2e738653ced2a.tar.gz",
-      "hash": "sha256-1zRdby0mX0w+JmzmtLPQRRzFnp5UEVp1j2cXuZsV14w="
-    },
     "rycee-nur-expressions": {
       "type": "Git",
       "repository": {
