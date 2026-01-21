@@ -3,7 +3,7 @@
 let
   cfg = config.kor.desktop.apps.hyprpanel;
 
-  hyprpanel-git = inputs.hyprpanel.result.packages.${pkgs.system}.default;
+  hyprpanel-git = inputs.hyprpanel.result.packages.${pkgs.stdenv.hostPlatform.system}.default;
   theme_path = "${hyprpanel-git}/share/themes/catppuccin_mocha.json";
   # theme_path = "${hyprpanel-git}/share/themes/catppuccin_mocha.json";
   # theme_path = "${hyprpanel-git}/share/themes/catppuccin_mocha_vivid.json";

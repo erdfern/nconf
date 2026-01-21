@@ -37,7 +37,7 @@ in
 
         # package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; })) { };
         # TODO use nightly option to decide which package to use
-        package = inputs.firefox-nightly.result.packages.${pkgs.system}.firefox-nightly-bin;
+        package = inputs.firefox-nightly.result.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin;
 
         profiles.default =
           {
