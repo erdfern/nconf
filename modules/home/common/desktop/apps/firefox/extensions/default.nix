@@ -5,7 +5,8 @@ let
   # nix flake show --json "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons" --all-systems | jq -r '.packages."x86_64-linux" | keys[]' | rg QUERY
   # ryceeAddons = with inputs.firefox-addons.result.packages.${pkgs.stdenv.hostPlatform.system};
   # ryceeAddons = with inputs.firefox-addons.result; # only x86_64 for now
-  ryceeAddons = with (inputs.rycee-nur-expressions.result { pkgs = pkgs; }).firefox-addons; [
+  # ryceeAddons = with (inputs.rycee-nur-expressions.result { pkgs = pkgs; }).firefox-addons; [
+  ryceeAddons = with inputs.nur.repos.rycee.firefox-addons; [
     ublock-origin
     # TODO declare settings
     consent-o-matic
