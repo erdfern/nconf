@@ -55,6 +55,7 @@ let
       overlays = [
         config.overlays.default
         config.inputs.neovim-nightly-overlay.result.overlays.default
+        config.inputs.nur.result.overlays.default
         # (self: super: {
         #   gnome = super.gnome.overrideScope' (gself: gsuper: {
         #     nautilus = gsuper.nautilus.overrideAttrs (nsuper: {

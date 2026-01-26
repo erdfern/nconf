@@ -3,7 +3,7 @@
 let
   # tridactyl = inputs.firefox-addons.result.tridactyl;
   # tridactyl = (inputs.rycee-nur-expressions.result { pkgs = pkgs; }).firefox-addons.tridactyl;
-  tridactyl = inputs.nur.repos.rycee.firefox-addons.tridactyl;
+  tridactyl = pkgs.nur.repos.rycee.firefox-addons.tridactyl;
 in
 {
   programs.firefox = {
