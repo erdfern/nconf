@@ -328,19 +328,6 @@
       "url": "https://github.com/nix-community/nur/archive/42c1e2bb76c3952d37ae0e61a5069e8a47983c5e.tar.gz",
       "hash": "sha256-CywFJ9fcsqtitCQt9VokkxIJNCXzcyGKRoYd3dk1MhE="
     },
-    "rycee-nur-expressions": {
-      "type": "Git",
-      "repository": {
-        "type": "GitLab",
-        "repo_path": "rycee/nur-expressions",
-        "server": "https://gitlab.com/"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "25dae404070232baab384b281dbdc8eb70f37ad0",
-      "url": "https://gitlab.com/api/v4/projects/rycee%2Fnur-expressions/repository/archive.tar.gz?sha=25dae404070232baab384b281dbdc8eb70f37ad0",
-      "hash": "sha256-YJRz6mriRWr5wGftEwm8KFRKtu6ZgsX21NYeXVKGd9M="
-    },
     "sops-nix": {
       "type": "Git",
       "repository": {
