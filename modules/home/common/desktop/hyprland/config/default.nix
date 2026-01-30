@@ -122,15 +122,25 @@ in
           (f "mpv")
           (f "nemo")
           (f "termfloat")
-          (f "clipse")
-          "match:class clipse, size size 316 512"
+          # (f "clipse")
+          # "match:class clipse, size size 316 512"
 
           "match:class termfloat, rounding 5"
           "match:class termfloat, size 980 640"
           "match:title ^(Picture-in-Picture)$, move -25%"
 
           "match:class ^(rimworld)$, immediate true"
-        ] ++ lib.optionals (!cfg.hy3.enable) [
+        ] ++
+        [{
+          name = "clipse-modal";
+          "match:class" = "clipse";
+          float = true;
+          center = true;
+          pin = true;
+          border_size = 8;
+          size = "512 828";
+        }]
+        ++ lib.optionals (!cfg.hy3.enable) [
           # smart gaps/'no gaps when only'
           "match:float false, match:workspace w[tv1], border_size 0"
           "match:float false, match:workspace w[tv1], rounding 0"

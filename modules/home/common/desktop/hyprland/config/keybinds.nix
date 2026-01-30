@@ -2,6 +2,16 @@
 let
   app2unit = "${pkgs.app2unit-kor}/bin/app2unit";
   uwsmRun = cmd: "${app2unit} ${cmd}";
+
+  grimblast = "${pkgs.grimblast}/bin/grimblast";
+  hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  # light = "${pkgs.light}/bin/light";
+  bright = "${pkgs.brightnessctl}/bin/brightnessctl";
+  fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
+  powermenu = "${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu";
+
   toggle_waybar = pkgs.writeShellScript "toggle_waybar" ''
     ${pkgs.killall}/bin/killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
   '';
@@ -16,14 +26,13 @@ let
       hyprctl dispatch dpms on
     fi
   '';
-  grimblast = "${pkgs.grimblast}/bin/grimblast";
-  hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
-  playerctl = "${pkgs.playerctl}/bin/playerctl";
-  wpctl = "${pkgs.wireplumber}/bin/wpctl";
-  # light = "${pkgs.light}/bin/light";
-  bright = "${pkgs.brightnessctl}/bin/brightnessctl";
-  fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
-  powermenu = "${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu";
+  toggle_clipse = pkgs.writeShellScript "toggle_clipse" ''
+    if ${pkgs.hyprland}/bin/hyprctl clients -j | ${pkgs.jq}/bin/jq -e '.[] | select(.class == "clipse")' > /dev/null; then
+      ${pkgs.hyprland}/bin/hyprctl dispatch closewindow class:clipse
+    else
+      ${uwsmRun terminal} --class clipse -e 'clipse'
+    fi
+  '';
 
   terminal = cfg.terminal;
   quick-terminal = cfg.terminalQ;
@@ -93,7 +102,8 @@ in
           "${mod}, Print, exec, ${uwsmRun grimblast} --notify copy screen"
 
           # clipse
-          "${mod} SHIFT, grave, exec, ${uwsmRun terminal} --class clipse -e 'clipse'"
+          # "${mod} SHIFT, grave, exec, ${uwsmRun terminal} --class clipse -e 'clipse'"
+          "${mod} SHIFT, grave, exec, ${toggle_clipse}"
 
           # minimize using special workspace
           "${mod} SHIFT, S, togglespecialworkspace, magic"
