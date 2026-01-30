@@ -120,10 +120,8 @@ in
           (f "Picture-inPicture")
           (f "imv")
           (f "mpv")
-          (f "nemo")
+          # (f "nemo")
           (f "termfloat")
-          # (f "clipse")
-          # "match:class clipse, size size 316 512"
 
           "match:class termfloat, rounding 5"
           "match:class termfloat, size 980 640"
