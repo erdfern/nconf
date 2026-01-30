@@ -9,6 +9,7 @@
 # in
 {
   imports = [
-  ./gaming.nix
+    ./gaming.nix
+    ./media.nix
   ];
 }
