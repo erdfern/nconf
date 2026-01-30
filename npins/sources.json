@@ -13,6 +13,19 @@
       "url": "https://github.com/catppuccin/nix/archive/d745dab3172e426fef9767f46651ba073db4d04b.tar.gz",
       "hash": "sha256-QIZLsan8c+Kje4rqlXUd9KW/Rmpss5p5GNqV0V12OY8="
     },
+    "code-insiders-flake": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "iosmanthus",
+        "repo": "code-insiders-flake"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "890ed715afd395beb6b04e4642326ce9ae094a43",
+      "url": "https://github.com/iosmanthus/code-insiders-flake/archive/890ed715afd395beb6b04e4642326ce9ae094a43.tar.gz",
+      "hash": "sha256-xYO1qBRamH4/euPQ87OyR89YtP4XW3e+MmkpQ2bTkoQ="
+    },
     "comma": {
       "type": "Git",
       "repository": {
