@@ -112,7 +112,7 @@ in
 
       windowrule =
         let
-          f = regex: "match:class ^(${regex})$, float on";
+          f = regex: "match:class ^(${regex})$, float true";
         in
         [
           # #`hyprctl clients` get class、title...
@@ -123,12 +123,13 @@ in
           (f "nemo")
           (f "termfloat")
           (f "clipse")
+          "match:class clipse, size size 405 656"
 
           "match:class termfloat, rounding 5"
           "match:class termfloat, size 980 640"
           "match:title ^(Picture-in-Picture)$, move -25%"
 
-          "match:class ^(rimworld)$, immediate on"
+          "match:class ^(rimworld)$, immediate true"
         ] ++ lib.optionals (!cfg.hy3.enable) [
           # smart gaps/'no gaps when only'
           "match:float false, match:workspace w[tv1], border_size 0"

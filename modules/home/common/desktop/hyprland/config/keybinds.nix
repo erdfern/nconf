@@ -92,6 +92,9 @@ in
           "${mod}, bracketright, exec, ${uwsmRun grimblast} --notify copy area"
           "${mod}, Print, exec, ${uwsmRun grimblast} --notify copy screen"
 
+          # clipse
+          "${mod} SHIFT, grave, exec, ${uwsmRun terminal} --class clipse -e 'clipse'"
+
           # minimize using special workspace
           "${mod} SHIFT, S, togglespecialworkspace, magic"
           "${mod} SHIFT, S, movetoworkspace, +0"
