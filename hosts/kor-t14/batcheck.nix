@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
-  battery_path  = "/sys/class/power_supply/BAT0/capacity";
+  battery_path = "/sys/class/power_supply/BAT0/capacity";
+  notify_send = "${pkgs.libnotify}/bin/notify-send";
   batcheck = pkgs.writeShellScript "batcheck" ''
     #!/usr/bin/env bash
     
@@ -27,7 +28,7 @@ let
     if [ "$CAPACITY" -lt "$LOW_THRESHOLD" ]; then
       # -u critical: Sets urgency level
       # You can customize the title and message
-      notify-send -u critical \
+      ${notify_send} -u critical \
                            "Battery level at ''${CAPACITY}%"
     fi
 
