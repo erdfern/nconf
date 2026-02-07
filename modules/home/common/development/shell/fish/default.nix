@@ -1,5 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 {
+  catppuccin.fish.enable = true;
   # TODO use noshell?
   # use fish as interactive shell, but keep bash as login shell for compat etc.
   programs.bash = {
@@ -21,18 +22,18 @@
       { name = "plugin-git"; src = plugin-git.src; } # git aliases
     ];
 
-    # loginShellInit = lib.mkIf config.wayland.windowManager.hyprland.enable ''
-    #   set TTY1 (tty)
-    #   # if begin uwsm check may-start; and uwsm select; end
-    #   # 	exec uwsm start default
-    #   # end
-    #   # start hyprland directly
-    #   if uwsm check may-start
-    #     exec uwsm start default
-    #   end
-    #   # [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
-    #   # [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
-    # '';
+    loginShellInit = lib.mkIf config.wayland.windowManager.hyprland.enable ''
+      set TTY1 (tty)
+      # if begin uwsm check may-start; and uwsm select; end
+      # 	exec uwsm start default
+      # end
+      # start hyprland directly
+      if uwsm check may-start
+        exec uwsm start hyprland-uwsm.desktop
+      end
+      # [ "$TTY1" = "/dev/tty1" ] && exec dbus-run-session Hyprland
+      # [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
+    '';
 
     interactiveShellInit = ''
       set fish_greeting ""
@@ -45,8 +46,8 @@
       hf = ''hx (FZF_DEFAULT_COMMAND='fd' FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'" fzf --height 60% --layout reverse --info inline --border --color 'border:#b48ead')'';
       r = "yazi";
       top = "btop";
-      trl = "trashy list | fzf --multi | awk '{$1=$1;print}' | rev | cut -d ' ' -f1 | rev | xargs trashy restore --match=exact --force";
-      tre = "trashy list | fzf --multi | awk '{$1=$1;print}' | rev | cut -d ' ' -f1 | rev | xargs trashy empty --match=exact --force";
+      # trl = "trashy list | fzf --multi | awk '{$1=$1;print}' | rev | cut -d ' ' -f1 | rev | xargs trashy restore --match=exact --force";
+      # tre = "trashy list | fzf --multi | awk '{$1=$1;print}' | rev | cut -d ' ' -f1 | rev | xargs trashy empty --match=exact --force";
     };
 
     functions = {
