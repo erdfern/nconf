@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
   app2unit = "${pkgs.app2unit-kor}/bin/app2unit";
   uwsmRun = cmd: "${app2unit} ${cmd}";
@@ -11,6 +11,16 @@ let
   bright = "${pkgs.brightnessctl}/bin/brightnessctl";
   fuzzel = "${pkgs.fuzzel}/bin/fuzzel";
   powermenu = "${pkgs.fuzzel-powermenu}/bin/fuzzel-powermenu";
+  swayosdClient = "${pkgs.swayosd}/bin/swayosd-client";
+
+  useOSD = config.kor.desktop.apps.swayosd.enable;
+
+  volUp = if useOSD then "exec, ${swayosdClient} --output-volume raise" else "exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+  volDown = if useOSD then "exec, ${swayosdClient} --output-volume lower" else "exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+  volMute = if useOSD then "exec, ${swayosdClient} --output-volume mute-toggle" else "exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
+  micMute = if useOSD then "exec, ${swayosdClient} --input-volume mute-toggle" else "exec, ${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+  briUp = if useOSD then "exec, ${swayosdClient} --brightness raise" else "exec, ${bright} set +5%";
+  briDown = if useOSD then "exec, ${swayosdClient} --brightness lower" else "exec, ${bright} set 5%-";
 
   toggle_waybar = pkgs.writeShellScript "toggle_waybar" ''
     ${pkgs.killall}/bin/killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
@@ -19,7 +29,14 @@ let
     hyprpanel toggleWindow bar-0
   '';
   toggle_bar = if config.kor.desktop.apps.waybar.enable then toggle_waybar else toggle_hyprpanel;
-  toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
+  # toggle_dpms = pkgs.writeShellScriptBin "toggle_dpms" ''
+  #   if [ "$(hyprctl monitors all -j | ${pkgs.jq}/bin/jq 'map(.dpmsStatus) | any')" = "true" ]; then
+  #     hyprctl dispatch dpms off
+  #   else
+  #     hyprctl dispatch dpms on
+  #   fi
+  # '';
+  toggle_dpms = pkgs.writeShellScript "toggle_dpms" ''
     if [ "$(hyprctl monitors all -j | ${pkgs.jq}/bin/jq 'map(.dpmsStatus) | any')" = "true" ]; then
       hyprctl dispatch dpms off
     else
@@ -44,7 +61,8 @@ in
 {
   wayland.windowManager.hyprland = {
     sourceFirst = true;
-    # toggle keybinds
+
+    # toggle keybinds via "clean" submap
     extraConfig =
       ''
         bind = ${mod}, F11, submap, clean
@@ -52,6 +70,7 @@ in
         bind = ${mod}, F11, submap, reset
         submap = reset
       '';
+
     settings = {
       binds = {
         workspace_back_and_forth = true;
@@ -143,21 +162,27 @@ in
         ];
 
       bindl = [
-        ",XF86Display,      exec, ${toggle_dpms}/bin/toggle_dpms"
+        # ",XF86Display,      exec, ${toggle_dpms}/bin/toggle_dpms"
+        ",XF86Display,      exec, ${toggle_dpms}"
         ",XF86AudioPlay,    exec, ${playerctl} play-pause"
         ",XF86AudioStop,    exec, ${playerctl} pause"
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMute,    exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-      ];
+
+        ",XF86AudioMute,    ${volMute}"
+        ",XF86AudioMicMute, ${micMute}"
+      ]
+      ++ (lib.optionals useOSD [
+        ",Caps_Lock, exec, ${swayosdClient} --caps-lock"
+      ]);
 
       bindle = [
-        ",XF86MonBrightnessUp,   exec, ${bright} set +5%" # TODO conditional on host having brightness control
-        ",XF86MonBrightnessDown, exec, ${bright} set 5%-" # "
-        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86MonBrightnessUp,   ${briUp}"
+        ",XF86MonBrightnessDown, ${briDown}"
+
+        ",XF86AudioRaiseVolume,  ${volUp}"
+        ",XF86AudioLowerVolume,  ${volDown}"
       ];
 
       # bindm = [

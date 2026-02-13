@@ -136,7 +136,15 @@ in
           center = true;
           pin = true;
           border_size = 8;
-          size = "512 828";
+
+          # make it a nice size
+          # size = "512 828";
+          # Width = 50% of monitor, Height = Width / Golden Ratio (1.618)
+          # "size (monitor_w*0.5) (monitor_w*0.5/1.618), class:(clipse)"
+          size = "(monitor_w*0.5) (monitor_w*0.5/1.618)";
+          # Alternative: fixed height (e.g. 60% of screen) and golden width
+          # "size (monitor_h*0.6*1.618) (monitor_h*0.6), class:(clipse)"
+
         }]
         ++ lib.optionals (!cfg.hy3.enable) [
           # smart gaps/'no gaps when only'

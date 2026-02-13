@@ -11,6 +11,7 @@
     ./nemo
     ./waybar
     ./hyprpanel
+    ./swayosd
     ./imv.nix
     ./mpv.nix
   ];
