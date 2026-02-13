@@ -12,6 +12,7 @@
   kor.desktop.apps.waybar.enable = true;
   kor.desktop.apps.waybar.hyprlandAutostart = true;
   kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
+  kor.desktop.apps.swayosd.enable = true;
 
   kor.development.neovim.enable = true;
   # kor.development.vscode.enable = true;
