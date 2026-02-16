@@ -2,6 +2,9 @@
   imports = [ ./btop.nix ];
 
   home.packages = with pkgs; [
+    # obsidian at home
+    pkgs.zk
+
     # file system view
     # cool resource: https://dev.yorhel.nl/ncdu
     pkgs.gdu
