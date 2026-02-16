@@ -1,9 +1,13 @@
 { pkgs, ... }: {
   imports = [ ./btop.nix ];
 
+  # obsidian at home
+  programs.zk = {
+    enable = true;
+    # settings = {};
+  };
+
   home.packages = with pkgs; [
-    # obsidian at home
-    pkgs.zk
 
     # file system view
     # cool resource: https://dev.yorhel.nl/ncdu
