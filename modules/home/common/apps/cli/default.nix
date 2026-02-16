@@ -11,10 +11,10 @@
 
     # file system view
     # cool resource: https://dev.yorhel.nl/ncdu
-    pkgs.gdu
-    # pkgs.ncdu
-    # pkgs.duf
-    # pkgs.dust
+    gdu
+    # ncdu
+    # duf
+    # dust
   ];
   services.clipse = {
     enable = true;
