@@ -125,7 +125,7 @@ in
       # modules = [ config.modules.nixos.lix ];
       modules = [
         ({ pkgs, ... }: {
-          nix.package = pkgs.lixPackageSets.stable.lix;
+          # nix.package = pkgs.lixPackageSets.stable.lix;
           # NOTE 16.10.25 the nixpkgs lix package does this (and more) by itself now!
           # nixpkgs.overlays = [
           #   (final: prev: {
