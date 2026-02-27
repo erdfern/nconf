@@ -126,9 +126,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "2a39b0828bbffce0d73769a61e46e780488d098b",
-      "url": "https://github.com/nix-community/home-manager/archive/2a39b0828bbffce0d73769a61e46e780488d098b.tar.gz",
-      "hash": "sha256-zRcwrZDeBfYipqv/7K7TqsfPb87LFU6b7JhoNUGSnvQ="
+      "revision": "f3a30376bb9eb2f6f61816be7d6ed954b6d2a3b9",
+      "url": "https://github.com/nix-community/home-manager/archive/f3a30376bb9eb2f6f61816be7d6ed954b6d2a3b9.tar.gz",
+      "hash": "sha256-G8nArvOTZXU8DRvrzAdz3Elcj6kA/vMtvY9mrGLATtA="
     },
     "hy3": {
       "type": "Git",
@@ -152,9 +152,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "70cdd819e4bee3c4dcea6961d32e61e6afe4eeb0",
+      "revision": "0002f148c9a4fe421a9d33c0faa5528cdc411e62",
       "url": null,
-      "hash": "sha256-29oCzECRYpbPWsPLLKRfKeyfP4Q3zzmYX1af8INdfAs="
+      "hash": "sha256-wfiduannx1mWvsGAfuMk8ipOU3AAFuJYPNV4D++dhPY="
     },
     "hyprpanel": {
       "type": "Git",
@@ -202,9 +202,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f13566a3f65ca5aa56674b42f2622e2890603aa7",
+      "revision": "dda934965dfa1beaede1f3b46ea730d1bab52c02",
       "url": null,
-      "hash": "sha256-epiEFqqQDEgXaTg8+i8/UIHYYP1SNE3NFXcMHpmPrz8="
+      "hash": "sha256-fXrFFmgZI+Bk+m0keV5VHkVsrGqnzsq91vqtlbMizS0="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
@@ -337,9 +337,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "6c8da78686321b7b91e6f28c44dd5a9b744852ac",
-      "url": "https://github.com/nix-community/nur/archive/6c8da78686321b7b91e6f28c44dd5a9b744852ac.tar.gz",
-      "hash": "sha256-Xn2MbaQ2uEvZrjMhNJrNNCE13gYP7CyWSIbLEWKW3DQ="
+      "revision": "39319df073d7b7abf6d037bfbb3acc0661fe081b",
+      "url": "https://github.com/nix-community/nur/archive/39319df073d7b7abf6d037bfbb3acc0661fe081b.tar.gz",
+      "hash": "sha256-XQNJbEHohLgpIdNn52cLH646tXIm1J6LPfOpIsSfcuc="
     },
     "sops-nix": {
       "type": "Git",
