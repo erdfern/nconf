@@ -100,124 +100,125 @@ in
           DNSOverTLS = "true";
         };
       };
-      networking.nameservers = lib.mkDefault [
-        "1.1.1.1"
-        "1.0.0.1"
+    };
+    networking.nameservers = lib.mkDefault [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+    # since we manage dns manually..
+    networking.useDHCP = false;
+    networking.dhcpcd.enable = false;
+    networking.networkmanager.dhcp = "internal";
+    # networking.networkmanager.dns = "systemd-resolved";
+
+    # TEMP ports for wake on lan
+    # networking.firewall.rejectPackets = true;
+    # networking.firewall.allowedTCPPorts = [ 9 ];
+    # networking.firewall.allowedUDPPorts = [ 9 ];
+
+    environment.systemPackages = map lib.lowPrio [
+      pkgs.kitty
+      pkgs.starship
+      pkgs.networkmanagerapplet
+      # pkgs.app2unit # for properly starting apps in uwsm
+      pkgs.app2unit-kor # for properly starting apps in uwsm
+      pkgs.xdg-terminal-exec # app2unit terminal support
+    ];
+
+    # Setup persisted directories.
+    kor.system.impermanence.root = lib.mkIf config.kor.system.impermanence.enable {
+      extraDirectories = [
+        "/var/lib/bluetooth"
+        "/etc/NetworkManager/system-connections"
       ];
-      # since we manage dns manually..
-      networking.useDHCP = false;
-      networking.dhcpcd.enable = false;
-      networking.networkmanager.dhcp = "internal";
-      # networking.networkmanager.dns = "systemd-resolved";
-
-      # TEMP ports for wake on lan
-      # networking.firewall.rejectPackets = true;
-      # networking.firewall.allowedTCPPorts = [ 9 ];
-      # networking.firewall.allowedUDPPorts = [ 9 ];
-
-      environment.systemPackages = map lib.lowPrio [
-        pkgs.kitty
-        pkgs.starship
-        pkgs.networkmanagerapplet
-        # pkgs.app2unit # for properly starting apps in uwsm
-        pkgs.app2unit-kor # for properly starting apps in uwsm
-        pkgs.xdg-terminal-exec # app2unit terminal support
+      extraFiles = [
+        "/var/lib/NetworkManager/secret_key"
+        "/var/lib/NetworkManager/seen-bssids"
+        "/var/lib/NetworkManager/timestamps"
       ];
+    };
 
-      # Setup persisted directories.
-      kor.system.impermanence.root = lib.mkIf config.kor.system.impermanence.enable {
-        extraDirectories = [
-          "/var/lib/bluetooth"
-          "/etc/NetworkManager/system-connections"
-        ];
-        extraFiles = [
-          "/var/lib/NetworkManager/secret_key"
-          "/var/lib/NetworkManager/seen-bssids"
-          "/var/lib/NetworkManager/timestamps"
-        ];
-      };
+    fonts = {
+      enableDefaultPackages = true;
+      enableGhostscriptFonts = false;
 
-      fonts = {
-        enableDefaultPackages = true;
-        enableGhostscriptFonts = false;
+      fontDir.enable = true;
+      # fontDir.decompressFonts = # default if xwayland is enabled
 
-        fontDir.enable = true;
-        # fontDir.decompressFonts = # default if xwayland is enabled
+      fontconfig = {
+        enable = true;
+        antialias = true;
+        allowBitmaps = false; # no bitmap fonts
+        # useEmbeddedBitmaps = false; # default
+        # allowType1 = false; # default
 
-        fontconfig = {
-          enable = true;
-          antialias = true;
-          allowBitmaps = false; # no bitmap fonts
-          # useEmbeddedBitmaps = false; # default
-          # allowType1 = false; # default
+        # for dpi < 200
+        subpixel.lcdfilter = "default";
+        subpixel.rgba = "rgb"; # default none
+        # for dpi < 200
+        hinting.enable = true;
+        # hinting.autohint = false;
+        hinting.style = "slight";
 
-          # for dpi < 200
-          subpixel.lcdfilter = "default";
-          subpixel.rgba = "rgb"; # default none
-          # for dpi < 200
-          hinting.enable = true;
-          # hinting.autohint = false;
-          hinting.style = "slight";
-
-          # defaultFonts = {
-          #   emoji = [ "Noto Color Emoji" ];
-          #   serif = [ "Noto Serif" ];
-          #   sansSerif = [ "Noto Sans" ];
-          #   monospace = [ "Noto Sans Mono" ];
-          # };
-          defaultFonts = {
-            emoji = [ "Noto Color Emoji" ];
-            # serif = [ "Noto Serif" ];
-            # sansSerif = [ "Noto Sans" ];
-            monospace = [ "GeistMono Nerd Font" ];
-          };
-
-          # localConf = '''';
+        # defaultFonts = {
+        #   emoji = [ "Noto Color Emoji" ];
+        #   serif = [ "Noto Serif" ];
+        #   sansSerif = [ "Noto Sans" ];
+        #   monospace = [ "Noto Sans Mono" ];
+        # };
+        defaultFonts = {
+          emoji = [ "Noto Color Emoji" ];
+          # serif = [ "Noto Serif" ];
+          # sansSerif = [ "Noto Sans" ];
+          monospace = [ "GeistMono Nerd Font" ];
         };
 
-        packages = with pkgs; [
-          # noto-fonts # smaller than nerdfont by a LOT, buut... missing unicode symbols, ironically?
-          noto-fonts-color-emoji
-        ] ++
-        (with nerd-fonts ; [
-          noto # everything... also huge as nerdfont
-          # inconsolata
-          # ubuntu
-          # ubuntu-sans
-          # ubuntu-mono
-          # jetbrains-mono
-          space-mono # sans mono
-          zed-mono # sans mono
-          caskaydia-cove
-          # caskaydia-mono # cove but no ligatures?
-          geist-mono # sans mono
-          hack # sans
-          # profont
-          # monaspace
-          #md-io        
-          droid-sans-mono # good for small screens or font sizes
-        ]);
+        # localConf = '''';
       };
 
-      users.users.${user}.extraGroups = [
-        "cdrom"
-        "input"
-        "tty"
-        "video"
-        "dialout"
-        "networkmanager"
-
-        "render" # not suree. might be important for vulkan stuff
-      ];
-
-      # xkb config
-      services.xserver.xkb = {
-        layout = "us,de";
-        options = "caps:escape_shifted_capslock,grp:shifts_toggle";
-      };
-      # make TTY use xkb config
-      console.useXkbConfig = true;
-      # not needed for xkb or anything! but i like the more immediate prompt
-      console.earlySetup = true;
+      packages = with pkgs; [
+        # noto-fonts # smaller than nerdfont by a LOT, buut... missing unicode symbols, ironically?
+        noto-fonts-color-emoji
+      ] ++
+      (with nerd-fonts ; [
+        noto # everything... also huge as nerdfont
+        # inconsolata
+        # ubuntu
+        # ubuntu-sans
+        # ubuntu-mono
+        # jetbrains-mono
+        space-mono # sans mono
+        zed-mono # sans mono
+        caskaydia-cove
+        # caskaydia-mono # cove but no ligatures?
+        geist-mono # sans mono
+        hack # sans
+        # profont
+        # monaspace
+        #md-io        
+        droid-sans-mono # good for small screens or font sizes
+      ]);
     };
-  }
+
+    users.users.${user}.extraGroups = [
+      "cdrom"
+      "input"
+      "tty"
+      "video"
+      "dialout"
+      "networkmanager"
+
+      "render" # not suree. might be important for vulkan stuff
+    ];
+
+    # xkb config
+    services.xserver.xkb = {
+      layout = "us,de";
+      options = "caps:escape_shifted_capslock,grp:shifts_toggle";
+    };
+    # make TTY use xkb config
+    console.useXkbConfig = true;
+    # not needed for xkb or anything! but i like the more immediate prompt
+    console.earlySetup = true;
+  };
+}
