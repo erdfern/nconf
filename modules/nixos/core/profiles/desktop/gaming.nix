@@ -78,8 +78,7 @@ in
             gamescope
             gamemode
             # pkgs.proton-ge-bin
-            # wineWow64Packages.full
-            wineWowPackages.full
+            wineWow64Packages.full
             winetricks
           ];
         })
