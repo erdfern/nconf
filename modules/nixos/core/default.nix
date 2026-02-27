@@ -20,7 +20,7 @@ in
     kor.system.boot.enable = lib.mkDefault true;
     kor.basic-utils = lib.mkDefault true;
 
-    documentation.man.generateCaches.enable = lib.mkForce false; # sometimes _veryy_ slow, and i don't use man often tbh. Enabled by fish.
+    # documentation.man.generateCaches.enable = lib.mkForce false; # sometimes _veryy_ slow, and i don't use man often tbh. Enabled by fish.
 
     # TODO mv
     catppuccin.enable = lib.mkDefault true;
