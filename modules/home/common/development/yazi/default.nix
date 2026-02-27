@@ -5,6 +5,7 @@
     enableFishIntegration = true;
     enableBashIntegration = true;
     # enableNushellIntegration = true;
+    shellWrapperName = "yy"; # "y" is default
   };
 
   home.file = {
