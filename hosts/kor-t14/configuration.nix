@@ -37,7 +37,7 @@
   environment.systemPackages = [ pkgs.colmena ];
 
   # TEMP
-  nix.package = pkgs.lix;
+  # nix.package = pkgs.lix;
   users.users = {
     root.hashedPasswordFile = "/persist/passwords/root";
     ${me.user}.hashedPasswordFile = "/persist/passwords/${me.user}";

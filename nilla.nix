@@ -28,11 +28,11 @@ in
     # inputs.nilla-utils = { src = ./modules/nilla-utils; loader = "nilla"; };
 
     # TODO make lix per-system option
-    modules.nixos.lix = (import "${config.inputs.lix.result}/module.nix" {
-      lix = (lib.paths.into.drv config.inputs.lix-src.src) // {
-        rev = "latest";
-      };
-    });
+    # modules.nixos.lix = (import "${config.inputs.lix.result}/module.nix" {
+    #   lix = (lib.paths.into.drv config.inputs.lix-src.src) // {
+    #     rev = "latest";
+    #   };
+    # });
 
     ###########
     ## NixOS ##
