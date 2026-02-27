@@ -69,8 +69,7 @@ in
         # wineWowPackages.full
         # wineWowPackages.staging
         # wineWowPackages.waylandFull
-        # wineWow64Packages.full # experimental compat layer for running 32bit without installing 32bit libs, idk
-        wineWowPackages.full
+        wineWow64Packages.full # experimental compat layer for running 32bit without installing 32bit libs, idk
 
         winetricks
 
