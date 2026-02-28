@@ -52,7 +52,7 @@
       "extensions.update.autoUpdateDefault" = false;
       "extensions.update.enabled" = false;
 
-      "widget.use-xdg-desktop-portal.file-picker" = 1; # Use new gtk file picker instead of legacy one
+      # "widget.use-xdg-desktop-portal.file-picker" = 1; # Use new gtk file picker instead of legacy one
 
       # Privacy
       # "Preference not allowed for stability reasons."

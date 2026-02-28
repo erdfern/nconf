@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "7866cd77b02315e8da0a887427a1b163c79d826a",
-      "url": "https://github.com/iosmanthus/code-insiders-flake/archive/7866cd77b02315e8da0a887427a1b163c79d826a.tar.gz",
-      "hash": "sha256-E6FpO8QEVB2CSWCIqsxqQwOUL2yNekeHTrev814taxI="
+      "revision": "0233faf57cdbc8218211f060077285fc82beceaf",
+      "url": "https://github.com/iosmanthus/code-insiders-flake/archive/0233faf57cdbc8218211f060077285fc82beceaf.tar.gz",
+      "hash": "sha256-DkZpzVNO7l92+K5I6qK/mIu3/xEEDZujbtbDIBI/Tlk="
     },
     "comma": {
       "type": "Git",
@@ -87,9 +87,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "67fbadc8f6d2bc725c77aa1f5da6a3cea1dbdcdd",
-      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/67fbadc8f6d2bc725c77aa1f5da6a3cea1dbdcdd.tar.gz",
-      "hash": "sha256-OraQT8FBp4fifcfX9LbeEzvWWQ9ELIg48v0sylXqGXA="
+      "revision": "0d8d3c31492b6dbf9a2eaf9e4e4564b5c45a36b7",
+      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/0d8d3c31492b6dbf9a2eaf9e4e4564b5c45a36b7.tar.gz",
+      "hash": "sha256-0OK+4lD6uktRlnrcC5iplWYPkzeXKUf8h3IwetQeIVo="
     },
     "flake-compat": {
       "type": "Git",
@@ -202,9 +202,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "dda934965dfa1beaede1f3b46ea730d1bab52c02",
+      "revision": "052d04512e6172a2b8a87aef94c909882c083e28",
       "url": null,
-      "hash": "sha256-fXrFFmgZI+Bk+m0keV5VHkVsrGqnzsq91vqtlbMizS0="
+      "hash": "sha256-KNbkapTWKhAgNzsVlK5lNrHSf+98pYPYAoHKRJ4fxQM="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
@@ -215,9 +215,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "de416cbd51404e64540ca4746393d1866b219bae",
-      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/de416cbd51404e64540ca4746393d1866b219bae.tar.gz",
-      "hash": "sha256-0QNL7sbGgKipjr1uXr3KpaPgBWKZmM97l/T7zkWdVqI="
+      "revision": "2ce78fc089b857211b7f48de7efd45167d77e1d7",
+      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/2ce78fc089b857211b7f48de7efd45167d77e1d7.tar.gz",
+      "hash": "sha256-4tEHZDVzIVW/jjieutU/8BDEiDXhNiAavY4rzWaxULQ="
     },
     "nilla": {
       "type": "Git",
@@ -337,9 +337,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "39319df073d7b7abf6d037bfbb3acc0661fe081b",
-      "url": "https://github.com/nix-community/nur/archive/39319df073d7b7abf6d037bfbb3acc0661fe081b.tar.gz",
-      "hash": "sha256-XQNJbEHohLgpIdNn52cLH646tXIm1J6LPfOpIsSfcuc="
+      "revision": "87b4f53f7c7a8d7036924f354c69da90ec552aab",
+      "url": "https://github.com/nix-community/nur/archive/87b4f53f7c7a8d7036924f354c69da90ec552aab.tar.gz",
+      "hash": "sha256-xcrs6WcsCZFaJrTKiFrE+8rZPLmZBdDikkk4IBCJGDU="
     },
     "sops-nix": {
       "type": "Git",
