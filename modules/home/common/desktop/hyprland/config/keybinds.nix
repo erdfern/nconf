@@ -102,7 +102,8 @@ in
           "${mod} SHIFT, F, fullscreenstate, 0 3" # client internal state to fullscreen, hyprland state to.. not
           # "${mod}, G, fullscreenstate, 3 3" # fullscreen, same as 2 2 i think??
           # "${mod}, G, fullscreenstate, 1 0"
-          "${mod}, P, togglesplit"
+          "${mod}, P, layoutmsg, togglesplit"
+          "${mod} SHIFT, P, layoutmsg, swapsplit"
           # "${mod}, T, togglegroup"
 
           ",Super_L, exec, pkill fuzzel || ${fuzzel}"
