@@ -202,9 +202,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e8015836e33b07ee1f1d5738bb030f7fe0b69d63",
+      "revision": "37ccd28c3b12209c9f03f6f8b37a770b8a28c63d",
       "url": null,
-      "hash": "sha256-piYKdPmaUap61b+igD+oPgc5nieRv64VQwyiXEwd9S4="
+      "hash": "sha256-gYJdRpJjtJ5Q7KMuP41h2ydcKLfE06an/jNkJElJkBU="
     },
     "neovim-nightly-overlay": {
       "type": "Git",
@@ -337,9 +337,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "3dccd5c1a41acc2074cc1c628f7a33796cd013ef",
-      "url": "https://github.com/nix-community/nur/archive/3dccd5c1a41acc2074cc1c628f7a33796cd013ef.tar.gz",
-      "hash": "sha256-h4A1FGBEQaAgfsHwQnLRh5sws92M9RNwHwWAP9QywUI="
+      "revision": "b353cc2e9c2fd3c60ad4d268f5d798a8eb3d4a31",
+      "url": "https://github.com/nix-community/nur/archive/b353cc2e9c2fd3c60ad4d268f5d798a8eb3d4a31.tar.gz",
+      "hash": "sha256-ycNSHrrUzNRciIOgBF00PUQGMJeVnlkfWFWISuu3dws="
     },
     "sops-nix": {
       "type": "Git",
