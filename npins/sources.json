@@ -182,30 +182,6 @@
       "url": "https://github.com/nix-community/impermanence/archive/7b1d382faf603b6d264f58627330f9faa5cba149.tar.gz",
       "hash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y="
     },
-    "lix": {
-      "type": "Git",
-      "repository": {
-        "type": "Git",
-        "url": "https://git.lix.systems/lix-project/nixos-module"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "1688100bba140492658d597f6b307c327f35c780",
-      "url": null,
-      "hash": "sha256-l6YdEBYQxXjD8ujqvc0tKdwWc3K8UQOi+E4Y3DKQ318="
-    },
-    "lix-src": {
-      "type": "Git",
-      "repository": {
-        "type": "Git",
-        "url": "https://git.lix.systems/lix-project/lix"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "35fbfea6f8649bc0ebed4896db6e06d1c0861a59",
-      "url": null,
-      "hash": "sha256-xK4XmW4hhH8929CnR7oirtJgdjNYuFxp2f1R60/oijI="
-    },
     "neovim-nightly-overlay": {
       "type": "Git",
       "repository": {

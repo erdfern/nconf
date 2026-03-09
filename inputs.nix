@@ -43,8 +43,8 @@ let
     impermanence = "raw";
     disko = "raw";
     # facter = "raw";
-    lix = "raw";
-    lix-src = "raw";
+    # lix = "raw";
+    # lix-src = "raw";
     nix-alien-tar = "raw";
   };
 

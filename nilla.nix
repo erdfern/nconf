@@ -121,24 +121,24 @@ in
     # systems.nixos.kor-t14.nixpkgs = config.inputs.nixpkgs-unstable;
     # systems.home."${user}@kor-t14".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
 
-    systems.nixos.kor = {
-      # modules = [ config.modules.nixos.lix ];
-      modules = [
-        ({ pkgs, ... }: {
-          # nix.package = pkgs.lixPackageSets.latest.lix;
-          # NOTE 16.10.25 the nixpkgs lix package does this (and more) by itself now!
-          # nixpkgs.overlays = [
-          #   (final: prev: {
-          #     inherit (prev.lixPackageSets.stable)
-          #       nixpkgs-review
-          #       nix-eval-jobs
-          #       nix-fast-build
-          #       colmena;
-          #   })
-          # ];
-        })
-      ];
-    };
+    # systems.nixos.kor = {
+    #   # modules = [ config.modules.nixos.lix ];
+    #   modules = [
+    #     ({ pkgs, ... }: {
+    #       # nix.package = pkgs.lixPackageSets.latest.lix;
+    #       # NOTE 16.10.25 the nixpkgs lix package does this (and more) by itself now!
+    #       # nixpkgs.overlays = [
+    #       #   (final: prev: {
+    #       #     inherit (prev.lixPackageSets.stable)
+    #       #       nixpkgs-review
+    #       #       nix-eval-jobs
+    #       #       nix-fast-build
+    #       #       colmena;
+    #       #   })
+    #       # ];
+    #     })
+    #   ];
+    # };
 
     shells.default = {
       systems = [ "x86_64-linux" ];
