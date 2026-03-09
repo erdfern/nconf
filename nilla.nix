@@ -121,24 +121,23 @@ in
     # systems.nixos.kor-t14.nixpkgs = config.inputs.nixpkgs-unstable;
     # systems.home."${user}@kor-t14".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
 
-    # systems.nixos.kor = {
-    #   # modules = [ config.modules.nixos.lix ];
-    #   modules = [
-    #     ({ pkgs, ... }: {
-    #       # nix.package = pkgs.lixPackageSets.latest.lix;
-    #       # NOTE 16.10.25 the nixpkgs lix package does this (and more) by itself now!
-    #       # nixpkgs.overlays = [
-    #       #   (final: prev: {
-    #       #     inherit (prev.lixPackageSets.stable)
-    #       #       nixpkgs-review
-    #       #       nix-eval-jobs
-    #       #       nix-fast-build
-    #       #       colmena;
-    #       #   })
-    #       # ];
-    #     })
-    #   ];
-    # };
+    # Lix lix lix
+    systems.nixos.kor = {
+      # modules = [ config.modules.nixos.lix ];
+      modules = [
+        ({ pkgs, ... }: {
+          # NOTE 16.10.25 the nixpkgs lix package does this (and more) by itself now!
+          nixpkgs.overlays = [
+            (self: super: {
+              inherit (super.lixPackageSets.git) nixpkgs-review nix-eval-jobs nix-fast-build colmena;
+            })
+          ];
+          # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/tools/package-management/lix/default.nix
+          # stable, latest, git, lix_x_xx
+          nix.package = pkgs.lixPackageSets.git.lix;
+        })
+      ];
+    };
 
     shells.default = {
       systems = [ "x86_64-linux" ];
