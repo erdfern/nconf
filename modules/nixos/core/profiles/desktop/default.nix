@@ -168,8 +168,8 @@ in
         # };
         defaultFonts = {
           emoji = [ "Noto Color Emoji" ];
-          # serif = [ "Noto Serif" ];
-          # sansSerif = [ "Noto Sans" ];
+          serif = [ "NotoSerif NFP" ];
+          sansSerif = [ "NotoSans NFP" ];
           monospace = [ "GeistMono Nerd Font" ];
         };
 
@@ -192,7 +192,7 @@ in
         caskaydia-cove
         # caskaydia-mono # cove but no ligatures?
         geist-mono # sans mono
-        hack # sans
+        hack # sans mono
         # profont
         # monaspace
         #md-io        
