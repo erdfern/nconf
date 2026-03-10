@@ -70,8 +70,8 @@ in
       if cfg.suspendThenHibernate.enable
       then "suspend-then-hibernate"
       else "suspend";
-    systemd.sleep.settings.Sleep= lib.optionalString cfg.suspendThenHibernate.enable ''
-      HibernateDelaySec=${builtins.toString cfg.suspendThenHibernate.delayHours}h
-    '';
+    systemd.sleep.settings.Sleep= lib.mkIf cfg.suspendThenHibernate.enable {
+      HibernateDelaySec="${builtins.toString cfg.suspendThenHibernate.delayHours}h";
+    };
   };
 }
