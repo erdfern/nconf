@@ -58,8 +58,6 @@ in
     # but consider https://discussion.fedoraproject.org/t/f41-change-proposal-make-tuned-the-default-power-profile-management-daemon-system-wide/118554/29
     # services.power-profiles-daemon.enable = true; # more modern way of managing power than tlp. clashes with tlp (or other power management services) if enabled simultaneously
 
-    # Enable light to control backlight.
-    programs.light.enable = true;
     hardware.acpilight.enable = true; # might be nice for compat
 
     users.users.${user}.extraGroups = [ "video" ]; # needed for light and acpilight to work
@@ -72,7 +70,7 @@ in
       if cfg.suspendThenHibernate.enable
       then "suspend-then-hibernate"
       else "suspend";
-    systemd.sleep.extraConfig = lib.optionalString cfg.suspendThenHibernate.enable ''
+    systemd.sleep.settings.Sleep= lib.optionalString cfg.suspendThenHibernate.enable ''
       HibernateDelaySec=${builtins.toString cfg.suspendThenHibernate.delayHours}h
     '';
   };
