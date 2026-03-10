@@ -27,7 +27,7 @@ in
       # enable = cfg.lutris.enable;
       enable = true;
       # protonPackages = [ pkgs.proton-ge-bin ];
-      winePackages = [ pkgs.wineWowPackages.full ]; # waylandFull?
+      winePackages = [ pkgs.wineWow64Packages.full ]; # waylandFull?
       steamPackage = osConfig.programs.steam.package;
       extraPackages = with pkgs; [
         mangohud
