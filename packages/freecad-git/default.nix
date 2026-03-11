@@ -55,15 +55,13 @@ in
 freecad-utils.makeCustomizable (
   stdenv.mkDerivation (finalAttrs: {
     pname = "freecad";
-    version = "git";
+    version = "1.0.2";
 
     src = fetchFromGitHub {
       owner = "FreeCAD";
       repo = "FreeCAD";
-      # tag = finalAttrs.version;
-      # hash = "sha256-J//O/ABMFa3TFYwR0wc8d1UTA5iSFnEP2thOjuCN+uE=";
-      rev = "f06dfa5af861688d08ad47b4f0d97891f04ce56a";
-      hash = lib.fakeHash;
+      tag = finalAttrs.version;
+      hash = "sha256-J//O/ABMFa3TFYwR0wc8d1UTA5iSFnEP2thOjuCN+uE=";
       fetchSubmodules = true;
     };
 
@@ -109,12 +107,12 @@ freecad-utils.makeCustomizable (
 
       # Fix build for boost 1.89 or later, remove once FreeCad 1.1 is released
       # based on https://github.com/FreeCAD/FreeCAD/commit/0f6d00d2a547df0f5c2ba5ef0f79044a49b0a2d
-      # ./0004-FreeCad-fix-boost-189-build.patch
+      ./0004-FreeCad-fix-boost-189-build.patch
 
-      # (fetchpatch {
-      #   url = "https://github.com/FreeCAD/FreeCAD/commit/8e04c0a3dd9435df0c2dec813b17d02f7b723b19.patch?full_index=1";
-      #   hash = "sha256-H6WbJFTY5/IqEdoi5N+7D4A6pVAmZR4D+SqDglwS18c=";
-      # })
+      (fetchpatch {
+        url = "https://github.com/FreeCAD/FreeCAD/commit/8e04c0a3dd9435df0c2dec813b17d02f7b723b19.patch?full_index=1";
+        hash = "sha256-H6WbJFTY5/IqEdoi5N+7D4A6pVAmZR4D+SqDglwS18c=";
+      })
       # Inform Coin to use EGL when on Wayland
       # https://github.com/FreeCAD/FreeCAD/pull/21917
       (fetchpatch {
