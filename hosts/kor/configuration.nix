@@ -9,7 +9,7 @@
     ./disk-config.nix
     # ./f2fs.nix
     ./graphics.nix
-    # ./wifihotspot.nix
+    ./wifihotspot.nix
     "${inputs.facter.result}/modules/nixos/facter.nix"
   ];
 

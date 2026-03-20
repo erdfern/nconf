@@ -14,13 +14,13 @@
     settings = {
       WIFI_IFACE = "wlp8s0";
       INTERNET_IFACE = "enp9s0";
-      SSID = "kor-ap";
+      SSID = "kor-hot";
       PASSPHRASE = "kor-hothothot";
-      FREQ_BAND = 5;
-      CHANNEL = "default";
+      # FREQ_BAND = 5;
+      # CHANNEL = "default";
       # IEEE80211N=0;
       # IEEE80211AC=0;
-      IEEE80211AX = 1; # wifi 6
+      # IEEE80211AX = 1; # wifi 6
       # GATEWAY="192.168.12.1";
       # WPA_VERSION=2;
       # ETC_HOSTS=0;
