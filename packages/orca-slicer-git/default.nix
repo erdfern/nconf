@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "SoftFever";
     repo = "OrcaSlicer";
     tag = "v${finalAttrs.version}";
-    hash = lib.fakeHash;
+    hash = "sha256-c1WTODLrXGtyJWkEueOz5jHhPbA/JFcMeAwhpvoKnKo=";
   };
 
   nativeBuildInputs = [
