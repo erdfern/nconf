@@ -1,46 +1,46 @@
-{
-  stdenv,
-  lib,
-  binutils,
-  fetchFromGitHub,
-  fetchpatch,
-  cmake,
-  pkg-config,
-  wrapGAppsHook3,
-  boost186,
-  cereal,
-  cgal_5,
-  curl,
-  dbus,
-  eigen,
-  expat,
-  ffmpeg,
-  gcc-unwrapped,
-  glew,
-  glfw,
-  glib,
-  glib-networking,
-  gmp,
-  gst_all_1,
-  gtest,
-  gtk3,
-  hicolor-icon-theme,
-  ilmbase,
-  libsecret,
-  libpng,
-  mpfr,
-  nlopt,
-  opencascade-occt_7_6,
-  openvdb,
-  opencv,
-  pcre,
-  systemd,
-  onetbb,
-  webkitgtk_4_1,
-  wxwidgets_3_1,
-  libx11,
-  libnoise,
-  withSystemd ? stdenv.hostPlatform.isLinux,
+{ stdenv
+, lib
+, binutils
+, fetchFromGitHub
+, fetchpatch
+, cmake
+, pkg-config
+, wrapGAppsHook3
+, boost186
+, cereal
+, cgal_5
+, curl
+, dbus
+, eigen
+, expat
+, ffmpeg
+, gcc-unwrapped
+, glew
+, glfw
+, glib
+, glib-networking
+, gmp
+, gst_all_1
+, gtest
+, gtk3
+, hicolor-icon-theme
+, ilmbase
+, libsecret
+, libpng
+, mpfr
+, nlopt
+, opencascade-occt_7_6
+, openvdb
+, opencv
+, pcre
+, systemd
+, onetbb
+, webkitgtk_4_1
+, wxwidgets_3_1
+, libx11
+, libnoise
+, withSystemd ? stdenv.hostPlatform.isLinux
+,
 }:
 let
   wxGTK' =
@@ -58,13 +58,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "orca-slicer";
-  version = "2.3.1";
+  version = "2.3.2";
 
   src = fetchFromGitHub {
     owner = "SoftFever";
     repo = "OrcaSlicer";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-RdMBx/onLq58oI1sL0cHmF2SGDfeI9KkPPCbjyMqECI=";
+    hash = lib.fakeHash;
   };
 
   nativeBuildInputs = [
