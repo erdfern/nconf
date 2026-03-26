@@ -28,6 +28,7 @@
     pkgs.devenv
     # pkgs.freecad
     pkgs.freecad-git
+    pkgs.orca-slicer
     # pkgs.seamly2d
     # pkgs.valentina-git
   ];
