@@ -47,11 +47,13 @@
   programs.btop.settings.presets = "cpu:0:default,proc:0:default"; # compact view on preset 1
   programs.fish.shellAliases.btop = "btop -p 1";
 
-  # home.packages = with pkgs; [
-  #   npins
-  #   inputs.nilla-cli.result.packages.nilla-cli.result.x86_64-linux
-  #   inputs.nilla-utils.result.packages.nilla-utils-plugins.result.x86_64-linux
-  # ];
+  home.packages = with pkgs; [
+    freecad
+    orca-slicer
+    # npins
+    # inputs.nilla-cli.result.packages.nilla-cli.result.x86_64-linux
+    # inputs.nilla-utils.result.packages.nilla-utils-plugins.result.x86_64-linux
+  ];
 
   home.stateVersion = "25.11";
 }
