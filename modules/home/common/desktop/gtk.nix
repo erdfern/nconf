@@ -34,6 +34,13 @@ in
   home.pointerCursor.size = 24;
 
   gtk = {
+    # GTK4 stuff
+    # 
+    # For context, see [Please don’t theme our apps](https://stopthemingmy.app/)
+    # and [Restyling apps at scale](https://blogs.gnome.org/tbernard/2018/10/15/restyling-apps-at-scale/).
+    # gtk4.theme = config.gtk.theme; # legacy behavior pre HM 26.05
+    gtk4.theme = null; # new 26.05 default...
+    # ---
     enable = true;
     colorScheme = "dark"; # or light or null
     theme = {
