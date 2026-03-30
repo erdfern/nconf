@@ -35,7 +35,7 @@ in
       enable = true;
       systemd = {
         enable = lib.mkForce false; # disable it, autostart it in hyprland conf
-        target = "graphical-session.target";
+        targets = [ "graphical-session.target" ];
       };
       settings = [{
         layer = "top";
