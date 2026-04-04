@@ -49,6 +49,8 @@
 
   home.packages = with pkgs; [
     freecad
+    openscad-unstable
+    openscad-lsp
     orca-slicer
     # npins
     # inputs.nilla-cli.result.packages.nilla-cli.result.x86_64-linux
