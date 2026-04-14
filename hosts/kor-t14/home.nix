@@ -17,7 +17,7 @@
   kor.development.neovim.enable = true;
   # kor.development.vscode.enable = true;
 
-  # kor.desktop.apps.firefox.enable = true;
+  kor.desktop.apps.firefox.enable = true;
 
   # kor.desktop.apps.ghostty.enable = true;
   # kor.desktop.hyprland.terminal = "ghostty";
