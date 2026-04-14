@@ -70,7 +70,7 @@ stdenv.mkDerivation (finalAttrs: {
     repo = "OrcaSlicer";
     # tag = "v${finalAttrs.version}";
     rev = "3e4af2c723780099e969c87709e00d76b8556308";
-    hash = lib.fakeHash;
+    hash = "sha256-1hLxc69TqaLo5D/2ZbRm5Wi9nSmRcPF08JF1eLazgMM=";
   };
 
   nativeBuildInputs = [
