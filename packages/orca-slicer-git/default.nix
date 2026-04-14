@@ -46,10 +46,8 @@
 let
   wxGTK' =
     (wxwidgets_3_3.override {
-      withCurl = true;
-      withPrivateFonts = true;
+      withMesa = true;
       withWebKit = true;
-      withEGL = false;
     }).overrideAttrs
       (old: {
         buildInputs = old.buildInputs ++ [ libsecret ];
