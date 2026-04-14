@@ -30,7 +30,7 @@
     pkgs.openscad-unstable
     pkgs.openscad-lsp
     # pkgs.freecad-git
-    pkgs.orca-slicer
+    pkgs.orca-slicer-git
     # pkgs.seamly2d
     # pkgs.valentina-git
   ];
