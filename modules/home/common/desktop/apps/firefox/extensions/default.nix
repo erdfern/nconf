@@ -20,7 +20,7 @@ let
 
     multi-account-containers
     proton-pass
-    refined-github
+    # refined-github
     indie-wiki-buddy
     # tab-stash
     # tree-style-tab
