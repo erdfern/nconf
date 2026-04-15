@@ -160,14 +160,14 @@
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "erdfern",
+        "owner": "Jas-SinghFSU",
         "repo": "HyprPanel"
       },
-      "branch": "dev",
+      "branch": "master",
       "submodules": false,
-      "revision": "9f958f6b855ef7f4b6d996d98f4a2da422aa52ca",
-      "url": "https://github.com/erdfern/HyprPanel/archive/9f958f6b855ef7f4b6d996d98f4a2da422aa52ca.tar.gz",
-      "hash": "sha256-3n5LCaQfrxTcAu+Ypq5wzGpk12wCXeNayqL5CFwdiSU="
+      "revision": "e919b4a8a8ab5f2a0752f68576ab3eed6993cefd",
+      "url": "https://github.com/Jas-SinghFSU/HyprPanel/archive/e919b4a8a8ab5f2a0752f68576ab3eed6993cefd.tar.gz",
+      "hash": "sha256-92ZbaBfsEXEE7VaWJjv9aRSk3l9nyoYYyMe2AwTqSZI="
     },
     "impermanence": {
       "type": "Git",
