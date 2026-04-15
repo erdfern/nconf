@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  treesitter-surrealql-highlights-queries = builtins.fetchurl "https://raw.githubusercontent.com/erdfern/tree-sitter-surrealql/refs/heads/main/queries/highlights.scm";
+  # treesitter-surrealql-highlights-queries = builtins.fetchurl "https://raw.githubusercontent.com/erdfern/tree-sitter-surrealql/refs/heads/main/queries/highlights.scm";
 in
 {
   programs.helix = {
@@ -56,7 +56,7 @@ in
 
   home.file.".config/helix/languages.toml".source = ./languages.toml;
   # meh. muh. mrah
-  home.file.".config/helix/runtime/queries/surrealql/highlights.scm".source = treesitter-surrealql-highlights-queries;
+  # home.file.".config/helix/runtime/queries/surrealql/highlights.scm".source = treesitter-surrealql-highlights-queries;
 
   # some lsps
   home.packages = with pkgs; [

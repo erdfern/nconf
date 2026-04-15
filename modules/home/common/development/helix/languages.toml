@@ -1,20 +1,20 @@
-[[grammar]]
-name = "surrealql"
-source = { git = "https://github.com/erdfern/tree-sitter-surrealql.git", rev = "07bf1704b91eeec6b001e2e0d29a4d7f03a01af9" }
+# [[grammar]]
+# name = "surrealql"
+# source = { git = "https://github.com/erdfern/tree-sitter-surrealql.git", rev = "07bf1704b91eeec6b001e2e0d29a4d7f03a01af9" }
 # source.path = "/home/j/Development/tree-sitter-surrealql"
 
-[[language]]
-name = "surrealql"
-# scope = "source.surql"
-scope = "source.surrealql"
-injection-regex = "surql"
-file-types = ["surql"]
-# auto-format = false
-comment-tokens = "#"
-indent = { tab-width = 2, unit = "	" }
-grammar = "surrealql"
-# formatter = 
-# language-servers
+# [[language]]
+# name = "surrealql"
+# # scope = "source.surql"
+# scope = "source.surrealql"
+# injection-regex = "surql"
+# file-types = ["surql"]
+# # auto-format = false
+# comment-tokens = "#"
+# indent = { tab-width = 2, unit = "	" }
+# grammar = "surrealql"
+# # formatter = 
+# # language-servers
 
 [[language]]
 name = "haskell"
