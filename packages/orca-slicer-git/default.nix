@@ -61,14 +61,14 @@ in
 stdenv.mkDerivation (finalAttrs: {
   pname = "orca-slicer";
   # version = "2.3.2";
-  version = "git-397baf1cf496bf9bdf76b601780530deec3c8573";
+  version = "git-bf257a53b371dc84ab49c3be06e5fb1868504a71";
 
   src = fetchFromGitHub {
     # owner = "SoftFever";
     owner = "erdfern";
     repo = "OrcaSlicer";
     # tag = "v${finalAttrs.version}";
-    rev = "397baf1cf496bf9bdf76b601780530deec3c8573";
+    rev = "bf257a53b371dc84ab49c3be06e5fb1868504a71";
     hash = "sha256-y5mgs/QpoqNJlv3nS7Xz6oJ4JZLtZhxQ4P1xrvC7hzY=";
   };
 
