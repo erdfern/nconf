@@ -300,9 +300,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "5273c3a5ec76456e822ff15598ecba0d109b0adb",
-      "url": "https://github.com/nix-community/nur/archive/5273c3a5ec76456e822ff15598ecba0d109b0adb.tar.gz",
-      "hash": "sha256-WPnluVsCLlaun60KcOp9cUBs3UJBpE1lUndbKmevLmg="
+      "revision": "2c593ad4e9d35419eb213fc78c06cac49d377640",
+      "url": "https://github.com/nix-community/nur/archive/2c593ad4e9d35419eb213fc78c06cac49d377640.tar.gz",
+      "hash": "sha256-2SEBie0cY/nzNLCZ9hTovYMFihKPo/6o6blLvdxlJGY="
     },
     "sops-nix": {
       "type": "Git",
