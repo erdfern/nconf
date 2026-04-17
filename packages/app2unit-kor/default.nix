@@ -17,7 +17,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     owner = "Vladimir-csp";
     repo = "app2unit";
     tag = "v${finalAttrs.version}";
-    sha256 = lib.fakeSha256;
+    sha256 = "sha256-G2V6Scdw5m9/2Jr4QMcpBSlR0IUnlOAwMFIcsxbZLMk=";
   };
 
   passthru.updateScript = nix-update-script { };
