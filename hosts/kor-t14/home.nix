@@ -36,7 +36,7 @@
       on-timeout = "light -O && light -S 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
       on-resume = "light -I"; # monitor backlight restore.
     }
-    # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
+    # turn off keyboard backlight
     {
       timeout = 150; # 2.5min.
       on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0"; # turn off keyboard backlight.
@@ -49,13 +49,10 @@
 
   home.packages = with pkgs; [
     freecad
-    openscad-unstable
-    openscad-lsp
-    # orca-slicer
-    orca-slicer-git
-    # npins
-    # inputs.nilla-cli.result.packages.nilla-cli.result.x86_64-linux
-    # inputs.nilla-utils.result.packages.nilla-utils-plugins.result.x86_64-linux
+    # openscad-unstable
+    # openscad-lsp
+    orca-slicer
+    # orca-slicer-git
   ];
 
   home.stateVersion = "25.11";
