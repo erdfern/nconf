@@ -182,19 +182,6 @@
       "url": "https://github.com/nix-community/impermanence/archive/7b1d382faf603b6d264f58627330f9faa5cba149.tar.gz",
       "hash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y="
     },
-    "neovim-nightly-overlay": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "nix-community",
-        "repo": "neovim-nightly-overlay"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "160898e7fe8b5ec9c1e9dc7010f087304694fbe8",
-      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/160898e7fe8b5ec9c1e9dc7010f087304694fbe8.tar.gz",
-      "hash": "sha256-RMPak6ipaslEMHdbrKFk0uhCJBZWMu1/wN/bvV7gXos="
-    },
     "nilla": {
       "type": "Git",
       "repository": {
