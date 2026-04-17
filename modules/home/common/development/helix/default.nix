@@ -6,7 +6,6 @@ in
   programs.helix = {
     enable = true;
     defaultEditor = true; # set $EDITOR etc
-    # package = inputs.helix.packages.${pkgs.system}.default;
     settings = {
       keys = {
         normal = {
