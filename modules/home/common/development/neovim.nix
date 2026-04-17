@@ -9,12 +9,12 @@ in
   config = lib.mkIf cfg.enable {
     # nixCats.enable = true;
     # nixCats.packageNames = [ "nixCats" "regularCats" ];
-    # programs.neovim = {
-    #   # for compat and stuff
-    #   enable = true;
-    #   viAlias = true;
-    #   vimAlias = true;
-    # };
+    programs.neovim = {
+      # for compat and stuff
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+    };
     # programs.nvf = {
     #   enable = true;
     #   settings = {
