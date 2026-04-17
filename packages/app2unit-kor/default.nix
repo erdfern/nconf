@@ -1,24 +1,23 @@
 { lib
 , stdenvNoCC
 , dash
+, xdg-terminal-exec
 , scdoc
 , fetchFromGitHub
 , nix-update-script
 , installShellFiles
+, withTerminalSupport ? true
 ,
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "app2unit";
-  # version = "1.1.2";
-  version = "git";
+  version = "1.4.0";
 
   src = fetchFromGitHub {
     owner = "Vladimir-csp";
     repo = "app2unit";
-    rev = "83e2656fb8d39ad71e2f8a5ba113a9cedc90841f";
-    sha256 = "sha256-DZ0W7SygOUmjIO0+K8hS9K1U+gSp1gA6Q15eXr6rOmo=";
-    # tag = "v${finalAttrs.version}";
-    # sha256 = "sha256-M2sitlrQNSLthSaDH+R8gUcZ8i+o1ktf2SB/vvjyJEI=";
+    tag = "v${finalAttrs.version}";
+    sha256 = lib.fakeSha256;
   };
 
   passthru.updateScript = nix-update-script { };
@@ -52,6 +51,11 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   postFixup = ''
     substituteInPlace $out/bin/app2unit \
       --replace-fail '#!/bin/sh' '#!${lib.getExe dash}'
+  ''
+  + lib.optionalString withTerminalSupport ''
+    substituteInPlace $out/bin/app2unit \
+      --replace-fail 'A2U__TERMINAL_HANDLER=xdg-terminal-exec' \
+                     'A2U__TERMINAL_HANDLER=${lib.getExe xdg-terminal-exec}'
   '';
 
   meta = {
