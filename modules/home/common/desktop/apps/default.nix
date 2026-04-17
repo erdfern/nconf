@@ -13,6 +13,7 @@
     ./hyprpanel
     ./swayosd
     ./imv.nix
+    ./feh
     ./mpv.nix
   ];
 

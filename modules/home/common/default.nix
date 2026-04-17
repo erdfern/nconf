@@ -6,6 +6,7 @@
     ./development
     ./gpg.nix
     ./udiskie.nix
+    ./mime.nix
   ];
 
   # TODO move
