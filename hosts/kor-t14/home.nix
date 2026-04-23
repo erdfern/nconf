@@ -49,6 +49,8 @@
   programs.fish.shellAliases.btop = "btop -p 1";
 
   home.packages = with pkgs; [
+    signal-desktop
+    discord
     freecad
     # openscad-unstable
     # openscad-lsp

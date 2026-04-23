@@ -15,7 +15,6 @@
     ./imv.nix
     ./feh
     ./mpv.nix
+    ./wayle
   ];
-
-  home.packages = with pkgs; [ discord signal-desktop ];
 }
