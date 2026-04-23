@@ -1,23 +1,23 @@
-{
-  lib,
-  copyDesktopItems,
-  fetchFromGitHub,
-  fftw,
-  glib,
-  gtk4-layer-shell,
-  gtksourceview5,
-  installShellFiles,
-  libpulseaudio,
-  libxkbcommon,
-  makeDesktopItem,
-  nix-update-script,
-  pipewire,
-  pixman,
-  pkg-config,
-  rustPlatform,
-  stdenv,
-  udev,
-  wrapGAppsHook4,
+{ lib
+, copyDesktopItems
+, fetchFromGitHub
+, fftw
+, glib
+, gtk4-layer-shell
+, gtksourceview5
+, installShellFiles
+, libpulseaudio
+, libxkbcommon
+, makeDesktopItem
+, nix-update-script
+, pipewire
+, pixman
+, pkg-config
+, rustPlatform
+, stdenv
+, udev
+, wrapGAppsHook4
+,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "wayle";
@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "wayle-rs";
     repo = "wayle";
     tag = "v${finalAttrs.version}";
-    hash = lib.fakeHash;
+    hash = "sha256-K4ItGV7kTZrm3uqHeN/hSZjKzkQpSn+nan3509FYUQw=";
   };
 
   cargoHash = lib.fakeHash;
