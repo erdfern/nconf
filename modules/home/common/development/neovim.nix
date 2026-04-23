@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ lib, config, ... }:
 
 let
   cfg = config.kor.development.neovim;
@@ -14,6 +14,9 @@ in
       enable = true;
       viAlias = true;
       vimAlias = true;
+      withRuby = false;
+      withPython3 = false;
+      withNodeJs = false;
     };
     # programs.nvf = {
     #   enable = true;
