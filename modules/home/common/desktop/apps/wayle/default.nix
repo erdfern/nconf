@@ -1,4 +1,3 @@
-
 { pkgs, lib, config, inputs, ... }:
 
 let
@@ -12,10 +11,10 @@ in
 
   config = lib.mkIf cfg.enable {
 
-    programs.wayle = {
+    services.wayle = {
       enable = cfg.enable;
       # package = wayle-git;
-      # autoInstallDependencies = true;
+      autoInstallDependencies = true;
       # settings = {};
     };
   };
