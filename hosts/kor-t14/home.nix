@@ -54,7 +54,7 @@
     freecad
     # openscad-unstable
     # openscad-lsp
-    orca-slicer
+    # orca-slicer
     # orca-slicer-git
   ];
 
