@@ -14,6 +14,7 @@ in
   # rename suite.desktop/browser?
   options.kor.desktop.apps.firefox = with lib; {
     enable = mkEnableOption "firefox browser";
+
     nightly = mkOption {
       type = types.bool;
       default = false;
@@ -31,6 +32,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+
     programs.firefox =
       {
         enable = true;
@@ -38,6 +40,8 @@ in
         # package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; })) { };
         # TODO use nightly option to decide which package to use
         package = inputs.firefox-nightly.result.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin;
+
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
 
         profiles.default =
           {
