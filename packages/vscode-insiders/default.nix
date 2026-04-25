@@ -11,7 +11,7 @@
       # sha256 = "sha256-YbWlrSABmVwBd9aVrna7yynCuz7v8luhVGgMnvpQDPo=";
     });
     # src = inputs.vscode-insider.src;
-    version = "01.30.26";
+    version = "25.04.26";
 
     buildInputs = oldAttrs.buildInputs ++ [ pkgs.krb5 pkgs.libsoup_3 pkgs.webkitgtk_4_1 ];
   })
