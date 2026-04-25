@@ -16,7 +16,7 @@
   # kor.desktop.apps.wayle.enable = true;
 
   kor.development.neovim.enable = true;
-  # kor.development.vscode.enable = true;
+  kor.development.vscode.enable = true;
 
   kor.desktop.apps.firefox.enable = true;
 
