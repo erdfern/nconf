@@ -51,20 +51,23 @@ onSave = true
 
 [[language]]
 name = "python"
-language-servers = ["basedpyright"]
+# language-servers = ["basedpyright"]
+language-servers = ["pyright"]
 
 [language-server.pyright.config.python.analysis]
 typeCheckingMode = "standard" # off | basic | standard | strict
 
-[language-server.ruff]
-command = "ruff-lsp"
-
-[language-server.ruff.config.settings]
-args = ["--ignore", "E501"]
 
 [language.formatter]
-command = "black"
-args = ["--line-length", "88", "--quiet", "-"]
+# command = "black"
+# args = ["--line-length", "88", "--quiet", "-"]
+command = "uv"
+args = ["format", "--", "--line-length", "88"]
+
+# [language-server.ruff]
+# command = "ruff-lsp"
+# [language-server.ruff.config.settings]
+# args = ["--ignore", "E501"]
 
 # -- JS/TS and other web stuff
 [language-server.astro-ls]
