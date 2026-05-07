@@ -62,7 +62,7 @@ typeCheckingMode = "standard" # off | basic | standard | strict
 # command = "black"
 # args = ["--line-length", "88", "--quiet", "-"]
 command = "uv"
-args = ["format", "--", "--line-length", "88"]
+args = ["format", "--", "%{buffer_name}", "--line-length", "88"]
 
 # [language-server.ruff]
 # command = "ruff-lsp"
