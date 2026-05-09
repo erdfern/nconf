@@ -56,7 +56,7 @@
     # openscad-lsp
     orca-slicer
     # orca-slicer-git
-    claude-claude-code
+    claude-code
   ];
 
   home.stateVersion = "25.11";
