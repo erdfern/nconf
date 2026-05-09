@@ -29,7 +29,7 @@
     "LIBVA_DRIVER_NAME=iHD"
   ];
 
-  kor.desktop.suites.gaming.enable = true;
+  # kor.desktop.suites.gaming.enable = true;
 
   services.hypridle.settings.listener = [
     {
