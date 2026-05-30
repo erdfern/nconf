@@ -39,11 +39,14 @@
   };
 
   environment.systemPackages = [
-    pkgs.inkscape
-    # (pkgs.inkscape-with-extensions.override {
-    #   inkscapeExtensions = with pkgs.inkscape-extensions; [];
-    # })
+    pkgs.arduino-ide
   ];
+  # environment.systemPackages = [
+  # pkgs.inkscape
+  # (pkgs.inkscape-with-extensions.override {
+  #   inkscapeExtensions = with pkgs.inkscape-extensions; [];
+  # })
+  # ];
   # environment.systemPackages = [ pkgs.zoom-us ];
   # programs.obs-studio = {
   #   enable = true;
@@ -85,6 +88,7 @@
     # TEMP
     extraGroups = [
       "adbusers"
+      "dialout" # arduino-ide
     ];
   };
 
