@@ -33,5 +33,5 @@
   # https://github.com/nix-community/home-manager/issues/3342
   manual.manpages.enable = false;
 
-  home.stateVersion = lib.mkDefault "25.05";
+  home.stateVersion = lib.mkDefault "26.05";
 }
