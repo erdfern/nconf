@@ -1,7 +1,4 @@
-{ pkgs, config, lib, ... }:
-let
-  # cfg = config.kor.desktop.hyprland;
-in
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {

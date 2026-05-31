@@ -28,12 +28,12 @@ in
         background_color = "$base";
       };
 
-      workspace = [
-      ] ++ lib.optionals (!cfg.hy3.enable) [
-        # smart gaps/'no gaps when only'
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
-      ];
+      # workspace = [
+      # ] ++ lib.optionals (!cfg.hy3.enable) [
+      #   # smart gaps/'no gaps when only'
+      #   "w[tv1], gapsout:0, gapsin:0"
+      #   "f[1], gapsout:0, gapsin:0"
+      # ];
 
       decoration = {
         shadow = {
