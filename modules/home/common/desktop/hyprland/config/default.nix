@@ -25,16 +25,16 @@ in
       exec-once = [ ]
         ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
 
-      env = [
-        "XCURSOR_SIZE,24"
-        # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
-        "HYPRCURSOR_SIZE,24"
-        "HYPRCURSOR_THEME,${config.programs.pointerCursor.name}"
-        "QT_QPA_PLATFORMTHEME,qt6ct"
-      ];
+      # env = [
+      #   "XCURSOR_SIZE,24"
+      #   # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
+      #   "HYPRCURSOR_SIZE,24"
+      #   "HYPRCURSOR_THEME,${config.programs.pointerCursor.name}"
+      #   "QT_QPA_PLATFORMTHEME,qt6ct"
+      # ];
 
-      debug.disable_logs = true;
-      debug.enable_stdout_logs = false;
+      # debug.disable_logs = true;
+      # debug.enable_stdout_logs = false;
 
       monitor = [
         "Unknown-1, disable"
