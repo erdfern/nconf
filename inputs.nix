@@ -8,13 +8,13 @@ let
   # nixpkgs-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
   nixpkgs-unstable-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
   # don't think I need to do this; config.inputs.hyprland.result should probably work the same
-  hyprland-flake = flake-compat.load { src = config.inputs.hyprland.src; };
+  # hyprland-flake = flake-compat.load { src = config.inputs.hyprland.src; };
 
   loaders = {
     comma = "flake";
     home-manager = "flake";
     nix-index-database = "flake";
-    hyprland = "flake";
+    # hyprland = "flake";
     hy3 = "flake";
     catppuccin-nix = "flake";
     sops-nix = "flake";

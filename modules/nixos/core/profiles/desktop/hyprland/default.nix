@@ -14,8 +14,8 @@ in
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
-      package = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      # package = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage = inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
       # uwsm start -e -D Hyprland hyprland-uwsm.desktop, https://github.com/hyprwm/Hyprland/pull/12484
       withUWSM = true; # means that home.wayland.windowManager.hyprland.systemd.enable should be false
