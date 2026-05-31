@@ -151,14 +151,14 @@ in
           # Alternative: fixed height (e.g. 60% of screen) and golden width
           # "size (monitor_h*0.6*1.618) (monitor_h*0.6), class:(clipse)"
 
-        }]
-        ++ lib.optionals (!cfg.hy3.enable) [
-          # smart gaps/'no gaps when only'
-          "match:float false, match:workspace w[tv1], border_size 0"
-          "match:float false, match:workspace w[tv1], rounding 0"
-          "match:float false, match:workspace f[1], border_size 0"
-          "match:float false, match:workspace f[1], rounding 0"
-        ];
+        }];
+      # ++ lib.optionals (!cfg.hy3.enable) [
+      #   # smart gaps/'no gaps when only'
+      #   "match:float false, match:workspace w[tv1], border_size 0"
+      #   "match:float false, match:workspace w[tv1], rounding 0"
+      #   "match:float false, match:workspace f[1], border_size 0"
+      #   "match:float false, match:workspace f[1], rounding 0"
+      # ];
 
       workspace = [
       ] ++ lib.optionals (!cfg.hy3.enable) [
