@@ -18,7 +18,6 @@ in
     ./modules/hive
 
     # TODO not ideal; should gather automatically if hosts have a default.nix
-    ./hosts/dns
     ./hosts/kor-t14
   ];
 
