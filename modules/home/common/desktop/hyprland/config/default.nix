@@ -11,13 +11,18 @@ let
   cfg = config.kor.desktop.hyprland;
 in
 {
-  imports = [ ./input.nix ./keybinds.nix ./theme.nix ./hy3.nix ];
+  imports = [
+    ./input.nix
+    # ./keybinds.nix
+    # ./theme.nix
+    # ./hy3.nix
+  ];
 
   wayland.windowManager.hyprland = {
-    sourceFirst = true;
+    # sourceFirst = true;
     settings = {
-      exec-once = [ ]
-        ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
+      # exec-once = [ ]
+      #   ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
 
       # env = [
       # "XCURSOR_SIZE,24"

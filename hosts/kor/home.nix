@@ -7,8 +7,8 @@
   # kor.desktop.suites.gaming.enable = true;
   kor.desktop.suites.media.enable = true;
 
-  kor.development.neovim.enable = true;
-  kor.development.vscode.enable = true;
+  # kor.development.neovim.enable = true;
+  # kor.development.vscode.enable = true;
   # kor.development.rider.enable = true;
   # kor.development.idea.enable = true;
 

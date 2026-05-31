@@ -8,14 +8,6 @@ let
   cfg = config.kor.desktop.hyprland;
 in
 {
-  imports = [
-    # ./config
-    # ./hyprpaper
-    # ./hyprlock
-    # ./hypridle.nix
-  ];
-  # ++ [ inputs.hyprpanel.result.homeManagerModules.hyprpanel ];
-
   options.kor.desktop.hyprland.enable = lib.mkEnableOption "hyprland compositor :I";
 
   config = lib.mkIf cfg.enable {
