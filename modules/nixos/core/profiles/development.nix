@@ -6,15 +6,6 @@
 }:
 let
   cfg = config.kor.profiles.development;
-
-
-  # usign this since flake fails to build, idk
-  nix-alien-pkgs = import
-    (
-      # builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master"
-      builtins.fetchTarball "https://codeload.github.com/thiagokokada/nix-alien/legacy.tar.gz/refs/heads/master"
-    )
-    { };
 in
 {
   options.kor.profiles.development = with lib; {
@@ -45,46 +36,5 @@ in
           }
         ];
       };
-
-      # Use zsh for default shell.
-      # users.users.${user}.shell = lib.mkForce pkgs.zsh;
-      # programs.zsh.enable = true;
-      #
-      # https://nixos-and-flakes.thiscute.world/best-practices/run-downloaded-binaries-on-nixos
-
-      # NOTE nix-alien is awesome 🥺
-      # environment.systemPackages = with  inputs.nix-alien.result.packages.${pkgs.system}; [ nix-alien ];
-      environment.systemPackages = with nix-alien-pkgs; [ nix-alien ];
-      # could also use nix-alien-ld  
-      programs.nix-ld.enable = true;
-      # programs.nix-ld.libraries = [];
-
-      # NOTE maybe nix-ld could be useful here, too??? ?? e.g. https://brianmckenna.org/blog/running_binaries_on_nixos https://blog.thalheim.io/2022/12/31/nix-ld-a-clean-solution-for-issues-with-pre-compiled-executables-on-nixos/
-      # Create an FHS environment using the command `fhs`, enabling the execution of non-NixOS packages in NixOS!
-      # environment.systemPackages = with pkgs; [
-      #   (
-      #     let base = pkgs.appimageTools.defaultFhsEnvArgs;
-      #     in
-      #     pkgs.buildFHSEnv (base // {
-      #       name = "fhs";
-      #       targetPkgs = pkgs:
-      #         # pkgs.buildFHSEnv provides only a minimal FHS environment,
-      #         # lacking many basic packages needed by most software.
-      #         # Therefore, we need to add them manually.
-      #         #
-      #         # pkgs.appimageTools provides basic packages required by most software.
-      #         (base.targetPkgs pkgs) ++ (with pkgs; [
-      #           pkg-config
-      #           ncurses
-      #           # ...
-      #         ]
-      #         );
-      #       profile = "export FHS=1";
-      #       # runScript = "bash";
-      #       runScript = "bash";
-      #       extraOutputsToInstall = [ "dev" ];
-      #     })
-      #   )
-      # ];
     };
 }

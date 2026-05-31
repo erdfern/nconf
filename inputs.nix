@@ -1,33 +1,14 @@
 { config, lib }:
 let
-  # need to filter this so we don't fail an assertion made by nilla inputs module
-  # not entirely sure why this isn't fixed by https://github.com/nilla-nix/nilla/commit/b617bdbaa5faa9345ca077cd497372ece77bf119
-  # must be because i construct config.inputs manually below
-  # pins =
-  #   let
-  #     # There's a top-level __functor lambda, too
-  #     cleanPins = removeAttrs (import ./npins) [ "__functor" ];
-  #     filteredPins = builtins.mapAttrs (path: pin: lib.attrs.filter (n: v: n != "__functor") pin) cleanPins;
-  #   in
-  #   filteredPins;
   pins = import ./npins;
 
   flake-compat = config.inputs.flake-compat.result;
-  # flake-compat-aswell = config.inputs.flake-compat-aswell;
-  # hyprland = (import flake-compat { }).defaultNix;
 
   # TODO might be using this wrong https://github.com/nilla-nix/flake-compat
   # nixpkgs-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
   nixpkgs-unstable-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
   # don't think I need to do this; config.inputs.hyprland.result should probably work the same
   hyprland-flake = flake-compat.load { src = config.inputs.hyprland.src; };
-  # hyprpanel-flake = flake-compat.load {
-  #   src = config.inputs.hyprpanel.src;
-  #   replacements = {
-  #     nixpkgs = nixpkgs-unstable-flake;
-  #   };
-  # };
-  # firefox-nightly-flake = flake-compat.load { src = config.inputs.firefox-nightly; };
 
   loaders = {
     comma = "flake";
@@ -37,15 +18,10 @@ let
     hy3 = "flake";
     catppuccin-nix = "flake";
     sops-nix = "flake";
-    # firefox-nightly = "flake";
 
     hardware = "raw";
     impermanence = "raw";
     disko = "raw";
-    # facter = "raw";
-    # lix = "raw";
-    # lix-src = "raw";
-    nix-alien-tar = "raw";
   };
 
   # Per-input settings
@@ -54,18 +30,7 @@ let
       configuration.allowUnfree = true;
       overlays = [
         config.overlays.default
-        # config.inputs.neovim-nightly-overlay.result.overlays.default
         config.inputs.nur.result.overlays.default
-        # (self: super: {
-        #   gnome = super.gnome.overrideScope' (gself: gsuper: {
-        #     nautilus = gsuper.nautilus.overrideAttrs (nsuper: {
-        #       buildInputs = nsuper.buildInputs ++ (with gst_all_1; [
-        #         gst-plugins-good
-        #         gst-plugins-bad
-        #       ]);
-        #     });
-        #   });
-        # })
       ];
     };
     nixpkgs-unstable = config.inputs.nixpkgs.settings;
@@ -74,7 +39,6 @@ let
 
     comma.inputs.nixpkgs = nixpkgs-unstable-flake;
     hyprpanel.inputs.nixpkgs = nixpkgs-unstable-flake;
-    # firefox-nightly.inputs.nixpkgs = nixpkgs-unstable-flake;
     nixos-generators.inputs.nixpkgs = nixpkgs-unstable-flake;
 
     #   #   # TODO hy3
@@ -84,7 +48,7 @@ let
     #   #   #   # (you may encounter issues if you dont do the same for hyprland)
     #   #   #   inputs.hyprland.follows = "hyprland";
     #   #   # };
-    hy3.inputs.hyprland = hyprland-flake;
+    # hy3.inputs.hyprland = hyprland-flake;
   };
 in
 {
@@ -99,7 +63,6 @@ in
 
         loader = loaders.${name} or config.lib.modules.never;
         settings = settings.${name} or config.lib.modules.never;
-        # }) pins;
       })
       (config.lib.attrs.filter (name: value: name != "__functor") pins);
   };

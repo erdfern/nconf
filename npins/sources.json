@@ -234,24 +234,6 @@
       "url": "https://github.com/arnarg/nilla-utils/archive/8d140a01c874625d5eb7df0d3f7d98ce74612a15.tar.gz",
       "hash": "sha256-S48+m84+8vZi9eVdPsGbkR7FeZsM2qzZg7ZANn0ecF8="
     },
-    "nix-alien": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "thiagokokada",
-        "repo": "nix-alien"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "1bb49f5aea63e95a3cf9c4b91f9f1331fef7a52b",
-      "url": "https://github.com/thiagokokada/nix-alien/archive/1bb49f5aea63e95a3cf9c4b91f9f1331fef7a52b.tar.gz",
-      "hash": "sha256-HiVhuhD7Fvfje3iw4slmtcCckz/LbjLITa4g/iTEbw0="
-    },
-    "nix-alien-tar": {
-      "type": "Tarball",
-      "url": "https://github.com/thiagokokada/nix-alien/tarball/master",
-      "hash": "sha256-wDaM4D0Fqt0nCoFbZsi3mtAkIzzsbGdmuj+356KHEvU="
-    },
     "nix-index-database": {
       "type": "Git",
       "repository": {

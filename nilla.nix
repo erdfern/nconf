@@ -15,24 +15,14 @@ in
     ./lib
 
     "${pins.nilla-utils}/modules"
-    # ../nilla-utils/modules
     ./modules/hive
 
-    # meeeehhhh
+    # TODO not ideal; should gather automatically if hosts have a default.nix
     ./hosts/dns
     ./hosts/kor-t14
   ];
 
   config = {
-
-    # inputs.nilla-utils = { src = ./modules/nilla-utils; loader = "nilla"; };
-
-    # TODO make lix per-system option
-    # modules.nixos.lix = (import "${config.inputs.lix.result}/module.nix" {
-    #   lix = (lib.paths.into.drv config.inputs.lix-src.src) // {
-    #     rev = "latest";
-    #   };
-    # });
 
     ###########
     ## NixOS ##
@@ -51,11 +41,7 @@ in
       modules = [
         config.modules.nixos.core
         config.inputs.catppuccin-nix.result.nixosModules.catppuccin
-        # config.inputs.noshell.result.nixosModules.default
-        # config.inputs.sops-nix.result.nixosModules.sops
         "${config.inputs.disko.result}/module.nix"
-        # same thing if loader=raw... (import "${config.inputs.disko.src}/module.nix")
-        # config.inputs.disko.result.nixosModules.disko
 
         # TODO I'd prefer to use the nixos module instead of stand-alone home-manager
         # (import "${config.inputs.home-manager.result}/nixos")
@@ -76,8 +62,7 @@ in
     # Generates homeModules.{folder_name} for each subfolder of ./modules/home
     generators.homeModules.folder = ./modules/home;
 
-    # Generate home-manager configurations from folders in
-    # ./hosts
+    # Generate home-manager configurations from folders in ./hosts
     generators.home = {
       username = me.user;
       folder = ./hosts;
