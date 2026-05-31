@@ -1,7 +1,4 @@
-{ me, ... }:
-let
-  projects_path = "/home/${me.user}/Development";
-in
+{ ... }:
 {
   # TODO kinda hacky; go back to impermanence, which would also handle this
   # systemd.tmpfiles.settings = {
@@ -81,28 +78,28 @@ in
         };
       };
       # TODO clean up the mounting, maybe via volume grouping or something; use impermanence?
-      secondary = {
-        device = "/dev/sda";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            root = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "xfs";
-                mountpoint = "/secondary-disk";
-                # mountpoint = projects_path;
-                mountOptions = [
-                  "defaults"
-                  # "mode=775" # allow group-write
-                ];
-              };
-            };
-          };
-        };
-      };
+      # secondary = {
+      #   device = "/dev/sda";
+      #   type = "disk";
+      #   content = {
+      #     type = "gpt";
+      #     partitions = {
+      #       root = {
+      #         size = "100%";
+      #         content = {
+      #           type = "filesystem";
+      #           format = "xfs";
+      #           mountpoint = "/secondary-disk";
+      #           # mountpoint = projects_path;
+      #           mountOptions = [
+      #             "defaults"
+      #             # "mode=775" # allow group-write
+      #           ];
+      #         };
+      #       };
+      #     };
+      #   };
+      # };
     };
   };
 }

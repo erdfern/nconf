@@ -123,20 +123,81 @@ in
       ];
     };
 
+    ###############
+    ## Installer ##
+    ###############
+    # A lean live-ISO system. Declared manually (NOT under ./hosts) so it does not
+    # inherit the desktop `core` defaults. Boot it on a fresh machine, then run
+    # `install <host> root@<ip>` from another machine. Build via `build-installer`.
+    systems.nixos.installer.modules = [
+      "${pins.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+      "${pins.nixpkgs}/nixos/modules/profiles/all-hardware.nix"
+      ({ pkgs, lib, ... }: {
+        networking.hostName = lib.mkForce "installer";
+
+        services.openssh.enable = true;
+        services.openssh.settings.PermitRootLogin = lib.mkForce "prohibit-password";
+        users.users.root.openssh.authorizedKeys.keys = me.ssh.pubKeys;
+        users.users.nixos.openssh.authorizedKeys.keys = me.ssh.pubKeys;
+
+        nix.settings = {
+          experimental-features = [ "nix-command" "flakes" ];
+          trusted-users = [ "root" "nixos" ];
+          substituters = [
+            "https://cache.nixos.org"
+            "https://nix-community.cachix.org"
+            "https://kor.cachix.org"
+          ];
+          trusted-public-keys = [
+            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "kor.cachix.org-1:120l5rP3Npq4wDdbg8AkJ85J4zqilDXMGt2XQHWDHOM="
+          ];
+        };
+
+        environment.systemPackages = with pkgs; [
+          git
+          disko
+          npins
+          nixos-facter
+          jq
+          helix
+        ];
+
+        system.stateVersion = lib.mkDefault "26.05";
+      })
+    ];
+
     shells.default = {
       systems = [ "x86_64-linux" ];
 
       settings = {
-        pkgs = config.inputs.nixpkgs-unstable.result;
+        # The sole `nixpkgs` pin already tracks nixos-unstable; there is no
+        # separate `nixpkgs-unstable` input.
+        pkgs = config.inputs.nixpkgs.result;
         args.inputs = config.inputs;
       };
 
       # Shell definitions are declared using Nixpkgs' callPackage convention by default.
-      shell = { mkShell, inputs, ... }:
+      shell = { mkShell, writeShellApplication, nixos-anywhere, nixos-install-tools, inputs, ... }:
+        let
+          nillaCli = inputs.nilla-cli.result.packages.default.result.x86_64-linux;
+          nillaUtils = inputs.nilla-utils.result.packages.default.result.x86_64-linux;
+
+          # `install`, `deploy`, `build-installer` -- bodies live in ./scripts/*.sh
+          mkCmd = name: runtimeInputs:
+            writeShellApplication {
+              inherit name runtimeInputs;
+              text = builtins.readFile ./scripts/${name}.sh;
+            };
+        in
         mkShell {
           packages = [
-            inputs.nilla-cli.result.packages.default.result.x86_64-linux
-            inputs.nilla-utils.result.packages.default.result.x86_64-linux
+            nillaCli
+            nillaUtils
+            (mkCmd "install" [ nixos-anywhere nixos-install-tools ])
+            (mkCmd "deploy" [ nillaCli nillaUtils ])
+            (mkCmd "build-installer" [ ])
           ];
         };
     };
