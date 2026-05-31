@@ -13,27 +13,28 @@ in
 {
   imports = [
     ./input.nix
-    # ./keybinds.nix
-    # ./theme.nix
+    ./keybinds.nix
+    ./theme.nix
     # ./hy3.nix
   ];
 
   wayland.windowManager.hyprland = {
-    # sourceFirst = true;
+    configType = "hyprlang";
+    sourceFirst = true;
     settings = {
-      # exec-once = [ ]
-      #   ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
+      exec-once = [ ]
+        ++ lib.lists.optional autostartWaybar "${uwsmRun "${toggle_waybar}"}";
 
-      # env = [
-      # "XCURSOR_SIZE,24"
-      # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
-      # "HYPRCURSOR_SIZE,24"
-      # "HYPRCURSOR_THEME,${config.programs.pointerCursor.name}"
-      # "QT_QPA_PLATFORMTHEME,qt6ct"
-      # ];
+      env = [
+        "XCURSOR_SIZE,24"
+        # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
+        "HYPRCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,${config.programs.pointerCursor.name}"
+        "QT_QPA_PLATFORMTHEME,qt6ct"
+      ];
 
-      # debug.disable_logs = true;
-      # debug.enable_stdout_logs = false;
+      debug.disable_logs = true;
+      debug.enable_stdout_logs = false;
 
       monitor = [
         "Unknown-1, disable"
@@ -160,12 +161,12 @@ in
       #   "match:float false, match:workspace f[1], rounding 0"
       # ];
 
-      workspace = [
-      ] ++ lib.optionals (!cfg.hy3.enable) [
-        # smart gaps/'no gaps when only'
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
-      ];
+      # workspace = [
+      # ] ++ lib.optionals (!cfg.hy3.enable) [
+      #   # smart gaps/'no gaps when only'
+      #   "w[tv1], gapsout:0, gapsin:0"
+      #   "f[1], gapsout:0, gapsin:0"
+      # ];
     };
   };
 }
