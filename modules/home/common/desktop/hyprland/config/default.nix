@@ -144,7 +144,7 @@ in
           (floatClass "termfloat")
 
           { match = { class = "termfloat"; }; rounding = 5; size = "980 640"; }
-          { match = { title = "^(Picture-in-Picture)$"; }; move = [ "-25%" "-25%" ]; }
+          { match = { title = "^(Picture-in-Picture)$"; }; move = "100%-25% 100%-25%"; }
 
           {
             name = "clipse-modal";
