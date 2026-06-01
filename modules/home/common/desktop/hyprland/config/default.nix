@@ -94,7 +94,6 @@ in
         };
 
         dwindle = {
-          pseudotile = true;
           preserve_split = true;
           # smart_split = true;
         };
@@ -138,16 +137,14 @@ in
         [
           # `hyprctl clients` to get class/title...
           # { name = "suppress-maximize"; match = { class = ".*"; }; suppress_event = "maximize"; }
-          (floatClass "Picture-inPicture") # NOTE: likely a typo for "Picture-in-Picture"
+          (floatClass "Picture-in-Picture")
           (floatClass "imv")
           (floatClass "mpv")
           # (floatClass "nemo")
           (floatClass "termfloat")
 
           { match = { class = "termfloat"; }; rounding = 5; size = "980 640"; }
-          { match = { title = "^(Picture-in-Picture)$"; }; move = "-25%"; }
-
-          { match = { class = "^(rimworld)$"; }; immediate = true; }
+          { match = { title = "^(Picture-in-Picture)$"; }; move = [ "-25%" "-25%" ]; }
 
           {
             name = "clipse-modal";
