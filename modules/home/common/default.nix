@@ -11,6 +11,7 @@
 
   # TODO move
   catppuccin.enable = true;
+  catppuccin.autoEnable = true; # new "catppuccin.enable"; enables auto toggling all supported catppuccin ports/modifications
   catppuccin.cursors.enable = true;
   catppuccin.flavor = "mocha";
   catppuccin.accent = "peach";
