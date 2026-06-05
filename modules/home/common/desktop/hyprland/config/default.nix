@@ -49,7 +49,6 @@ in
       # Note `scale` is a string ("auto"/"1"), and `disable` becomes disabled = true.
       monitor = [
         { output = "Unknown-1"; disabled = true; }
-        { output = ""; mode = "preferred"; position = "auto"; scale = "auto"; }
         {
           output = "desc:LG Electronics 34GK950G ##ASNP9XrjL0zd";
           mode = "3440x1440@120.00Hz";
@@ -78,6 +77,7 @@ in
           # max_luminance = 0;
           # max_avg_luminance = 0;
         }
+        { output = ""; mode = "preferred"; position = "auto"; scale = "auto"; }
       ];
 
       config = {
