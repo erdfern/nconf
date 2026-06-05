@@ -64,6 +64,20 @@ in
           # max_luminance = 0;
           # max_avg_luminance = 0;
         }
+        {
+          output = "DP-3";
+          mode = "3440x1440@120.00Hz";
+          position = "auto";
+          scale = "1";
+          # transform = 2;
+          supports_wide_color = 1;
+          # supports_hdr = 1;
+          # sdr_min_luminance = 0.005;
+          # sdr_max_luminance = 225;
+          # min_luminance = 0;
+          # max_luminance = 0;
+          # max_avg_luminance = 0;
+        }
       ];
 
       config = {
