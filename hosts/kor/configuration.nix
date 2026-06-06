@@ -91,6 +91,7 @@
     extraGroups = [
       "adbusers"
       "dialout" # arduino-ide
+      "plugdev" # embassy/probe-rs
     ];
   };
 
