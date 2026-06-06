@@ -286,6 +286,19 @@
       "url": "https://github.com/nix-community/nur/archive/f73797c1ac0d59918876630a58697a942d67a201.tar.gz",
       "hash": "sha256-6ldkubYtqe7QL4tVF/qNn0uCGQ2ChyC0YYaH9uetCVI="
     },
+    "probe-rs-rules": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jneem",
+        "repo": "probe-rs-rules"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "5c601076adc309841ac7f6a932b59f296602410e",
+      "url": "https://github.com/jneem/probe-rs-rules/archive/5c601076adc309841ac7f6a932b59f296602410e.tar.gz",
+      "hash": "sha256-Yg2mBbqI3yaXvO6dDUMs0QKGH2DLpag6FulMKsmuQ/A="
+    },
     "sops-nix": {
       "type": "Git",
       "repository": {

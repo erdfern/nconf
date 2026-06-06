@@ -11,7 +11,9 @@
     ./graphics.nix
     ./wifihotspot.nix
     "${inputs.facter.result}/modules/nixos/facter.nix"
+    inputs.probe-rs-rules.result.nixosModules.x86_64-linux.default
   ];
+  hardware.probe-rs.enable = true;
 
   facter.reportPath = ./facter.json;
 
