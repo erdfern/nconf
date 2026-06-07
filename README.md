@@ -98,11 +98,11 @@ install <host> root@<ip>
 Hosts bake `users.users.*.initialHashedPassword`/`hashedPasswordFile`, so first login works
 without a `mkpasswd` step.
 
-> Why local installs no longer run out of space: the live ISO's `/nix/store` is an overlay whose
-> writable layer is a RAM-backed tmpfs (~50% of RAM), so a desktop `toplevel` overflowed RAM
-> before reaching the disk. After `disko`, `install` re-stacks that overlay with its writable
-> layer on the freshly-formatted `/mnt` (falling back to a swapfile on `/mnt` if that is not
-> possible), so the closure lands on disk — and substitutes from `kor.cachix.org` when it can.
+> Why local installs no longer run out of space: the live ISO's `/nix/store` is a RAM-backed
+> tmpfs overlay (~50% of RAM), far too small for a desktop closure. `install` never realizes the
+> closure there — after `disko` it runs `nixos-install --file … --attr …`, which builds with
+> `--store /mnt`, so the whole closure is built/substituted straight onto the target disk
+> (pulling from `kor.cachix.org` and the installer's own store).
 
 > Secrets (sops/age) are **not** provisioned during install. A new host's age identity is derived
 > from its SSH host key (generated on first boot), so after first boot add the host's key to

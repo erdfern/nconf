@@ -30,13 +30,9 @@ let
       nix
       git
       openssh
-      gnused
-      gawk
       coreutils
-      util-linux
       nixos-anywhere
       nixos-install-tools
-      jq
     ]);
     deploy = mkCmd "deploy" (with pkgs; [ nix git nillaCli nillaUtils ]);
     build-installer = mkCmd "build-installer" (with pkgs; [ nix ]);

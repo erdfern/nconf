@@ -67,106 +67,6 @@ confirm() {
   esac
 }
 
-# On the installer the writable /nix/store is an overlay whose upper layer is a
-# RAM-backed tmpfs (~50% of RAM). Building or substituting a full system closure
-# there exhausts RAM long before nixos-install copies it to /mnt. After disko has
-# formatted and mounted /mnt, give the build room on the freshly-formatted disk.
-# Two strategies, in order of preference; both are no-ops on an on-disk machine:
-#   1. Re-stack the /nix/store overlay with its writable upper on /mnt.
-#   2. Fall back to a swapfile on /mnt so the RAM-backed store can spill to disk.
-INSTALL_STORE=/mnt/.nconf-install-store
-SWAPFILE=/mnt/.nconf-install-swap
-STORE_RELOCATED=0
-SWAP_ENABLED=0
-
-# Read one comma-separated mount option ($1) out of the option string in $2.
-mount_opt() { printf '%s' "$2" | tr ',' '\n' | sed -n "s/^$1=//p" | head -n1; }
-
-# Strategy 1: stack a disk-backed overlay over /nix/store.
-relocate_store_via_overlay() {
-  local opts lower upper
-
-  # The overlay is created in the initrd, so its recorded lowerdir/upperdir are
-  # rooted at /sysroot (the future root) and are NOT rewritten for stage 2.
-  opts="$(awk '$5=="/nix/store"{sep=0; for(i=6;i<=NF;i++) if($i=="-"){sep=i;break}; if(sep && $(sep+1)=="overlay") print $(sep+3)}' /proc/self/mountinfo | tail -n1)"
-  [ -n "$opts" ] || return 1
-
-  lower="$(mount_opt lowerdir "$opts")"
-  lower="${lower%%:*}"      # the squashfs (read-only) layer
-  upper="$(mount_opt upperdir "$opts")"
-  lower="${lower#/sysroot}" # rewrite initrd paths to the live root
-  upper="${upper#/sysroot}"
-  [ -n "$lower" ] && [ -n "$upper" ] && [ -d "$lower" ] && [ -d "$upper" ] || return 1
-
-  echo ">> Relocating the writable Nix store onto /mnt (was RAM-backed)" >&2
-  mkdir -p "${INSTALL_STORE}/store" "${INSTALL_STORE}/work"
-  # Preserve paths realized so far (e.g. the disko script) by copying the small
-  # RAM upper to disk. We then use the squashfs as the ONLY lower -- reusing the
-  # live, in-use RAM upper as a lower is undefined behavior in overlayfs.
-  cp -a "${upper}/." "${INSTALL_STORE}/store/" 2>/dev/null || true
-  if ! mount -t overlay overlay \
-    -o "lowerdir=${lower},upperdir=${INSTALL_STORE}/store,workdir=${INSTALL_STORE}/work" \
-    /nix/store; then
-    rm -rf "$INSTALL_STORE" 2>/dev/null || true
-    return 1
-  fi
-  STORE_RELOCATED=1
-  # Restart the daemon so it serves the freshly re-stacked store.
-  systemctl restart nix-daemon 2>/dev/null || true
-  sleep 1
-}
-
-# Strategy 2: swapfile on /mnt; tmpfs store pages can then spill out of RAM.
-add_swap_on_mnt() {
-  local fstype avail_mib size_mib
-  fstype="$(findmnt -no FSTYPE /mnt)"
-  avail_mib="$(df -BM --output=avail /mnt | tail -1 | tr -dc '0-9')"
-  # ~40% of free space, capped at 48 GiB, floored at 8 GiB.
-  size_mib=$((avail_mib * 4 / 10))
-  [ "$size_mib" -gt 49152 ] && size_mib=49152
-  [ "$size_mib" -lt 8192 ] && size_mib=8192
-
-  echo ">> Adding ${size_mib} MiB of swap on /mnt (${fstype}) for the build" >&2
-  if [ "$fstype" = btrfs ]; then
-    btrfs filesystem mkswapfile --size "${size_mib}m" "$SWAPFILE"
-  else
-    dd if=/dev/zero of="$SWAPFILE" bs=1M count="$size_mib" status=none
-    chmod 600 "$SWAPFILE"
-    mkswap "$SWAPFILE" >/dev/null
-  fi
-  swapon "$SWAPFILE"
-  SWAP_ENABLED=1
-}
-
-# Make room for the build on disk when /nix/store is RAM-backed.
-ensure_disk_build_space() {
-  local fstype
-  fstype="$(findmnt -no FSTYPE /nix/store 2>/dev/null || true)"
-  case "$fstype" in
-    overlay | tmpfs) ;;
-    *)
-      echo ">> /nix/store is on disk; building in place" >&2
-      return 0
-      ;;
-  esac
-  mountpoint -q /mnt || die "/mnt is not mounted (did disko run?)"
-  relocate_store_via_overlay && return 0
-  echo ">> overlay relocation unavailable; falling back to swap" >&2
-  add_swap_on_mnt
-}
-
-# Drop the transient build store / swap so neither persists on the new disk.
-cleanup_build_space() {
-  if [ "${SWAP_ENABLED:-0}" = 1 ]; then
-    swapoff "$SWAPFILE" 2>/dev/null || true
-    rm -f "$SWAPFILE" 2>/dev/null || true
-  fi
-  if [ "${STORE_RELOCATED:-0}" = 1 ]; then
-    umount /nix/store 2>/dev/null || umount -l /nix/store 2>/dev/null || true
-    rm -rf "$INSTALL_STORE" 2>/dev/null || true
-  fi
-}
-
 host=""
 target=""
 opt_project=""
@@ -226,7 +126,9 @@ done
 
 proj="$(resolve_project)"
 [ -e "${proj}/nilla.nix" ] || die "no nilla.nix found at project '${proj}'"
-prefix="systems.nixos.${host}.result.config.system.build"
+# nilla-utils exposes each host as `systems.nixos.<host>.result` (a NixOS eval).
+result_attr="systems.nixos.${host}.result"
+build_attr="${result_attr}.config.system.build"
 
 # --facter: capture a hardware report from a remote target into the repo, then stop.
 if [ "$opt_facter" = 1 ]; then
@@ -248,8 +150,8 @@ if [ -n "$target" ]; then
   echo "   project: ${proj}" >&2
   confirm "This will ERASE and reformat the disks on '${target}'. Continue?"
   mapfile -t paths < <(nix-build "${proj}/nilla.nix" \
-    -A "${prefix}.diskoScript" \
-    -A "${prefix}.toplevel" \
+    -A "${build_attr}.diskoScript" \
+    -A "${build_attr}.toplevel" \
     --no-out-link)
   exec nixos-anywhere --store-paths "${paths[@]}" "${extra[@]}" "$target"
 fi
@@ -257,23 +159,27 @@ fi
 ###########
 # LOCAL   #  run from the installer ISO; format + install THIS machine
 ###########
+# The live ISO's /nix/store is a RAM-backed tmpfs overlay (~50% of RAM), far too
+# small for a desktop closure. The trick is to never realize that closure in the
+# installer's store: `nixos-install` (by-attrset mode, `--file`/`--attr`) builds
+# the system with `--store /mnt`, so the whole closure is built/substituted
+# straight onto the freshly-formatted target disk. We must NOT pre-build the
+# toplevel here -- doing so would fill RAM before nixos-install ever runs.
 [ "$(id -u)" = 0 ] || die "local install must run as root (boot the installer ISO)"
 echo ">> Local install of '${host}' onto THIS machine -- disks will be WIPED" >&2
 echo "   project: ${proj}" >&2
 confirm "This will ERASE and reformat THIS machine's disks. Continue?"
 
-trap cleanup_build_space EXIT
-
 echo ">> Partitioning with disko" >&2
-disko="$(nix-build "${proj}/nilla.nix" -A "${prefix}.diskoScript" --no-out-link)"
+disko="$(nix-build "${proj}/nilla.nix" -A "${build_attr}.diskoScript" --no-out-link)"
 "$disko"
 
-ensure_disk_build_space
-
-echo ">> Building the system closure for '${host}' (substitutes from cache when available)" >&2
-top="$(nix-build "${proj}/nilla.nix" -A "${prefix}.toplevel" --no-out-link)"
-
-echo ">> Installing" >&2
-nixos-install --no-root-passwd --no-channel-copy --root /mnt --system "$top"
+echo ">> Building + installing '${host}' directly into /mnt (substitutes from cache)" >&2
+nixos-install \
+  --file "${proj}/nilla.nix" \
+  --attr "${result_attr}" \
+  --root /mnt \
+  --no-root-passwd \
+  --no-channel-copy
 
 echo ">> Done. Reboot into '${host}'." >&2
