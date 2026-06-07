@@ -100,8 +100,9 @@ without a `mkpasswd` step.
 
 > Why local installs no longer run out of space: the live ISO's `/nix/store` is an overlay whose
 > writable layer is a RAM-backed tmpfs (~50% of RAM), so a desktop `toplevel` overflowed RAM
-> before reaching the disk. `install` now re-stacks that overlay onto the freshly-formatted `/mnt`
-> after `disko`, so the closure lands on disk — and substitutes from `kor.cachix.org` when it can.
+> before reaching the disk. After `disko`, `install` re-stacks that overlay with its writable
+> layer on the freshly-formatted `/mnt` (falling back to a swapfile on `/mnt` if that is not
+> possible), so the closure lands on disk — and substitutes from `kor.cachix.org` when it can.
 
 > Secrets (sops/age) are **not** provisioned during install. A new host's age identity is derived
 > from its SSH host key (generated on first boot), so after first boot add the host's key to
