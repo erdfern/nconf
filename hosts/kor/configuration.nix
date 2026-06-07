@@ -41,7 +41,8 @@
   };
 
   environment.systemPackages = [
-    pkgs.arduino-ide
+    # pkgs.arduino-ide
+    pkgs.arduino-cli
   ];
   # environment.systemPackages = [
   # pkgs.inkscape
