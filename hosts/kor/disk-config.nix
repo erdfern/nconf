@@ -3,7 +3,7 @@
   disko.devices = {
     disk = {
       primary = {
-        device = "/dev/by-id/nvme-Samsung_SSD_970_PRO_1TB_S462NF0MA06388N_1";
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_970_PRO_1TB_S462NF0MA06388N_1";
         type = "disk";
         content = {
           type = "gpt";
