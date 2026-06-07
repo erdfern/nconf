@@ -62,5 +62,5 @@
   #   inputs.nilla-utils.result.packages.nilla-utils-plugins.result.x86_64-linux
   # ];
 
-  home.stateVersion = "26.05";
+  home.stateVersion = "26.11";
 }
