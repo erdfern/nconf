@@ -25,6 +25,7 @@ attr="systems.nixos.${host}.result.config.system.build"
 
 if [ -n "$target" ]; then
   echo ">> Remote install of '${host}' onto '${target}' via nixos-anywhere" >&2
+  # NOTE: `nix build -f nilla.nix ${attr}` should be preferred since we have "experimental nix commands" available
   mapfile -t paths < <(nix-build nilla.nix \
     -A "${attr}.diskoScript" \
     -A "${attr}.toplevel" \
