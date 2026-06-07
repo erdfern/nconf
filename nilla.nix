@@ -8,6 +8,47 @@ in
 nilla.create ({ config }:
 let
   inherit (config) lib;
+
+  # One concrete (overlayed, unfree-enabled) nixpkgs used to build the helper
+  # commands below. It is the same instance the NixOS generator uses, so the
+  # commands' runtime deps are shared with the systems -- nothing is duplicated.
+  pkgs = config.inputs.nixpkgs.result.x86_64-linux;
+
+  nillaCli = config.inputs.nilla-cli.result.packages.default.result.x86_64-linux;
+  nillaUtils = config.inputs.nilla-utils.result.packages.default.result.x86_64-linux;
+
+  # `install`, `deploy`, `build-installer` -- bodies live in ./scripts/*.sh.
+  # Defined once here and reused by both the dev shell and the installer ISO.
+  mkCmd = name: runtimeInputs:
+    pkgs.writeShellApplication {
+      inherit name runtimeInputs;
+      text = builtins.readFile ./scripts/${name}.sh;
+    };
+
+  commands = {
+    install = mkCmd "install" (with pkgs; [
+      nix
+      git
+      openssh
+      gnused
+      gawk
+      coreutils
+      util-linux
+      nixos-anywhere
+      nixos-install-tools
+      jq
+    ]);
+    deploy = mkCmd "deploy" (with pkgs; [ nix git nillaCli nillaUtils ]);
+    build-installer = mkCmd "build-installer" (with pkgs; [ nix ]);
+  };
+
+  # The whole Nilla config, importable into the store (minus VCS / scratch dirs).
+  # Baked into the installer ISO at /etc/nconf so `install <host>` needs no clone.
+  projectSrc = builtins.path {
+    path = ./.;
+    name = "nconf";
+    filter = path: _type: !(builtins.elem (baseNameOf path) [ ".git" ".direnv" "result" ]);
+  };
 in
 {
   includes = [
@@ -140,6 +181,12 @@ in
         users.users.root.openssh.authorizedKeys.keys = me.ssh.pubKeys;
         users.users.nixos.openssh.authorizedKeys.keys = me.ssh.pubKeys;
 
+        # Security-key support so the install/recovery flow can use sk-* SSH keys
+        # and fido2/yubikey-backed sops age identities.
+        hardware.nitrokey.enable = true;
+        services.pcscd.enable = true;
+        services.udev.packages = [ pkgs.yubikey-personalization ];
+
         nix.settings = {
           experimental-features = [ "nix-command" "flakes" ];
           trusted-users = [ "root" "nixos" ];
@@ -155,50 +202,49 @@ in
           ];
         };
 
-        environment.systemPackages = with pkgs; [
+        # Embed the whole config so `install <host>` resolves it with no clone.
+        environment.etc.nconf.source = projectSrc;
+        environment.variables.NCONF_PROJECT = "/etc/nconf";
+
+        environment.systemPackages = (with pkgs; [
+          # provisioning
           git
           disko
           npins
           nixos-facter
+          nixos-anywhere
+          nixos-install-tools
+          util-linux
           jq
           helix
+          # security keys
+          pcsc-tools
+          pynitrokey
+          age-plugin-fido2-hmac
+          yubikey-manager
+          age-plugin-yubikey
+        ]) ++ [
+          commands.install
+          commands.deploy
         ];
 
-        system.stateVersion = lib.mkDefault "26.05";
+        # stateVersion is supplied by installation-cd-base.nix; don't override it.
       })
     ];
 
     shells.default = {
       systems = [ "x86_64-linux" ];
 
-      settings = {
-        # The sole `nixpkgs` pin already tracks nixos-unstable; there is no
-        # separate `nixpkgs-unstable` input.
-        pkgs = config.inputs.nixpkgs.result;
-        args.inputs = config.inputs;
-      };
+      # The sole `nixpkgs` pin already tracks nixos-unstable; there is no
+      # separate `nixpkgs-unstable` input.
+      settings.pkgs = config.inputs.nixpkgs.result;
 
-      # Shell definitions are declared using Nixpkgs' callPackage convention by default.
-      shell = { mkShell, writeShellApplication, nixos-anywhere, nixos-install-tools, inputs, ... }:
-        let
-          nillaCli = inputs.nilla-cli.result.packages.default.result.x86_64-linux;
-          nillaUtils = inputs.nilla-utils.result.packages.default.result.x86_64-linux;
-
-          # `install`, `deploy`, `build-installer` -- bodies live in ./scripts/*.sh
-          mkCmd = name: runtimeInputs:
-            writeShellApplication {
-              inherit name runtimeInputs;
-              text = builtins.readFile ./scripts/${name}.sh;
-            };
-        in
+      # `install` / `deploy` / `build-installer` plus the nilla CLIs for manual
+      # `nilla os/home ...`. The commands are the same derivations baked into the
+      # installer ISO (see `commands` in the top-level `let`).
+      shell = { mkShell, ... }:
         mkShell {
-          packages = [
-            nillaCli
-            nillaUtils
-            (mkCmd "install" [ nixos-anywhere nixos-install-tools ])
-            (mkCmd "deploy" [ nillaCli nillaUtils ])
-            (mkCmd "build-installer" [ ])
-          ];
+          packages = [ nillaCli nillaUtils ] ++ builtins.attrValues commands;
         };
     };
   };

@@ -1,1 +1,0 @@
-nix build --experimental-features "nix-command flakes" .#nixosConfigurations.customlive.x86_64-linux.config.system.build.isoImage

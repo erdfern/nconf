@@ -1,26 +1,47 @@
 name: "Build and Cache"
-on: [push]
+
+# Populate the kor.cachix.org binary cache so `install <host>` substitutes the
+# system closure straight onto the target disk instead of building it. Builds
+# every NixOS system (incl. the installer ISO's toplevel) and every
+# home-manager configuration, then cachix pushes whatever was built.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
 jobs:
   build:
-    if: false # disable for now
-    runs-on: ubuntu-latest
-    # runs-on: [self-hosted, nixos]
+    # Desktop closures are too large/slow for the free GitHub runners; build on
+    # the self-hosted NixOS runner (services.github-runners in hosts/{dedi,h1}).
+    # NOTE: that runner was registered against the old `erdfern/nconf` repo name;
+    # this repo is `erdfern/config`. A GitHub repo rename keeps runners attached,
+    # but if jobs are not picked up, re-register the runner (see hosts/*/gh-runner.nix).
+    runs-on: [self-hosted, nixos]
     steps:
-    - uses: actions/checkout@v4
-    - uses: cachix/install-nix-action@31.3.0
-      with:
-        nix_path: nixpkgs=channel:nixos-unstable
-    - uses: cachix/cachix-action@v16
-      with:
-        name: kor
-        # If you chose API tokens for write access OR if you have a private cache
-        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    # Attic cache setup
-    # - name: Setup Attic cache
-    #   uses: ryanccn/attic-action@v0.3.2
-    #   with:
-    #     endpoint: ${{ secrets.ATTIC_ENDPOINT }}
-    #     cache: ${{ secrets.ATTIC_CACHE }}
-    #     token: ${{ secrets.ATTIC_TOKEN }}
-    - run: nix build -f nilla.nix systems.nixos.kor.result.config.system.build.toplevel
-    - run: nix build -f nilla.nix systems.home."j@kor".result.activationPackage
+      - uses: actions/checkout@v4
+
+      - uses: cachix/cachix-action@v16
+        with:
+          name: kor
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+
+      - name: Build NixOS systems (toplevel)
+        run: |
+          for host in $(nix eval --raw --impure \
+              --expr 'with import ./nilla.nix; builtins.concatStringsSep " " (builtins.attrNames systems.nixos)'); do
+            echo "::group::nixos $host"
+            nix build -f nilla.nix "systems.nixos.$host.result.config.system.build.toplevel" -L
+            echo "::endgroup::"
+          done
+
+      - name: Build home-manager configurations
+        run: |
+          for h in $(nix eval --raw --impure \
+              --expr 'with import ./nilla.nix; builtins.concatStringsSep " " (builtins.attrNames systems.home)'); do
+            echo "::group::home $h"
+            nix build -f nilla.nix "systems.home.\"$h\".result.activationPackage" -L
+            echo "::endgroup::"
+          done
+
+      - name: Build installer ISO
+        run: nix build -f nilla.nix systems.nixos.installer.result.config.system.build.isoImage -L

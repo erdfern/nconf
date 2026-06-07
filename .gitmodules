@@ -1,3 +1,0 @@
-[submodule "modules/nilla-utils"]
-	path = modules/nilla-utils
-	url = git@github.com:erdfern/nilla-utils

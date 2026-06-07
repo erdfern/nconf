@@ -8,16 +8,27 @@ references
 
 Enter the dev shell (`nilla shell`, or `direnv allow` once for auto-load) to get:
 
-- `install <host> [user@target] [extra nixos-anywhere args...]` — provision a host
-- `deploy  <host> [user@target] [extra nilla args...]` — rebuild & switch an installed host
-- `build-installer` — build the custom installer ISO
+- `install <host> [user@target]` — provision a host (local or remote)
+- `deploy  <host> [user@target]` — rebuild & switch an installed host
+- `build-installer` — build the self-contained installer ISO
+- the `nilla` CLI (`nilla os ...`, `nilla home ...`) for manual use
 
 Hosts live in [`hosts/`](hosts); each is `systems.nixos.<host>` (+ `systems.home.<user>@<host>`).
 
 # Install
 
-Fresh installs use [nixos-anywhere](https://github.com/nix-community/nixos-anywhere). Nilla is not a
-flake, so we feed it the two store paths it needs:
+One command, two transports. Both **erase and reformat** the target's disks.
+
+```
+install <host> [user@target] [--project <path>] [--ref <git-ref>] [--facter] [--yes] [-- extra args]
+```
+
+- **No target** → local on-device install: run it on the booted installer ISO; `disko`
+  formats *this* machine, then `nixos-install`.
+- **With a target** → remote install via [nixos-anywhere](https://github.com/nix-community/nixos-anywhere):
+  the closure is built on *your* machine and copied to the target over SSH.
+
+Nilla is not a flake, so under the hood we just build the two store paths the install needs:
 
 ```sh
 nix-build nilla.nix \
@@ -25,25 +36,36 @@ nix-build nilla.nix \
   -A systems.nixos.<host>.result.config.system.build.toplevel
 ```
 
-`install` does this for you.
+`install` does this for you, picks the transport, and confirms before wiping (`--yes` to skip).
 
-### New machine on your LAN (or in hand)
+**Where the config comes from** (project resolution, first match wins): `--project <path>` →
+`--ref <git-ref>` (fetched from `github:erdfern/config`) → `$NCONF_PROJECT` → `/etc/nconf`
+(baked into the installer ISO) → the current git repo → `.`.
 
-1. Build the installer ISO and flash it to a USB stick:
+### New machine on your LAN (or in hand) — the self-contained way
+
+1. Build the installer ISO and flash it:
    ```sh
    build-installer   # prints the built ISO path
-   # then e.g.:  sudo dd if=<that>.iso of=/dev/sdX bs=4M status=progress conv=fsync
+   sudo dd if=<that>.iso of=/dev/sdX bs=4M status=progress conv=fsync
    ```
-   The ISO has sshd enabled and `me.ssh.pubKeys` authorized for `root`/`nixos`.
-2. Boot the target from the USB and note its IP (`ip a`).
-3. From this repo on another machine:
+   The ISO bundles the whole config at `/etc/nconf`, the `install`/`deploy` commands, sshd with
+   `me.ssh.pubKeys` authorized, security-key tooling (pcscd, yubikey/nitrokey), and the
+   `kor.cachix.org` substituter.
+2. Boot the target from the USB.
+3. **On the target itself** — no repo clone needed:
    ```sh
-   install <host> root@<ip>
+   install <host>
    ```
+   `disko` formats the disk, the writable Nix store is moved onto the fresh disk (so the system
+   closure substitutes/builds on disk instead of the RAM-backed live store), then `nixos-install`.
+
+   To install a newer config than the one baked in: `install <host> --ref main`.
 
 ### Remote machine (Hetzner, VPS, …)
 
-Get the target into a NixOS installer / rescue / kexec environment reachable over SSH, then:
+Get the target into a NixOS installer / rescue / kexec environment reachable over SSH, then run
+from this repo on your own machine:
 
 ```sh
 install <host> root@<ip>
@@ -56,28 +78,34 @@ curl -L https://github.com/nix-community/nixos-images/releases/latest/download/n
 /root/kexec/run
 ```
 
-### Local, on the machine itself
-
-Boot the target from the installer ISO, check out this repo there, then:
-
-```sh
-install <host>          # no target = format THIS machine's disks + nixos-install
-```
-
 ### Brand-new hardware (no hardware profile yet)
 
-Generate a hardware profile from the booted target first, commit it, then install:
+Capture a hardware profile from the booted target, commit it, then install. For facter hosts:
 
 ```sh
-ssh root@<ip> nixos-facter > hosts/<host>/facter.json   # if the host uses facter
-# or: ssh root@<ip> nixos-generate-config --no-filesystems --show-hardware-config > hosts/<host>/hardware-configuration.nix
+install <host> root@<ip> --facter   # writes hosts/<host>/facter.json, then stops
+git add hosts/<host>/facter.json && git commit -m "<host>: facter"
 install <host> root@<ip>
 ```
 
-Hosts bake `users.users.*.initialHashedPassword`, so first login works without any `mkpasswd` step.
+For `hardware-configuration.nix` hosts:
 
-> Secrets (sops/age) are **not** provisioned during install yet — after first boot, place the age key as
-> before. See `secrets/` and [modules/nixos/core/sops](modules/nixos/core/sops/default.nix).
+```sh
+ssh root@<ip> nixos-generate-config --no-filesystems --show-hardware-config > hosts/<host>/hardware-configuration.nix
+install <host> root@<ip>
+```
+
+Hosts bake `users.users.*.initialHashedPassword`/`hashedPasswordFile`, so first login works
+without a `mkpasswd` step.
+
+> Why local installs no longer run out of space: the live ISO's `/nix/store` is an overlay whose
+> writable layer is a RAM-backed tmpfs (~50% of RAM), so a desktop `toplevel` overflowed RAM
+> before reaching the disk. `install` now re-stacks that overlay onto the freshly-formatted `/mnt`
+> after `disko`, so the closure lands on disk — and substitutes from `kor.cachix.org` when it can.
+
+> Secrets (sops/age) are **not** provisioned during install. A new host's age identity is derived
+> from its SSH host key (generated on first boot), so after first boot add the host's key to
+> [`.sops.yaml`](.sops.yaml), re-encrypt `secrets/`, then `deploy`.
 
 # Manage (day 2)
 
@@ -86,8 +114,11 @@ deploy <host>              # rebuild + switch NixOS and home-manager locally
 deploy <host> root@<ip>    # ... over SSH (nilla os/home switch --target)
 ```
 
-Whole-fleet deploys still go through Colmena (see [hive.nix](hive.nix)):
+Whole-fleet / tag-based deploys go through Colmena (see [hive.nix](hive.nix)):
 
 ```sh
-colmena apply --on @<tag>
+colmena apply --on @<tag>   # e.g. @laptop, @workstation
 ```
+
+CI ([`.github/workflows/build.yml`](.github/workflows/build.yml)) builds every host + the installer
+ISO and pushes to `kor.cachix.org`, so installs and deploys substitute instead of building.
