@@ -6,7 +6,7 @@ let
 
   # TODO might be using this wrong https://github.com/nilla-nix/flake-compat
   # nixpkgs-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
-  nixpkgs-unstable-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
+  nixpkgs-flake = flake-compat.load { src = config.inputs.nixpkgs.src; };
   # don't think I need to do this; config.inputs.hyprland.result should probably work the same
   # hyprland-flake = flake-compat.load { src = config.inputs.hyprland.src; };
 
@@ -33,13 +33,12 @@ let
         config.inputs.nur.result.overlays.default
       ];
     };
-    nixpkgs-unstable = config.inputs.nixpkgs.settings;
 
-    # home-manager.inputs.nixpkgs = nixpkgs-unstable-flake; # default input already is nixpkgs/nixos-unstable
+    home-manager.inputs.nixpkgs = nixpkgs-flake; # default input already is nixpkgs/nixos-unstable
 
-    comma.inputs.nixpkgs = nixpkgs-unstable-flake;
-    hyprpanel.inputs.nixpkgs = nixpkgs-unstable-flake;
-    nixos-generators.inputs.nixpkgs = nixpkgs-unstable-flake;
+    comma.inputs.nixpkgs = nixpkgs-flake;
+    hyprpanel.inputs.nixpkgs = nixpkgs-flake;
+    nixos-generators.inputs.nixpkgs = nixpkgs-flake;
 
     #   #   # TODO hy3
     #   #   # hy3 = {

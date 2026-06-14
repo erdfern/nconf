@@ -70,7 +70,7 @@ in
     # Generate nixos hosts from folders in ./hosts
     generators.nixos = {
       folder = ./hosts;
-      # pkgs = config.inputs.nixpkgs-unstable; # unstable by default
+      # pkgs = config.inputs.nixpkgs;
 
       args = { inherit me; };
 
@@ -132,15 +132,22 @@ in
     #######################
     ## Special overrides ##
     #######################
-    systems.nixos.kor.nixpkgs = config.inputs.nixpkgs-unstable;
-    systems.home."${me.user}@kor".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
-    systems.home."${me.user}@kor".args.nixOsConfig = config.systems.nixos.kor.result.config;
-    # HACK
-    systems.home."${me.user}@kor".args.osConfig = config.systems.nixos.kor.result.config;
-    systems.home."${me.user}@kor-t14".args.osConfig = config.systems.nixos.kor.result.config;
+    # systems.nixos.kor.nixpkgs = config.inputs.nixpkgs;
+    systems.home = {
+      "${me.user}@kor" = {
+        # pkgs = config.inputs.nixpkgs.result.x86_64-linux;
+        args.nixOsConfig = config.systems.nixos.kor.result.config;
+        # HACK
+        args.osConfig = config.systems.nixos.kor.result.config;
+      };
+      "${me.user}@kor-t14" = {
+        # HACK
+        args.osConfig = config.systems.nixos.kor-t14.result.config;
+      };
+    };
 
-    # systems.nixos.kor-t14.nixpkgs = config.inputs.nixpkgs-unstable;
-    # systems.home."${user}@kor-t14".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
+    # systems.nixos.kor-t14.nixpkgs = config.inputs.nixpkgs;
+    # systems.home."${user}@kor-t14".pkgs = config.inputs.nixpkgs.result.x86_64-linux;
 
     # Lix lix lix
     systems.nixos.kor = {
