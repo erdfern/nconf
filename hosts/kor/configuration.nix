@@ -43,6 +43,7 @@
   environment.systemPackages = [
     # pkgs.arduino-ide
     pkgs.arduino-cli
+    pkgs.orca-slicer
   ];
   # environment.systemPackages = [
   # pkgs.inkscape
