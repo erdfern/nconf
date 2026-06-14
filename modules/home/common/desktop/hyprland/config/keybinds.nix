@@ -104,13 +104,14 @@ let
     {
       _args = [
         "${mod} + SHIFT + S"
-        (mkLuaInline ''function()
-  hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
-  hl.dispatch(hl.dsp.window.move({ workspace = "+0" }))
-  hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
-  hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
-  hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
-end'')
+        (mkLuaInline ''
+          function()
+            hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+            hl.dispatch(hl.dsp.window.move({ workspace = "+0" }))
+            hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+            hl.dispatch(hl.dsp.window.move({ workspace = "special:magic" }))
+            hl.dispatch(hl.dsp.workspace.toggle_special("magic"))
+          end'')
       ];
     }
   ];
@@ -222,9 +223,10 @@ in
       define_submap = {
         _args = [
           "clean"
-          (mkLuaInline ''function()
-  hl.bind("${mod} + F11", hl.dsp.submap("reset"))
-end'')
+          (mkLuaInline ''
+            function()
+              hl.bind("${mod} + F11", hl.dsp.submap("reset"))
+            end'')
         ];
       };
 
