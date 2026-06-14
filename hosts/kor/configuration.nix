@@ -25,6 +25,11 @@
 
   kor.gaming.enable = true;
   kor.flatpak.enable = true;
+  # OrcaSlicer's nixpkgs build has a blank 3D viewport on this host: a GL
+  # regression in the mesa-26.1.2 driver vs its wxWidgets-3.1.7 GLX context
+  # (libgbm/mesa version skew is intentional in nixpkgs and unrelated). The
+  # Flatpak runs against the Freedesktop runtime's mesa and renders correctly.
+  kor.flatpak.packages = [ "com.orcaslicer.OrcaSlicer" ];
 
   kor.hardware.sk.yubikey.enable = true;
   # kor.hardware.sk.nitrokey.enable = true;
@@ -43,7 +48,8 @@
   environment.systemPackages = [
     # pkgs.arduino-ide
     pkgs.arduino-cli
-    pkgs.orca-slicer
+    # orca-slicer is installed via Flatpak (see kor.flatpak.packages above);
+    # the nixpkgs build's 3D viewport is broken by a mesa-26.1 GL regression.
   ];
   # environment.systemPackages = [
   # pkgs.inkscape
