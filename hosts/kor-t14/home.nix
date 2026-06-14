@@ -55,7 +55,6 @@
     # openscad-unstable
     # openscad-lsp
     orca-slicer
-    # orca-slicer-git
     claude-code
   ];
 

@@ -31,7 +31,6 @@
     # pkgs.openscad-unstable
     # pkgs.openscad-lsp
     # pkgs.freecad-git
-    # pkgs.orca-slicer-git
     # pkgs.orca-slicer
     pkgs.discord
     # pkgs.seamly2d
