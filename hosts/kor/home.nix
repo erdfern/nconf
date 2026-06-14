@@ -28,11 +28,11 @@
     # inputs.devenv.result.packages.x86_64-linux.default
     pkgs.devenv
     pkgs.freecad
-    pkgs.openscad-unstable
-    pkgs.openscad-lsp
+    # pkgs.openscad-unstable
+    # pkgs.openscad-lsp
     # pkgs.freecad-git
     # pkgs.orca-slicer-git
-    pkgs.orca-slicer
+    # pkgs.orca-slicer
     pkgs.discord
     # pkgs.seamly2d
     # pkgs.valentina-git
