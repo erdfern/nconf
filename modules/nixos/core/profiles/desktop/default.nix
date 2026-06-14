@@ -87,28 +87,28 @@ in
     # };
 
     # use public Cloudflare DNS resolver
-    services.resolved = {
-      enable = true;
-      settings = {
-        Resolve = {
-          DNSSEC = "true";
-          Domains = [ "~." ];
-          fallbackDNS = [
-            "1.1.1.1"
-            "1.0.0.1"
-          ];
-          DNSOverTLS = "true";
-        };
-      };
-    };
-    networking.nameservers = lib.mkDefault [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
+    # services.resolved = {
+    #   enable = true;
+    #   settings = {
+    #     Resolve = {
+    #       DNSSEC = "true";
+    #       Domains = [ "~." ];
+    #       fallbackDNS = [
+    #         "1.1.1.1"
+    #         "1.0.0.1"
+    #       ];
+    #       DNSOverTLS = "true";
+    #     };
+    #   };
+    # };
+    # networking.nameservers = lib.mkDefault [
+    #   "1.1.1.1"
+    #   "1.0.0.1"
+    # ];
     # since we manage dns manually..
-    networking.useDHCP = false;
-    networking.dhcpcd.enable = false;
-    networking.networkmanager.dhcp = "internal";
+    # networking.useDHCP = false;
+    # networking.dhcpcd.enable = false;
+    # networking.networkmanager.dhcp = "internal";
     # networking.networkmanager.dns = "systemd-resolved";
 
     # TEMP ports for wake on lan
