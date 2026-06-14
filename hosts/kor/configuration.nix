@@ -29,7 +29,7 @@
   # regression in the mesa-26.1.2 driver vs its wxWidgets-3.1.7 GLX context
   # (libgbm/mesa version skew is intentional in nixpkgs and unrelated). The
   # Flatpak runs against the Freedesktop runtime's mesa and renders correctly.
-  kor.flatpak.packages = [ "com.orcaslicer.OrcaSlicer" ];
+  # kor.flatpak.packages = [ "com.orcaslicer.OrcaSlicer" ];
 
   kor.hardware.sk.yubikey.enable = true;
   # kor.hardware.sk.nitrokey.enable = true;
