@@ -132,9 +132,9 @@ in
     #######################
     ## Special overrides ##
     #######################
-    # systems.nixos.kor.nixpkgs = config.inputs.nixpkgs-unstable;
-    # systems.home."${me.user}@kor".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
-    # systems.home."${me.user}@kor".args.nixOsConfig = config.systems.nixos.kor.result.config;
+    systems.nixos.kor.nixpkgs = config.inputs.nixpkgs-unstable;
+    systems.home."${me.user}@kor".pkgs = config.inputs.nixpkgs-unstable.result.x86_64-linux;
+    systems.home."${me.user}@kor".args.nixOsConfig = config.systems.nixos.kor.result.config;
     # HACK
     systems.home."${me.user}@kor".args.osConfig = config.systems.nixos.kor.result.config;
     systems.home."${me.user}@kor-t14".args.osConfig = config.systems.nixos.kor.result.config;
