@@ -3,7 +3,7 @@
   email = "jay@erdfern.dev";
   domain = "";
   ssh.pubKeys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFC/7GNB7BzQQP9Au/tKFPSKOiyL18HJaUwCqy/sSdrf j@kor"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHGKewomJsAmpBfd+mOp8XNOPPxNU9qPFPG62jjw3TYD j@kor"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIECe8DRTjjxw5ica26wmeeXFh3586ask6eL9NxwUsDI3 lk@kor-t14"
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIGbfWj2zAADpQBzrqydUq40755qifLmzOMp3We32hs7hAAAAE3NzaDpsYXguZXJkZmVybi5kZXY= ssh:lax.erdfern.dev"
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINbSc82sYDBWblZ53C9kGWBZhApXu1x65/z/MLJ40OgNAAAAFnNzaDpzdHJpY3QuZXJkZmVybi5kZXY= ssh:strict.erdfern.dev"
