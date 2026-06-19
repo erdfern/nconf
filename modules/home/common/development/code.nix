@@ -8,8 +8,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      # pkgs.vscode-insiders
-      inputs.code-insiders-flake.result.packages.x86_64-linux.vscode-insider
+      pkgs.vscode-insiders
     ];
     # programs.vscode = {
     #   enable = true;
