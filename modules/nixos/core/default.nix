@@ -24,7 +24,7 @@ in
 
     # TODO mv
     catppuccin.enable = lib.mkDefault true;
-    catppuccin.autoEnable= lib.mkDefault true;
+    catppuccin.autoEnable = lib.mkDefault true;
     # catppuccin.tty.enable = true;
     catppuccin.flavor = "mocha";
     catppuccin.accent = "peach";
@@ -65,6 +65,7 @@ in
       pkgs.fzf
       pkgs.unzip
       pkgs.file
+      pkgs.tree
       pkgs.btop
       pkgs.helix
       pkgs.xcp
