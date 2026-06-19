@@ -17,8 +17,21 @@
 
   facter.reportPath = ./facter.json;
 
-  # so I can cross-build for the rpi...
-  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  networking.networkmanager.ensureProfiles.profiles = {
+    "wired-enp9s0" = {
+      connection = {
+        id = "wired-enp9s0";
+        type = "ethernet";
+        interface-name = "enp9s0";
+        autoconnect = true;
+      };
+      ipv4.method = "auto";
+      ipv6 = {
+        method = "auto";
+        addr-gen-mode = "stable-privacy";
+      };
+    };
+  };
 
   kor.profiles.desktop.enable = true;
   kor.profiles.development.enable = true;
