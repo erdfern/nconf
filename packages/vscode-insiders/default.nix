@@ -19,8 +19,8 @@ in
       pkgs.libsoup_3
       pkgs.webkitgtk_4_1
       # Added for Copilot / computer.node dependencies
-      pkgs.xorg.libXtst
-      pkgs.libjpeg
+      pkgs.libxtst
+      pkgs.libjpeg8
       pkgs.pipewire
       pkgs.libei
     ];
