@@ -35,6 +35,7 @@
     pkgs.discord
     # pkgs.seamly2d
     # pkgs.valentina-git
+    pkgs.claude-claude-code
   ];
 
   kor.desktop.uwsm.env = [
