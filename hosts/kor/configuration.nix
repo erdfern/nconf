@@ -1,6 +1,7 @@
 { me
 , pkgs
 , inputs
+, config
 , ...
 }:
 {
@@ -17,6 +18,8 @@
 
   facter.reportPath = ./facter.json;
 
+  boot.extraModulePackages = [ config.boot.kernelPackages.r8125 ];
+  boot.blacklistedKernelModules = [ "r8169" ];
   networking.networkmanager.ensureProfiles.profiles = {
     "wired-enp9s0" = {
       connection = {
