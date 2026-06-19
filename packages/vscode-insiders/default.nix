@@ -14,5 +14,14 @@ in
     # src = inputs.vscode-insider.src;
     version = meta.version;
 
-    buildInputs = oldAttrs.buildInputs ++ [ pkgs.krb5 pkgs.libsoup_3 pkgs.webkitgtk_4_1 ];
+    buildInputs = oldAttrs.buildInputs ++ [
+      pkgs.krb5
+      pkgs.libsoup_3
+      pkgs.webkitgtk_4_1
+      # Added for Copilot / computer.node dependencies
+      pkgs.xorg.libXtst
+      pkgs.libjpeg
+      pkgs.pipewire
+      pkgs.libei
+    ];
   })
