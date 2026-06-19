@@ -35,7 +35,7 @@
   # kor.hardware.sk.nitrokey.enable = true;
   kor.hardware.sk.piv.enable = true;
 
-  # kor.virtualisation.qemu.enable = true;
+  kor.virtualisation.qemu.enable = true;
   kor.virtualisation.containers.enable = true;
   kor.virtualisation.waydroid.enable = true;
 
