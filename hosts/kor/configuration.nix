@@ -114,10 +114,18 @@
     # TEMP
     extraGroups = [
       "adbusers"
-      "dialout" # arduino-ide
+      "dialout" # arduino-ide dfu-util etc
       "plugdev" # embassy/probe-rs
     ];
   };
+
+  # fix permission issue with dfu-util when flashing stm32
+  services.udev.extraRules = ''
+    # STM32 DFU-Bootloader (Upload)
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="df11", MODE="0666", TAG+="uaccess"
+    # STM32 USB-CDC (Serial nach dem Flashen)
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE="0666", TAG+="uaccess"
+  '';
 
   system.stateVersion = "26.11";
 }
