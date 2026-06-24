@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "d894e487bb23ed87e0555d2158710844bde65322",
-      "url": "https://github.com/cachix/devenv/archive/d894e487bb23ed87e0555d2158710844bde65322.tar.gz",
-      "hash": "sha256-Z7BG4cSJX1ybJeZztEMV8WlE6GrXJsSd34x9eHvpzU8="
+      "revision": "5f6233e19a31955435e667c20e056ae147498ecc",
+      "url": "https://github.com/cachix/devenv/archive/5f6233e19a31955435e667c20e056ae147498ecc.tar.gz",
+      "hash": "sha256-CW+mSdVBvJ1kuuXPrx05Kmee8YZUhOQ3gI8H8roFDOY="
     },
     "disko": {
       "type": "Git",
@@ -74,9 +74,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "07e554fadf094da3fe442e0a2ff40d177bad52f1",
-      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/07e554fadf094da3fe442e0a2ff40d177bad52f1.tar.gz",
-      "hash": "sha256-ZZymmBUC4H43EJafboBpvHyyrsv8zK5KldozW9RDc34="
+      "revision": "3229ac4cae524897ccb0af805cd7c36f956dc5a4",
+      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/3229ac4cae524897ccb0af805cd7c36f956dc5a4.tar.gz",
+      "hash": "sha256-PnjUAqUeP1z17gnuvJdwsbFUYSS2ic7Tp3pkL/56Yw8="
     },
     "flake-compat": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "471a1d2f840eb7fcbdfd541d99c13a64096f46db",
-      "url": "https://github.com/nix-community/home-manager/archive/471a1d2f840eb7fcbdfd541d99c13a64096f46db.tar.gz",
-      "hash": "sha256-SA7LyrayyZBvtzZnesnSLV7haciFuVLeZaX2hd5v4j4="
+      "revision": "062581938b4a378a82dfbb294b494808157153a1",
+      "url": "https://github.com/nix-community/home-manager/archive/062581938b4a378a82dfbb294b494808157153a1.tar.gz",
+      "hash": "sha256-h/xOtrByoA/Ak1lWHn0O1lVZz4qWYbwOSLQ8YSwQO0I="
     },
     "hy3": {
       "type": "Git",
@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "5a7078d20a14bb199ef9bb81faa4faeaf5e92117",
+      "revision": "1d756ae10e72b3bf5bfa0463c63257788893d28e",
       "url": null,
-      "hash": "sha256-AZvkraDtbqlrWbmmUk+pL2OL7G/L3WEV/Y65ZkAJZNo="
+      "hash": "sha256-nsbw0ckOz6mHLI0ndem63Xf7DbyTPdhUnhzBUd1LpNg="
     },
     "hyprpanel": {
       "type": "Git",
@@ -269,9 +269,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "37af6266c24b505174f60833915b8f4a5758e5d6",
-      "url": "https://github.com/nix-community/nur/archive/37af6266c24b505174f60833915b8f4a5758e5d6.tar.gz",
-      "hash": "sha256-a8Q3QKjUM9Vnl3UDRGsFPqiiTphwpZNDIQ6t0m59vIk="
+      "revision": "060081ecdefe20bd6b6a8941f20a2ed2f6a00f24",
+      "url": "https://github.com/nix-community/nur/archive/060081ecdefe20bd6b6a8941f20a2ed2f6a00f24.tar.gz",
+      "hash": "sha256-3eEAQ2xh/eHB2ZqkQCP19fRTpmUlSI8Od4e189Z7m8g="
     },
     "probe-rs-rules": {
       "type": "Git",
