@@ -30,7 +30,10 @@ let
   toggle_hyprpanel = pkgs.writeShellScript "toggle_hyprpanel" ''
     hyprpanel toggleWindow bar-0
   '';
-  toggle_bar = if config.kor.desktop.apps.waybar.enable then toggle_waybar else toggle_hyprpanel;
+  toggle_wayle = pkgs.writeShellScript "toggle_wayle" ''
+    ${config.services.wayle.package}/bin/wayle panel toggle
+  '';
+  # toggle_bar = if config.kor.desktop.apps.waybar.enable then toggle_waybar else toggle_hyprpanel;
   toggle_dpms = pkgs.writeShellScript "toggle_dpms" ''
     if [ "$(hyprctl monitors all -j | ${pkgs.jq}/bin/jq 'map(.dpmsStatus) | any')" = "true" ]; then
       hyprctl dispatch dpms off
@@ -91,7 +94,7 @@ let
     (mkExec "${mod} + Return" (uwsmRun terminal))
     (mkExec "${mod} + SHIFT + Return" (uwsmRun quick-terminal))
     (mkExec "${mod} + grave" (uwsmRun quick-terminal))
-    (mkExec "${mod} + SHIFT + O" (uwsmRun toggle_bar))
+    (mkExec "${mod} + SHIFT + O" (uwsmRun toggle_wayle))
     (mkExec "${mod} + bracketleft" ''${uwsmRun grimblast} --notify copysave area ~/Pictures/$(date "+%Y-%m-%d"T"%H:%M:%S").png'')
     (mkExec "${mod} + bracketright" "${uwsmRun grimblast} --notify copy area")
     (mkExec "${mod} + Print" "${uwsmRun grimblast} --notify copy screen")
