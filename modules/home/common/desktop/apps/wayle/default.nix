@@ -10,6 +10,7 @@ in
     };
 
   config = lib.mkIf cfg.enable {
+    xdg.configFile."wayle/config.toml".force = true;
     services.wayle = {
       enable = true;
       # package = wayle-git;
