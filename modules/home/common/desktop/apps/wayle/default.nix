@@ -10,9 +10,8 @@ in
     };
 
   config = lib.mkIf cfg.enable {
-
     services.wayle = {
-      enable = cfg.enable;
+      enable = true;
       # package = wayle-git;
       autoInstallDependencies = true;
       # settings = {};

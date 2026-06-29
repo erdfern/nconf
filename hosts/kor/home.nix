@@ -18,8 +18,8 @@
 
   # kor.desktop.apps.waybar.enable= true;
   # kor.desktop.apps.waybar.hyprlandAutostart = true;
-  kor.desktop.apps.hyprpanel.enable = true;
-  # kor.desktop.apps.wayle.enable = true;
+  # kor.desktop.apps.hyprpanel.enable = true;
+  kor.desktop.apps.wayle.enable = true;
 
   kor.desktop.apps.kitty.enable = true;
   # kor.desktop.apps.ghostty.enable = true;

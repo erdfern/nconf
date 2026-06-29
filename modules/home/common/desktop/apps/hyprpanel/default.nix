@@ -25,7 +25,7 @@ in
     kor.desktop.notifications.fnott.enable = lib.mkForce false;
 
     programs.hyprpanel = {
-      enable = cfg.enable;
+      enable = true;
       package = hyprpanel-git;
 
       systemd.enable = true; # service for starting panel
