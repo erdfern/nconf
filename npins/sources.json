@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "3d39d0817d62069f7b18821c34a617b5141cb278",
-      "url": "https://github.com/cachix/devenv/archive/3d39d0817d62069f7b18821c34a617b5141cb278.tar.gz",
-      "hash": "sha256-j9wrcB4al5QhMelEghJ0Qs+RQPT+wyCcI4070NEgPLQ="
+      "revision": "46197d1e4c2ca0cc1f0635927b3bee3d62b51779",
+      "url": "https://github.com/cachix/devenv/archive/46197d1e4c2ca0cc1f0635927b3bee3d62b51779.tar.gz",
+      "hash": "sha256-m//AHi+NJN+1eTTdEaL3oXcuTHy1XtV6XiyGtsP9PJE="
     },
     "disko": {
       "type": "Git",
@@ -74,9 +74,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "47d7033c722a112c0608717e13d4bbb430f5bfdf",
-      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/47d7033c722a112c0608717e13d4bbb430f5bfdf.tar.gz",
-      "hash": "sha256-LGr6Qa6i0s0mHIPzqTLyZNfZHJeFFUsOsPfDFZ4WqqY="
+      "revision": "7a063f501a0d4af939f358b5959f506133605feb",
+      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/7a063f501a0d4af939f358b5959f506133605feb.tar.gz",
+      "hash": "sha256-R+b/vBFWGo9c34fYE577Rxzj4kbbDsjRn22iDrbtxmY="
     },
     "flake-compat": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "789a35fbdeb3c46b260096daa0b321c11be527ea",
-      "url": "https://github.com/nix-community/home-manager/archive/789a35fbdeb3c46b260096daa0b321c11be527ea.tar.gz",
-      "hash": "sha256-8/MG4Su7PhnynrmsVO61IeAfrK7GuUEu+E+gwbhy1QQ="
+      "revision": "ebc87daabc8d3f595e9a8b67107eaaa8115ad582",
+      "url": "https://github.com/nix-community/home-manager/archive/ebc87daabc8d3f595e9a8b67107eaaa8115ad582.tar.gz",
+      "hash": "sha256-2rwNd77TzZ4sDDvMam0IXFXN5IfC35mifoeKS0uAc/4="
     },
     "hy3": {
       "type": "Git",
@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "75f558a536f8003bf80af5cb1a3e91529e78cb6b",
+      "revision": "9350e3410bd776385cb597ec45ebadaf581b634a",
       "url": null,
-      "hash": "sha256-wL8oMvEJmKgb0szpOEs7J+tN2p0ytUKeQO1iX7Xmp/c="
+      "hash": "sha256-2LwEnr184uOaly/HFGsjxVPf555W21qOuHc7zFbuv/Y="
     },
     "hyprpanel": {
       "type": "Git",
@@ -217,9 +217,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "56fd312e3de7ab0bd679b7b25d0c6748f4efe0f2",
-      "url": "https://github.com/arnarg/nilla-utils/archive/56fd312e3de7ab0bd679b7b25d0c6748f4efe0f2.tar.gz",
-      "hash": "sha256-w6Vhj/tdCzw3fpJzhO3k8lNpWl8CSnVz3TqMUwQSCYI="
+      "revision": "b3e594041b9925a1558d5b06c690b215d6f19f25",
+      "url": "https://github.com/arnarg/nilla-utils/archive/b3e594041b9925a1558d5b06c690b215d6f19f25.tar.gz",
+      "hash": "sha256-GuB3TUxJF09hR/liRS+dcRz6G+2tKeMcoqKCUYXX0EE="
     },
     "nix-index-database": {
       "type": "Git",
@@ -256,9 +256,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "e73de5be04e0eff4190a1432b946d469c794e7b4",
-      "url": "https://github.com/NixOS/nixpkgs/archive/e73de5be04e0eff4190a1432b946d469c794e7b4.tar.gz",
-      "hash": "sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE="
+      "revision": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
+      "url": "https://github.com/NixOS/nixpkgs/archive/b5aa0fbd538984f6e3d201be0005b4463d8b09f8.tar.gz",
+      "hash": "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ="
     },
     "nur": {
       "type": "Git",
@@ -269,9 +269,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "ed4372ac77f838988f6efb0d41e03bd520aa1afc",
-      "url": "https://github.com/nix-community/nur/archive/ed4372ac77f838988f6efb0d41e03bd520aa1afc.tar.gz",
-      "hash": "sha256-YAbzfmY4Ug/bfs93+ZM6405YclFZ+KPX1CQfxEAR5TU="
+      "revision": "07f9ef283f898cf164ec2e79d6aa65f17858040a",
+      "url": "https://github.com/nix-community/nur/archive/07f9ef283f898cf164ec2e79d6aa65f17858040a.tar.gz",
+      "hash": "sha256-anXsnBAcnm1DCkRri1D738oSiAQhNEjfp1ol0L+S9zA="
     },
     "probe-rs-rules": {
       "type": "Git",
