@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 {
+  imports = [
+    ./wayle-conf.nix
+  ];
 
   kor.desktop.enable = true;
   kor.desktop.apps.firefox.enable = true;
