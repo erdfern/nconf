@@ -15,68 +15,11 @@ in
       enable = true;
       # package = wayle-git;
       autoInstallDependencies = true;
-      settings =
+      settings = lib.mkDefault
         {
           bar = {
             button-variant = "basic";
-            layout = [
-              {
-                center = [ "clock" ];
-                left = [
-                  {
-                    modules = [
-                      "dashboard"
-                      "hyprsunset"
-                      "idle-inhibit"
-                    ];
-                    name = "group";
-                  }
-                  {
-                    modules = [
-                      "microphone"
-                      "volume"
-                    ];
-                    name = "group";
-                  }
-                  {
-                    modules = [
-                      "cava"
-                      "media"
-                    ];
-                    name = "group";
-                  }
-                ];
-                monitor = "*";
-                right = [
-                  {
-                    modules = [
-                      "hyprland-workspaces"
-                      "keybind-mode"
-                      "keyboard-input"
-                    ];
-                    name = "Desktop";
-                  }
-                  {
-                    modules = [
-                      "cpu"
-                      "ram"
-                      "storage"
-                      "netstat"
-                      "network"
-                    ];
-                    name = "Monitoring";
-                  }
-                  {
-                    modules = [
-                      "systray"
-                      "notifications"
-                    ];
-                    name = "System";
-                  }
-                ];
-                show = true;
-              }
-            ];
+            # layout = [ ];
           };
           modules = {
             clock = {
