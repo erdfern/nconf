@@ -16,11 +16,14 @@
     # duf
     # dust
   ];
+
   services.clipse = {
     enable = true;
-    historySize = 512;
-    imageDisplay = {
-      type = "kitty";
+    settings = {
+      historySize = 512;
+      imageDisplay = {
+        type = "kitty";
+      };
     };
     # theme = {
     #   # catppuccin mocha
