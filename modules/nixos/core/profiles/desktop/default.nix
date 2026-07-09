@@ -34,6 +34,12 @@ in
 
     kor.desktop.hyprland.enable = true;
 
+
+    # here AND hm??
+    catppuccin.cursors.enable = true;
+    catppuccin.flavor = "mocha";
+    catppuccin.accent = "peach";
+
     # https://github.com/hyprwm/Hyprland/issues/9064
     # https://wiki.archlinux.org/title/ICC_profiles
     # services.colord.enable = true;
