@@ -4,6 +4,7 @@
   services.wayle.settings =
     {
       bar = {
+        button-variant = "basic";
         layout = [
           {
             center = [ "clock" ];
