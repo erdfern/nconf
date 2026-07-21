@@ -31,6 +31,7 @@ in
     # nwg-look
   ]; #++ (with kdePackages; [ breeze breeze.qt5 breeze-gtk breeze-icons ]);
 
+  home.pointerCursor.enable = true;
   home.pointerCursor.size = 24;
 
   gtk = {
