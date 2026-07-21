@@ -35,6 +35,7 @@ let
       nixos-install-tools
     ]);
     deploy = mkCmd "deploy" (with pkgs; [ nix git nillaCli nillaUtils ]);
+    wake = mkCmd "wake" (with pkgs; [ nix git wakeonlan ]);
     build-installer = mkCmd "build-installer" (with pkgs; [ nix ]);
   };
 

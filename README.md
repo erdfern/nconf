@@ -10,6 +10,7 @@ Enter the dev shell (`nilla shell`, or `direnv allow` once for auto-load) to get
 
 - `install <host> [user@target]` — provision a host (local or remote)
 - `deploy  <host> [user@target]` — rebuild & switch an installed host
+- `wake    <host|mac>` — send a Wake-on-LAN magic packet
 - `build-installer` — build the self-contained installer ISO
 - the `nilla` CLI (`nilla os ...`, `nilla home ...`) for manual use
 
@@ -113,6 +114,15 @@ without a `mkpasswd` step.
 ```sh
 deploy <host>              # rebuild + switch NixOS and home-manager locally
 deploy <host> root@<ip>    # ... over SSH (nilla os/home switch --target)
+```
+
+Wake a powered-off host over the LAN (needs `networking.interfaces.<if>.wakeOnLan`
+on the target, its BIOS WoL/ErP settings, and its MAC recorded in [wol.nix](wol.nix)):
+
+```sh
+wake kor                  # look kor's MAC up in wol.nix and broadcast the magic packet
+wake d8:bb:c1:12:34:56    # ... or target a MAC directly
+wake --list               # show known hosts
 ```
 
 Whole-fleet / tag-based deploys go through Colmena (see [hive.nix](hive.nix)):
