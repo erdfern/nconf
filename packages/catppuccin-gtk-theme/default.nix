@@ -1,4 +1,3 @@
-# TODO fix install script
 { lib
 , stdenvNoCC
 , fetchFromGitHub
@@ -107,6 +106,17 @@ lib.checkListOfEnum "${pname}: colorVariants" colorVariantList colorVariants lib
 
   installPhase = ''
     runHook preInstall
+
+    # The rewritten install.sh (rev a0f69cc) needs two things the build sandbox
+    # doesn't give it:
+    #   - HOME: it logs to "$HOME/.cache/catppuccin-install.log"; unset, $HOME is
+    #     /homeless-shelter and the mkdir fails. Point it at a writable temp dir.
+    #   - BATCH_MODE: otherwise it drops into an interactive TUI menu (read on a
+    #     closed stdin returns "yes"), then runs `gsettings set ...` to apply the
+    #     theme to a live desktop. Batch mode installs the files and skips that.
+    export HOME="$(mktemp -d)"
+    export BATCH_MODE=true
+
     mkdir -p $out/share/themes
     cd themes
     ./install.sh -n Catppuccin \

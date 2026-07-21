@@ -36,6 +36,7 @@
                   "cpu"
                   "ram"
                   "storage"
+                  "battery"
                 ];
                 name = "Monitoring";
               }
