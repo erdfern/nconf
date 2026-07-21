@@ -88,13 +88,16 @@
   # networking.firewall.enable = false;
 
   # networking.hostId = "7c238412";
-  # networking.interfaces = {
-  #   enp9s0 = {
-  #     useDHCP = true;
-  #     wakeOnLan.enable = true;
-  #     wakeOnLan.policy = [ "magic" ];
-  #   };
-  # };
+
+  # Wake-on-LAN on the onboard Realtek RTL8125 (2.5GbE, enp9s0). This emits a
+  # `40-enp9s0.link` that systemd-udev applies via ethtool at device probe, so
+  # Firmware side (GIGABYTE B650 GAMING X AX): BIOS > Settings > Platform Power:
+  # set "ErP" to Disabled (so S5 keeps the NIC powered) and enable
+  # "Power On By PCIE/PCI" (aka Wake on LAN).
+  networking.interfaces.enp9s0.wakeOnLan = {
+    enable = true;
+    policy = [ "magic" ];
+  };
 
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # boot.kernelPackages = pkgs.linuxKernel.kernels.linux_zen;
