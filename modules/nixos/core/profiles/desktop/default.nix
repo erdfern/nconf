@@ -126,8 +126,8 @@ in
       pkgs.kitty
       pkgs.starship
       pkgs.networkmanagerapplet
-      # pkgs.app2unit # for properly starting apps in uwsm
-      pkgs.app2unit-kor # for properly starting apps in uwsm
+      pkgs.app2unit # for properly starting apps in uwsm
+      # pkgs.app2unit-kor # for properly starting apps in uwsm
       # pkgs.xdg-terminal-exec # app2unit terminal support
     ];
 

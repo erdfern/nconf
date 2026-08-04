@@ -1,15 +1,5 @@
 { pkgs, config, lib, ... }:
 let
-  app2unit = "${pkgs.app2unit-kor}/bin/app2unit";
-  uwsmRun = cmd: "${app2unit} ${cmd}";
-  toggle_waybar = pkgs.writeShellScript "toggle_waybar" ''
-    ${pkgs.killall}/bin/killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
-  '';
-
-  autostartWaybar = config.kor.desktop.apps.waybar.enable && config.kor.desktop.apps.waybar.hyprlandAutostart;
-
-  cfg = config.kor.desktop.hyprland;
-
   inherit (lib.generators) mkLuaInline;
 in
 {
