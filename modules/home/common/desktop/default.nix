@@ -11,6 +11,7 @@ in
     ./apps
     ./hyprland
     ./suites
+    ./default-apps.nix
     ./uwsm.nix
     ./gtk.nix
     ./qt.nix
@@ -25,6 +26,9 @@ in
   config = lib.mkIf (cfg.enable || cfg.enableHyprland) {
     kor.desktop.hyprland.enable = lib.mkIf cfg.enableHyprland true; # mkIf so it could be set outside of preset without conflict
     kor.desktop.notifications.fnott.enable = true;
+
+    kor.desktop.defaultApps.enable = lib.mkDefault true;
+    kor.desktop.apps.zathura.enable = lib.mkDefault true; # document viewer on every desktop host
 
     # TEMP HACK
     # this should absolutely be linked with the system config

@@ -78,17 +78,7 @@ in
       };
     };
 
-    xdg.mimeApps.defaultApplications = lib.mkIf cfg.makeDefault {
-      # "text/html" = "firefox.desktop";
-      # "x-scheme-handler/http" = "firefox.desktop";
-      # "x-scheme-handler/https" = "firefox.desktop";
-      # "x-scheme-handler/about" = "firefox.desktop";
-      # "x-scheme-handler/unknown" = "firefox.desktop";
-      "text/html" = "firefox-nightly.desktop";
-      "x-scheme-handler/http" = "firefox-nightly.desktop";
-      "x-scheme-handler/https" = "firefox-nightly.desktop";
-      "x-scheme-handler/about" = "firefox-nightly.desktop";
-      "x-scheme-handler/unknown" = "firefox-nightly.desktop";
-    };
+    kor.desktop.defaultApps.categories.browser.handler =
+      lib.mkIf cfg.makeDefault (lib.mkDefault "firefox-nightly.desktop");
   };
 }

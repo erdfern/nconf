@@ -4,14 +4,11 @@
   xdg.desktopEntries.nemo = {
     name = "Nemo";
     icon = "nemo";
-    exec = "${pkgs.nemo-with-extensions}/bin/nemo";
-  };
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = [ "nemo.desktop" ];
-      "application/x-gnome-saved-search" = [ "nemo.desktop" ];
-    };
+    exec = "${pkgs.nemo-with-extensions}/bin/nemo %U";
+    mimeType = [
+      "inode/directory"
+      "application/x-gnome-saved-search"
+    ];
   };
   dconf = {
     settings = {

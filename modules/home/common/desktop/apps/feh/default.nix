@@ -1,19 +1,20 @@
-{ ... }:
+{ lib
+, config
+, ...
+}:
+let
+  cfg = config.kor.desktop.apps.feh;
+in
 {
-  programs.feh = {
-    enable = true;
-    # buttons = {};
-    # themes = {};
+  options.kor.desktop.apps.feh = with lib; {
+    enable = mkEnableOption "feh image viewer";
   };
 
-  xdg.mimeApps = {
-    defaultApplications = {
-      "image/jpeg" = [ "feh.desktop" ];
-      "image/png" = [ "feh.desktop" ];
-      "image/pnm" = [ "feh.desktop" ];
-      "image/tiff" = [ "feh.desktop" ];
-      "image/webp" = [ "feh.desktop" ];
-      "image/bmp" = [ "feh.desktop" ];
+  config = {
+    programs.feh = {
+      enable = cfg.enable;
+      # buttons = {};
+      # themes = {};
     };
   };
 }

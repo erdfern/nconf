@@ -30,6 +30,8 @@
   kor.desktop.apps.freecad.enable = true;
   # kor.desktop.apps.freecad.pythonPackages = ps: [ ps.numpy ];
 
+  kor.desktop.apps.feh.enable = true; # imv (media suite) holds the image defaults
+
   home.packages = [
     # inputs.devenv.result.packages.x86_64-linux.default
     pkgs.devenv

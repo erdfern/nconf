@@ -15,6 +15,8 @@
   # kor.desktop.apps.swayosd.enable = true;
   kor.desktop.apps.wayle.enable = true;
   kor.desktop.apps.freecad.enable = true;
+  kor.desktop.apps.feh.enable = true; # imv (media suite) holds the image defaults
+  kor.desktop.suites.media.enable = true; # imv + mpv
 
   kor.development.neovim.enable = true;
   kor.development.vscode.enable = true;
