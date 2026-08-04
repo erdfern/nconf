@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "673f730d0fc8db3468c51575f1d3d777cc55e51f",
-      "url": "https://github.com/catppuccin/nix/archive/673f730d0fc8db3468c51575f1d3d777cc55e51f.tar.gz",
-      "hash": "sha256-VKatYOZwLQ+MuNkWH6/gZYxrNeSK1Mqb7mC0H1WSu+M="
+      "revision": "41c4ebf8cb3e4052001947a457b4ac093e5dc119",
+      "url": "https://github.com/catppuccin/nix/archive/41c4ebf8cb3e4052001947a457b4ac093e5dc119.tar.gz",
+      "hash": "sha256-JgUmb34d3Zv1W5fYukqEUEDHSaWhw7WV9HVUXOmOCaA="
     },
     "comma": {
       "type": "Git",
@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "3ed1df36d10ab30ce537e21460f5cac1f13df27f",
-      "url": "https://github.com/cachix/devenv/archive/3ed1df36d10ab30ce537e21460f5cac1f13df27f.tar.gz",
-      "hash": "sha256-P14j5mWQMhS4q8X/GPWTu0ibtolXvwLIwY/DUCcLaaE="
+      "revision": "9d93b838def889d5bcff302cac49c9322d34d33c",
+      "url": "https://github.com/cachix/devenv/archive/9d93b838def889d5bcff302cac49c9322d34d33c.tar.gz",
+      "hash": "sha256-xVVP8WR9/yQ0AvvVQMeMQbHrHXJTKBq7dqcPyphXDek="
     },
     "disko": {
       "type": "Git",
@@ -74,9 +74,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "826cbc5504b7d88715da90d17e34074f76b6a62f",
-      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/826cbc5504b7d88715da90d17e34074f76b6a62f.tar.gz",
-      "hash": "sha256-I7jT9vdfEIdiemrf1+qXDUuNe9+bbd4uxyIuURajqKU="
+      "revision": "fc8aea06c9dd806b856ed8316d23d3cd3cc26ce1",
+      "url": "https://github.com/nix-community/flake-firefox-nightly/archive/fc8aea06c9dd806b856ed8316d23d3cd3cc26ce1.tar.gz",
+      "hash": "sha256-tCfWjBF6U20G3BwTBtwRqoMlBXPjmD7v6gnKvEEs1lQ="
     },
     "flake-compat": {
       "type": "Git",
@@ -100,9 +100,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "779c32a00155994c86cde8213a8dd4df139d4355",
-      "url": "https://github.com/nixos/nixos-hardware/archive/779c32a00155994c86cde8213a8dd4df139d4355.tar.gz",
-      "hash": "sha256-rkSPTePrKqs4dg+i7ZFCq93+HrClac6oSwXX927SVjA="
+      "revision": "2e790b0a6be8ec2b76174ac0931b8ff11919ec98",
+      "url": "https://github.com/nixos/nixos-hardware/archive/2e790b0a6be8ec2b76174ac0931b8ff11919ec98.tar.gz",
+      "hash": "sha256-65EQYIRRpTdpH8lUiB6Mvo5uBkG60aBIzAJuALfx+O0="
     },
     "home-manager": {
       "type": "Git",
@@ -113,9 +113,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "deeb6b7eb7e0c44ae1819c051ce175bd92a85100",
-      "url": "https://github.com/nix-community/home-manager/archive/deeb6b7eb7e0c44ae1819c051ce175bd92a85100.tar.gz",
-      "hash": "sha256-ouZe80aWEhMLVMkqICFDN+JUw+0FJtCr/bh+hHtRtMg="
+      "revision": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
+      "url": "https://github.com/nix-community/home-manager/archive/bf9ce9fec78f95f374e8dd3b503863a3ec128ebe.tar.gz",
+      "hash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik="
     },
     "hy3": {
       "type": "Git",
@@ -126,9 +126,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "8666c43f6ed3a86687fd585e110c48592ad4deb8",
-      "url": "https://github.com/outfoxxed/hy3/archive/8666c43f6ed3a86687fd585e110c48592ad4deb8.tar.gz",
-      "hash": "sha256-nBMEbwj3fLZiKjzZdZAhvixG4VnrzqZVqHCnD4U2xp4="
+      "revision": "42b7ed8fd9aefd3f36e5f617afd5071245c67853",
+      "url": "https://github.com/outfoxxed/hy3/archive/42b7ed8fd9aefd3f36e5f617afd5071245c67853.tar.gz",
+      "hash": "sha256-iK0vERuy5aXisDXm/bzcJP0dgaIot5MLPoVG62DjqO4="
     },
     "hyprland": {
       "type": "Git",
@@ -139,9 +139,9 @@
       },
       "branch": "main",
       "submodules": true,
-      "revision": "d7188d5821cdf26144f3729ed7cdfe106f437aa7",
+      "revision": "275e27704a36d956fbdc28cec6399b8e298b06ca",
       "url": null,
-      "hash": "sha256-/RE9p5ZW4TRDNepTKuYNcxXIpPdP8k/f+mhyDo0Yi/I="
+      "hash": "sha256-3nDv+wxrAhLrJkXFV8/Bwsv2Az9SqaZ+A1ZFTTUW75U="
     },
     "hyprpanel": {
       "type": "Git",
@@ -217,9 +217,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e773a7fe7c30b56fc4688f11c8f68c1801fbd82e",
-      "url": "https://github.com/arnarg/nilla-utils/archive/e773a7fe7c30b56fc4688f11c8f68c1801fbd82e.tar.gz",
-      "hash": "sha256-7tDdP824QrNJf5XQsbSv1ShsIPGWVVspJgor0HsA5lA="
+      "revision": "5c8a5c04e2aa8e48a21a3d64f89f717dd772c0ce",
+      "url": "https://github.com/arnarg/nilla-utils/archive/5c8a5c04e2aa8e48a21a3d64f89f717dd772c0ce.tar.gz",
+      "hash": "sha256-2IZXNEwtv04C61PxYjPtwU8+pPIEU5J/4/Kxk7QouN0="
     },
     "nix-index-database": {
       "type": "Git",
@@ -230,9 +230,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "4f8d52a3598b0dc7db7a5e7b419e3edd9d1ecfdb",
-      "url": "https://github.com/nix-community/nix-index-database/archive/4f8d52a3598b0dc7db7a5e7b419e3edd9d1ecfdb.tar.gz",
-      "hash": "sha256-Q5kNLlWngt7TaIIZoxDKWMHjiSaNRVqr70FqWCRRfr4="
+      "revision": "dbc756c9d7287de19b3e0e38c928c47510d42c3e",
+      "url": "https://github.com/nix-community/nix-index-database/archive/dbc756c9d7287de19b3e0e38c928c47510d42c3e.tar.gz",
+      "hash": "sha256-q4kR7g+pCcz6NASvoVPYu+CWWUurX03wogtBqGmR4h0="
     },
     "nixos-generators": {
       "type": "Git",
@@ -256,9 +256,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
-      "url": "https://github.com/NixOS/nixpkgs/archive/241313f4e8e508cb9b13278c2b0fa25b9ca27163.tar.gz",
-      "hash": "sha256-vlHUuqAcbcH2RKmHbPiuQzbv1pnzzavXnI62RD0bqCU="
+      "revision": "643809054d65fdd466a63e3155b8c498cb483c04",
+      "url": "https://github.com/NixOS/nixpkgs/archive/643809054d65fdd466a63e3155b8c498cb483c04.tar.gz",
+      "hash": "sha256-vUfIeBEfpbAfZ5zjgIkYk7eHBeVfCYVjLbWnMkseYnk="
     },
     "nur": {
       "type": "Git",
@@ -269,9 +269,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "fdf1d2ccaa852d79affa5bccb4c8207fbb26f17e",
-      "url": "https://github.com/nix-community/nur/archive/fdf1d2ccaa852d79affa5bccb4c8207fbb26f17e.tar.gz",
-      "hash": "sha256-j2ac44/33pEzGZxaw4oou6cfpNO/AcNUPqmjQlKzbeo="
+      "revision": "837db2b7f107e3af9d918e9597d2d9825c2bc592",
+      "url": "https://github.com/nix-community/nur/archive/837db2b7f107e3af9d918e9597d2d9825c2bc592.tar.gz",
+      "hash": "sha256-1bnRgLt6jVXsc3Qau5sgGAl3OnF/B66YFNQCkWOVMqo="
     },
     "probe-rs-rules": {
       "type": "Git",
