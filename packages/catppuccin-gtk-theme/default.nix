@@ -4,7 +4,7 @@
 , gnome-shell
 , sassc
 , gnome-themes-extra
-, gtk-engine-murrine
+  # , gtk-engine-murrine
 , unstableGitUpdater
 , colorVariants ? [ ]
 , sizeVariants ? [ ]
@@ -88,7 +88,7 @@ lib.checkListOfEnum "${pname}: colorVariants" colorVariantList colorVariants lib
     hash = "sha256-bSEWm62EWHC9zcYA+YoQp2cuSFt2FDsjalapnjYdoYU=";
   };
 
-  propagatedUserEnvPkgs = [ gtk-engine-murrine ];
+  # propagatedUserEnvPkgs = [ gtk-engine-murrine ];
 
   nativeBuildInputs = [
     gnome-shell
