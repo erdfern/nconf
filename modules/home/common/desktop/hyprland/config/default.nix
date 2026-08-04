@@ -26,6 +26,19 @@ in
       # ];
 
       # env -> hl.env(name, value):
+      env = [
+        # Hyprland is exec'd through its /run/wrappers capability wrapper
+        # (cap_sys_nice), and glibc's secure-execution mode strips TZDIR (with
+        # LD_LIBRARY_PATH and the rest of its "unsecure vars" list) during that
+        # exec. Everything spawned from Hyprland (app2unit scopes: terminals,
+        # FreeCAD, ...) inherits the scrubbed environment, so named-timezone
+        # lookups break (timedatectl shows +0000, FreeCAD can't find the system
+        # time zone). Re-set it inside the compositor, after the scrub.
+        # Setting it in ~/.config/uwsm/env cannot fix this: uwsm exports to the
+        # systemd user manager, but scope-launched apps inherit from Hyprland.
+        { _args = [ "TZDIR" "/etc/zoneinfo" ]; }
+      ];
+      # more examples:
       # env = [
       #   { _args = [ "XCURSOR_SIZE" "24" ]; }
       #   # HYPRCURSOR stuff set by catppuccin if pointerCursor.enable is true
