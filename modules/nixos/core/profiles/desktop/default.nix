@@ -54,13 +54,23 @@ in
 
     xdg.portal = {
       enable = true;
-      xdgOpenUsePortal = true;
-      # config.common.default = "*";
-      # config.common.default = "hyprland;gtk"; # portal-hyprland is only for interfaces which portal-gtk doesn't handle, like screenshare
-      config.common."org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-
-      # # extraPortals = [ xdg-desktop-portal-gtk inputs.hyprland.result.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland];
-      # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      xdgOpenUsePortal = true; # mostly shadowed by the home-side xdg-open shim, but keeps portal-aware apps working
+      # The hyprland entry mirrors common because the Hyprland package ships its
+      # own hyprland-portals.conf; per portals.conf(5) that desktop-specific file
+      # would otherwise shadow everything set under common (including the Secret
+      # backend), while /etc/xdg written here takes precedence over it.
+      config =
+        let
+          common = {
+            default = [ "hyprland" "gtk" ]; # portal-hyprland only covers interfaces like screenshare; gtk handles the rest
+            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+          };
+        in
+        {
+          inherit common;
+          hyprland = common;
+        };
+      # extraPortals: xdg-desktop-portal-gtk + -hyprland already arrive via programs.hyprland
     };
 
     # Secrets portal
@@ -127,7 +137,8 @@ in
       pkgs.starship
       pkgs.networkmanagerapplet
       pkgs.app2unit # for properly starting apps in uwsm
-      # pkgs.xdg-terminal-exec # app2unit terminal support
+      pkgs.xdg-utils # app2unit's Open mode shells out to xdg-mime
+      pkgs.xdg-terminal-exec # terminal handler for Terminal=true entries (app2unit + glib)
     ];
 
     # Setup persisted directories.
