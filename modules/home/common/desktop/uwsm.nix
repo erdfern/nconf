@@ -32,6 +32,7 @@ in
     # app2unit UWSM integration; use UWSM's custom slices
     kor.desktop.uwsm.env = [
       "APP2UNIT_SLICES='a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice'"
+      "TZDIR=/etc/zoneinfo" # so timezone detection works correctly, e.g. timedatectl, FreeCAD
     ];
 
     home.file."${config.xdg.configHome}/uwsm/env".text = lib.mkIf (cfg.env != [ ])

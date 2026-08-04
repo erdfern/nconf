@@ -4,6 +4,10 @@
     # time.timeZone =  lib.mkDefault "Europe/Berlin";
     time.timeZone = lib.mkDefault "utc";
 
+    # NOTE need to set TZDIR, some apps complain otherwise and timedatectl shows timezone offset (CET to UTC) as +0000, which is false...
+    # systemd.user.sessionVariables
+    # NOTE set in uwsm home config
+
     i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
     # i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "nl_NL.UTF-8/UTF-8" "nl_NL/ISO-8859-1" ];
     i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "de_DE.UTF-8/UTF-8" "de_DE/ISO-8859-1" ];
