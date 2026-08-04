@@ -21,6 +21,11 @@
   xdg.enable = true;
 
   # TODO move
+  kor.desktop.uwsm.env = [
+    "TZDIR='/etc/zoneinfo'" # so timezone detection works correctly, e.g. timedatectl, FreeCAD
+  ];
+
+  # TODO move
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
