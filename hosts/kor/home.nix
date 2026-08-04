@@ -40,6 +40,7 @@
     # pkgs.freecad-git
     # pkgs.orca-slicer
     pkgs.discord
+    pkgs.luanti
     # pkgs.seamly2d
     # pkgs.valentina-git
   ];
