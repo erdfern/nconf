@@ -17,5 +17,6 @@
     ./feh
     ./mpv.nix
     ./wayle
+    ./zathura.nix
   ];
 }
