@@ -172,8 +172,6 @@ in
 # 
 # { pkgs, config, lib, ... }:
 # let
-#   app2unit = "${pkgs.app2unit-kor}/bin/app2unit";
-#   uwsmRun = cmd: "${app2unit} ${cmd}";
 #   toggle_waybar = pkgs.writeShellScript "toggle_waybar" ''
 #     ${pkgs.killall}/bin/killall .waybar-wrapped || ${pkgs.waybar}/bin/waybar > /dev/null 2>&1 &
 #   '';

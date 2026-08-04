@@ -27,10 +27,12 @@
   kor.desktop.apps.kitty.enable = true;
   # kor.desktop.apps.ghostty.enable = true;
 
+  kor.desktop.apps.freecad.enable = true;
+  # kor.desktop.apps.freecad.pythonPackages = ps: [ ps.numpy ];
+
   home.packages = [
     # inputs.devenv.result.packages.x86_64-linux.default
     pkgs.devenv
-    pkgs.freecad
     # pkgs.openscad-unstable
     # pkgs.openscad-lsp
     # pkgs.freecad-git

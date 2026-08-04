@@ -5,6 +5,7 @@
 {
   imports = [
     ./firefox
+    ./freecad
     ./fuzzel
     ./ghostty
     ./kitty

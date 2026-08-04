@@ -1,3 +1,5 @@
+# TEMP: shadows pkgs.app2unit until the nixpkgs pin reaches >= 1.4.4; delete this folder then.
+# 1.4.2 fails to build with scdoc 1.11.5 (invalid nested markup in app2unit.1.scd, fixed upstream in v1.4.4).
 { lib
 , stdenvNoCC
 , dash
@@ -11,13 +13,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "app2unit";
-  version = "1.4.2";
+  version = "1.4.4";
 
   src = fetchFromGitHub {
     owner = "Vladimir-csp";
     repo = "app2unit";
     tag = "v${finalAttrs.version}";
-    sha256 = "sha256-jUAjcpR4IszvmqWAIjZo0rWZt9yydCe3xH4X+mJ5O8k=";
+    sha256 = "sha256-TIY+/9ekGub+10uyqXy5aYU+2NLysMtaQnD1PIjBCFA=";
   };
 
   passthru.updateScript = nix-update-script { };
@@ -63,7 +65,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     homepage = "https://github.com/Vladimir-csp/app2unit";
     license = lib.licenses.gpl3;
     mainProgram = "app2unit";
-    maintainers = with lib.maintainers; [ fazzi ];
     platforms = lib.platforms.linux;
   };
 })

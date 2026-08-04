@@ -37,6 +37,7 @@ let
     deploy = mkCmd "deploy" (with pkgs; [ nix git nillaCli nillaUtils ]);
     wake = mkCmd "wake" (with pkgs; [ nix git wakeonlan ]);
     build-installer = mkCmd "build-installer" (with pkgs; [ nix ]);
+    update-vscode-insiders = mkCmd "update-vscode-insiders" (with pkgs; [ curl jq git coreutils ]);
   };
 
   # The whole Nilla config, importable into the store (minus VCS / scratch dirs).

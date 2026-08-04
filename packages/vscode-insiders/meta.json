@@ -1,5 +1,5 @@
 {
-  "version": "insider-21-08-04",
-  "sha256": "sha256:06xyhv4gsrcff5ga9qcrvd72hm913azg4rfyivz1xv6zzhdrrxpw",
-  "url": "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64"
+  "productVersion": "1.132.0-insider",
+  "commit": "868a05355141b5528deb5051fb91eecf18871554",
+  "sha256": "c6eaedc14641031587e62e1deb028c772b3d831dc586855c1a9bbee63825ec28"
 }

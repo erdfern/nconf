@@ -14,6 +14,7 @@
   # kor.desktop.apps.waybar.modules-left = [ "idle_inhibitor" "backlight" "wireplumber" "hyprland/workspaces" ];
   # kor.desktop.apps.swayosd.enable = true;
   kor.desktop.apps.wayle.enable = true;
+  kor.desktop.apps.freecad.enable = true;
 
   kor.development.neovim.enable = true;
   kor.development.vscode.enable = true;
@@ -51,7 +52,6 @@
   home.packages = with pkgs; [
     signal-desktop
     discord
-    freecad
     # openscad-unstable
     # openscad-lsp
     orca-slicer

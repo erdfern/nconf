@@ -1,6 +1,5 @@
 { pkgs, config, lib, ... }:
 let
-  # app2unit = "${pkgs.app2unit-kor}/bin/app2unit";
   app2unit = "${pkgs.app2unit}/bin/app2unit";
   uwsmRun = cmd: "${app2unit} ${cmd}";
 

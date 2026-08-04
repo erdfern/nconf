@@ -119,10 +119,12 @@ lib.checkListOfEnum "${pname}: colorVariants" colorVariantList colorVariants lib
 
     mkdir -p $out/share/themes
     cd themes
+    # rev a0f69cc renamed the install.sh flags: dark/light is now -m/--mode
+    # (was -c) and the accent is -a/--accent (was -t).
     ./install.sh -n Catppuccin \
-    ${lib.optionalString (colorVariants != [ ]) "-c " + toString colorVariants} \
+    ${lib.optionalString (colorVariants != [ ]) "-m " + toString colorVariants} \
     ${lib.optionalString (sizeVariants != [ ]) "-s " + toString sizeVariants} \
-    ${lib.optionalString (themeVariants != [ ]) "-t " + toString themeVariants} \
+    ${lib.optionalString (themeVariants != [ ]) "-a " + toString themeVariants} \
     ${lib.optionalString (tweakVariants != [ ]) "--tweaks " + toString tweakVariants} \
     -d "$out/share/themes"
     cd ../icons
