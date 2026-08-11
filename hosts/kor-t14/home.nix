@@ -3,7 +3,10 @@
 , ...
 }:
 {
-  imports = [ ./batcheck.nix ./wayle-conf.nix ];
+  imports = [
+    # ./batcheck.nix
+    ./wayle-conf.nix
+  ];
 
   kor.desktop.enable = true;
 
