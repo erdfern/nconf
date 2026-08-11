@@ -22,15 +22,15 @@
                   "microphone"
                   "volume"
                 ];
-                name = "group";
+                name = "Audio";
+              }
+              {
+                modules = [ "hyprland-workspaces" ];
+                name = "Workspaces";
               }
             ];
             monitor = "*";
             right = [
-              {
-                modules = [ "hyprland-workspaces" ];
-                name = "Desktop";
-              }
               {
                 modules = [
                   "cpu"
