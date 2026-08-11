@@ -32,6 +32,12 @@ in
       };
       initrd.systemd.enable = lib.mkIf cfg.plymouth.enable true; # systemd-stage-1 
 
+      # TODO move to separate systemd config
+      services.journald.extraConfig = ''
+        SystemMaxUse=500M
+        MaxRetentionSec=1month
+      '';
+
       # silent-er boot
       consoleLogLevel = 3;
       initrd.verbose = false;
@@ -42,6 +48,7 @@ in
         "udev.log_priority=3"
         "rd.systemd.show_status=auto"
       ];
+
       # stop low level messages (acpi errors and such) flooding the console after boot
       # kernel.sysctl = { "kernel.printk" = "3 4 1 3"; };
 
