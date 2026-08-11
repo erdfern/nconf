@@ -35,7 +35,6 @@
                 modules = [
                   "cpu"
                   "ram"
-                  "storage"
                   "battery"
                 ];
                 name = "Monitoring";
