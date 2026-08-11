@@ -69,6 +69,7 @@ in
       pkgs.btop
       pkgs.helix
       pkgs.xcp
+      pkgs.cpx
       # pkgs.neovim
       # pkgs.glow
       pkgs.trashy

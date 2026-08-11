@@ -16,6 +16,7 @@
   ];
 
   kor.profiles.laptop.enable = true;
+  kor.profiles.laptop.battery.chargeThresholds = { start = 75; end = 80; };
   kor.profiles.development.enable = true;
   kor.profiles.development.virtualisation = true;
   kor.virtualisation.containers.enable = true;
@@ -58,10 +59,12 @@
   #   github:numtide/nixos-facter -- -o facter.json
   # facter.reportPath = ./facter.json;
 
-  # prevent CPU overheating
-  # TODO figure out: [WARN][/sys/devices/platform/thinkpad_acpi/dytc_lapmode] present: Thermald can't run on this platform
-  # Really just unsupported or misconfigured?
-  # I guess lenovo firmware is managing stuff already? hm
+  # Not a misconfiguration: thermald refuses to start because
+  # /sys/devices/platform/thinkpad_acpi/dytc_lapmode is present, which means the
+  # Lenovo firmware (DYTC) owns the thermal/power envelope itself. That is also
+  # exactly the split power-profiles-daemon assumes — it hands the profile to the
+  # firmware via /sys/firmware/acpi/platform_profile and only tunes intel_pstate
+  # EPP on top. So: leave this off.
   services.thermald.enable = false;
 
   hardware.logitech.wireless.enable = true;

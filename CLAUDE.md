@@ -88,7 +88,7 @@ Custom options are namespaced under **`kor.*`** (the option prefix, unrelated to
 
 **Host layout.** `hosts/<host>/default.nix` sets `modules = [ ./configuration.nix ]` and a
 `deployment` block (Colmena `targetUser`/`tags`). Two hardware styles coexist: **facter**
-(`facter.json` from nixos-facter, used by `dedi`/`h1`/`kor`) and classic
+(`facter.json` from nixos-facter, used by `dedi`/`kor`) and classic
 `hardware-configuration.nix`; disks are declared with **disko** (`disk-config.nix`). Hosts:
 `kor` (desktop/workstation), `kor-t14` (laptop), `dedi` & `h1` (servers — atticd, gh-runner).
 

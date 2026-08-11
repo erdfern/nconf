@@ -57,6 +57,16 @@
       f = ''
         FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git' FZF_DEFAULT_OPTS=" --preview 'bat --style=numbers --color=always --line-range :500 {}'" fzf --height 60% --layout reverse --info inline --border
       '';
+      cp = {
+        description = "cpx (progress bars, resume) with transparent fallback to GNU cp";
+        wraps = "cp";
+        body = ''
+          command cpx $argv
+          or command cp $argv
+        '';
+      };
+
+
     };
   };
 
