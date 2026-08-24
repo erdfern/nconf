@@ -8,7 +8,7 @@
   };
 
   home.packages = with pkgs; [
-
+    glow # MD
     # file system view
     # cool resource: https://dev.yorhel.nl/ncdu
     gdu
