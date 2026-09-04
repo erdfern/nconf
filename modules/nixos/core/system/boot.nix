@@ -26,7 +26,7 @@ in
     catppuccin.plymouth.enable = cfg.plymouth.catppuccinTheme;
 
     # TODO move to separate systemd config
-    services.journald.extraConfig = ''
+    services.journald.settings.Journal = ''
       SystemMaxUse=500M
       MaxRetentionSec=1month
     '';
