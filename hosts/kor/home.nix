@@ -41,6 +41,7 @@
     # pkgs.orca-slicer
     pkgs.discord
     pkgs.luanti
+    pkgs.kicad
     # pkgs.seamly2d
     # pkgs.valentina-git
   ];

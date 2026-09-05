@@ -61,6 +61,7 @@
     # openscad-lsp
     orca-slicer
     claude-code
+    kicad
   ];
 
   home.stateVersion = "25.11";
