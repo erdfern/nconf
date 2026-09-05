@@ -68,7 +68,7 @@
   services.thermald.enable = false;
 
   hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true;
+  programs.solaar.enable = true;
 
   # graphics
   services.xserver.videoDrivers = [ "modesetting" ];
