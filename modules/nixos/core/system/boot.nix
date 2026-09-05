@@ -20,16 +20,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-    # kor.boot.plymouth.enable = lib.mkDefault true;
     catppuccin.plymouth.enable = cfg.plymouth.catppuccinTheme;
 
     # TODO move to separate systemd config
-    services.journald.settings.Journal = ''
-      SystemMaxUse=500M
-      MaxRetentionSec=1month
-    '';
+    services.journald.settings.Journal = {
+      SystemMaxUse = "500M";
+      MaxRetentionSec = "1month";
+    };
 
     boot = {
       plymouth = lib.mkIf cfg.plymouth.enable {
@@ -38,7 +36,7 @@ in
       };
       initrd.systemd.enable = lib.mkIf cfg.plymouth.enable true; # systemd-stage-1 
 
-      # silent-er boot
+      # more silent boot
       consoleLogLevel = 3;
       initrd.verbose = false;
       kernelParams = [
